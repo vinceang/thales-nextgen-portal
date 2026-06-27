@@ -30,6 +30,7 @@ export default function AppShell() {
         title={current.label}
         wifiActive
         onMenu={() => setDrawerOpen(true)}
+        onHome={() => navigate("/")}
         onSearch={() => setSearchOpen((v) => !v)}
         onProfile={() => navigate("/account")}
         style={{ position: "sticky", top: 0, zIndex: 40 }}

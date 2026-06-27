@@ -142,6 +142,7 @@ export default function Showcase() {
         <div
           style={{
             display: "flex",
+            justifyContent: "center",
             gap: 10,
             overflowX: "auto",
             paddingBlockStart: 8,

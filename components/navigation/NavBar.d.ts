@@ -9,6 +9,8 @@ export interface NavBarProps {
   /** Logo image URL shown beside the hamburger. */
   logo?: string;
   onMenu?: () => void;
+  /** Click handler for the standard Home button (shown to the right of the hamburger). */
+  onHome?: () => void;
   /** Wi-Fi glyph active (bright-blue) when connected. */
   wifiActive?: boolean;
   onSearch?: () => void;

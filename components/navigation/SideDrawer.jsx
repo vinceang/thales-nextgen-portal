@@ -3,9 +3,18 @@ import { IconButton } from "../core/IconButton.jsx";
 import { Icon } from "../core/Icon.jsx";
 import { FlightTracker } from "../domain/FlightTracker.jsx";
 
+// Header geometry — kept as named constants so the nav list can line its items
+// up with where the FlightTracker's origin code ("LAX") starts.
+const HEADER_PAD = 20; // header inline padding
+const HEADER_GAP = 16; // gap between close button and the tracker
+const CLOSE_BTN = 22 + 12; // IconButton box for a default size-22 glyph
+const NAV_INSET = HEADER_PAD + CLOSE_BTN + HEADER_GAP; // where the tracker (and thus the nav) starts
+const NAV_INSET_BARE = 28; // fallback when there is no flight tracker
+
 /**
  * SideDrawer — full-height black slide-out menu. Flight tracker at the top, large
- * single-word nav items below (active item = bright-blue), dimmed backdrop.
+ * single-word nav items below (active item = bright-blue), dimmed backdrop. When a
+ * flight tracker is shown, the nav items left-align with its origin code.
  */
 export function SideDrawer({
   open = false,
@@ -57,7 +66,7 @@ export function SideDrawer({
           boxSizing: "border-box",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "0 20px 8px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: HEADER_GAP, paddingInline: HEADER_PAD, paddingBlockEnd: 8 }}>
           <IconButton label="Close" onClick={onClose}><Icon name="x" /></IconButton>
           {flight && (
             <div style={{ flex: 1 }}>
@@ -66,7 +75,7 @@ export function SideDrawer({
           )}
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", padding: "24px 28px", gap: 2 }}>
+        <div style={{ display: "flex", flexDirection: "column", paddingBlock: 24, paddingInlineStart: flight ? NAV_INSET : NAV_INSET_BARE, paddingInlineEnd: 28, gap: 2 }}>
           {items.map((it) => {
             const key = typeof it === "string" ? it : it.key;
             const label = typeof it === "string" ? it : it.label;
