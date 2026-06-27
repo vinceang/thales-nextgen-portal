@@ -1,0 +1,40 @@
+/* ── Spacing, radius, shape & breakpoint tokens ─────────────────
+   Unit-of-8 derived scale. The system is intentionally SHARP:
+   radius is 0 everywhere; depth comes from surface contrast and
+   imagery, never from drop shadows. */
+
+:root {
+  /* Spacing scale ---------------------------------------------- */
+  --space-none: 0px;
+  --space-sm:   16px;  /* grid gaps, internal content padding */
+  --space-md:   24px;  /* mid step */
+  --space-lg:   32px;  /* spacing between major blocks */
+  --space-xl:   48px;  /* separation between themed sections */
+  --space-2xl:  64px;  /* large section side / bottom gutters */
+
+  /* Radius — sharp everywhere. Only pills / dots round. -------- */
+  --radius-none: 0px;
+  --radius-pill: 999px;  /* genre pills, dot indicators, toggles only */
+
+  /* White-label rounding knobs. This demo skin is sharp (0); a branded
+     deployment can round surfaces and/or controls by overriding these
+     tokens (e.g. --radius-card: 12px) without touching any component. */
+  --radius-card:    var(--radius-none); /* @kind other */ /* tiles, cards, panels, images */
+  --radius-control: var(--radius-none); /* @kind other */ /* buttons, inputs, selects */
+
+  /* Borders ---------------------------------------------------- */
+  --border-width: 1px;
+
+  /* Motion ----------------------------------------------------- */
+  --ease-smooth: cubic-bezier(0.44, 0, 0.56, 1); /* @kind other */
+  --dur-link: 0.3s; /* @kind other */
+
+  /* Breakpoint design widths (reference) ---------------------- */
+  --bp-desktop: 1200px;
+  --bp-tablet:  810px;
+  --bp-phone:   390px;
+
+  /* Layout ----------------------------------------------------- */
+  --nav-height: 64px;
+  --page-gutter: var(--space-sm);
+}
