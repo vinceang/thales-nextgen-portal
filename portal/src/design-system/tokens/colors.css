@@ -1,0 +1,111 @@
+/* ── Color tokens ───────────────────────────────────────────────
+   Dark, cinematic in-flight portal. Restrained neutrals on a dark
+   base with ONE bright blue accent for emphasis and primary CTAs. */
+
+:root {
+  /* Base palette ----------------------------------------------- */
+  --color-bg:            rgb(24, 28, 33);   /* primary page / app-root background */
+  --color-black:         rgb(0, 0, 0);      /* slide-out overlays, drawers, weather tile */
+  --color-white:         rgb(255, 255, 255);
+
+  --color-highlight-blue: rgb(31, 153, 255); /* primary action / CTA fill, active fills */
+  --color-bright-blue:    rgb(114, 217, 251);/* emphasis text, kickers, active links */
+  --color-link-blue:      rgb(0, 136, 255);  /* in-body link hover */
+
+  --color-grey:          rgb(97, 98, 101);  /* secondary / muted text */
+  --color-ink:           #333333;           /* body text on LIGHT surfaces */
+
+  /* On-surface text ramp — the white-alpha steps components paint text
+     with. Tokenised so the light theme can flip them to carbon-alpha.
+     Reserve --color-white for text on ACCENT fills only. */
+  --on-surface:       rgba(255, 255, 255, 0.92); /* strong body / values */
+  --on-surface-2:     rgba(255, 255, 255, 0.82); /* body */
+  --on-surface-muted: rgba(255, 255, 255, 0.70); /* muted UI text / icons */
+  --on-surface-faint: rgba(255, 255, 255, 0.55); /* faint captions */
+  --hairline-track:   rgba(255, 255, 255, 0.25); /* progress / divider track */
+  --hover-veil:       rgba(255, 255, 255, 0.05); /* row hover wash */
+
+  /* Neutral surface ramp (derived from the dark base) ---------- */
+  --color-surface-1:     rgb(24, 28, 33);   /* page */
+  --color-surface-2:     rgb(31, 36, 42);   /* raised tile / nav bar */
+  --color-surface-3:     rgb(42, 48, 56);   /* hover / input fill */
+  --color-border:        rgba(255, 255, 255, 0.16); /* hairline divider / outline */
+  --color-border-strong: rgba(255, 255, 255, 0.32);
+
+  /* Scrims — sit under serif titles over imagery --------------- */
+  --scrim-bottom: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0) 70%); /* @kind color */
+  --scrim-full:   linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0) 100%); /* @kind color */
+
+  /* ── Semantic aliases ──────────────────────────────────────── */
+  --bg-page:        var(--color-bg);
+  --bg-overlay:     var(--color-black);
+  --surface-tile:   var(--color-surface-2);
+  --surface-input:  var(--color-surface-3);
+
+  --text-primary:   var(--color-white);
+  --text-secondary: var(--color-grey);
+  --text-emphasis:  var(--color-bright-blue);
+  --text-on-light:  var(--color-ink);
+
+  --accent:         var(--color-highlight-blue);
+  --accent-active:  var(--color-bright-blue);
+
+  --border-hairline: var(--color-border);
+}
+
+/* ── Light theme ────────────────────────────────────────────────
+   Opt-in via [data-theme="light"] on <html>, <body>, or any subtree.
+
+   The translation is deliberate, not an inversion:
+   • The whole neutral RAMP flips — page tints, raised tiles go white,
+     the input/hover step moves DOWN instead of up. Because components
+     read --color-surface-* / --color-bg / --color-border directly,
+     re-pointing the base ramp themes them automatically.
+   • White-alpha text (--on-surface*) flips to carbon-alpha.
+   • Borders swap from white-alpha to cool carbon-alpha.
+   • Accent (--bright-blue / --highlight-blue) DEEPENS to stay legible
+     on white; --color-white is LEFT WHITE for text on accent fills.
+   • --color-black is LEFT BLACK on purpose — Tooltip, Toast and Drawer
+     are dark overlays in both themes (like the scrims over imagery).
+   Light anchors derive from the Thales brand palette (Brand Standards
+   pp. 54–55): Dark Blue #242A75, Blue Grey light #DDE4EC, Carbon
+   light #C2C6C9. */
+
+[data-theme="light"] {
+  /* Neutral ramp flipped (page tinted, tiles white, hover steps down) */
+  --color-bg:            rgb(244, 247, 250);
+  --color-surface-1:     rgb(244, 247, 250);
+  --color-surface-2:     rgb(255, 255, 255);
+  --color-surface-3:     rgb(234, 239, 244);
+  --color-border:        rgba(37, 55, 70, 0.14);
+  --color-border-strong: rgba(37, 55, 70, 0.26);
+  --color-grey:          rgb(96, 109, 122);
+
+  /* Accent deepened for contrast on white (fills + emphasis text) */
+  --color-highlight-blue: rgb(20, 115, 225);
+  --color-bright-blue:    rgb(18, 108, 190);
+
+  /* On-surface text ramp → carbon-alpha */
+  --on-surface:       rgba(24, 31, 40, 0.92);
+  --on-surface-2:     rgba(24, 31, 40, 0.74);
+  --on-surface-muted: rgba(24, 31, 40, 0.60);
+  --on-surface-faint: rgba(24, 31, 40, 0.45);
+  --hairline-track:   rgba(37, 55, 70, 0.18);
+  --hover-veil:       rgba(37, 55, 70, 0.05);
+
+  /* Semantic aliases — MUST be redeclared here, not just the base ramp.
+     A semantic alias declared only on :root resolves its var(--color-*)
+     against :root's (dark) base and inherits that fixed value down;
+     re-pointing it inside this scope makes it resolve against the light
+     base above. (Components that read --color-* directly already flip.) */
+  --bg-page:        var(--color-bg);
+  --bg-overlay:     var(--color-white);
+  --surface-tile:   var(--color-surface-2);
+  --surface-input:  var(--color-surface-3);
+  --text-primary:   rgb(24, 31, 40);  /* Thales carbon, not pure black */
+  --text-secondary: var(--color-grey);
+  --text-emphasis:  var(--color-bright-blue);
+  --accent:         var(--color-highlight-blue);
+  --accent-active:  var(--color-bright-blue);
+  --border-hairline: var(--color-border);
+}

@@ -1,0 +1,75 @@
+/* ── Typography tokens ──────────────────────────────────────────
+   Four families, each with one clear role.
+   Playfair Display  = BIG HERO / section H1 ONLY (the largest display type).
+   Noto Serif Display = cinematic tile / card titles.
+   Montserrat        = everything functional — nav, UI, body, buttons, labels.
+   Inter             = body on light surfaces.
+   Serif is never used for navigation, UI, or body. */
+
+:root {
+  /* Families ---------------------------------------------------- */
+  --font-display:  "Playfair Display", Georgia, serif;     /* hero / section H1 */
+  --font-tile:     "Noto Serif Display", Georgia, serif;   /* cinematic tile / card titles */
+  --font-sans:     "Montserrat", system-ui, sans-serif;    /* UI, body, buttons, labels */
+  --font-body-alt: "Inter", system-ui, sans-serif;         /* body on light surfaces */
+
+  /* Weights ----------------------------------------------------- */
+  --fw-light:    300; /* @kind font */
+  --fw-regular:  400; /* @kind font */
+  --fw-medium:   500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold:     700; /* @kind font */
+
+  /* Tracking ---------------------------------------------------- */
+  --tracking-headline: -0.03em; /* @kind font */
+  --tracking-body:      0;      /* @kind font */
+  --tracking-button:    0.04em; /* @kind font */
+
+  /* ── Fluid type scale ────────────────────────────────────────
+     Every size is a clamp() that interpolates between a PHONE min
+     (~360–480px viewport) and the DESKTOP max (≥1200px), so the
+     whole scale shrinks proportionally as the viewport narrows —
+     no per-breakpoint overrides needed.
+
+       fluid = clamp(MIN, MIN + (MAX−MIN)·(100vw − 480px)/720, MAX)
+
+     UI / body sizes shrink gently (~0.85× on phone — e.g. 16→14).
+     Display / hero sizes shrink more steeply so big headlines stay
+     on-screen on a phone (e.g. 60→34). The MAX equals the old fixed
+     desktop value, so desktop layouts are unchanged. */
+
+  /* Display / hero (Playfair) — steeper reduction */
+  --fs-h1:        clamp(34px, calc(34px + 26 * (100vw - 480px) / 720), 60px); /* @kind font */
+  --fs-h1b:       clamp(32px, calc(32px + 22 * (100vw - 480px) / 720), 54px); /* @kind font */ /* Playfair 600 */
+  --fs-h1-light:  clamp(30px, calc(30px + 24 * (100vw - 480px) / 720), 54px); /* @kind font */ /* light hero */
+  --fs-h1d:       clamp(30px, calc(30px + 14 * (100vw - 480px) / 720), 44px); /* @kind font */ /* Playfair 600 deck */
+  --fs-h1-sans:   clamp(19px, calc(19px +  5 * (100vw - 480px) / 720), 24px); /* @kind font */ /* sans headline */
+
+  --fs-tile:      clamp(22px, calc(22px + 10 * (100vw - 480px) / 720), 32px); /* @kind font */ /* Noto Serif tile title */
+
+  /* Section headings (Montserrat) */
+  --fs-h2:        clamp(21px, calc(21px +  7 * (100vw - 480px) / 720), 28px); /* @kind font */ /* Montserrat 700 h2 */
+  --fs-h3:        clamp(17px, calc(17px +  3 * (100vw - 480px) / 720), 20px); /* @kind font */ /* h3 subtitles */
+
+  /* Body & UI (Montserrat / Inter) — gentle ~0.85× reduction */
+  --fs-body:      clamp(15px, calc(15px +  3 * (100vw - 480px) / 720), 18px); /* @kind font */ /* airy primary body */
+  --fs-body-2:    clamp(14px, calc(14px +  2 * (100vw - 480px) / 720), 16px); /* @kind font */ /* Inter light-surface body */
+  --fs-body-3:    clamp(14px, calc(14px +  2 * (100vw - 480px) / 720), 16px); /* @kind font */ /* Montserrat 600 */
+  --fs-body-sm:   clamp(11px, calc(11px +  1 * (100vw - 480px) / 720), 12px); /* @kind font */ /* fine print sm */
+
+  --fs-kicker:    clamp(13px, calc(13px +  3 * (100vw - 480px) / 720), 16px); /* @kind font */ /* blue tile kicker */
+  --fs-label:     clamp(14px, calc(14px +  2 * (100vw - 480px) / 720), 16px); /* @kind font */ /* form labels */
+  --fs-button:    clamp(14px, calc(14px +  2 * (100vw - 480px) / 720), 16px); /* @kind font */ /* UPPERCASE button */
+  --fs-subscript: clamp(11px, calc(11px +  1 * (100vw - 480px) / 720), 12px); /* @kind font */ /* subscript */
+
+  /* Fixed desktop values (reference): h1 60 · h1b 54 · h1-light 54 · h1d 44 ·
+     h1-sans 24 · tile 32 · h2 28 · h3 20 · body 18 · body-2/3 16 · body-sm 12 ·
+     kicker/label/button 16 · subscript 12. */
+
+  /* Line heights ------------------------------------------------ */
+  --lh-tight:    1.0;  /* @kind font */
+  --lh-headline: 1.15; /* @kind font */
+  --lh-snug:     1.2;  /* @kind font */
+  --lh-body:     1.5;  /* @kind font */
+  --lh-airy:     2.0;  /* @kind font */
+}

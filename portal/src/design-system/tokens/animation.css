@@ -1,0 +1,19 @@
+/* ── Animation keyframes ────────────────────────────────────────
+   The few looping animations the system allows: the loading spinner
+   ring, the skeleton shimmer, and the indeterminate progress sweep.
+   Motion stays restrained (readme: no bouncy / springy motion). */
+
+@keyframes ds-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ds-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+
+/* Indeterminate progress bar — a blue sliver sweeps the track. */
+@keyframes ds-indeterminate {
+  0%   { inset-inline-start: -40%; width: 40%; }
+  100% { inset-inline-start: 100%; width: 40%; }
+}

@@ -1,0 +1,53 @@
+<!-- @dsCard group="Layout" viewport="900x520" name="Bento Grid" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin:0; background:var(--bg-page); color:var(--text-primary); font-family:var(--font-sans); padding:24px; }
+  .lbl { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-secondary); margin:0 0 12px; }
+  .row { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .col { display:flex; flex-direction:column; gap:16px; }
+  .wrap { max-width:460px; display:flex; flex-direction:column; gap:18px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.ThalesNextGenPortalDesignSystem_87a801;
+
+const { BentoGrid, HeroBanner, ShowcaseTile } = NS;
+const IMG = {
+ connect:"https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=900&q=80",
+ ys:"https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=500&q=80",
+ billie:"https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&q=80",
+ epcot:"https://images.unsplash.com/photo-1597466599360-3b9775841aec?w=600&q=80",
+ dining:"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+ mtn:"https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80",
+};
+const T = (img, kicker, title) => (
+ <div style={{aspectRatio:"2 / 1"}}><ShowcaseTile image={img} kicker={kicker} title={title} titleSize={22} height="100%" /></div>
+);
+function Demo(){ return (
+ <BentoGrid gap={16} items={{
+   hero:<div style={{aspectRatio:"2 / 1"}}><HeroBanner image={IMG.connect} kicker="Connect" title="High Speed Internet for $9.99" ctaLabel="View Plans" height="100%" /></div>,
+   promoA:T(IMG.ys,"Watch","Young Sheldon"),
+   promoB:T(IMG.billie,"Listen","Billie Eilish"),
+   a:T(IMG.epcot,"Destination","Epcot"),
+   b:T(IMG.dining,"Destination","Dining"),
+   c:T(IMG.mtn,"Travel","England"),
+  }}
+  phone={{columns:"1fr",areas:["hero","promoA","promoB","a","b","c"]}}
+  tablet={{columns:"1fr 1fr",areas:["hero hero","promoA promoB","a b","c c"]}}
+  desktop={{columns:"2fr 1fr 1fr",areas:["hero hero promoA","hero hero promoB","a b c"]}}
+ />
+);}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>
