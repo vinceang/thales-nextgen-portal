@@ -92,3 +92,19 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer asked to center the nav/pill group.
 
 ---
+
+### 2026-06-27 components/media/HeroBanner.jsx
+**Rule/token changed:** Component behavior / convention — "UPPERCASE button labels"; chevrons are a standalone-Link affordance, not a Button one.
+**Was:** HeroBanner's CTA was a plain filled Button label with no chevron; the system reserves the chevron (`arrow`) for standalone action Links.
+**Now:** Added a `ctaArrow` prop that appends a trailing chevron-right Icon inside the CTA Button (mirrors the Link `arrow` pattern). Opt-in; default off.
+**Why:** Designer chose the "WATCH ›" CTA style for the hero carousel, which puts a chevron on the hero button.
+
+---
+
+### 2026-06-27 portal/src/pages/Showcase.tsx
+**Rule/token changed:** Content/behavior — comp 01 hero CTA spec ("CTA routes to Connect/Plans").
+**Was:** Every promo's CTA read "View Plans" and routed to /connect regardless of the promo's content.
+**Now:** The CTA label and destination are derived from each promo's kicker (Watch → "Watch ›" → /watch, Listen → /listen, Connect → /connect, Destination → "Forecast ›" → /weather).
+**Why:** Designer wanted each carousel CTA to match its card content and route to the matching page.
+
+---

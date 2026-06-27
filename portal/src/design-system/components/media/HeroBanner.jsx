@@ -1,16 +1,19 @@
 import React from "react";
 import { Kicker } from "../core/Kicker.jsx";
 import { Button } from "../core/Button.jsx";
+import { Icon } from "../core/Icon.jsx";
 
 /**
  * HeroBanner — large editorial promo (the Showcase "Connect" hero): full-bleed
- * image, Playfair headline, kicker, and a primary CTA.
+ * image, Playfair headline, kicker, and a primary CTA. Set `ctaArrow` to append a
+ * trailing chevron to the CTA (mirrors the Link `arrow` affordance).
  */
 export function HeroBanner({
   image,
   kicker,
   title,
   ctaLabel,
+  ctaArrow = false,
   onCta,
   height = 420,
   style,
@@ -70,6 +73,7 @@ export function HeroBanner({
         {ctaLabel && (
           <Button variant="primary" size="lg" onClick={onCta}>
             {ctaLabel}
+            {ctaArrow && <Icon name="chevron-right" size={18} strokeWidth={2.2} />}
           </Button>
         )}
       </div>

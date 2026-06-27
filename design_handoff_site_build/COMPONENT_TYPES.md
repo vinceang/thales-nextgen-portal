@@ -754,6 +754,8 @@ export interface HeroBannerProps {
   title: React.ReactNode;
   /** Primary CTA label (uppercased). Omit for no button. */
   ctaLabel?: string;
+  /** Append a trailing chevron to the CTA (mirrors the Link `arrow` affordance). */
+  ctaArrow?: boolean;
   onCta?: () => void;
   height?: number;
   style?: React.CSSProperties;
