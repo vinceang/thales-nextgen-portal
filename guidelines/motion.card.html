@@ -1,0 +1,23 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Motion" subtitle="Single easing, ~0.3s, restrained" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px;
+         color: var(--text-primary); font-family: var(--font-sans);
+         display: flex; align-items: center; gap: 28px; }
+  .track { flex: 1; height: 4px; background: var(--color-surface-3); position: relative; }
+  .dot { position: absolute; top: -8px; width: 20px; height: 20px; border-radius: 999px;
+         background: var(--accent); left: 0; animation: slide 1.8s var(--ease-smooth) infinite alternate; }
+  @keyframes slide { to { left: calc(100% - 20px); } }
+  .label { font-size: 12px; color: var(--text-secondary); line-height: 1.6; width: 230px; }
+  code { color: var(--text-emphasis); font-family: var(--font-sans); }
+</style>
+</head>
+<body>
+  <div class="track"><div class="dot"></div></div>
+  <div class="label">Links &amp; color changes ease with<br /><code>cubic-bezier(0.44, 0, 0.56, 1)</code> over ~0.3s. No bounce, no springs.</div>
+</body>
+</html>

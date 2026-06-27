@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Settings" description="Account & preferences — section rail with card-grouped form fields, toggles, and an appearance switch that drives the theme." -->
+<helmet data-dc-atomics>
+  <script src="./ds-base.js"></script>
+  <style>
+    html,body{margin:0;padding:0}
+    body{background:var(--bg-page)}
+    .settings{min-height:100vh;background:var(--bg-page);color:var(--text-primary);font-family:var(--font-sans);position:relative}
+    .wrap{max-width:1080px;margin:0 auto;padding:clamp(20px,3vw,32px);display:flex;gap:clamp(20px,2.8vw,36px);align-items:flex-start}
+    .rail{flex:0 0 220px;position:sticky;top:24px}
+    .rail-cap{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-secondary);padding:0 16px;margin:0 0 10px}
+    .main{flex:1;min-width:0;display:flex;flex-direction:column;gap:clamp(16px,2vw,22px)}
+    .page-title{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.05;letter-spacing:-.02em;margin:0 0 4px}
+    .page-sub{color:var(--text-secondary);font-size:14px;margin:0 0 8px}
+    .profile-row{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+    .profile-name{font-weight:var(--fw-semibold);font-size:16px}
+    .profile-mail{color:var(--text-secondary);font-size:13px;margin-top:2px}
+    .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .pref{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0;border-block-start:var(--border-width) solid var(--border-hairline)}
+    .pref:first-child{border-block-start:none}
+    .pref-l{font-weight:var(--fw-medium);font-size:15px}
+    .pref-d{color:var(--text-secondary);font-size:13px;margin-top:3px;max-width:46ch}
+    .theme-toggle{position:absolute;top:16px;right:20px;z-index:40;display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;background:var(--surface-input);color:var(--text-primary);border:var(--border-width) solid var(--border-hairline);border-radius:var(--radius-pill);font-family:var(--font-sans);font-size:12px;font-weight:var(--fw-semibold);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+    .theme-toggle .glyph{width:15px;height:15px;color:var(--accent-active)}
+    @media (max-width:760px){.rail{display:none}.field-grid{grid-template-columns:1fr}}
+  </style>
+</helmet>
+<div class="settings" data-theme="{{ theme }}" data-screen-label="Settings">
+  <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.NavBar" title="Settings" wifi-active="{{ true }}" hint-size="100%,64px"></x-import>
+  <button class="theme-toggle" onClick="{{ toggleTheme }}" aria-label="Toggle theme"><span class="glyph">{{ themeGlyph }}</span>{{ themeLabel }}</button>
+
+  <div class="wrap">
+    <nav class="rail">
+      <p class="rail-cap">Settings</p>
+      <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.NavigationMenu" items="{{ navItems }}" value="{{ section }}" on-select="{{ setSection }}" hint-size="100%,260px"></x-import>
+    </nav>
+
+    <main class="main">
+      <div>
+        <h1 class="page-title">Account</h1>
+        <p class="page-sub">Manage your profile, playback, and connectivity for this flight.</p>
+      </div>
+
+      <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Card" title="Profile" hint-size="100%,240px">
+        <div class="profile-row">
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Avatar" name="Alex Rivera" size="lg" hint-size="56px,56px"></x-import>
+          <div>
+            <div class="profile-name">Alex Rivera</div>
+            <div class="profile-mail">alex.rivera@email.com — Seat 14C</div>
+          </div>
+        </div>
+        <div class="field-grid">
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Input" label="Display name" value="Alex Rivera" hint-size="100%,64px"></x-import>
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Select" label="Language" value="{{ lang }}" options="{{ langOptions }}" on-change="{{ setLang }}" hint-size="100%,64px"></x-import>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Card" title="Playback" hint-size="100%,260px">
+        <div class="pref">
+          <div><div class="pref-l">Autoplay next episode</div><div class="pref-d">Start the next title automatically when one ends.</div></div>
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Toggle" checked="{{ autoplay }}" on-change="{{ setAutoplay }}" hint-size="48px,26px"></x-import>
+        </div>
+        <div class="pref">
+          <div><div class="pref-l">Subtitles by default</div><div class="pref-d">Show captions whenever a title supports them.</div></div>
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Toggle" checked="{{ subtitles }}" on-change="{{ setSubtitles }}" hint-size="48px,26px"></x-import>
+        </div>
+        <div class="pref">
+          <div><div class="pref-l">Reduce motion</div><div class="pref-d">Minimise animated transitions across the portal.</div></div>
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Toggle" checked="{{ reduceMotion }}" on-change="{{ setReduceMotion }}" hint-size="48px,26px"></x-import>
+        </div>
+      </x-import>
+
+      <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Card" title="Appearance" hint-size="100%,140px">
+        <div class="pref">
+          <div><div class="pref-l">Theme</div><div class="pref-d">Switch between the dark cabin theme and a light daytime theme.</div></div>
+          <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.RadioGroup" name="theme" options="{{ themeOptions }}" value="{{ theme }}" on-change="{{ setTheme }}" hint-size="120px,72px"></x-import>
+        </div>
+      </x-import>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { theme: 'dark', section: 'account', lang: 'en', autoplay: true, subtitles: false, reduceMotion: false };
+  renderVals() {
+    const isLight = this.state.theme === 'light';
+    const h = React.createElement;
+    const sun = h('svg',{viewBox:'0 0 24 24',width:15,height:15,fill:'none',stroke:'currentColor',strokeWidth:2,strokeLinecap:'round'},h('circle',{cx:12,cy:12,r:4}),h('path',{d:'M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'}));
+    const moon = h('svg',{viewBox:'0 0 24 24',width:15,height:15,fill:'none',stroke:'currentColor',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'},h('path',{d:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'}));
+    const set = (k) => (v) => this.setState({ [k]: v });
+    return {
+      theme: this.state.theme,
+      themeLabel: isLight ? 'Light' : 'Dark',
+      themeGlyph: isLight ? sun : moon,
+      toggleTheme: () => this.setState(s => ({ theme: s.theme === 'light' ? 'dark' : 'light' })),
+      setTheme: (v) => this.setState({ theme: v }),
+      themeOptions: [ {value:'dark',label:'Dark'}, {value:'light',label:'Light'} ],
+      section: this.state.section,
+      setSection: (v) => this.setState({ section: v }),
+      navItems: [
+        { label: 'Account', value: 'account', icon: 'user' },
+        { label: 'Playback', value: 'playback', icon: 'eye' },
+        { label: 'Connectivity', value: 'connectivity', icon: 'wifi' },
+        { label: 'Billing', value: 'billing', icon: 'credit-card' },
+        { label: 'About', value: 'about', icon: 'info' },
+      ],
+      lang: this.state.lang,
+      langOptions: [ {value:'en',label:'English'}, {value:'es',label:'Español'}, {value:'fr',label:'Français'}, {value:'de',label:'Deutsch'}, {value:'ja',label:'日本語'} ],
+      setLang: (e) => this.setState({ lang: e.target.value }),
+      autoplay: this.state.autoplay, setAutoplay: set('autoplay'),
+      subtitles: this.state.subtitles, setSubtitles: set('subtitles'),
+      reduceMotion: this.state.reduceMotion, setReduceMotion: set('reduceMotion'),
+    };
+  }
+}
+</script>
+</body>
+</html>

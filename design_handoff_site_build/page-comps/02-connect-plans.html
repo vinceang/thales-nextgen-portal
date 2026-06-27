@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page Comp · Connect / Plans</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="comp.css" />
+</head>
+<body>
+  <div class="comp-topbar">
+    <span class="crumb">Page Comp 02</span>
+    <h1>Connect / Plans</h1>
+    <span class="meta">Fidelity <b>Hi‑fi</b> · Desktop <b>1200px</b> · purchase flow → Modal</span>
+  </div>
+
+  <div class="comp-stage">
+    <div class="comp-screen">
+      <span class="screen-label">Live render — Thales design system</span>
+      <div id="page"></div>
+    </div>
+
+    <aside class="comp-spec">
+      <h2>Implementation spec</h2>
+      <p class="lead">Plan selection + purchase. The passenger picks a pass, then confirms in a blocking dialog. Use the domain <code>PlanCard</code> as‑is.</p>
+
+      <div class="spec-item"><span class="spec-num">1</span><div class="spec-body">
+        <div class="t">Header — <code>NavBar</code> + <code>Breadcrumbs</code></div>
+        <p><code>NavBar title="Connect"</code>. Below it a <code>Breadcrumbs</code> trail (<code>Showcase › Connect</code>); current page has no <code>href</code>.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">2</span><div class="spec-body">
+        <div class="t">Intro block</div>
+        <p>Playfair <code>--font-display</code> headline + muted <code>--font-sans</code> subhead. Plain markup, not a component.</p>
+        <p class="kv"><b>Status:</b> if already connected, show an <code>Alert tone="success"</code> here instead of the headline.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">3</span><div class="spec-body">
+        <div class="t">Plan grid — <code>PlanCard</code></div>
+        <p>Three across (stack on phone). Props per card: <code>name</code>, <code>price</code>, <code>features[]</code>, <code>ctaLabel</code>, <code>onSelect</code>. Mark the middle one <code>recommended</code> + <code>badge="Best Value!"</code> (blue top bar, star, filled CTA).</p>
+        <p class="kv"><b>Behavior:</b> <code>onSelect</code> opens the purchase <code>Modal</code> (4) with that plan preloaded. Lay out with <code>TileGrid columns={3}</code> or a flex row of equal <code>flex:1</code> cards.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">4</span><div class="spec-body">
+        <div class="t">Purchase confirm — <code>Modal</code></div>
+        <p><code>Modal open title="Confirm Purchase"</code> with <code>footer</code> = secondary <code>Cancel</code> + primary <code>Pay</code> <code>Button</code>s. Shown here open for reference.</p>
+        <p class="kv"><b>Behavior:</b> Esc / backdrop closes; on success fire a <code>Toast tone="success"</code>. Card entry can use the <code>forms</code> controls (see comp 03).</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">•</span><div class="spec-body">
+        <div class="t">Tokens &amp; rules</div>
+        <p class="kv">Recommended accent = <code>--color-highlight-blue</code>; feature checks use the blue <code>check-circle</code> glyph. One hue only — no green "success" card. Sharp corners, no shadows. Equalize card heights with <code>align-items:stretch</code>.</p>
+      </div></div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const NS = window.ThalesNextGenPortalDesignSystem_87a801;
+    const { NavBar, Breadcrumbs, PlanCard, Modal, Button } = NS;
+
+    const Pin = ({ n, top, left }) => <span className="pin" style={{ top, left }}>{n}</span>;
+
+    function PlansPage() {
+      const [open, setOpen] = React.useState(true);
+      const [plan, setPlan] = React.useState("High‑Speed Streaming");
+      return (
+        <div style={{ minHeight: 880, paddingBottom: 60 }}>
+          {/* 1 — header + breadcrumbs */}
+          <div style={{ position: "relative" }}>
+            <Pin n={1} top={8} left={8} />
+            <NavBar title="Connect" logo="../../assets/logos/thales-white.svg" wifiActive onMenu={() => {}} />
+            <div style={{ padding: "16px var(--space-lg) 0" }}>
+              <Breadcrumbs items={[{ label: "Showcase", href: "#" }, { label: "Connect" }]} />
+            </div>
+          </div>
+
+          {/* 2 — intro */}
+          <div style={{ position: "relative", padding: "var(--space-lg) var(--space-lg) var(--space-md)", maxWidth: 760 }}>
+            <Pin n={2} top={10} left={20} />
+            <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "var(--fs-h1)",
+              letterSpacing: "var(--tracking-headline)", color: "var(--color-white)", margin: "0 0 12px", lineHeight: 1.1 }}>
+              Stay connected at 37,000 feet
+            </h1>
+            <p style={{ fontFamily: "var(--font-sans)", fontSize: "var(--fs-body)", lineHeight: 1.6,
+              color: "var(--text-secondary)", margin: 0 }}>
+              Choose a pass for the rest of your flight. Activate instantly — no signup, charged once to your card.
+            </p>
+          </div>
+
+          {/* 3 — plan grid */}
+          <div style={{ position: "relative", padding: "0 var(--space-lg) var(--space-xl)" }}>
+            <Pin n={3} top={-4} left={20} />
+            <div style={{ display: "flex", gap: 16, alignItems: "stretch", flexWrap: "wrap" }}>
+              <PlanCard name="Messaging" price="$4"
+                features={["WhatsApp & iMessage", "E‑mail", "No streaming"]}
+                ctaLabel="Buy Now" onSelect={() => { setPlan("Messaging"); setOpen(true); }}
+                style={{ flex: "1 1 240px" }} />
+              <PlanCard name="High‑Speed Streaming" price="$19" recommended badge="Best Value!"
+                features={["Everything in Browsing", "HD video streaming", "Full‑flight pass"]}
+                ctaLabel="Buy Now" onSelect={() => { setPlan("High‑Speed Streaming"); setOpen(true); }}
+                style={{ flex: "1 1 240px" }} />
+              <PlanCard name="Browsing" price="$9"
+                features={["Web & social", "E‑mail", "Music streaming"]}
+                ctaLabel="Buy Now" onSelect={() => { setPlan("Browsing"); setOpen(true); }}
+                style={{ flex: "1 1 240px" }} />
+            </div>
+          </div>
+
+          {/* 4 — modal (shown open for reference) */}
+          <Pin n={4} top={70} left={"46%"} />
+          <Modal open={open} onClose={() => setOpen(false)} title="Confirm Purchase" width={460}
+            footer={<>
+              <Button variant="secondary" onClick={() => setOpen(false)}>Cancel</Button>
+              <Button onClick={() => setOpen(false)}>Pay Now</Button>
+            </>}>
+            <p style={{ margin: "0 0 12px" }}>You're buying the <b style={{ color: "#fff" }}>{plan}</b> pass for this flight.</p>
+            <p style={{ margin: 0, color: "var(--text-secondary)", fontSize: 14 }}>
+              Charged once to the card ending 4242. Access stays active until landing, across reconnections.
+            </p>
+          </Modal>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("page")).render(<PlansPage />);
+  </script>
+</body>
+</html>

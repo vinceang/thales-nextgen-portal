@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Light Mode — Inference Proof</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+Display:wght@400;500;600&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Current DARK tokens (verbatim from tokens/colors.css) ─────────── */
+:root{
+  --color-bg: rgb(24,28,33);
+  --color-black: rgb(0,0,0);
+  --color-white: rgb(255,255,255);
+  --color-highlight-blue: rgb(31,153,255);
+  --color-bright-blue: rgb(114,217,251);
+  --color-grey: rgb(97,98,101);
+
+  --bg-page: var(--color-bg);
+  --surface-tile: rgb(31,36,42);
+  --surface-input: rgb(42,48,56);
+  --text-primary: var(--color-white);
+  --text-secondary: var(--color-grey);
+  --text-emphasis: var(--color-bright-blue);
+  --accent: var(--color-highlight-blue);
+  --accent-active: var(--color-bright-blue);
+  --border-hairline: rgba(255,255,255,0.16);
+  --track: rgba(255,255,255,0.12);
+  --tile-shadow: none;
+
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --font-tile: "Noto Serif Display", Georgia, serif;
+}
+
+/* ── Inferred LIGHT theme — overrides the SEMANTIC layer only ──────── */
+[data-theme="light"]{
+  --bg-page: rgb(244,247,250);          /* cool near-white page */
+  --surface-tile: rgb(255,255,255);     /* tiles brightest, lift off page */
+  --surface-input: rgb(234,239,244);    /* inputs/hover step DOWN in light */
+  --text-primary: rgb(24,31,40);        /* Thales carbon, not pure black */
+  --text-secondary: rgb(96,109,122);    /* cool muted grey */
+  --text-emphasis: rgb(18,108,190);     /* darkened blue — readable on white */
+  --accent: rgb(20,115,225);            /* deeper accent for contrast on light */
+  --accent-active: rgb(0,118,200);
+  --border-hairline: rgba(37,55,70,0.14);/* black-alpha replaces white-alpha */
+  --track: rgba(37,55,70,0.12);
+  --tile-shadow: 0 1px 2px rgba(37,55,70,.06), 0 8px 24px rgba(37,55,70,.06);
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; }
+body{
+  background:#3a3f46;
+  font-family:var(--font-sans);
+  color:#cdd2d8;
+  padding:40px 32px 64px;
+  -webkit-font-smoothing:antialiased;
+}
+.head{ max-width:1240px; margin:0 auto 28px; }
+.head h1{ font-family:var(--font-sans); font-weight:700; font-size:22px; letter-spacing:-.02em; color:#fff; margin:0 0 6px; }
+.head p{ margin:0; font-size:14px; line-height:1.55; max-width:760px; color:#aab0b8; }
+
+.stage{
+  max-width:1240px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:28px;
+}
+@media (max-width:1080px){ .stage{ grid-template-columns:1fr; } }
+
+.col-label{
+  display:flex; align-items:center; gap:10px;
+  font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:#aab0b8; margin:0 0 12px 2px;
+}
+.col-label .dot{ width:10px; height:10px; border-radius:50%; }
+
+/* ── Frame = one self-contained portal screen ─────────────────────── */
+.frame{
+  border-radius:14px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  background:var(--bg-page);
+  color:var(--text-primary);
+}
+
+/* nav */
+.nav{
+  height:64px; background:var(--surface-tile);
+  border-bottom:1px solid var(--border-hairline);
+  display:flex; align-items:center; gap:24px; padding:0 24px;
+}
+.wordmark{ font-weight:700; letter-spacing:.18em; font-size:13px; color:var(--text-primary); }
+.nav .items{ display:flex; gap:22px; margin-left:8px; }
+.nav .items span{ font-size:13px; font-weight:500; color:var(--text-secondary); }
+.nav .items span.on{ color:var(--text-primary); }
+.nav .spacer{ flex:1; }
+.nav .pip{ width:32px; height:32px; border-radius:50%; border:1px solid var(--border-hairline); display:flex; align-items:center; justify-content:center; color:var(--text-secondary); }
+
+.body{ padding:24px; display:flex; flex-direction:column; gap:18px; }
+
+/* flight progress hero */
+.hero{
+  background:var(--surface-tile); box-shadow:var(--tile-shadow);
+  border:1px solid var(--border-hairline);
+  padding:24px;
+}
+.hero .top{ display:flex; align-items:flex-start; justify-content:space-between; }
+.code{ font-family:var(--font-tile); font-size:40px; line-height:1; letter-spacing:-.01em; color:var(--text-primary); }
+.city{ font-size:12px; color:var(--text-secondary); margin-top:8px; }
+.status{
+  font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent-active); border:1px solid var(--border-hairline);
+  padding:6px 12px; border-radius:999px;
+}
+.right{ text-align:right; }
+.bar{ margin:22px 0 10px; height:2px; background:var(--track); position:relative; }
+.bar .fill{ position:absolute; left:0; top:0; bottom:0; width:62%; background:var(--accent); }
+.bar .plane{ position:absolute; top:50%; left:62%; transform:translate(-50%,-50%); width:26px; height:26px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 4px var(--bg-page); }
+.bar .plane svg{ width:14px; height:14px; color:#fff; }
+.legs{ display:flex; justify-content:space-between; font-size:12px; color:var(--text-secondary); }
+
+/* metric tiles */
+.tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.tile{
+  background:var(--surface-tile); box-shadow:var(--tile-shadow);
+  border:1px solid var(--border-hairline);
+  padding:18px 16px; display:flex; flex-direction:column; gap:12px;
+}
+.tile .ic{ width:22px; height:22px; color:var(--accent-active); }
+.tile .lbl{ font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-secondary); }
+.tile .val{ font-size:19px; font-weight:600; color:var(--text-primary); }
+
+/* detail row */
+.detail{
+  border:1px solid var(--border-hairline); padding:22px 24px;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  background:var(--surface-tile); box-shadow:var(--tile-shadow);
+}
+.detail .lbl{ font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-secondary); margin-bottom:6px; }
+.detail .v{ font-size:15px; font-weight:600; color:var(--text-primary); }
+.detail .r{ text-align:right; }
+.detail .v.em{ color:var(--text-emphasis); }
+
+/* ── token derivation legend ──────────────────────────────────────── */
+.legend{ max-width:1240px; margin:36px auto 0; border-top:1px solid rgba(255,255,255,.1); padding-top:24px; }
+.legend h2{ font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#fff; margin:0 0 4px; }
+.legend .sub{ font-size:13px; color:#aab0b8; margin:0 0 18px; max-width:680px; line-height:1.5; }
+.maps{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px 28px; }
+@media (max-width:900px){ .maps{ grid-template-columns:repeat(2,1fr); } }
+.map{ display:flex; align-items:center; gap:12px; }
+.sw{ display:flex; gap:0; border-radius:6px; overflow:hidden; flex:none; box-shadow:0 0 0 1px rgba(255,255,255,.12) inset; }
+.sw i{ width:26px; height:32px; display:block; }
+.sw .arr{ width:18px; display:flex; align-items:center; justify-content:center; background:#2b3037; color:#7d848c; font-size:11px; }
+.map .meta{ min-width:0; }
+.map .nm{ font-size:12px; font-weight:600; color:#e6e9ec; font-family:"Inter",sans-serif; }
+.map .hex{ font-size:11px; color:#9aa1a9; font-family:"Inter",sans-serif; }
+
+.brandnote{ max-width:1240px; margin:28px auto 0; display:flex; align-items:center; gap:16px; flex-wrap:wrap; font-size:12px; color:#aab0b8; }
+.brandnote .chip{ display:flex; align-items:center; gap:8px; }
+.brandnote .chip i{ width:22px; height:22px; border-radius:5px; box-shadow:0 0 0 1px rgba(255,255,255,.12) inset; }
+</style>
+</head>
+<body>
+
+<div class="head">
+  <h1>Light mode — inferred from the current dark tokens</h1>
+  <p>Same Flight screen, same markup. The only difference between the two frames is the token layer: the left uses your current values; the right is a <code>[data-theme="light"]</code> override of the <strong>semantic aliases only</strong>. Judge whether the inference holds before we commit it to <code>colors.css</code>.</p>
+</div>
+
+<div class="stage">
+  <div>
+    <div class="col-label"><span class="dot" style="background:rgb(24,28,33)"></span>Current · Dark</div>
+    <div class="frame" id="frame-dark"></div>
+  </div>
+  <div>
+    <div class="col-label"><span class="dot" style="background:rgb(244,247,250)"></span>Inferred · Light</div>
+    <div class="frame" data-theme="light" id="frame-light"></div>
+  </div>
+</div>
+
+<div class="legend">
+  <h2>How the inference works</h2>
+  <p class="sub">A dark theme isn't inverted to make a light one. Four decisions carry the translation — each shown below as old&nbsp;→&nbsp;new.</p>
+  <div class="maps" id="maps"></div>
+</div>
+
+<div class="brandnote">
+  <span>Anchored to Thales brand (pp. 54–55):</span>
+  <span class="chip"><i style="background:#242A75"></i>Dark Blue #242A75 → primary text</span>
+  <span class="chip"><i style="background:#DDE4EC"></i>Blue Grey light #DDE4EC → page tint</span>
+  <span class="chip"><i style="background:#C2C6C9"></i>Carbon light #C2C6C9 → borders</span>
+</div>
+
+<script>
+const planeSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3.5S18 3 16.5 4.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>';
+const ic = {
+  mountain:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 13H2z"/></svg>',
+  gauge:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>',
+  navigation:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+};
+const tiles = [
+  {ic:'mountain',lbl:'Altitude',val:'37,000 ft'},
+  {ic:'gauge',lbl:'Ground Speed',val:'561 mph'},
+  {ic:'navigation',lbl:'Distance Left',val:'742 mi'},
+  {ic:'clock',lbl:'Arrival (Local)',val:'6:42 PM'},
+];
+const screen = `
+  <div class="nav">
+    <span class="wordmark">THALES</span>
+    <div class="items"><span class="on">Flight</span><span>Entertainment</span><span>Connect</span><span>Shop</span></div>
+    <div class="spacer"></div>
+    <div class="pip"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+  </div>
+  <div class="body">
+    <div class="hero">
+      <div class="top">
+        <div>
+          <div class="code">LAX</div>
+          <div class="city">Los Angeles, CA</div>
+        </div>
+        <div class="status">En Route</div>
+        <div class="right">
+          <div class="code">MCO</div>
+          <div class="city">Orlando, FL</div>
+        </div>
+      </div>
+      <div class="bar"><div class="fill"></div><div class="plane">${planeSVG}</div></div>
+      <div class="legs"><span>2h 09m elapsed</span><span>1h 19m remaining</span></div>
+    </div>
+    <div class="tiles">
+      ${tiles.map(t=>`<div class="tile"><div class="ic">${ic[t.ic]}</div><div class="lbl">${t.lbl}</div><div class="val">${t.val}</div></div>`).join('')}
+    </div>
+    <div class="detail">
+      <div><div class="lbl">Flight</div><div class="v">SW 1492</div></div>
+      <div><div class="lbl">Aircraft</div><div class="v">Boeing 737-800</div></div>
+      <div><div class="lbl">Arrival Gate</div><div class="v">Terminal B · B14</div></div>
+      <div class="r"><div class="lbl">Total Distance</div><div class="v em">1,954 mi</div></div>
+    </div>
+  </div>`;
+document.getElementById('frame-dark').innerHTML = screen;
+document.getElementById('frame-light').innerHTML = screen;
+
+const maps = [
+  {t:'Surface ramp flips', d:'Dark steps UP for raised tiles; light steps DOWN — page tinted, tiles white.', a:'rgb(24,28,33)', b:'rgb(244,247,250)'},
+  {t:'Border model swaps', d:'White-alpha hairlines vanish on light → become cool black-alpha.', a:'rgba(255,255,255,.16)', b:'rgba(37,55,70,.14)', aBg:'#2b3037', bBg:'#fff'},
+  {t:'Accent deepens', d:'Bright blue is borderline on white → darkened for text & small UI.', a:'rgb(31,153,255)', b:'rgb(20,115,225)'},
+  {t:'Text → carbon', d:'Pure white becomes Thales carbon, not pure black — softer on the eye.', a:'rgb(255,255,255)', b:'rgb(24,31,40)', aBg:'#2b3037'},
+];
+document.getElementById('maps').innerHTML = maps.map(m=>`
+  <div class="map">
+    <div class="sw">
+      <i style="background:${m.a}${m.aBg?`;box-shadow:inset 0 0 0 12px ${m.aBg}, inset 0 0 0 26px ${m.a}`:''}"></i>
+      <div class="arr">→</div>
+      <i style="background:${m.b}${m.bBg?`;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)`:''}"></i>
+    </div>
+    <div class="meta"><div class="nm">${m.t}</div><div class="hex">${m.d}</div></div>
+  </div>`).join('');
+</script>
+</body>
+</html>

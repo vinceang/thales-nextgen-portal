@@ -1,0 +1,16 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Node — for a consuming app scaffolded beside this design system
+node_modules/
+dist/
+.vite/
+
+# NOTE: _ds_bundle.js, _ds_manifest.json, support.js and the *.card.html / *.dc.html
+# files are intentionally COMMITTED. They are authoring-tool artifacts, but the
+# page-comps in design_handoff_site_build/page-comps/ load ../../_ds_bundle.js to
+# render, so the repo must include them for a fresh clone to preview correctly.
+# When you scaffold the real app, copy components/ tokens/ styles.css assets/ — see
+# design_handoff_site_build/README.md for what to ignore on the app side.

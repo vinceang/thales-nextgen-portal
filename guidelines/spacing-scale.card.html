@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Spacing scale" subtitle="Unit-of-8: 16 / 32 / 48 / 64" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px;
+         color: var(--text-primary); font-family: var(--font-sans); }
+  .row { display: flex; align-items: flex-end; gap: 20px; }
+  .col { text-align: center; }
+  .bar { background: var(--accent); width: 100%; }
+  .name { font-size: 12px; font-weight: 600; margin-top: 8px; }
+  .val { font-size: 11px; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col"><div class="bar" style="height:16px;width:16px;"></div><div class="name">sm</div><div class="val">16px</div></div>
+    <div class="col"><div class="bar" style="height:32px;width:32px;"></div><div class="name">lg</div><div class="val">32px</div></div>
+    <div class="col"><div class="bar" style="height:48px;width:48px;"></div><div class="name">xl</div><div class="val">48px</div></div>
+    <div class="col"><div class="bar" style="height:64px;width:64px;"></div><div class="name">2xl</div><div class="val">64px</div></div>
+  </div>
+</body>
+</html>

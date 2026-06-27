@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="App Shell" description="The base page skeleton — top bar + content slot — shown in both white-label sidebar treatments: A (full overlay drawer) and B (collapsible icon rail that expands as an overlay). Start every page here." -->
+<helmet data-dc-atomics>
+  <meta name="design_doc_mode" content="canvas">
+  <script src="./ds-base.js"></script>
+  <style>
+    html,body{margin:0;padding:0}
+    .flabel{font-family:var(--font-sans);font-size:13px;font-weight:700;letter-spacing:.04em;color:#e7eaee;margin:0 0 10px 2px;cursor:grab}
+    .flabel small{display:block;font-weight:500;font-size:11px;letter-spacing:.02em;color:#9aa1a9;margin-top:3px}
+    .frame{position:relative;width:100%;height:640px;overflow:hidden;border-radius:var(--radius-card);border:var(--border-width) solid var(--border-hairline);background:var(--bg-page);color:var(--text-primary);font-family:var(--font-sans);display:flex;flex-direction:column;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+    .fbody{flex:1;min-height:0;display:flex;align-items:stretch}
+    .fmain{flex:1;min-width:0;padding:clamp(18px,2.4vw,28px);display:flex;flex-direction:column;gap:20px;overflow:auto}
+    .page-title{font-family:var(--font-display);font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.05;letter-spacing:-.02em;margin:0}
+    .page-sub{color:var(--text-secondary);font-size:14px;margin:6px 0 0}
+    .slot{flex:1;border:var(--border-width) dashed var(--border-hairline);border-radius:var(--radius-card);min-height:240px;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px}
+    .slot-inner{max-width:340px;display:flex;flex-direction:column;gap:8px;align-items:center}
+    .slot-glyph{width:38px;height:38px;color:var(--text-secondary);opacity:.7}
+    .slot-title{font-weight:var(--fw-semibold);font-size:15px}
+    .slot-note{color:var(--text-secondary);font-size:13px;line-height:1.5}
+    .ttoggle{position:absolute;top:14px;right:16px;z-index:60;display:flex;align-items:center;gap:8px;height:34px;padding:0 13px;background:var(--surface-input);color:var(--text-primary);border:var(--border-width) solid var(--border-hairline);border-radius:var(--radius-pill);font-family:var(--font-sans);font-size:11px;font-weight:var(--fw-semibold);letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+    .ttoggle .glyph{width:14px;height:14px;color:var(--accent-active)}
+  </style>
+</helmet>
+
+<div style="position:absolute;left:40px;top:32px;width:760px">
+  <div class="flabel" data-drags-parent="1">Treatment A · Full overlay drawer<small>White-label default — hamburger opens a full-height drawer</small></div>
+  <div class="frame" data-theme="{{ theme }}" data-screen-label="App Shell · A">
+    <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.NavBar" title="{{ title }}" on-menu="{{ openDrawer }}" wifi-active="{{ true }}" hint-size="100%,64px"></x-import>
+    <button class="ttoggle" onClick="{{ toggleTheme }}" aria-label="Toggle theme"><span class="glyph">{{ themeGlyph }}</span>{{ themeLabel }}</button>
+    <div class="fbody">
+      <main class="fmain">
+        <div>
+          <h1 class="page-title">{{ title }}</h1>
+          <p class="page-sub">{{ subtitle }}</p>
+        </div>
+        <div class="slot">
+          <div class="slot-inner">
+            <svg class="slot-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+            <div class="slot-title">Page content goes here</div>
+            <div class="slot-note">Tap the menu to open drawer A. Content sits full-width; the drawer slides over it.</div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Sidebar" variant="overlay" open="{{ drawerOpen }}" items="{{ navItems }}" active="{{ active }}" flight="{{ flight }}" on-select="{{ setActive }}" on-close="{{ closeDrawer }}" hint-size="100%,100%"></x-import>
+  </div>
+</div>
+
+<div style="position:absolute;left:840px;top:32px;width:760px">
+  <div class="flabel" data-drags-parent="1">Treatment B · Collapsible icon rail<small>Icons pinned left; expand slides a labelled panel over the content</small></div>
+  <div class="frame" data-theme="{{ theme }}" data-screen-label="App Shell · B">
+    <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.NavBar" title="{{ title }}" on-menu="{{ toggleRail }}" wifi-active="{{ true }}" hint-size="100%,64px"></x-import>
+    <button class="ttoggle" onClick="{{ toggleTheme }}" aria-label="Toggle theme"><span class="glyph">{{ themeGlyph }}</span>{{ themeLabel }}</button>
+    <div class="fbody">
+      <x-import component-from-global-scope="ThalesNextGenPortalDesignSystem_87a801.Sidebar" variant="rail" open="{{ railOpen }}" items="{{ navItems }}" active="{{ active }}" flight="{{ flight }}" title="Browse" show-toggle="{{ false }}" on-toggle="{{ toggleRail }}" on-select="{{ setActive }}" hint-size="72px,100%"></x-import>
+      <main class="fmain">
+        <div>
+          <h1 class="page-title">{{ title }}</h1>
+          <p class="page-sub">{{ subtitle }}</p>
+        </div>
+        <div class="slot">
+          <div class="slot-inner">
+            <svg class="slot-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+            <div class="slot-title">Page content goes here</div>
+            <div class="slot-note">The icon rail stays pinned. Expand it (menu) to reveal labels — the rail widens and pushes this content aside.</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Dashboard&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;subtitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Your flight, entertainment, and connectivity — all in one place.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;flight&quot;,&quot;options&quot;:[&quot;flight&quot;,&quot;entertainment&quot;,&quot;connect&quot;,&quot;shop&quot;,&quot;destination&quot;],&quot;tsType&quot;:&quot;string&quot;},&quot;showFlightTracker&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { theme: 'dark', drawerOpen: false, railOpen: false, active: null };
+  renderVals() {
+    const isLight = this.state.theme === 'light';
+    const h = React.createElement;
+    const sun = h('svg',{viewBox:'0 0 24 24',width:14,height:14,fill:'none',stroke:'currentColor',strokeWidth:2,strokeLinecap:'round'},h('circle',{cx:12,cy:12,r:4}),h('path',{d:'M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4'}));
+    const moon = h('svg',{viewBox:'0 0 24 24',width:14,height:14,fill:'none',stroke:'currentColor',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'},h('path',{d:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'}));
+    const showTracker = this.props.showFlightTracker ?? true;
+    const flight = showTracker ? { origin:'LAX', destination:'MCO', duration:'1h 19m left', progress:0.62 } : undefined;
+    return {
+      theme: this.state.theme,
+      themeLabel: isLight ? 'Light' : 'Dark',
+      themeGlyph: isLight ? sun : moon,
+      toggleTheme: () => this.setState(s => ({ theme: s.theme === 'light' ? 'dark' : 'light' })),
+      drawerOpen: this.state.drawerOpen,
+      openDrawer: () => this.setState({ drawerOpen: true }),
+      closeDrawer: () => this.setState({ drawerOpen: false }),
+      railOpen: this.state.railOpen,
+      toggleRail: () => this.setState(s => ({ railOpen: !s.railOpen })),
+      title: this.props.title ?? 'Dashboard',
+      subtitle: this.props.subtitle ?? 'Your flight, entertainment, and connectivity — all in one place.',
+      active: this.state.active ?? this.props.active ?? 'flight',
+      setActive: (k) => this.setState({ active: k, drawerOpen: false, railOpen: false }),
+      flight,
+      navItems: [
+        { key: 'flight', label: 'Flight', icon: 'navigation' },
+        { key: 'entertainment', label: 'Entertainment', icon: 'eye' },
+        { key: 'connect', label: 'Connect', icon: 'wifi' },
+        { key: 'shop', label: 'Shop', icon: 'credit-card', badge: 'New' },
+        { key: 'destination', label: 'Destination', icon: 'sun' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

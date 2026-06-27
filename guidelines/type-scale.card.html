@@ -1,0 +1,34 @@
+<!-- @dsCard group="Type" viewport="700x340" name="Type scale" subtitle="Fluid clamp() — phone – desktop, role – family" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px;
+         color: var(--text-primary); font-family: var(--font-sans); }
+  .r { display: flex; align-items: baseline; gap: 16px; padding: 7px 0;
+       border-bottom: 1px solid var(--border-hairline); }
+  .r:last-child { border-bottom: 0; }
+  .spec { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tag { width: 168px; flex: none; color: var(--text-secondary); font-size: 11px;
+         letter-spacing: 0.03em; }
+  .serif { font-family: var(--font-display); }
+  .tile { font-family: var(--font-tile); }
+  .note { color: var(--text-secondary); font-size: 11px; margin: 16px 0 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <div class="r"><div class="spec serif" style="font-size:34px;font-weight:700;letter-spacing:-0.03em;">H1 Display</div><div class="tag">Playfair 700 · 34–60px</div></div>
+  <div class="r"><div class="spec tile" style="font-size:26px;font-weight:600;letter-spacing:-0.03em;">Hero Tile Title</div><div class="tag">Noto Serif 600 · 22–32px</div></div>
+  <div class="r"><div class="spec" style="font-size:22px;font-weight:700;">Heading 2</div><div class="tag">Montserrat 700 · 21–28px</div></div>
+  <div class="r"><div class="spec" style="font-size:17px;font-weight:700;">Heading 3 / kicker</div><div class="tag">Montserrat 700 · 17–20px</div></div>
+  <div class="r"><div class="spec" style="font-size:16px;font-weight:400;">Body — airy primary</div><div class="tag">Montserrat 400 · 15–18px</div></div>
+  <div class="r"><div class="spec" style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--text-emphasis);">Blue Tile Kicker</div><div class="tag">Montserrat 700 · 13–16px</div></div>
+  <div class="r"><div class="spec" style="font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;">Button Label</div><div class="tag">Montserrat 700 · 14–16px</div></div>
+  <p class="note">Every <code>--fs-*</code> token is a <code>clamp()</code> that interpolates from a phone min
+  to the desktop max as the viewport grows from 480–1200px. Display type shrinks more steeply than body so
+  heroes stay on-screen on a phone; desktop sizes are unchanged.</p>
+</body>
+</html>
+

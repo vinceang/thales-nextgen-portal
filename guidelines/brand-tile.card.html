@@ -1,0 +1,29 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Media tile scrim" subtitle="Full-bleed image + bottom scrim + kicker + serif title" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px;
+         color: var(--text-primary); font-family: var(--font-sans); }
+  .tile { position: relative; height: 180px; overflow: hidden;
+          background: linear-gradient(135deg,#3a2a18,#7a5418 55%,#c8901f); }
+  .scrim { position: absolute; inset: 0; background: var(--scrim-bottom); }
+  .cap { position: absolute; left: 20px; bottom: 18px; }
+  .kicker { font-weight: 700; font-size: 14px; letter-spacing: 0.04em;
+            color: var(--text-emphasis); text-transform: uppercase; margin-bottom: 6px; }
+  .title { font-family: var(--font-tile); font-weight: 600; font-size: 32px;
+           letter-spacing: -0.03em; line-height: 1; margin: 0; }
+</style>
+</head>
+<body>
+  <div class="tile">
+    <div class="scrim"></div>
+    <div class="cap">
+      <div class="kicker">Destination</div>
+      <div class="title">Orlando's Best: Epcot</div>
+    </div>
+  </div>
+</body>
+</html>

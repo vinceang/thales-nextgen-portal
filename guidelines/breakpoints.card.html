@@ -1,0 +1,110 @@
+<!-- @dsCard group="Spacing" viewport="760x460" name="Breakpoints" subtitle="Three device tiers — design width · collapse range · type" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px 28px;
+         color: var(--text-primary); font-family: var(--font-sans); }
+  .head { color: var(--text-secondary); font-size: 11px; letter-spacing: 0.03em;
+          line-height: 1.5; margin: 0 0 18px; }
+  .head code { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+
+  /* proportional ruler */
+  .ruler { position: relative; height: 30px; margin: 0 0 22px;
+           border-bottom: 1px solid var(--border-hairline); }
+  .tick { position: absolute; bottom: 0; transform: translateX(-50%);
+          font-size: 10px; color: var(--text-secondary);
+          font-variant-numeric: tabular-nums; padding-bottom: 6px; }
+  .tick::after { content: ""; position: absolute; left: 50%; bottom: 0;
+                 width: 1px; height: 6px; background: var(--border-hairline); }
+  .seg { position: absolute; bottom: 0; height: 4px; }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th { text-align: left; font-size: 10px; font-weight: 700;
+             letter-spacing: 0.08em; text-transform: uppercase;
+             color: var(--text-secondary); padding: 0 12px 9px 0; }
+  tbody td { padding: 11px 12px 11px 0; border-top: 1px solid var(--border-hairline);
+             vertical-align: baseline; font-size: 13px; }
+  .dev { font-weight: 700; }
+  .dot { display: inline-block; width: 9px; height: 9px; border-radius: var(--radius-pill);
+         margin-right: 8px; vertical-align: middle; }
+  .tok { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px;
+         color: var(--text-secondary); }
+  .range { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .sub { color: var(--text-secondary); font-size: 12px; }
+  .note { color: var(--text-secondary); font-size: 11px; margin: 18px 0 0; line-height: 1.6; }
+  .note code { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+</style>
+</head>
+<body>
+  <p class="head">Three device tiers. <strong>Design width</strong> is the canvas you compose on; the <strong>collapse range</strong> is where the layout actually reflows (<code>@media</code> thresholds); type is driven by the fluid <code>clamp()</code> range <code>480→1200px</code>.</p>
+
+  <div class="ruler" id="ruler"></div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tier</th>
+        <th>Design width</th>
+        <th>Collapse range</th>
+        <th>Layout</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="dev"><span class="dot" style="background:var(--color-bright-blue)"></span>Desktop</td>
+        <td>1200px<br><span class="tok">--bp-desktop</span></td>
+        <td class="range">≥ 1101px</td>
+        <td class="sub">Full bento · 4-up posters · 3-up plans</td>
+        <td class="sub">At max</td>
+      </tr>
+      <tr>
+        <td class="dev"><span class="dot" style="background:rgba(255,255,255,0.55)"></span>Tablet</td>
+        <td>810px<br><span class="tok">--bp-tablet</span></td>
+        <td class="range">561 – 1100px</td>
+        <td class="sub">3-up posters · news 1-col · plans stack ≤810</td>
+        <td class="sub">Interpolating</td>
+      </tr>
+      <tr>
+        <td class="dev"><span class="dot" style="background:rgba(255,255,255,0.28)"></span>Phone</td>
+        <td>390px<br><span class="tok">--bp-phone</span></td>
+        <td class="range">≤ 560px</td>
+        <td class="sub">Single column · 2-up posters · drawer nav</td>
+        <td class="sub">At min (≤480px)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="note">Prefer fluid <code>--fs-*</code> tokens over per-breakpoint font overrides — the scale handles size between tiers automatically. Reflow thresholds (1100 / 810 / 560) sit just below each design width so a tier holds its layout until clearly outgrown.</p>
+
+  <script>
+    // Map widths 0–1280 onto the ruler. Segments colored per tier.
+    const MAXW = 1280;
+    const ruler = document.getElementById("ruler");
+    const pct = px => (px / MAXW) * 100;
+    const segs = [
+      [0,   560,  "rgba(255,255,255,0.28)"], // phone
+      [560, 1100, "rgba(255,255,255,0.55)"], // tablet
+      [1100,1280, "var(--color-bright-blue)"], // desktop
+    ];
+    segs.forEach(([a, b, c]) => {
+      const s = document.createElement("div");
+      s.className = "seg";
+      s.style.left = pct(a) + "%";
+      s.style.width = (pct(b) - pct(a)) + "%";
+      s.style.background = c;
+      ruler.appendChild(s);
+    });
+    [390, 480, 560, 810, 1100, 1200].forEach(px => {
+      const t = document.createElement("div");
+      t.className = "tick";
+      t.style.left = pct(px) + "%";
+      t.textContent = px;
+      ruler.appendChild(t);
+    });
+  </script>
+</body>
+</html>

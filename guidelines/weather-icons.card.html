@@ -1,0 +1,65 @@
+<!-- @dsCard group="Iconography" viewport="760x980" name="Weather icons — AccuWeather set" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); color: var(--text-primary);
+         font-family: var(--font-sans); padding: 32px; }
+  .head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; margin: 0; }
+  .sub { color: var(--text-secondary); font-size: 13px; line-height: 1.7; max-width: 560px; margin: 8px 0 0; }
+  .lbl { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-bright-blue);
+         font-weight: 700; margin: 32px 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--color-border); border: 1px solid var(--color-border); }
+  .cell { background: var(--color-black); padding: 18px 12px 14px; display: flex; flex-direction: column; align-items: center; gap: 9px; text-align: center; }
+  .cell img { width: 56px; height: 56px; object-fit: contain; display: block; }
+  .code { font-size: 11px; font-weight: 700; color: var(--color-bright-blue); font-variant-numeric: tabular-nums; }
+  .name { font-size: 11px; line-height: 1.35; color: rgba(255,255,255,0.78); text-wrap: balance; }
+  .foot { display: flex; align-items: center; gap: 10px; margin-top: 28px; color: var(--text-secondary); font-size: 12px; }
+  .foot img { height: 18px; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>Weather Icons</h1>
+  </div>
+  <p class="sub">The licensed AccuWeather condition set — the one place colored, filled artwork
+  replaces the white single-weight line-icon system. Resolved by numeric <code>code</code> through
+  <code>WeatherGlyph</code> / <code>WeatherTile</code>. Never recolor or restyle them.</p>
+
+  <div class="lbl">Day · codes 1–32</div>
+  <div class="grid" id="day"></div>
+
+  <div class="lbl">Night · codes 33–44</div>
+  <div class="grid" id="night"></div>
+
+  <div class="foot">
+    <span>Condition artwork by</span>
+    <img src="../assets/logos/accuweather-light.svg" alt="AccuWeather" />
+  </div>
+
+  <script>
+    const DAY = [
+      [1,"Sunny"],[2,"Mostly Sunny"],[3,"Partly Sunny"],[4,"Intermittent Clouds"],
+      [5,"Hazy Sunshine"],[6,"Mostly Cloudy"],[7,"Cloudy"],[8,"Dreary (Overcast)"],
+      [11,"Fog"],[12,"Showers"],[13,"Mostly Cloudy w/ Showers"],[14,"Partly Sunny w/ Showers"],
+      [15,"T-Storms"],[16,"Mostly Cloudy w/ T-Storms"],[17,"Partly Sunny w/ T-Storms"],[18,"Rain"],
+      [19,"Flurries"],[20,"Mostly Cloudy w/ Flurries"],[21,"Partly Sunny w/ Flurries"],[22,"Snow"],
+      [23,"Mostly Cloudy w/ Snow"],[24,"Ice"],[25,"Sleet"],[26,"Freezing Rain"],
+      [29,"Rain and Snow"],[30,"Hot"],[31,"Cold"],[32,"Windy"],
+    ];
+    const NIGHT = [
+      [33,"Clear"],[34,"Mostly Clear"],[35,"Partly Cloudy"],[36,"Intermittent Clouds"],
+      [37,"Hazy Moonlight"],[38,"Mostly Cloudy"],[39,"Partly Cloudy w/ Showers"],[40,"Mostly Cloudy w/ Showers"],
+      [41,"Partly Cloudy w/ T-Storms"],[42,"Mostly Cloudy w/ T-Storms"],[43,"Mostly Cloudy w/ Flurries"],[44,"Mostly Cloudy w/ Snow"],
+    ];
+    const cell = ([code, name]) =>
+      `<div class="cell"><img src="../assets/icons/weather/${code}.svg" alt="${name}" />` +
+      `<div class="code">${code}</div><div class="name">${name}</div></div>`;
+    document.getElementById("day").innerHTML = DAY.map(cell).join("");
+    document.getElementById("night").innerHTML = NIGHT.map(cell).join("");
+  </script>
+</body>
+</html>

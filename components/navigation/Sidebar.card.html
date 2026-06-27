@@ -1,0 +1,82 @@
+<!-- @dsCard group="Navigation" viewport="940x680" name="Sidebar (configurable A / B)" subtitle="One component, both white-label treatments — both overlay; B collapses to icons" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  body { margin:0; background:var(--bg-page); color:var(--text-primary); font-family:var(--font-sans); padding:20px; }
+  .controls { display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin-bottom:18px; }
+  .seg { display:inline-flex; border:var(--border-width) solid var(--border-hairline); border-radius:var(--radius-pill); overflow:hidden; }
+  .seg button { appearance:none; border:none; background:transparent; color:var(--text-secondary); font-family:var(--font-sans); font-size:13px; font-weight:600; padding:8px 16px; cursor:pointer; }
+  .seg button[data-on="1"] { background:var(--color-highlight-blue); color:#fff; }
+  .ctl-lbl { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); }
+  .stage { position:relative; height:560px; border:var(--border-width) solid var(--border-hairline); border-radius:var(--radius-card); overflow:hidden; display:flex; }
+  .content { flex:1; min-width:0; padding:28px; }
+  .content h3 { font-family:var(--font-display); font-weight:700; font-size:30px; margin:0 0 8px; letter-spacing:-.02em; }
+  .content p { color:var(--text-secondary); font-size:14px; max-width:42ch; line-height:1.55; }
+  .hint { font-size:12px; color:var(--text-secondary); margin-top:14px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.ThalesNextGenPortalDesignSystem_87a801;
+const { Sidebar, NavBar, Toggle } = NS;
+
+const ITEMS = [
+  { key:"flight", label:"Flight", icon:"navigation" },
+  { key:"watch", label:"Watch", icon:"eye" },
+  { key:"connect", label:"Connect", icon:"wifi" },
+  { key:"shop", label:"Shop", icon:"credit-card", badge:"New" },
+  { key:"weather", label:"Weather", icon:"sun" },
+];
+const FLIGHT = { origin:"LAX", destination:"MCO", duration:"1h 19m left", progress:0.62 };
+
+function Demo(){
+  const [variant,setVariant] = React.useState("rail");
+  const [tracker,setTracker] = React.useState(true);
+  const [active,setActive] = React.useState("flight");
+  const [open,setOpen] = React.useState(false);
+  const flight = tracker ? FLIGHT : undefined;
+  return (
+    <div>
+      <div className="controls">
+        <div>
+          <div className="ctl-lbl" style={{marginBottom:6}}>Treatment</div>
+          <div className="seg">
+            <button data-on={variant==="rail"?"1":"0"} onClick={()=>{setVariant("rail");setOpen(false);}}>B · Icon rail (push)</button>
+            <button data-on={variant==="overlay"?"1":"0"} onClick={()=>{setVariant("overlay");setOpen(true);}}>A · Full drawer</button>
+          </div>
+        </div>
+        <div>
+          <div className="ctl-lbl" style={{marginBottom:8}}>Flight tracker</div>
+          <Toggle checked={tracker} onChange={setTracker} label={tracker?"Shown":"Hidden"} />
+        </div>
+      </div>
+
+      <div className="stage">
+        {variant === "rail" && (
+          <Sidebar variant="rail" items={ITEMS} active={active} flight={flight} title="Browse" onSelect={setActive} />
+        )}
+        <div className="content">
+          <h3>{ITEMS.find(i=>i.key===active)?.label}</h3>
+          <p>The sidebar treatment is a white-label option. Treatment B keeps a persistent icon rail and expands in place — widening to show labels and pushing the content aside; treatment A opens a full-height drawer over a backdrop.</p>
+          <p className="hint">{variant==="overlay" ? "Drawer A is open over this content — tap the dark backdrop to close." : "Rail B is pinned to the inline-start edge. Tap its menu icon to expand — labels push the content aside (RTL pushes the other way)."}</p>
+        </div>
+
+        {variant === "overlay" && (
+          <Sidebar variant="overlay" open={open} items={ITEMS} active={active} flight={flight} onSelect={setActive} onClose={()=>setOpen(false)} />
+        )}
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<Demo />);
+</script>
+</body>
+</html>

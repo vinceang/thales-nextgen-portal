@@ -1,0 +1,38 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Neutrals & surfaces" subtitle="Surface ramp + muted text + hairline" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); font-family: var(--font-sans);
+         color: var(--text-primary); padding: 24px; }
+  .row { display: flex; gap: 16px; }
+  .sw { flex: 1; }
+  .chip { height: 84px; border: 1px solid var(--border-hairline); }
+  .name { font-size: 13px; font-weight: 600; margin-top: 10px; }
+  .val { font-size: 11px; color: var(--text-secondary); margin-top: 2px;
+         font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw">
+      <div class="chip" style="background: var(--color-surface-2);"></div>
+      <div class="name">surface-2 (tile)</div><div class="val">rgb(31, 36, 42)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-surface-3);"></div>
+      <div class="name">surface-3 (input)</div><div class="val">rgb(42, 48, 56)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-grey);"></div>
+      <div class="name">text-grey</div><div class="val">rgb(97, 98, 101)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-surface-1); border:1px solid var(--color-border-strong);"></div>
+      <div class="name">hairline border</div><div class="val">white / 16–32%</div>
+    </div>
+  </div>
+</body>
+</html>

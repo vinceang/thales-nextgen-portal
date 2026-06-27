@@ -1,0 +1,28 @@
+<!-- @dsCard group="Spacing" viewport="700x190" name="Shape & depth" subtitle="Square corners, no shadows, pills only for controls" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px;
+         color: var(--text-primary); font-family: var(--font-sans); }
+  .row { display: flex; gap: 24px; align-items: center; }
+  .col { text-align: center; }
+  .box { width: 96px; height: 72px; background: var(--color-surface-2);
+         border: 1px solid var(--border-hairline); }
+  .pill { width: 96px; height: 36px; background: var(--accent); border-radius: 999px;
+          display: flex; align-items: center; justify-content: center;
+          font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing:0.04em; }
+  .name { font-size: 12px; font-weight: 600; margin-top: 10px; }
+  .val { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="col"><div class="box"></div><div class="name">Card / tile / panel</div><div class="val">radius 0 · no shadow</div></div>
+    <div class="col"><div class="box" style="border-color:var(--color-border-strong);"></div><div class="name">Hairline outline</div><div class="val">1px white 16–32%</div></div>
+    <div class="col"><div class="pill">Active</div><div class="name">Pill (control only)</div><div class="val">radius 999px</div></div>
+  </div>
+</body>
+</html>

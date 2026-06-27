@@ -1,0 +1,35 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Accent blue" subtitle="One accent — fill blue + emphasis blue" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); font-family: var(--font-sans);
+         color: var(--text-primary); padding: 24px; }
+  .row { display: flex; gap: 16px; }
+  .sw { flex: 1; }
+  .chip { height: 84px; display: flex; align-items: flex-end; padding: 10px;
+          box-sizing: border-box; font-size: 12px; font-weight: 700; }
+  .name { font-size: 13px; font-weight: 600; margin-top: 10px; }
+  .val { font-size: 11px; color: var(--text-secondary); margin-top: 2px;
+         font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw">
+      <div class="chip" style="background: var(--color-highlight-blue); color:#fff;">CTA / active fill</div>
+      <div class="name">highlight-blue</div><div class="val">rgb(31, 153, 255)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-bright-blue); color:#0b2233;">kickers / emphasis</div>
+      <div class="name">bright-blue</div><div class="val">rgb(114, 217, 251)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-link-blue); color:#fff;">link hover</div>
+      <div class="name">link-blue</div><div class="val">rgb(0, 136, 255)</div>
+    </div>
+  </div>
+</body>
+</html>

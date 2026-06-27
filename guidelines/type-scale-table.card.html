@@ -1,0 +1,85 @@
+<!-- @dsCard group="Type" viewport="760x620" name="Type scale — breakpoint table" subtitle="Resolved px at Phone · Tablet · Desktop" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); padding: 24px 28px;
+         color: var(--text-primary); font-family: var(--font-sans); }
+  table { width: 100%; border-collapse: collapse; }
+  caption { text-align: left; color: var(--text-secondary); font-size: 11px;
+            letter-spacing: 0.03em; line-height: 1.5; margin-bottom: 14px; }
+  thead th { text-align: left; font-size: 10px; font-weight: 700;
+             letter-spacing: 0.08em; text-transform: uppercase;
+             color: var(--text-secondary); padding: 0 0 9px; vertical-align: bottom; }
+  thead th .w { display: block; font-weight: 500; letter-spacing: 0.02em;
+                text-transform: none; color: var(--text-secondary); opacity: 0.7;
+                font-size: 9px; margin-top: 2px; }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody td { padding: 9px 0; border-top: 1px solid var(--border-hairline);
+             vertical-align: baseline; }
+  .role { font-weight: 600; }
+  .tok { display: block; font-size: 10px; color: var(--text-secondary);
+         font-family: ui-monospace, "SF Mono", Menlo, monospace; margin-top: 2px;
+         letter-spacing: 0; }
+  .fam { color: var(--text-secondary); font-size: 11px; white-space: nowrap; }
+  td.num { font-weight: 600; font-size: 13px; }
+  td.num.max { color: var(--text-emphasis); }
+  td.num .u { color: var(--text-secondary); font-weight: 400; font-size: 10px; margin-left: 1px; }
+  .note { color: var(--text-secondary); font-size: 11px; margin: 16px 0 0; line-height: 1.6; }
+  .note code { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+</style>
+</head>
+<body>
+  <table>
+    <caption>Each <code>--fs-*</code> token resolves continuously via <code>clamp()</code>. These are the exact px at three reference widths — Phone ≤ 480px (the min), Tablet 768px, Desktop ≥ 1200px (the max).</caption>
+    <thead>
+      <tr>
+        <th>Role / token</th>
+        <th>Family</th>
+        <th class="num">Phone<span class="w">≤480px</span></th>
+        <th class="num">Tablet<span class="w">768px</span></th>
+        <th class="num">Desktop<span class="w">≥1200px</span></th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="note">Tablet = <code>MIN + (MAX − MIN) · (768 − 480) / 720</code> = MIN + 40% of the range. Display type shrinks more steeply than body so heroes stay on-screen on a phone.</p>
+
+  <script>
+    // [token, role label, family, min, max]
+    const rows = [
+      ["--fs-h1",       "H1 Display",        "Playfair 700",    34, 60],
+      ["--fs-h1b",      "H1 Display (600)",  "Playfair 600",    32, 54],
+      ["--fs-h1-light", "H1 Light hero",     "Playfair 300",    30, 54],
+      ["--fs-h1d",      "H1 Deck",           "Playfair 600",    30, 44],
+      ["--fs-h1-sans",  "Sans headline",     "Montserrat 700",  19, 24],
+      ["--fs-tile",     "Hero tile title",   "Noto Serif 600",  22, 32],
+      ["--fs-h2",       "Heading 2",         "Montserrat 700",  21, 28],
+      ["--fs-h3",       "Heading 3",         "Montserrat 700",  17, 20],
+      ["--fs-body",     "Body — airy",       "Montserrat 400",  15, 18],
+      ["--fs-body-2",   "Body — light surf", "Inter 400",       14, 16],
+      ["--fs-body-3",   "Body — emphasis",   "Montserrat 600",  14, 16],
+      ["--fs-kicker",   "Tile kicker",       "Montserrat 700",  13, 16],
+      ["--fs-label",    "Form label",        "Montserrat 500",  14, 16],
+      ["--fs-button",   "Button label",      "Montserrat 700",  14, 16],
+      ["--fs-body-sm",  "Fine print",        "Montserrat 400",  11, 12],
+      ["--fs-subscript","Subscript",         "Montserrat 400",  11, 12],
+    ];
+    const TABLET_W = 768;
+    const factor = (TABLET_W - 480) / 720; // 0.4
+    const fmt = n => { const r = Math.round(n * 10) / 10; return r % 1 === 0 ? String(r) : r.toFixed(1); };
+    const tablet = (min, max) => Math.min(max, Math.max(min, min + (max - min) * factor));
+    const tbody = document.getElementById("rows");
+    tbody.innerHTML = rows.map(([tok, role, fam, min, max]) => `
+      <tr>
+        <td><span class="role">${role}</span><span class="tok">${tok}</span></td>
+        <td class="fam">${fam}</td>
+        <td class="num">${fmt(min)}<span class="u">px</span></td>
+        <td class="num">${fmt(tablet(min, max))}<span class="u">px</span></td>
+        <td class="num max">${fmt(max)}<span class="u">px</span></td>
+      </tr>`).join("");
+  </script>
+</body>
+</html>

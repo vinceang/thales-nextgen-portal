@@ -1,0 +1,62 @@
+<!-- @dsCard group="Portal" viewport="1280x720" name="Portal UI Kit — interactive" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thales NextGen Portal</title>
+<link rel="stylesheet" href="../../styles.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--color-bg); color: var(--color-white);
+               font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--color-surface-3); }
+  ::-webkit-scrollbar-track { background: transparent; }
+
+  /* Responsive collapses — ShowcaseScreen (BentoGrid) and the poster grid (TileGrid)
+     now handle their own reflow internally; only bespoke screens remain here. */
+  @media (max-width: 1100px) {
+    .news-cols { grid-template-columns: 1fr !important; }
+    .wx-news { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 810px) {
+    .wx-grid { grid-template-columns: 1fr !important; }
+    .wxh-inner { flex-direction: column !important; padding: 36px 24px !important; }
+    .wxh-cta { width: 100%; }
+    .wxh-inner h1 { font-size: 52px !important; }
+    .plans-head { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .plans-head h1 { font-size: 40px !important; }
+    /* Plans stack; recommended jumps to the top with full borders */
+    .plan-grid { grid-template-columns: 1fr !important; max-width: 480px; margin: 0 auto; }
+    .plan-wrap { border: 1px dashed rgba(31,153,255,0.6); }
+    .plan-wrap-rec { order: -1; border: 1px solid var(--color-highlight-blue); }
+    .plan-wrap .plan-topbar { display: none !important; }
+  }
+  @media (max-width: 560px) {
+    .wx-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+
+  <script src="data.js"></script>
+  <script type="text/babel" src="ShowcaseScreen.jsx"></script>
+  <script type="text/babel" src="MoviesScreen.jsx"></script>
+  <script type="text/babel" src="NewsScreen.jsx"></script>
+  <script type="text/babel" src="WeatherScreen.jsx"></script>
+  <script type="text/babel" src="PlansScreen.jsx"></script>
+  <script type="text/babel" src="PaymentScreen.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+  <script type="text/babel">
+    ReactDOM.createRoot(document.getElementById("root")).render(<window.PortalApp />);
+  </script>
+</body>
+</html>

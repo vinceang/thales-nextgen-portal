@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page Comp · Account / Settings</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="comp.css" />
+</head>
+<body>
+  <div class="comp-topbar">
+    <span class="crumb">Page Comp 03</span>
+    <h1>Account / Settings</h1>
+    <span class="meta">Fidelity <b>Hi‑fi</b> · Desktop <b>1200px</b> · forms + tabs</span>
+  </div>
+
+  <div class="comp-stage">
+    <div class="comp-screen">
+      <span class="screen-label">Live render — Thales design system</span>
+      <div id="page"></div>
+    </div>
+
+    <aside class="comp-spec">
+      <h2>Implementation spec</h2>
+      <p class="lead">A settings surface that exercises every form control. Group fields in <code>Card</code>s; switch sections with <code>Tabs</code>.</p>
+
+      <div class="spec-item"><span class="spec-num">1</span><div class="spec-body">
+        <div class="t">Header + section <code>Tabs</code></div>
+        <p><code>NavBar title="Account"</code>; <code>Tabs</code> below with <code>value</code>/<code>onChange</code> (Profile · Connectivity · Billing). Active tab is bright‑blue with the underline.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">2</span><div class="spec-body">
+        <div class="t">Profile card — text fields</div>
+        <p>Inside a <code>Card title="Profile"</code>: <code>Input</code> (label/placeholder/value/onChange), <code>Select</code> (<code>options</code>, <code>placeholder</code>), <code>DatePicker</code> (<code>value:Date</code>, <code>onChange</code>), <code>TextArea</code> (<code>maxLength</code> shows counter).</p>
+        <p class="kv"><b>Layout:</b> two‑column field grid (CSS grid, <code>gap: var(--space-md)</code>); full‑width for the textarea.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">3</span><div class="spec-body">
+        <div class="t">Preferences — toggles &amp; choices</div>
+        <p><code>Toggle</code> for instant on/off settings; <code>RadioGroup</code> (<code>options</code>, <code>value</code>, <code>onChange</code>) for one‑of‑many; <code>Checkbox</code> for opt‑ins.</p>
+        <p class="kv"><b>Rule:</b> Toggle = applies immediately; Checkbox = submitted with the form; Radio = mutually exclusive.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">4</span><div class="spec-body">
+        <div class="t">Actions row</div>
+        <p>Right‑aligned (<code>justify-content:flex-end</code>): secondary <code>Button</code> "Cancel" + primary "Save Changes". On save, fire a <code>Toast tone="success"</code>.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">•</span><div class="spec-body">
+        <div class="t">Tokens &amp; rules</div>
+        <p class="kv">All fields share the dark <code>--surface-input</code> fill, sharp corners, 1px <code>--color-highlight-blue</code> focus ring. Labels <code>--font-sans</code>. RTL‑safe (logical props) — mirror cleanly. Hit targets ≥44px.</p>
+      </div></div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const NS = window.ThalesNextGenPortalDesignSystem_87a801;
+    const { NavBar, Tabs, Card, Input, Select, DatePicker, TextArea, Toggle, RadioGroup, Checkbox, Button } = NS;
+
+    const Pin = ({ n, top, left }) => <span className="pin" style={{ top, left }}>{n}</span>;
+    const grid2 = { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--space-md)" };
+
+    function SettingsPage() {
+      const [tab, setTab] = React.useState("profile");
+      const [name, setName] = React.useState("Vincent Ang");
+      const [country, setCountry] = React.useState("United States");
+      const [dob, setDob] = React.useState(null);
+      const [bio, setBio] = React.useState("");
+      const [recon, setRecon] = React.useState(true);
+      const [captions, setCaptions] = React.useState(false);
+      const [units, setUnits] = React.useState("Fahrenheit");
+      const [news, setNews] = React.useState(true);
+
+      return (
+        <div style={{ minHeight: 880, paddingBottom: 60 }}>
+          {/* 1 — header + tabs */}
+          <div style={{ position: "relative" }}>
+            <Pin n={1} top={8} left={8} />
+            <NavBar title="Account" logo="../../assets/logos/thales-white.svg" wifiActive onMenu={() => {}} />
+            <div style={{ padding: "10px var(--space-lg) 0" }}>
+              <Tabs value={tab} onChange={setTab} tabs={[
+                { value: "profile", label: "Profile" },
+                { value: "connectivity", label: "Connectivity" },
+                { value: "billing", label: "Billing" },
+              ]} />
+            </div>
+          </div>
+
+          <div style={{ padding: "var(--space-lg)", display: "flex", flexDirection: "column", gap: "var(--space-lg)", maxWidth: 880 }}>
+            {/* 2 — profile card */}
+            <div style={{ position: "relative" }}>
+              <Pin n={2} top={-4} left={-4} />
+              <Card title="Profile" subtitle="Shown to crew for personalized service" padding={24}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
+                  <div style={grid2}>
+                    <Input label="Full name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
+                    <Select label="Billing country" placeholder="Select country…"
+                      options={["United States", "Canada", "United Kingdom", "Australia"]}
+                      value={country} onChange={(e) => setCountry(e.target.value)} />
+                  </div>
+                  <div style={grid2}>
+                    <DatePicker label="Date of birth" value={dob} onChange={setDob} />
+                    <Input label="Loyalty number" placeholder="TN‑000000" />
+                  </div>
+                  <TextArea label="Travel notes" placeholder="Dietary needs, accessibility, requests…"
+                    rows={3} maxLength={160} value={bio} onChange={(e) => setBio(e.target.value)} />
+                </div>
+              </Card>
+            </div>
+
+            {/* 3 — preferences */}
+            <div style={{ position: "relative" }}>
+              <Pin n={3} top={-4} left={-4} />
+              <Card title="Preferences" padding={24}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
+                  <Toggle checked={recon} onChange={setRecon} label="Auto‑reconnect on signal drop" />
+                  <Toggle checked={captions} onChange={setCaptions} label="Show captions by default" />
+                  <div>
+                    <div style={{ fontFamily: "var(--font-sans)", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em",
+                      textTransform: "uppercase", color: "var(--text-secondary)", margin: "4px 0 12px" }}>Temperature units</div>
+                    <RadioGroup name="units" value={units} onChange={setUnits} options={["Fahrenheit", "Celsius"]} />
+                  </div>
+                  <Checkbox checked={news} onChange={setNews}>E‑mail me trip updates and offers</Checkbox>
+                </div>
+              </Card>
+            </div>
+
+            {/* 4 — actions */}
+            <div style={{ position: "relative", display: "flex", gap: 12, justifyContent: "flex-end" }}>
+              <Pin n={4} top={-4} left={-4} />
+              <Button variant="secondary">Cancel</Button>
+              <Button>Save Changes</Button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("page")).render(<SettingsPage />);
+  </script>
+</body>
+</html>

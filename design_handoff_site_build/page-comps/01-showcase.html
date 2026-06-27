@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page Comp · Showcase / Home</title>
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="comp.css" />
+</head>
+<body>
+  <div class="comp-topbar">
+    <span class="crumb">Page Comp 01</span>
+    <h1>Showcase / Home</h1>
+    <span class="meta">Fidelity <b>Hi‑fi</b> · Desktop <b>1200px</b> · numbered pins map to the spec →</span>
+  </div>
+
+  <div class="comp-stage">
+    <div class="comp-screen">
+      <span class="screen-label">Live render — Thales design system</span>
+      <div id="page"></div>
+    </div>
+
+    <aside class="comp-spec">
+      <h2>Implementation spec</h2>
+      <p class="lead">The landing view a passenger sees on connect. Assemble from existing components — no new UI. Everything below renders live to the left; build the React route to match it.</p>
+
+      <div class="spec-item"><span class="spec-num">1</span><div class="spec-body">
+        <div class="t">App header — <code>NavBar</code></div>
+        <p>Props: <code>title="Showcase"</code>, <code>logo</code> (airline mark), <code>wifiActive</code>, <code>onMenu</code>, <code>onSearch</code>, <code>onProfile</code>.</p>
+        <p class="kv"><b>Behavior:</b> sticky to top; hamburger opens <code>SideDrawer</code>; search opens the full‑width <code>Search</code> overlay. Height <code>--nav-height</code> (64px).</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">2</span><div class="spec-body">
+        <div class="t">Hero — <code>HeroBanner</code> + <code>CarouselDots</code></div>
+        <p>Props: <code>image</code>, <code>kicker="Connect"</code>, <code>title</code> (Playfair), <code>ctaLabel="View Plans"</code>, <code>onCta</code>.</p>
+        <p class="kv"><b>Behavior:</b> rotating promos; <code>CarouselDots</code> <code>count</code>/<code>active</code>/<code>onSelect</code> drive the slide; CTA routes to Connect/Plans. Auto‑advance ~6s, pause on hover.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">3</span><div class="spec-body">
+        <div class="t">Category filter — <code>GenrePill</code> row</div>
+        <p>Horizontally scrollable; one active at a time (<code>active</code>, <code>onClick</code>). The ONE rounded shape in the system — keep it pill.</p>
+        <p class="kv"><b>Data:</b> categories from the catalogue service; selection filters the grids below.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">4</span><div class="spec-body">
+        <div class="t">Featured rail — <code>TileGrid</code> of <code>ShowcaseTile</code></div>
+        <p><code>TileGrid columns={3} tablet={2} phone={1} gap={16}</code>. Each <code>ShowcaseTile</code>: <code>image</code>, <code>kicker</code>, <code>title</code>, <code>titleSize</code>, <code>onClick</code>.</p>
+        <p class="kv"><b>Loading:</b> render <code>Skeleton variant="block"</code> tiles at the grid's shape while the catalogue loads.</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">5</span><div class="spec-body">
+        <div class="t">Destinations rail — <code>TileGrid</code> (4‑up)</div>
+        <p><code>TileGrid columns={4} tablet={2} phone={1}</code> of smaller <code>ShowcaseTile</code>s (<code>titleSize</code> ~20).</p>
+      </div></div>
+
+      <div class="spec-item"><span class="spec-num">•</span><div class="spec-body">
+        <div class="t">Tokens &amp; rules</div>
+        <p class="kv">BG <code>--bg-page</code> · tile titles <code>--font-tile</code> (Noto Serif) · hero headline <code>--font-display</code> (Playfair) · all UI/labels <code>--font-sans</code>. Sharp corners, no shadows, one blue accent. Section gutters <code>--space-lg</code>/<code>--space-xl</code>.</p>
+        <p class="kv"><b>Responsive:</b> <code>TileGrid</code> reflows at 1101 / 561px; type scales fluidly — no manual breakpoints.</p>
+      </div></div>
+    </aside>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const NS = window.ThalesNextGenPortalDesignSystem_87a801;
+    const { NavBar, HeroBanner, CarouselDots, GenrePill, TileGrid, ShowcaseTile } = NS;
+
+    const IMG = {
+      hero: "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=1200&q=80",
+      ys: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=700&q=80",
+      billie: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700&q=80",
+      news: "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=700&q=80",
+      epcot: "https://images.unsplash.com/photo-1597466599360-3b9775841aec?w=600&q=80",
+      dining: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+      england: "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?w=600&q=80",
+      beach: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+    };
+    const Pin = ({ n, top, left, right }) => (
+      <span className="pin" style={{ top, left, right }}>{n}</span>
+    );
+    const SectionTitle = ({ children }) => (
+      <h2 style={{ fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: "var(--fs-h2)",
+        color: "var(--color-white)", margin: "0 0 16px", letterSpacing: "-0.01em" }}>{children}</h2>
+    );
+
+    const CATS = ["All", "Movies", "TV", "Music", "Destinations", "News"];
+
+    function ShowcasePage() {
+      const [cat, setCat] = React.useState("All");
+      const [slide, setSlide] = React.useState(0);
+      return (
+        <div style={{ minHeight: 900 }}>
+          {/* 1 — header */}
+          <div style={{ position: "relative" }}>
+            <Pin n={1} top={8} left={8} />
+            <NavBar title="Showcase" logo="../../assets/logos/thales-white.svg" wifiActive
+              onMenu={() => {}} onSearch={() => {}} onProfile={() => {}} />
+          </div>
+
+          {/* 2 — hero */}
+          <div style={{ position: "relative", padding: "var(--space-lg) var(--space-lg) 0" }}>
+            <Pin n={2} top={20} left={20} />
+            <HeroBanner image={IMG.hero} kicker="Connect"
+              title="High‑Speed Wi‑Fi for the Whole Flight"
+              ctaLabel="View Plans" height={360} onCta={() => {}} />
+            <div style={{ display: "flex", justifyContent: "center", padding: "16px 0 0" }}>
+              <CarouselDots count={4} active={slide} onSelect={setSlide} />
+            </div>
+          </div>
+
+          {/* 3 — category pills */}
+          <div style={{ position: "relative", padding: "var(--space-lg) var(--space-lg) var(--space-md)" }}>
+            <Pin n={3} top={6} left={20} />
+            <div style={{ display: "flex", gap: 10, overflowX: "auto", paddingTop: 8, scrollbarWidth: "none" }}>
+              {CATS.map((c) => (
+                <GenrePill key={c} active={cat === c} onClick={() => setCat(c)}>{c}</GenrePill>
+              ))}
+            </div>
+          </div>
+
+          {/* 4 — featured 3-up */}
+          <div style={{ position: "relative", padding: "0 var(--space-lg) var(--space-xl)" }}>
+            <Pin n={4} top={-4} left={20} />
+            <SectionTitle>Featured Now</SectionTitle>
+            <TileGrid columns={3} tablet={2} phone={1} gap={16}>
+              <ShowcaseTile image={IMG.ys} kicker="Watch" title="Young Sheldon" titleSize={26} height={220} onClick={() => {}} />
+              <ShowcaseTile image={IMG.billie} kicker="Listen" title="Billie Eilish — Live" titleSize={26} height={220} onClick={() => {}} />
+              <ShowcaseTile image={IMG.news} kicker="Read" title="Today's Headlines" titleSize={26} height={220} onClick={() => {}} />
+            </TileGrid>
+          </div>
+
+          {/* 5 — destinations 4-up */}
+          <div style={{ position: "relative", padding: "0 var(--space-lg) var(--space-2xl)" }}>
+            <Pin n={5} top={-4} left={20} />
+            <SectionTitle>Destinations</SectionTitle>
+            <TileGrid columns={4} tablet={2} phone={1} gap={16}>
+              <ShowcaseTile image={IMG.epcot} kicker="Destination" title="Orlando" titleSize={20} height={170} onClick={() => {}} />
+              <ShowcaseTile image={IMG.dining} kicker="Destination" title="Dining" titleSize={20} height={170} onClick={() => {}} />
+              <ShowcaseTile image={IMG.england} kicker="Travel" title="England" titleSize={20} height={170} onClick={() => {}} />
+              <ShowcaseTile image={IMG.beach} kicker="Destination" title="Beaches" titleSize={20} height={170} onClick={() => {}} />
+            </TileGrid>
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("page")).render(<ShowcasePage />);
+  </script>
+</body>
+</html>

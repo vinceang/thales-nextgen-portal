@@ -1,0 +1,38 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Base palette" subtitle="Near-black page, pure black overlays, white text" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--bg-page); font-family: var(--font-sans);
+         color: var(--text-primary); padding: 24px; }
+  .row { display: flex; gap: 16px; }
+  .sw { flex: 1; }
+  .chip { height: 84px; border: 1px solid var(--border-hairline); }
+  .name { font-size: 13px; font-weight: 600; margin-top: 10px; }
+  .val { font-size: 11px; color: var(--text-secondary); margin-top: 2px;
+         font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw">
+      <div class="chip" style="background: var(--color-bg);"></div>
+      <div class="name">Page / bg</div><div class="val">rgb(24, 28, 33)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-black);"></div>
+      <div class="name">Overlay black</div><div class="val">rgb(0, 0, 0)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-white);"></div>
+      <div class="name">White text</div><div class="val">rgb(255, 255, 255)</div>
+    </div>
+    <div class="sw">
+      <div class="chip" style="background: var(--color-ink);"></div>
+      <div class="name">Ink (on light)</div><div class="val">#333333</div>
+    </div>
+  </div>
+</body>
+</html>
