@@ -3,13 +3,16 @@ import { IconButton } from "../core/IconButton.jsx";
 import { Icon } from "../core/Icon.jsx";
 
 /**
- * NavBar — sticky top bar: hamburger + logo on the left, centered view title,
- * status icons (search / Wi-Fi / profile) on the right. White on the dark base.
+ * NavBar — sticky top bar: hamburger + home (+ optional logo) on the left,
+ * centered view title, status icons (search / Wi-Fi / profile) on the right.
+ * White on the dark base. The home button is a standard nav affordance; wire it
+ * up with `onHome`.
  */
 export function NavBar({
   title,
   logo,
   onMenu,
+  onHome,
   wifiActive = true,
   onSearch,
   onProfile,
@@ -34,6 +37,9 @@ export function NavBar({
       <div style={{ display: "flex", alignItems: "center", gap: 12, zIndex: 1 }}>
         <IconButton label="Menu" onClick={onMenu}>
           <Icon name="menu" />
+        </IconButton>
+        <IconButton label="Home" onClick={onHome}>
+          <Icon name="home" />
         </IconButton>
         {logo && <img src={logo} alt="" style={{ height: 18 }} />}
       </div>

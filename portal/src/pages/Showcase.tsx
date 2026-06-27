@@ -30,15 +30,27 @@ interface Promo {
   image: string;
   kicker: string;
   title: string;
-  ctaLabel: string;
 }
 
 const PROMOS: Promo[] = [
-  { image: IMG.hero, kicker: "Connect", title: "High-Speed Wi-Fi for the Whole Flight", ctaLabel: "View Plans" },
-  { image: IMG.heroFilm, kicker: "Watch", title: "New Releases, Streaming at 35,000 ft", ctaLabel: "View Plans" },
-  { image: IMG.heroMusic, kicker: "Listen", title: "Curated Playlists for Every Mile", ctaLabel: "View Plans" },
-  { image: IMG.heroDest, kicker: "Destination", title: "Plan Your Landing in Orlando", ctaLabel: "View Plans" },
+  { image: IMG.hero, kicker: "Connect", title: "High-Speed Wi-Fi for the Whole Flight" },
+  { image: IMG.heroFilm, kicker: "Watch", title: "New Releases, Streaming at 35,000 ft" },
+  { image: IMG.heroMusic, kicker: "Listen", title: "Curated Playlists for Every Mile" },
+  { image: IMG.heroDest, kicker: "Destination", title: "Plan Your Landing in Orlando" },
 ];
+
+// CTA destination + label derived from the promo's kicker, so each hero sends the
+// passenger to the matching section (Watch → /watch, Listen → /listen, …).
+const KICKER_CTA: Record<string, { path: string; label: string }> = {
+  Connect: { path: "/connect", label: "View Plans" },
+  Watch: { path: "/watch", label: "Watch" },
+  Listen: { path: "/listen", label: "Listen" },
+  Read: { path: "/news", label: "Read" },
+  News: { path: "/news", label: "Read" },
+  Destination: { path: "/weather", label: "Forecast" },
+  Travel: { path: "/weather", label: "Forecast" },
+};
+const CTA_FALLBACK = { path: "/connect", label: "Explore" };
 
 const CATS = ["All", "Movies", "TV", "Music", "Destinations", "News"];
 
@@ -113,6 +125,7 @@ export default function Showcase() {
   }, [paused]);
 
   const promo = PROMOS[slide];
+  const cta = KICKER_CTA[promo.kicker] ?? CTA_FALLBACK;
   const featured = FEATURED.filter((t) => matches(t, cat));
   const destinations = DESTINATIONS.filter((t) => matches(t, cat));
 
@@ -128,9 +141,10 @@ export default function Showcase() {
           image={promo.image}
           kicker={promo.kicker}
           title={promo.title}
-          ctaLabel={promo.ctaLabel}
+          ctaLabel={cta.label}
+          ctaArrow
           height={360}
-          onCta={() => navigate("/connect")}
+          onCta={() => navigate(cta.path)}
         />
         <div style={{ display: "flex", justifyContent: "center", padding: "16px 0 0" }}>
           <CarouselDots count={PROMOS.length} active={slide} onSelect={setSlide} />
@@ -142,6 +156,7 @@ export default function Showcase() {
         <div
           style={{
             display: "flex",
+            justifyContent: "center",
             gap: 10,
             overflowX: "auto",
             paddingBlockStart: 8,

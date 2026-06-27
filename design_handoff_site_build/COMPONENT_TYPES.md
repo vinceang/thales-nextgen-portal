@@ -131,7 +131,7 @@ export function GenrePill(props: GenrePillProps): JSX.Element;
 import * as React from "react";
 
 export type IconName =
-  | "menu" | "search" | "wifi" | "user" | "x"
+  | "menu" | "home" | "search" | "wifi" | "user" | "x"
   | "plane" | "chevron-right" | "chevron-left" | "chevron-down"
   | "mountain" | "gauge" | "navigation" | "clock"
   | "sun" | "cloud" | "cloud-sun" | "cloud-rain"
@@ -754,6 +754,8 @@ export interface HeroBannerProps {
   title: React.ReactNode;
   /** Primary CTA label (uppercased). Omit for no button. */
   ctaLabel?: string;
+  /** Append a trailing chevron to the CTA (mirrors the Link `arrow` affordance). */
+  ctaArrow?: boolean;
   onCta?: () => void;
   height?: number;
   style?: React.CSSProperties;
@@ -768,8 +770,16 @@ export function HeroBanner(props: HeroBannerProps): JSX.Element;
 ```ts
 import * as React from "react";
 
+/** Font role for a tile's title or kicker. */
+export type TileFontRole = "display" | "sans" | "tile";
+
 /**
- * Signature bento media cell — full-bleed image, bottom scrim, kicker + serif title.
+ * Signature bento media cell — full-bleed image, bottom scrim, kicker + title.
+ *
+ * Title font is PROMINENCE-DRIVEN by default: a large featured / hero tile gets
+ * the Playfair display face; an ordinary gallery tile gets Montserrat. Noto Serif
+ * ("tile") is opt-in. Override per tile with `titleFont` / `kickerFont` (font role)
+ * or `titleStyle` / `kickerStyle` (arbitrary style).
  */
 export interface ShowcaseTileProps {
   /** Full-bleed background image URL. */
@@ -779,17 +789,26 @@ export interface ShowcaseTileProps {
   /** Tile title. */
   title: React.ReactNode;
   /**
-   * Title font family:
-   *  "tile"    — Noto Serif Display 600 (default)
-   *  "sans"    — Montserrat 700
-   *  "display" — Playfair Display 700 (reserve for hero-level tiles only)
+   * Title font role override. Omitted → chosen by prominence: large/hero tile →
+   * "display" (Playfair); otherwise → "sans" (Montserrat).
+   *  "display" — Playfair Display 600
+   *  "sans"    — Montserrat 600
+   *  "tile"    — Noto Serif Display 600 (opt-in)
    */
-  font?: "tile" | "sans" | "display";
-  /** @deprecated Use `font`. Serif title (Noto Serif); false = Montserrat. */
+  titleFont?: TileFontRole;
+  /** Kicker font role override. Defaults to Montserrat (the kicker's own face). */
+  kickerFont?: TileFontRole;
+  /** Arbitrary style overrides for the title element. */
+  titleStyle?: React.CSSProperties;
+  /** Arbitrary style overrides for the kicker element. */
+  kickerStyle?: React.CSSProperties;
+  /** @deprecated Use `titleFont`. Alias for the title font role. */
+  font?: TileFontRole;
+  /** @deprecated Use `titleFont`. true = Noto Serif ("tile"); false = Montserrat ("sans"). */
   serif?: boolean;
-  /** Title font-size in px. */
+  /** Title font-size in px. Drives the prominence default (≥30 → display). */
   titleSize?: number;
-  /** Tile height in px. */
+  /** Tile height in px. Also drives the prominence default (≥300 → display). */
   height?: number;
   align?: "left" | "center";
   onClick?: () => void;
@@ -1270,7 +1289,7 @@ export function FilterSection(props: FilterSectionProps): JSX.Element;
 import * as React from "react";
 
 /**
- * Sticky top bar: hamburger + logo, centered title, search / Wi-Fi / profile icons.
+ * Sticky top bar: hamburger + home (+ optional logo), centered title, search / Wi-Fi / profile icons.
  */
 export interface NavBarProps {
   /** Centered view title (e.g. "Showcase", "Movies"). */
@@ -1278,6 +1297,8 @@ export interface NavBarProps {
   /** Logo image URL shown beside the hamburger. */
   logo?: string;
   onMenu?: () => void;
+  /** Click handler for the standard Home button (shown to the right of the hamburger). */
+  onHome?: () => void;
   /** Wi-Fi glyph active (bright-blue) when connected. */
   wifiActive?: boolean;
   onSearch?: () => void;
