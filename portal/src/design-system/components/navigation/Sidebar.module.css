@@ -1,0 +1,113 @@
+/* Sidebar — configurable nav surface. variant="rail" (icon rail that expands
+   in-flow) | variant="overlay" (full-height drawer). open via data-open. */
+
+/* ── B · icon rail ───────────────────────────────────────────── */
+.rail {
+  flex: 0 0 auto;
+  align-self: stretch;
+  width: 72px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-inline-end: var(--border-width) solid var(--border-hairline);
+  background: var(--bg-page);
+  transition: width 0.3s var(--ease-smooth);
+}
+.rail[data-open="true"] { width: 264px; }
+.railTrack { width: 264px; box-sizing: border-box; padding: 14px 0; display: flex; flex-direction: column; gap: 4px; }
+.railToggle { display: flex; justify-content: center; width: 72px; }
+
+.railFlight { position: relative; min-height: 48px; margin-bottom: 4px; border-bottom: var(--border-width) solid var(--border-hairline); }
+.railPlane {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  height: 100%;
+  width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-emphasis);
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-smooth);
+}
+.rail[data-open="true"] .railPlane { opacity: 0; }
+.railPlaneIcon { display: flex; transform: rotate(45deg); }
+.railTrackerWrap { padding: 10px 16px 14px; white-space: nowrap; opacity: 0; transition: opacity 0.2s var(--ease-smooth); }
+.rail[data-open="true"] .railTrackerWrap { opacity: 1; }
+
+.railTitle {
+  padding: 8px 16px 6px;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 0.2s var(--ease-smooth);
+}
+.rail[data-open="true"] .railTitle { opacity: 1; }
+
+.railItem {
+  position: relative;
+  width: 264px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  padding-inline-start: 14px;
+  padding-inline-end: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--on-surface-muted);
+  transition: background 0.2s var(--ease-smooth), color 0.2s var(--ease-smooth);
+}
+.railItem:not([data-active="true"]):hover { background: var(--hover-veil); color: var(--text-primary); }
+.railItem[data-active="true"] { background: var(--surface-input); color: var(--color-bright-blue); }
+.railRule { position: absolute; inset-inline-start: 0; top: 9px; bottom: 9px; width: 2px; background: var(--color-bright-blue); }
+.railIcon { flex: 0 0 auto; width: 44px; display: flex; justify-content: center; }
+.railLabel { font-weight: 600; font-size: 15px; white-space: nowrap; opacity: 0; transition: opacity 0.2s var(--ease-smooth); }
+.rail[data-open="true"] .railLabel { opacity: 1; }
+.railBadge { margin-inline-start: auto; font-size: 12px; font-weight: 700; color: var(--color-bright-blue); white-space: nowrap; opacity: 0; transition: opacity 0.2s var(--ease-smooth); }
+.rail[data-open="true"] .railBadge { opacity: 1; }
+
+/* ── A · overlay drawer ──────────────────────────────────────── */
+.overlay { position: absolute; inset: 0; z-index: 50; pointer-events: none; }
+.overlay[data-open="true"] { pointer-events: auto; }
+.overlayBackdrop { position: absolute; inset: 0; background: var(--overlay-backdrop); opacity: 0; transition: opacity 0.3s var(--ease-smooth); }
+.overlay[data-open="true"] .overlayBackdrop { opacity: 1; }
+.overlayPanel {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: min(360px, 82vw);
+  background: var(--bg-page);
+  border-inline-end: var(--border-width) solid var(--border-hairline);
+  transform: translateX(-100%);
+  transition: transform 0.3s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  box-sizing: border-box;
+}
+.overlay[data-open="true"] .overlayPanel { transform: translateX(0); }
+.overlayHead { display: flex; align-items: center; gap: 16px; padding: 0 20px 8px; }
+.overlayTracker { flex: 1; }
+.overlayNav { display: flex; flex-direction: column; gap: 2px; padding: 24px 28px; }
+.overlayItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(24px, calc(24px + 6 * (100vw - 480px) / 720), 30px);
+  line-height: 1.55;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color 0.3s var(--ease-smooth);
+}
+.overlayItem:not([data-active="true"]):hover { color: var(--text-secondary); }
+.overlayItem[data-active="true"] { color: var(--color-bright-blue); }
+.overlayBadge { font-size: 12px; font-weight: 700; color: var(--color-bright-blue); }

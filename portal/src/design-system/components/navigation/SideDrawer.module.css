@@ -1,0 +1,55 @@
+/* SideDrawer — full-height black slide-out menu. open via data-open. Nav items
+   left-align with the FlightTracker origin code (inset via --nav-inset). */
+.root { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+.root[data-open="true"] { pointer-events: auto; }
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-backdrop);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-smooth);
+}
+.root[data-open="true"] .backdrop { opacity: 1; }
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(360px, 82vw);
+  background: var(--color-black);
+  transform: translateX(-100%);
+  transition: transform 0.3s var(--ease-smooth);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+  box-sizing: border-box;
+}
+.root[data-open="true"] .panel { transform: translateX(0); }
+
+.head { display: flex; align-items: center; gap: 16px; padding-inline: 20px; padding-block-end: 8px; }
+.tracker { flex: 1; }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-block: 24px;
+  padding-inline-start: var(--nav-inset);
+  padding-inline-end: 28px;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(24px, calc(24px + 6 * (100vw - 480px) / 720), 30px);
+  line-height: 1.55;
+  cursor: pointer;
+  color: var(--color-white);
+  transition: color 0.3s var(--ease-smooth);
+}
+.item:not([data-active="true"]):hover { color: var(--on-surface-muted); }
+.item[data-active="true"] { color: var(--color-bright-blue); }

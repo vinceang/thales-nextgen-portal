@@ -1,0 +1,31 @@
+/* FilterPanel — filter groups container; FilterSection = one labelled group. */
+.panel { display: flex; flex-direction: column; font-family: var(--font-sans); }
+.head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; }
+.title { font-weight: 700; font-size: var(--fs-h3); color: var(--text-primary); }
+.count { font-size: 12px; font-weight: 700; color: var(--color-bright-blue); }
+.clear {
+  margin-inline-start: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  color: var(--on-surface-muted);
+  transition: color var(--dur-link) var(--ease-smooth);
+}
+.clear:hover { color: var(--color-bright-blue); }
+
+.section { border-top: 1px solid var(--color-border); padding-block: 18px; }
+.sectionLabel {
+  margin-bottom: 14px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.sectionBody { display: flex; flex-direction: column; gap: 12px; }
