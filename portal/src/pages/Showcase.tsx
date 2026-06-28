@@ -65,9 +65,11 @@ export default function Showcase() {
   const navigate = useNavigate();
 
   const items = {
-    // Row 1 — big hero (spans) + a stacked promo rail
+    // Row 1 — big hero (spans) + two promo cells (r1/r2). The hero fills its
+    // 2-row span on desktop (height 100%) and falls back to its 2:1 aspect when
+    // it occupies its own row on tablet/phone.
     hero: (
-      <div style={{ aspectRatio: "2 / 1" }}>
+      <div style={{ aspectRatio: "2 / 1", height: "100%" }}>
         <HeroBanner
           image={HERO.img}
           kicker={HERO.kicker}
@@ -79,16 +81,8 @@ export default function Showcase() {
         />
       </div>
     ),
-    rail: (
-      <div style={{ display: "flex", flexDirection: "column", gap: 16, height: "100%" }}>
-        <div style={{ flex: 1, minHeight: 120 }}>
-          <ShowcaseTile image={byId["young-sheldon"].img} kicker="Watch" title="Young Sheldon" titleSize={22} height="100%" />
-        </div>
-        <div style={{ flex: 1, minHeight: 120 }}>
-          <ShowcaseTile image={byId["billie"].img} kicker="Listen" title="Billie Eilish" titleSize={22} height="100%" />
-        </div>
-      </div>
-    ),
+    r1: <Tile t={byId["young-sheldon"]} titleSize={22} />,
+    r2: <Tile t={byId["billie"]} titleSize={22} />,
     // Row 2 — four 2:1 tiles
     sq: <Tile t={byId["squid"]} />,
     rm: <Tile t={byId["red-moon"]} />,
@@ -123,13 +117,13 @@ export default function Showcase() {
         items={items}
         phone={{
           columns: "1fr",
-          areas: ["hero", "rail", "sq", "rm", "gm", "dn", "ep", "wx", "en", "df", "fg", "eb"],
+          areas: ["hero", "r1", "r2", "sq", "rm", "gm", "dn", "ep", "wx", "en", "df", "fg", "eb"],
         }}
         tablet={{
           columns: "1fr 1fr",
           areas: [
             "hero hero",
-            "rail rail",
+            "r1 r2",
             "sq rm",
             "gm dn",
             "ep ep",
@@ -141,7 +135,8 @@ export default function Showcase() {
         desktop={{
           columns: "repeat(12, 1fr)",
           areas: [
-            "hero hero hero hero hero hero hero hero rail rail rail rail",
+            "hero hero hero hero hero hero hero hero r1 r1 r1 r1",
+            "hero hero hero hero hero hero hero hero r2 r2 r2 r2",
             "sq sq sq rm rm rm gm gm gm dn dn dn",
             "ep ep ep ep ep ep ep ep wx wx wx wx",
             "en en en df df df fg fg fg eb eb eb",
