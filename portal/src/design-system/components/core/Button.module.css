@@ -1,0 +1,50 @@
+/* Button — primary action control. Sharp, uppercase Montserrat label.
+   All values are design tokens; states are real CSS (see ADR 0002). */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: var(--tracking-button);
+  line-height: 1.2;
+  text-transform: uppercase;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition:
+    background var(--dur-link) var(--ease-smooth),
+    color var(--dur-link) var(--ease-smooth),
+    border-color var(--dur-link) var(--ease-smooth);
+}
+
+/* Sizes */
+.btn[data-size="sm"] { font-size: 13px; padding: 6px 16px; }
+.btn[data-size="md"] { font-size: 14px; padding: 10px 22px; }
+.btn[data-size="lg"] { font-size: 16px; padding: 14px 28px; }
+
+/* Variants */
+.btn[data-variant="primary"] {
+  background: var(--color-highlight-blue);
+  color: var(--color-white);
+}
+.btn[data-variant="secondary"] {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--color-border-strong);
+}
+
+/* States — real pseudo-classes (replaces the old JS hover emulation).
+   TODO(ADR 0002 §4): tokenize the two hover literals below. */
+.btn[data-variant="primary"]:hover:not(:disabled) { background: rgb(13, 130, 232); }
+.btn[data-variant="secondary"]:hover:not(:disabled) { background: rgba(255, 255, 255, 0.08); }
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Modifiers */
+.btn[data-fullwidth="true"] { width: 100%; }
