@@ -1,0 +1,49 @@
+/* Toast — transient notification on black. Same icon-driven status as Alert. */
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  width: min(380px, 90vw);
+  padding: 14px 16px;
+  background: var(--color-black);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-card);
+  font-family: var(--font-sans);
+}
+.icon { flex: none; margin-top: 1px; color: var(--color-white); }
+.toast[data-blue="true"] .icon { color: var(--color-bright-blue); }
+
+.body { flex: 1; min-width: 0; }
+.title { font-size: 14px; font-weight: 600; color: var(--color-white); }
+.title:not(:last-child) { margin-bottom: 3px; }
+.message { font-size: 13px; line-height: 1.5; color: var(--on-surface-muted); }
+.action {
+  margin-top: 8px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  color: var(--color-bright-blue);
+}
+.close {
+  flex: none;
+  padding: 2px;
+  margin-inline-end: -2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--on-surface-faint);
+}
+
+/* Fixed corner stack */
+.viewport { position: fixed; z-index: 200; display: flex; flex-direction: column; gap: 12px; }
+.viewport[data-v="top"]    { top: 24px; }
+.viewport[data-v="bottom"] { bottom: 24px; }
+.viewport[data-h="end"]    { inset-inline-end: 24px; }
+.viewport[data-h="start"]  { inset-inline-start: 24px; }
+.viewport[data-h="center"] { inset-inline-start: 50%; transform: translateX(-50%); }

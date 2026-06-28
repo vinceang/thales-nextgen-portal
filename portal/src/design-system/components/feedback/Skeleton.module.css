@@ -1,0 +1,26 @@
+/* Skeleton — pulsing placeholder. Dimensions via --sk-w/--sk-h/--sk-gap. */
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+.text { display: flex; flex-direction: column; gap: var(--sk-gap); }
+.line {
+  width: var(--sk-w);
+  height: var(--sk-h);
+  background: var(--color-surface-3);
+  border-radius: var(--radius-control);
+  animation: pulse 1.4s var(--ease-smooth) infinite;
+}
+.line[data-last="true"] { width: 60%; }
+
+.block {
+  display: block;
+  width: var(--sk-w);
+  height: var(--sk-h);
+  background: var(--color-surface-3);
+  border-radius: var(--radius-card);
+  animation: pulse 1.4s var(--ease-smooth) infinite;
+}
+.block[data-variant="circle"] { border-radius: var(--radius-pill); }
+
+@media (prefers-reduced-motion: reduce) {
+  .line, .block { animation: none; }
+}

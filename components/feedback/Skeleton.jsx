@@ -1,45 +1,36 @@
 import React from "react";
+import s from "./Skeleton.module.css";
+
+/** Coerce a number|string dimension to a CSS length. */
+function len(v, fallback) {
+  const x = v ?? fallback;
+  return typeof x === "number" ? `${x}px` : x;
+}
 
 /**
- * Skeleton — content placeholder that pulses (ds-pulse) while real content
- * loads. `variant` text|block|circle. Square by default (radius-card) to match
- * the surface it stands in; circle for avatars. Use to reserve poster / tile /
- * list layout so there's no shift when data arrives.
+ * Skeleton — pulsing placeholder that reserves layout while content loads.
+ * `text` (one or more lines) | `block` (tile/poster) | `circle` (avatar).
  */
-export function Skeleton({ variant = "block", width, height, lines = 1, gap = 10, style, ...rest }) {
-  const base = {
-    background: "var(--color-surface-3)",
-    animation: "ds-pulse 1.4s var(--ease-smooth) infinite",
-  };
-
+export function Skeleton({ variant = "block", width, height, lines = 1, gap = 10, className, style, ...rest }) {
   if (variant === "text") {
     return (
-      <div style={{ display: "flex", flexDirection: "column", gap, ...style }} {...rest}>
+      <div className={className ? `${s.text} ${className}` : s.text} style={{ "--sk-gap": `${gap}px`, ...style }} {...rest}>
         {Array.from({ length: lines }).map((_, i) => (
           <span
             key={i}
-            style={{
-              ...base,
-              height: height || 12,
-              width: i === lines - 1 && lines > 1 ? "60%" : (width || "100%"),
-              borderRadius: "var(--radius-control)",
-            }}
+            className={s.line}
+            data-last={lines > 1 && i === lines - 1 ? "true" : undefined}
+            style={{ "--sk-w": len(width, "100%"), "--sk-h": len(height, 12) }}
           />
         ))}
       </div>
     );
   }
-
   return (
     <span
-      style={{
-        display: "block",
-        ...base,
-        width: width || "100%",
-        height: height || (variant === "circle" ? 48 : 120),
-        borderRadius: variant === "circle" ? "var(--radius-pill)" : "var(--radius-card)",
-        ...style,
-      }}
+      className={className ? `${s.block} ${className}` : s.block}
+      data-variant={variant}
+      style={{ "--sk-w": len(width, "100%"), "--sk-h": len(height, variant === "circle" ? 48 : 120), ...style }}
       {...rest}
     />
   );
