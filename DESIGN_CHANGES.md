@@ -108,3 +108,19 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer wanted each carousel CTA to match its card content and route to the matching page.
 
 ---
+
+### 2026-06-27 portal/src/pages/Showcase.tsx (Showcase v2)
+**Rule/token changed:** Layout — Showcase composition; v1 interactive features.
+**Was:** v1 Showcase used a hand-rolled flex hero with a rotating CarouselDots carousel, a centered GenrePill filter row, Skeleton loading states, and TileGrid "Featured"/"Destinations" rows.
+**Now:** Rebuilt as ONE `BentoGrid` (4 named rows: hero+rail, four tiles, feature+WeatherTile, four tiles) per the `ui_kits/portal/ShowcaseScreen.jsx` reference. The carousel/dots, genre-pill filter, and skeletons were dropped (the bento hub is a fixed editorial composition, not a filterable grid). Adds a `WeatherTile` panel.
+**Why:** Designer asked to rebuild the Showcase using BentoGrid (the configurable bento hub), matching the reference implementation.
+
+---
+
+### 2026-06-27 components/media/ShowcaseTile.d.ts + components/media/HeroBanner.d.ts
+**Rule/token changed:** Type signature — `height` prop.
+**Was:** `height?: number` (px only) on both ShowcaseTile and HeroBanner, though the components already apply the value directly as a CSS height.
+**Now:** Widened to `height?: number | string` so a tile/banner can fill its grid cell with `height="100%"` (the reference's aspect-ratio pattern). No runtime change; types now match behavior.
+**Why:** The BentoGrid reference sizes tiles via an aspect-ratio wrapper + `height="100%"`, which the px-only type rejected.
+
+---

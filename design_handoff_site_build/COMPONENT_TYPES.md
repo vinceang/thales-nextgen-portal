@@ -757,7 +757,8 @@ export interface HeroBannerProps {
   /** Append a trailing chevron to the CTA (mirrors the Link `arrow` affordance). */
   ctaArrow?: boolean;
   onCta?: () => void;
-  height?: number;
+  /** Banner height — px number, or a CSS length string (e.g. "100%") to fill its cell. */
+  height?: number | string;
   style?: React.CSSProperties;
 }
 
@@ -808,8 +809,9 @@ export interface ShowcaseTileProps {
   serif?: boolean;
   /** Title font-size in px. Drives the prominence default (≥30 → display). */
   titleSize?: number;
-  /** Tile height in px. Also drives the prominence default (≥300 → display). */
-  height?: number;
+  /** Tile height — px number, or a CSS length string (e.g. "100%") to fill its cell.
+   *  A numeric height ≥300 drives the prominence default (→ display). */
+  height?: number | string;
   align?: "left" | "center";
   onClick?: () => void;
   style?: React.CSSProperties;

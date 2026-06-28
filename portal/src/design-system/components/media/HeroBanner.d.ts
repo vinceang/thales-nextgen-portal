@@ -14,7 +14,8 @@ export interface HeroBannerProps {
   /** Append a trailing chevron to the CTA (mirrors the Link `arrow` affordance). */
   ctaArrow?: boolean;
   onCta?: () => void;
-  height?: number;
+  /** Banner height — px number, or a CSS length string (e.g. "100%") to fill its cell. */
+  height?: number | string;
   style?: React.CSSProperties;
 }
 
