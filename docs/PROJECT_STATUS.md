@@ -4,7 +4,7 @@
 then update the relevant sections when you finish work. Goal: a new session can get
 oriented from this one file plus the canonical sources it points to.
 
-_Last updated: 2026-06-27_
+_Last updated: 2026-06-28_
 
 ---
 
@@ -39,6 +39,13 @@ headless system Chrome instead):
 
 Breakpoints to check every page: **desktop ≥1101 / tablet 561–1100 / phone ≤560**
 (BentoGrid/TileGrid reflow at 1101 & 561px).
+
+⚠️ **Phone screenshots:** Chrome's `--window-size=400,…` one-shot renders WIDER than
+asked (~500px innerWidth), so a 390px phone looks clipped when it isn't. For an
+accurate mobile viewport, drive Chrome via CDP (`--remote-debugging-port=9222
+--remote-allow-origins=*`) and `Emulation.setDeviceMetricsOverride({width:390,…})`
+then `Page.captureScreenshot`. (websocket-client + a short python script; verified the
+Connect page this way.)
 
 ## 3. Workflow & rules (READ BEFORE CODING)
 
@@ -81,8 +88,11 @@ Breakpoints to check every page: **desktop ≥1101 / tablet 561–1100 / phone �
 - **Showcase (`/`) — DONE (v2).** One `BentoGrid` (hero + r1/r2 rail · four tiles ·
   feature + WeatherTile · four tiles); reference `ui_kits/portal/ShowcaseScreen.jsx`.
   Verified desktop/tablet/phone, uniform 16px gaps.
-- Routes **stubbed** (`StubPage`): `/connect` `/watch` `/listen` `/news` `/weather`
-  `/account`.
+- **Connect / Plans (`/connect`) — DONE.** Branch `feat/connect-plans` (not yet merged).
+  Breadcrumbs + editorial split header (BentoGrid) + 3 `PlanCard`s (`TileGrid` 3-up,
+  stacks on phone) → purchase `Modal` → success `Toast` + `Alert` (header swaps to the
+  Alert once connected). Content is in `src/content/connect.ts` (admin-tool seam, ADR 0001).
+- Routes still **stubbed** (`StubPage`): `/watch` `/listen` `/news` `/weather` `/account`.
 
 **Design-system refinements made & logged** (see `DESIGN_CHANGES.md`; flagged for
 upstream ratification): ShowcaseTile prominence-driven fonts + `titleFont`/`kickerFont`/
@@ -92,11 +102,13 @@ on ShowcaseTile/HeroBanner.
 
 ## 6. Build order (one page per session)
 
-`01 Showcase ✓` → **`02 Connect/Plans` (NEXT)** → `03 Account/Settings` →
+`01 Showcase ✓` → `02 Connect/Plans ✓` → **`03 Account/Settings` (NEXT, comp 03)** →
 `Watch / Listen / News` → `Weather`. Comps + specs: `design_handoff_site_build/page-comps/`.
 
-Per **ADR 0001**, model each page's cell content as a **data array** (not inlined in
-JSX) so a future admin tool can populate cells; `contentType` drives kicker/CTA defaults.
+Per **ADR 0001**, model each page's content as a typed **content module** in
+`src/content/<page>.ts` (not inlined in JSX) — the seam a future admin tool populates.
+`Connect` follows this (`src/content/connect.ts`, `getConnectContent()`); do the same for
+new pages.
 
 ## 7. Open items / flags
 
@@ -107,6 +119,16 @@ JSX) so a future admin tool can populate cells; `contentType` drives kicker/CTA 
   to an explicit `CellContent[]` shape as the pattern for other pages.
 - **Upstream ratification:** the design-system refinements in §5 are app-side until the
   designer syncs them into the canonical design system.
+- **Connect — recommended card position:** the written page spec said "middle card
+  recommended," but all three provided mockups show **High-Speed Streaming recommended &
+  rightmost** ($2 / $4 / $6). Built to match the mockups; flip the data order if "middle"
+  was intended.
+- **Connect — phone card order:** the phone mockup floats the recommended card to the
+  **top**; the build stacks in source order (Messaging, Browsing, High-Speed). Reorder
+  needs per-breakpoint ordering (not built — would need CSS `order` or a phone-only sort).
+- **PlanCard shadow:** the shipped `components/domain/PlanCard.jsx` has a baked-in
+  `box-shadow`, which contradicts the system's "no shadows" rule. Left as-is (used the
+  component unmodified); flag to the designer to remove upstream.
 
 ## 8. Key files
 

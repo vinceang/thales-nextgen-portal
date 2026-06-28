@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AppShell from "./shell/AppShell";
 import Showcase from "./pages/Showcase";
+import Connect from "./pages/Connect";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -8,7 +9,7 @@ export default function App() {
     <Routes>
       <Route element={<AppShell />}>
         <Route path="/" element={<Showcase />} />
-        <Route path="/connect" element={<StubPage title="Connect" note="Wi-Fi plans — comp 02" />} />
+        <Route path="/connect" element={<Connect />} />
         <Route path="/watch" element={<StubPage title="Watch" note="Movies & TV" />} />
         <Route path="/listen" element={<StubPage title="Listen" note="Music & audio" />} />
         <Route path="/news" element={<StubPage title="News" note="Editorial headlines" />} />

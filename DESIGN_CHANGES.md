@@ -132,3 +132,19 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer asked that on tablet the two promo cells stay 2:1 and occupy two columns beneath the hero, instead of stretching full-width.
 
 ---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (Connect/Plans header)
+**Rule/token changed:** Token usage — header type sizes & blurb color vs the `PlansScreen.jsx` reference's literals.
+**Was:** The reference (and the page-build spec) hard-code the editorial header: title `fontSize: 60`, blurb `fontSize: 17` and `color: rgba(255,255,255,0.82)`.
+**Now:** Used tokens: title `var(--fs-h1)` (= 60px desktop, fluid down on mobile), blurb `var(--fs-body)` (≈18px desktop, fluid) and `var(--on-surface-2)` (which IS `rgba(255,255,255,0.82)`). Bold emphasis span uses `var(--color-white)`.
+**Why:** CLAUDE rule — all colors/sizes from tokens, no hard-coded values; fluid `--fs-*` also gives the mobile down-scaling the phone mockup shows. (Visual delta: blurb 17→18px desktop; otherwise identical.)
+
+---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (Connect/Plans header layout)
+**Rule/token changed:** Layout — responsive editorial header (vs the reference's raw CSS grid).
+**Was:** `PlansScreen.jsx` lays the split header out as a plain CSS grid (`1.2fr 1fr`), relying on the ui-kit's external `.plans-head` CSS to stack it on phone.
+**Now:** Built the header with `BentoGrid` (regions `title`/`blurb`): desktop & tablet `1.2fr 1fr`, phone single-column stack — responsive without a hand-rolled media query.
+**Why:** CLAUDE rule — compose layout with TileGrid/BentoGrid, never hand-rolled grid + media queries.
+
+---
