@@ -12,6 +12,7 @@ export interface DatePickerProps {
   /** Called with the chosen Date. */
   onChange?: (date: Date) => void;
   placeholder?: string;
+  className?: string;
   style?: React.CSSProperties;
 }
 

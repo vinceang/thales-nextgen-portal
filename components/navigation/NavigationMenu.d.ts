@@ -23,6 +23,7 @@ export interface NavigationMenuProps {
   items?: NavMenuItem[] | NavMenuGroup[];
   value?: string;
   onSelect?: (value: string, item: NavMenuItem) => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

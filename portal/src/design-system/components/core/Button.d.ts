@@ -14,6 +14,7 @@ export interface ButtonProps {
   type?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

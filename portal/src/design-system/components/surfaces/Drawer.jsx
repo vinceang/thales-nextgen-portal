@@ -1,13 +1,14 @@
 import React from "react";
 import { Icon } from "../core/Icon.jsx";
+import s from "./Drawer.module.css";
+
+function len(v, d) { const x = v ?? d; return typeof x === "number" ? `${x}px` : x; }
 
 /**
- * Drawer — edge sheet that slides in over a dim black backdrop. Generic content
- * panel (filters, cart, details). For the portal's primary slide-out NAV use
- * SideDrawer. `side` start|end|bottom is RTL-aware (start/end follow the inline
- * axis; the slide direction mirrors). Flat, dark, no shadow.
+ * Drawer — edge sheet that slides in over a dim backdrop. `side` start|end|bottom
+ * is RTL-aware. For the primary slide-out NAV use SideDrawer. Size via --drawer-size.
  */
-export function Drawer({ open, onClose, side = "end", title, footer, size = 380, children, style, ...rest }) {
+export function Drawer({ open, onClose, side = "end", title, footer, size = 380, children, className, style, ...rest }) {
   React.useEffect(() => {
     if (!open) return;
     const onEsc = (e) => { if (e.key === "Escape") onClose && onClose(); };
@@ -17,46 +18,26 @@ export function Drawer({ open, onClose, side = "end", title, footer, size = 380,
 
   if (!open) return null;
 
-  const bottom = side === "bottom";
-  const panelPos = bottom
-    ? { insetInline: 0, bottom: 0, width: "100%", maxHeight: typeof size === "number" ? size : size, borderTop: "1px solid var(--color-border-strong)" }
-    : side === "start"
-    ? { insetInlineStart: 0, top: 0, bottom: 0, width: size, borderInlineEnd: "1px solid var(--color-border-strong)" }
-    : { insetInlineEnd: 0, top: 0, bottom: 0, width: size, borderInlineStart: "1px solid var(--color-border-strong)" };
-
   return (
-    <div
-      onMouseDown={(e) => { if (e.target === e.currentTarget) onClose && onClose(); }}
-      style={{ position: "fixed", inset: 0, zIndex: 290, background: "rgba(0,0,0,0.7)" }}
-    >
+    <div className={s.backdrop} onMouseDown={(e) => { if (e.target === e.currentTarget) onClose && onClose(); }}>
       <div
         role="dialog"
         aria-modal="true"
-        style={{
-          position: "absolute", ...panelPos, maxWidth: "100%",
-          display: "flex", flexDirection: "column",
-          background: "var(--color-black)",
-          ...style,
-        }}
+        data-side={side}
+        className={className ? `${s.panel} ${className}` : s.panel}
+        style={{ "--drawer-size": len(size, 380), ...style }}
         {...rest}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "20px 24px", borderBottom: "1px solid var(--color-border)" }}>
-          {title && <div style={{ flex: 1, fontFamily: "var(--font-sans)", fontWeight: 600, fontSize: "var(--fs-h3)", color: "var(--color-white)" }}>{title}</div>}
+        <div className={s.header}>
+          {title && <div className={s.title}>{title}</div>}
           {onClose && (
-            <button type="button" aria-label="Close" onClick={onClose}
-              style={{ flex: "none", marginInlineStart: "auto", background: "none", border: "none", padding: 4, cursor: "pointer", color: "rgba(255,255,255,0.7)" }}>
+            <button type="button" aria-label="Close" className={s.close} onClick={onClose}>
               <Icon name="x" size={22} strokeWidth={1.9} />
             </button>
           )}
         </div>
-        <div style={{ flex: 1, overflowY: "auto", padding: 24, fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.6, color: "rgba(255,255,255,0.85)" }}>
-          {children}
-        </div>
-        {footer && (
-          <div style={{ display: "flex", gap: 12, justifyContent: "flex-end", padding: 24, borderTop: "1px solid var(--color-border)" }}>
-            {footer}
-          </div>
-        )}
+        <div className={s.body}>{children}</div>
+        {footer && <div className={s.footer}>{footer}</div>}
       </div>
     </div>
   );

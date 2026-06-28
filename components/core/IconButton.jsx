@@ -1,44 +1,22 @@
 import React from "react";
+import s from "./IconButton.module.css";
 
 /**
- * IconButton — square, borderless icon affordance used in the nav bar
- * (search, Wi-Fi, profile) and small controls. Themed line icon
- * (follows --text-primary), no fill.
+ * IconButton — square, borderless icon affordance (nav bar + small controls).
+ * Real :hover (was JS). Glyph box sized via the --ib-size custom property.
  */
-export function IconButton({
-  label,
-  active = false,
-  size = 22,
-  onClick,
-  children,
-  style,
-  ...rest
-}) {
+export function IconButton({ label, active = false, size = 22, onClick, children, className, style, ...rest }) {
   return (
     <button
       type="button"
       aria-label={label}
       onClick={onClick}
-      style={{
-        background: "transparent",
-        border: "none",
-        padding: 6,
-        cursor: "pointer",
-        color: active ? "var(--color-highlight-blue)" : "var(--text-primary)",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        lineHeight: 0,
-        width: size + 12,
-        height: size + 12,
-        transition: "color 0.3s var(--ease-smooth), opacity 0.3s var(--ease-smooth)",
-        ...style,
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
-      onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+      data-active={active || undefined}
+      className={className ? `${s.btn} ${className}` : s.btn}
+      style={{ "--ib-size": `${size}px`, ...style }}
       {...rest}
     >
-      <span style={{ width: size, height: size, display: "inline-block" }}>{children}</span>
+      <span className={s.icon}>{children}</span>
     </button>
   );
 }

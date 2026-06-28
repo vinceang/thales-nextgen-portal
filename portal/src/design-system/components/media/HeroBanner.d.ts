@@ -16,6 +16,7 @@ export interface HeroBannerProps {
   onCta?: () => void;
   /** Banner height — px number, or a CSS length string (e.g. "100%") to fill its cell. */
   height?: number | string;
+  className?: string;
   style?: React.CSSProperties;
 }
 

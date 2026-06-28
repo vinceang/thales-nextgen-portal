@@ -1,0 +1,31 @@
+/* Select — labelled dropdown matching the Input fill, with a chevron. */
+.wrap { display: flex; flex-direction: column; gap: 8px; }
+.label { font-family: var(--font-sans); font-size: 16px; font-weight: 400; color: var(--on-surface); }
+.control { position: relative; }
+.select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 44px 14px 16px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-white);
+  background: var(--color-surface-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.select[data-empty="true"] { color: var(--color-grey); }
+.select:focus { border-color: var(--color-highlight-blue); }
+.chev {
+  position: absolute;
+  inset-inline-end: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--on-surface-muted);
+}
+/* native option list renders on an OS-white menu */
+.opt { color: var(--color-ink); }

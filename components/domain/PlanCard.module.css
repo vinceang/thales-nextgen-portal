@@ -1,0 +1,54 @@
+/* PlanCard — Wi-Fi pricing card. Recommended = solid blue top bar + filled CTA;
+   standard = dashed accent + outlined CTA. Sharp, flat (no shadow — ADR 0002). */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 220px;
+  border-radius: var(--radius-card);
+  background: linear-gradient(180deg, rgba(36, 42, 50, 0.55) 0%, rgba(12, 15, 18, 0.9) 100%);
+}
+
+.topbar { height: 6px; background: repeating-linear-gradient(90deg, rgba(31, 153, 255, 0.55) 0 26px, transparent 26px 40px); }
+.card[data-recommended="true"] .topbar { background: var(--color-highlight-blue); }
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-block: var(--pad-card-block);
+  padding-inline: var(--pad-card-inline);
+}
+
+.name { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.star { color: var(--color-bright-blue); }
+.nameText { font-family: var(--font-sans); font-weight: 700; font-size: 20px; color: var(--text-primary); text-align: center; }
+
+.price {
+  margin: 18px 0 28px;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.features { display: flex; flex-direction: column; gap: 16px; }
+.feature { display: flex; gap: 12px; align-items: center; }
+.check {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-highlight-blue);
+  color: var(--color-white);
+}
+.featureText { font-family: var(--font-sans); font-weight: 400; font-size: 16px; color: var(--text-primary); }
+
+.spacer { flex: 1; min-height: 28px; }
+.badge { margin-bottom: 14px; font-family: var(--font-sans); font-weight: 700; font-size: 15px; color: var(--color-bright-blue); text-align: center; }

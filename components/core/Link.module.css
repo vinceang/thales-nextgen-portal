@@ -1,0 +1,34 @@
+/* Link — inline body link (bright-blue, underline on hover) or standalone
+   uppercase action link. Real :hover (was JS). */
+.link {
+  display: inline;
+  cursor: pointer;
+  transition: color var(--dur-link) var(--ease-smooth);
+}
+.link[data-arrow="true"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link[data-variant="inline"] {
+  font-family: inherit;
+  color: var(--color-bright-blue);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.link[data-variant="inline"]:hover {
+  color: var(--color-link-blue);
+  text-decoration: underline;
+}
+
+.link[data-variant="standalone"] {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-button);
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  color: var(--color-white);
+  text-decoration: none;
+}
+.link[data-variant="standalone"]:hover { color: var(--color-bright-blue); }

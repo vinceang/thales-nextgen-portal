@@ -1,0 +1,13 @@
+/* DetailItem — quiet label-over-value spec pair. */
+.item { display: flex; flex-direction: column; gap: 6px; min-width: 0; text-align: start; align-items: flex-start; }
+.item[data-align="right"]  { text-align: end; align-items: flex-end; }
+.item[data-align="center"] { text-align: center; align-items: center; }
+.label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-subscript);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.value { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-body); color: var(--text-primary); }

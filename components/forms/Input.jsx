@@ -1,50 +1,22 @@
 import React from "react";
+import s from "./Input.module.css";
 
 /**
- * Input — labelled text field. Label sits above; the field is a flush dark
- * rectangle (slightly lighter than the page), square corners, grey placeholder.
- * Focus draws a 1px highlight-blue border.
+ * Input — labelled text field. Flush dark fill, square corners, real :focus
+ * highlight-blue border (was a JS focus handler).
  */
-export function Input({
-  label,
-  id,
-  type = "text",
-  placeholder,
-  value,
-  onChange,
-  style,
-  inputStyle,
-  ...rest
-}) {
+export function Input({ label, id, type = "text", placeholder, value, onChange, className, style, inputStyle, ...rest }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 8, ...style }}>
-      {label && (
-        <label htmlFor={id} style={{ fontFamily: "var(--font-sans)", fontSize: 16, fontWeight: 400, color: "var(--on-surface)" }}>
-          {label}
-        </label>
-      )}
+    <div className={className ? `${s.wrap} ${className}` : s.wrap} style={style}>
+      {label && <label htmlFor={id} className={s.label}>{label}</label>}
       <input
         id={id}
         type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        style={{
-          fontFamily: "var(--font-sans)",
-          fontSize: 15,
-          color: "var(--text-primary)",
-          background: "var(--color-surface-3)",
-          border: "1px solid transparent",
-          borderRadius: "var(--radius-control)",
-          padding: "14px 16px",
-          width: "100%",
-          boxSizing: "border-box",
-          outline: "none",
-          transition: "border-color 0.2s var(--ease-smooth)",
-          ...inputStyle,
-        }}
-        onFocus={(e) => (e.currentTarget.style.borderColor = "var(--color-highlight-blue)")}
-        onBlur={(e) => (e.currentTarget.style.borderColor = "transparent")}
+        className={s.input}
+        style={inputStyle}
         {...rest}
       />
     </div>

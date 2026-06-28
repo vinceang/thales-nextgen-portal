@@ -1,0 +1,34 @@
+/* Tabs — horizontal view switcher; active = bright-blue with an accent underline. */
+.tablist {
+  display: flex;
+  gap: 28px;
+  align-items: stretch;
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab {
+  position: relative;
+  padding: 0 0 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--on-surface-muted);
+  transition: color var(--dur-link) var(--ease-smooth);
+}
+.tab:not([data-active="true"]):hover { color: var(--color-white); }
+.tab[data-active="true"] { font-weight: 700; color: var(--color-bright-blue); }
+
+.underline {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  background: transparent;
+  transition: background var(--dur-link) var(--ease-smooth);
+}
+.tab[data-active="true"] .underline { background: var(--color-highlight-blue); }

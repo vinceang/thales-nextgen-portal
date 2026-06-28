@@ -1,56 +1,24 @@
 import React from "react";
+import s from "./Toggle.module.css";
 
 /**
- * Toggle — on/off switch. One of the system's few rounded shapes (pill track +
- * round knob). On = highlight-blue track, knob slid to the inline-end; off =
- * surface fill. RTL-safe: the knob travels along the inline axis. Optional
- * label sits after the switch.
+ * Toggle — on/off switch (rounded track + knob). Highlight-blue when on; the
+ * knob travels the inline axis (RTL-safe). Track/knob sizes flow through CSS vars.
  */
-export function Toggle({ checked = false, onChange, disabled = false, label, size = 26, children, style, ...rest }) {
+export function Toggle({ checked = false, onChange, disabled = false, label, size = 26, children, className, style, ...rest }) {
   const w = size * 1.8;
   const knob = size - 6;
   return (
     <label
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 12,
-        cursor: disabled ? "not-allowed" : "pointer",
-        opacity: disabled ? 0.45 : 1,
-        ...style,
-      }}
+      data-disabled={disabled || undefined}
+      className={className ? `${s.label} ${className}` : s.label}
+      style={{ "--tg-w": `${w}px`, "--tg-size": `${size}px`, "--tg-knob": `${knob}px`, ...style }}
       {...rest}
     >
-      <span
-        onClick={() => !disabled && onChange && onChange(!checked)}
-        style={{
-          position: "relative",
-          flex: "none",
-          width: w,
-          height: size,
-          borderRadius: "var(--radius-pill)",
-          background: checked ? "var(--color-highlight-blue)" : "var(--color-surface-3)",
-          border: checked ? "1px solid var(--color-highlight-blue)" : "1px solid var(--color-border-strong)",
-          transition: "background 0.25s var(--ease-smooth), border-color 0.25s var(--ease-smooth)",
-        }}
-      >
-        <span
-          style={{
-            position: "absolute",
-            top: "50%",
-            insetInlineStart: 2,
-            transform: `translateY(-50%) translateX(${checked ? w - knob - 6 : 0}px)`,
-            width: knob,
-            height: knob,
-            borderRadius: "var(--radius-pill)",
-            background: "var(--color-white)",
-            transition: "transform 0.25s var(--ease-smooth)",
-          }}
-        />
+      <span className={s.track} data-checked={checked || undefined} onClick={() => !disabled && onChange && onChange(!checked)}>
+        <span className={s.knob} />
       </span>
-      {(label || children) && (
-        <span style={{ fontFamily: "var(--font-sans)", fontSize: 15, color: "var(--on-surface)" }}>{label || children}</span>
-      )}
+      {(label || children) && <span className={s.text}>{label || children}</span>}
     </label>
   );
 }

@@ -1,0 +1,43 @@
+/* Modal — centered blocking dialog over a dim backdrop. Sharp, flat. Width via var. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--overlay-backdrop);
+}
+.dialog {
+  width: 100%;
+  max-width: var(--modal-w);
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-card);
+}
+.header { display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px 0; }
+.title {
+  flex: 1;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  letter-spacing: var(--tracking-headline);
+  color: var(--text-primary);
+}
+.close {
+  flex: none;
+  margin-inline-end: -4px;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--on-surface-muted);
+}
+.body { padding: 24px; overflow-y: auto; font-family: var(--font-sans); font-size: 15px; line-height: 1.65; color: var(--on-surface-2); }
+.footer { display: flex; gap: 12px; justify-content: flex-end; padding: 0 24px 24px; }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "../core/Icon.jsx";
+import s from "./WeatherGlyph.module.css";
 
 /**
  * AccuWeather condition-icon catalog. Each numeric code maps to a label, whether
@@ -73,6 +74,7 @@ export function WeatherGlyph({
   size = 48,
   color = "var(--color-bright-blue)",
   alt = "",
+  className,
   style,
 }) {
   const [err, setErr] = React.useState(false);
@@ -89,9 +91,10 @@ export function WeatherGlyph({
         width={size}
         height={size}
         onError={() => setErr(true)}
-        style={{ width: size, height: size, objectFit: "contain", display: "block", ...style }}
+        className={className ? `${s.img} ${className}` : s.img}
+        style={{ "--wg-size": `${size}px`, ...style }}
       />
     );
   }
-  return <Icon name={fallback} size={size} strokeWidth={1.5} color={color} style={style} />;
+  return <Icon name={fallback} size={size} strokeWidth={1.5} color={color} className={className} style={style} />;
 }

@@ -8,6 +8,7 @@ export interface NewsItemProps {
   /** Lead story = large stacked layout with a Playfair headline. */
   lead?: boolean;
   onClick?: () => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

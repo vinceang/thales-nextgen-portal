@@ -17,6 +17,7 @@ export interface PlanCardProps {
   ctaLabel?: string;
   onSelect?: () => void;
   className?: string;
+  className?: string;
   style?: React.CSSProperties;
 }
 

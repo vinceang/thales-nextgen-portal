@@ -1,11 +1,12 @@
 import React from "react";
+import s from "./Popover.module.css";
 
 /**
- * Popover — click-triggered floating panel anchored to a trigger. Holds richer
- * content than a Tooltip (links, lists, a small form). Dark surface, hairline
- * border, flat (no shadow). Closes on outside click / Esc. RTL-aware align.
+ * Popover — click-triggered floating panel for richer content than a Tooltip.
+ * Flat dark surface; closes on outside click / Esc. RTL-aware align. Width via
+ * the --po-w custom property.
  */
-export function Popover({ trigger, placement = "bottom", align = "start", width = 260, defaultOpen = false, children, style, ...rest }) {
+export function Popover({ trigger, placement = "bottom", align = "start", width = 260, defaultOpen = false, children, className, style, ...rest }) {
   const [open, setOpen] = React.useState(defaultOpen);
   const ref = React.useRef(null);
 
@@ -18,30 +19,11 @@ export function Popover({ trigger, placement = "bottom", align = "start", width 
     return () => { document.removeEventListener("mousedown", onDoc); document.removeEventListener("keydown", onEsc); };
   }, [open]);
 
-  const vert = placement === "top"
-    ? { bottom: "calc(100% + 8px)" }
-    : { top: "calc(100% + 8px)" };
-  const horiz = align === "end"
-    ? { insetInlineEnd: 0 }
-    : align === "center"
-    ? { insetInlineStart: "50%", transform: "translateX(-50%)" }
-    : { insetInlineStart: 0 };
-
   return (
-    <span ref={ref} style={{ position: "relative", display: "inline-flex", ...style }} {...rest}>
-      <span onClick={() => setOpen((o) => !o)} style={{ display: "inline-flex", cursor: "pointer" }}>
-        {trigger}
-      </span>
+    <span ref={ref} className={className ? `${s.wrap} ${className}` : s.wrap} style={style} {...rest}>
+      <span className={s.trigger} onClick={() => setOpen((o) => !o)}>{trigger}</span>
       {open && (
-        <div
-          role="dialog"
-          style={{
-            position: "absolute", zIndex: 120, ...vert, ...horiz, width,
-            background: "var(--color-surface-2)", border: "1px solid var(--color-border)",
-            borderRadius: "var(--radius-card)", padding: 16,
-            fontFamily: "var(--font-sans)", color: "var(--text-primary)",
-          }}
-        >
+        <div role="dialog" className={s.panel} data-placement={placement} data-align={align} style={{ "--po-w": `${width}px` }}>
           {typeof children === "function" ? children({ close: () => setOpen(false) }) : children}
         </div>
       )}

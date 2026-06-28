@@ -1,0 +1,23 @@
+/* IconButton — borderless square icon affordance. Size via the --ib-size var. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--ib-size) + 12px);
+  height: calc(var(--ib-size) + 12px);
+  padding: 6px;
+  background: transparent;
+  border: none;
+  line-height: 0;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color var(--dur-link) var(--ease-smooth), opacity var(--dur-link) var(--ease-smooth);
+}
+.btn:hover { opacity: 0.7; }
+.btn[data-active="true"] { color: var(--color-highlight-blue); }
+
+.icon {
+  display: inline-block;
+  width: var(--ib-size);
+  height: var(--ib-size);
+}

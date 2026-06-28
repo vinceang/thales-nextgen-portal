@@ -1,0 +1,2 @@
+/* WeatherGlyph — colored AccuWeather SVG (or line-icon fallback). Size via --wg-size. */
+.img { display: block; width: var(--wg-size); height: var(--wg-size); object-fit: contain; }

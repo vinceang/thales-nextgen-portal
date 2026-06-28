@@ -12,6 +12,7 @@ export interface Crumb {
  */
 export interface BreadcrumbsProps {
   items?: Crumb[];
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -16,6 +16,7 @@ export interface MetricTileProps {
   sub?: React.ReactNode;
   /** Icon color. Default bright-blue. */
   iconColor?: string;
+  className?: string;
   style?: React.CSSProperties;
 }
 

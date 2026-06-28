@@ -1,0 +1,33 @@
+/* FlightProgress — route hero. Progress (fill + plane) positioned via --fp-pct. */
+.card {
+  padding: clamp(20px, 3.2vw, 36px);
+  background: transparent;
+  border: var(--border-width) solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+.card[data-filled="true"] { background: var(--surface-tile); }
+
+.codes { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.col { min-width: 0; }
+.col[data-end="true"] { text-align: end; }
+.code {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(32px, calc(32px + 12 * (100vw - 480px) / 720), 44px);
+  line-height: 1;
+  color: var(--text-primary);
+}
+.city { margin-top: 8px; font-size: var(--fs-body-sm); color: var(--text-secondary); }
+.status { text-align: center; padding-top: 4px; }
+.pct { margin-top: 4px; font-weight: 700; font-size: var(--fs-body-3); color: var(--text-primary); }
+
+.line { position: relative; height: 2px; margin: 28px 0 14px; background: var(--border-hairline); }
+.fill { position: absolute; inset-inline-start: 0; top: 0; height: 100%; width: var(--fp-pct); background: var(--color-bright-blue); }
+.dot { position: absolute; top: 50%; width: 9px; height: 9px; border-radius: var(--radius-pill); transform: translate(-50%, -50%); }
+.dotStart { inset-inline-start: 0; background: var(--color-bright-blue); }
+.dotEnd { inset-inline-start: 100%; background: var(--color-border-strong); }
+.plane { position: absolute; top: 50%; inset-inline-start: var(--fp-pct); transform: translate(-50%, -50%) rotate(45deg); color: var(--text-primary); }
+
+.foot { display: flex; justify-content: space-between; font-size: var(--fs-body-sm); }
+.elapsed { color: var(--text-primary); font-weight: 600; }
+.remaining { color: var(--text-secondary); }

@@ -5,6 +5,7 @@ export interface GenrePillProps {
   active?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

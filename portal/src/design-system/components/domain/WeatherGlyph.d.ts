@@ -33,6 +33,7 @@ export interface WeatherGlyphProps {
   /** Fallback line-icon color. */
   color?: string;
   alt?: string;
+  className?: string;
   style?: React.CSSProperties;
 }
 

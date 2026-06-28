@@ -1,0 +1,41 @@
+/* Chip — compact sharp token (selected = blue fill, optional dismiss). */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-block: 8px;
+  padding-inline: 14px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--on-surface);
+  cursor: default;
+  transition: all var(--dur-link) var(--ease-smooth);
+}
+.chip[data-clickable="true"] { cursor: pointer; }
+.chip[data-clickable="true"]:not([data-selected="true"]):hover { background: var(--color-surface-3); }
+.chip[data-selected="true"] {
+  background: var(--color-highlight-blue);
+  color: var(--color-white);
+  border-color: var(--color-highlight-blue);
+}
+
+.leading { display: inline-flex; margin-inline-start: -2px; }
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-inline-end: -4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+}

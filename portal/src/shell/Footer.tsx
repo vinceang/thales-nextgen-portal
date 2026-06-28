@@ -1,7 +1,7 @@
-import { useState } from "react";
+import s from "./Footer.module.css";
 
-// Footer furniture — quiet, centered, token-driven. Links sit muted and turn
-// bright-blue on hover (the system's one-accent hover convention).
+// Footer furniture — quiet, centered, token-driven. Links go bright-blue on hover
+// (the system's one-accent hover convention) — real CSS :hover.
 const LINKS = [
   { label: "Terms of Service", href: "#" },
   { label: "Privacy", href: "#" },
@@ -9,71 +9,19 @@ const LINKS = [
   { label: "Contact", href: "#" },
 ];
 
-function FooterLink({ label, href }: { label: string; href: string }) {
-  const [hover, setHover] = useState(false);
-  return (
-    <a
-      href={href}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--fs-body-sm)",
-        fontWeight: 600,
-        letterSpacing: "0.02em",
-        color: hover ? "var(--color-bright-blue)" : "var(--text-secondary)",
-        textDecoration: "none",
-        cursor: "pointer",
-        transition: "color var(--dur-link) var(--ease-smooth)",
-      }}
-    >
-      {label}
-    </a>
-  );
-}
-
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer
-      style={{
-        borderBlockStart: "1px solid var(--color-border)",
-        marginBlockStart: "var(--space-xl)",
-        padding: "var(--space-lg) var(--space-lg) var(--space-xl)",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "var(--space-sm)",
-        textAlign: "center",
-      }}
-    >
-      <img src="/assets/logos/thales-white.svg" alt="Thales" style={{ height: 16 }} />
+    <footer className={s.footer}>
+      <img src="/assets/logos/thales-white.svg" alt="Thales" className={s.logo} />
 
-      <nav
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "10px 18px",
-        }}
-      >
+      <nav className={s.links}>
         {LINKS.map((l) => (
-          <FooterLink key={l.label} {...l} />
+          <a key={l.label} href={l.href} className={s.link}>{l.label}</a>
         ))}
       </nav>
 
-      <p
-        style={{
-          margin: 0,
-          fontFamily: "var(--font-sans)",
-          fontSize: "var(--fs-subscript)",
-          color: "var(--text-secondary)",
-          letterSpacing: "0.02em",
-        }}
-      >
-        © {year} Thales Group. All rights reserved.
-      </p>
+      <p className={s.copy}>© {year} Thales Group. All rights reserved.</p>
     </footer>
   );
 }

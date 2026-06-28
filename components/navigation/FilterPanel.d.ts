@@ -11,6 +11,7 @@ export interface FilterPanelProps {
   /** Renders the "Clear all" link when provided. */
   onClear?: () => void;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 export function FilterPanel(props: FilterPanelProps): JSX.Element;
@@ -19,6 +20,7 @@ export function FilterPanel(props: FilterPanelProps): JSX.Element;
 export interface FilterSectionProps {
   label?: string;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 export function FilterSection(props: FilterSectionProps): JSX.Element;

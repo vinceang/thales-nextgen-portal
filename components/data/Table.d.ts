@@ -20,6 +20,7 @@ export interface TableProps {
   /** Field used as the React key per row. */
   rowKey?: string;
   getCellValue?: (row: any, col: TableColumn) => React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

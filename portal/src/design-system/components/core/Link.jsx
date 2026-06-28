@@ -1,57 +1,23 @@
 import React from "react";
 import { Icon } from "./Icon.jsx";
+import s from "./Link.module.css";
 
 /**
- * Link — text hyperlink. In-body links sit in bright-blue and gain an
- * underline + shift to link-blue on hover. The `standalone` variant is an
- * uppercase Montserrat action link ("5-DAY FORECAST", "VIEW ALL") with an
- * optional trailing chevron. RTL-safe: the chevron mirrors via the Icon name.
+ * Link — text hyperlink. `inline` = bright-blue body link (underline on hover);
+ * `standalone` = uppercase Montserrat action link with optional trailing chevron
+ * (mirrors under RTL via the Icon name). States are real CSS (was JS).
  */
-export function Link({
-  href = "#",
-  variant = "inline",
-  arrow = false,
-  external = false,
-  children,
-  style,
-  ...rest
-}) {
-  const [hover, setHover] = React.useState(false);
+export function Link({ href = "#", variant = "inline", arrow = false, external = false, children, className, style, ...rest }) {
   const standalone = variant === "standalone";
-
-  const base = standalone
-    ? {
-        fontFamily: "var(--font-sans)",
-        fontWeight: 700,
-        fontSize: "var(--fs-button)",
-        letterSpacing: "var(--tracking-button)",
-        textTransform: "uppercase",
-        color: hover ? "var(--color-bright-blue)" : "var(--color-white)",
-        textDecoration: "none",
-      }
-    : {
-        fontFamily: "inherit",
-        color: hover ? "var(--color-link-blue)" : "var(--color-bright-blue)",
-        textDecoration: hover ? "underline" : "none",
-        textUnderlineOffset: 3,
-      };
-
   return (
     <a
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer noopener" : undefined}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        display: arrow ? "inline-flex" : "inline",
-        alignItems: "center",
-        gap: 6,
-        cursor: "pointer",
-        transition: "color var(--dur-link) var(--ease-smooth)",
-        ...base,
-        ...style,
-      }}
+      data-variant={variant}
+      data-arrow={arrow || undefined}
+      className={className ? `${s.link} ${className}` : s.link}
+      style={style}
       {...rest}
     >
       {children}

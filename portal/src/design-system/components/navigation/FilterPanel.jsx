@@ -1,48 +1,29 @@
 import React from "react";
+import s from "./FilterPanel.module.css";
 
 /**
- * FilterPanel — container for a set of filter groups (genres, price, rating).
- * Header with a title and a "Clear all" link; hairline-separated FilterSections
- * hold the actual controls (GenrePill rows, Checkboxes, Chips, a price range).
- * Sits inline in a sidebar or inside a Drawer on phone. Flat, dark.
+ * FilterPanel — container for filter groups. Header with title + "Clear all"
+ * (real :hover); holds FilterSections.
  */
-export function FilterPanel({ title = "Filters", activeCount = 0, onClear, children, style, ...rest }) {
+export function FilterPanel({ title = "Filters", activeCount = 0, onClear, children, className, style, ...rest }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", fontFamily: "var(--font-sans)", ...style }} {...rest}>
-      <div style={{ display: "flex", alignItems: "center", gap: 12, paddingBottom: 16 }}>
-        <span style={{ fontWeight: 700, fontSize: "var(--fs-h3)", color: "var(--text-primary)" }}>{title}</span>
-        {activeCount > 0 && (
-          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--color-bright-blue)" }}>{activeCount}</span>
-        )}
-        {onClear && (
-          <button type="button" onClick={onClear}
-            style={{ marginInlineStart: "auto", background: "none", border: "none", cursor: "pointer",
-              fontFamily: "var(--font-sans)", fontWeight: 700, fontSize: 12, letterSpacing: "0.04em",
-              textTransform: "uppercase", color: "var(--on-surface-muted)", transition: "color var(--dur-link) var(--ease-smooth)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-bright-blue)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--on-surface-muted)")}>
-            Clear all
-          </button>
-        )}
+    <div className={className ? `${s.panel} ${className}` : s.panel} style={style} {...rest}>
+      <div className={s.head}>
+        <span className={s.title}>{title}</span>
+        {activeCount > 0 && <span className={s.count}>{activeCount}</span>}
+        {onClear && <button type="button" className={s.clear} onClick={onClear}>Clear all</button>}
       </div>
       {children}
     </div>
   );
 }
 
-/**
- * FilterSection — one labelled group within a FilterPanel. Hairline top rule;
- * UPPERCASE label; arbitrary control children below.
- */
-export function FilterSection({ label, children, style, ...rest }) {
+/** FilterSection — one labelled group within a FilterPanel (hairline rule + label). */
+export function FilterSection({ label, children, className, style, ...rest }) {
   return (
-    <div style={{ borderTop: "1px solid var(--color-border)", paddingBlock: 18, ...style }} {...rest}>
-      {label && (
-        <div style={{ fontFamily: "var(--font-sans)", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-secondary)", marginBottom: 14 }}>
-          {label}
-        </div>
-      )}
-      <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>{children}</div>
+    <div className={className ? `${s.section} ${className}` : s.section} style={style} {...rest}>
+      {label && <div className={s.sectionLabel}>{label}</div>}
+      <div className={s.sectionBody}>{children}</div>
     </div>
   );
 }

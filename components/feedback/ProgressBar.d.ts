@@ -15,6 +15,7 @@ export interface ProgressBarProps {
   showValue?: boolean;
   /** Track height in px. Default 6. */
   height?: number;
+  className?: string;
   style?: React.CSSProperties;
 }
 

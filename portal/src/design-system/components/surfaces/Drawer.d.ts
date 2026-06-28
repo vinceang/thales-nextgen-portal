@@ -14,6 +14,7 @@ export interface DrawerProps {
   /** Width (side panels) or height (bottom) in px. Default 380. */
   size?: number;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

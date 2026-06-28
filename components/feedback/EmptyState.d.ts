@@ -10,6 +10,7 @@ export interface EmptyStateProps {
   message?: string;
   /** Optional single action node (e.g. a <Button/>). */
   action?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

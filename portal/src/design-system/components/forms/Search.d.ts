@@ -15,6 +15,7 @@ export interface SearchProps {
   autoFocus?: boolean;
   /** `md` (default) | `lg` for the nav-bar search overlay. */
   size?: "md" | "lg";
+  className?: string;
   style?: React.CSSProperties;
 }
 

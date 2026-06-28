@@ -15,6 +15,7 @@ export interface FlightTrackerProps {
    *  "theme" — a themed surface (page rail) — follows light/dark tokens.
    */
   tone?: "dark" | "theme";
+  className?: string;
   style?: React.CSSProperties;
 }
 

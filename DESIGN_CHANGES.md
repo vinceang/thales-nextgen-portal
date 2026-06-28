@@ -172,3 +172,20 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer asked that when the layout stacks to one column, plans reverse so the highest-value plan gets top visual hierarchy.
 
 ---
+
+### 2026-06-28 Styling architecture — inline styles → CSS Modules (CANONICAL, ADR 0002)
+**Rule/token changed:** How components are styled (sitewide). Now canonical — `CLAUDE.md` updated, `docs/adr/0002-styling-css-modules-tokens.md` added.
+**Was:** Every component styled with inline `style={{…}}` objects; states emulated in JS (`onMouseEnter/Leave`); responsive via runtime-injected `<style>` tags.
+**Now:** Components author styling as **CSS Modules consuming the same `var(--token)` tokens**. Real pseudo-classes for states; `data-*` for variants/sizes; dynamic per-instance values pass through CSS custom properties via a minimal `style`. Tokens unchanged — white-label theming preserved (and deepened: tenants can now cascade-override). **Pilot done:** `components/core/Button.{jsx,module.css}` converted & verified (class-driven, no inline styles, real `:hover`). Remaining 50 components + app shell/pages to migrate in waves.
+**Why:** Lead frontend engineer's ruling — inline styles are not acceptable for a production white-label product (no real states, CSP friction, shallow override ceiling). Decided to standardize on CSS Modules + tokens.
+
+---
+
+### 2026-06-28 CSS Modules migration — COMPLETE (all 52 components + app)
+**Rule/token changed:** Styling delivery (sitewide, finished); new tokens; `className` on every component.
+**Was:** Migration in progress (pilot + early waves).
+**Now:** **All 52 design-system components + the app shell/pages are inline-style-free** — presentational styling lives in `Name.module.css` consuming tokens; states are real `:hover`/`:focus-visible`/`:focus-within`/`:disabled`; variants/sizes are `data-*`; dynamic per-instance values (sizes, %, grid templates, knob travel, progress) pass through CSS custom properties. The layout primitives (`BentoGrid`/`TileGrid`) no longer inject a runtime `<style>` — `@media` is static, templates come in as vars. Every component now also accepts a `className` (added to all `.d.ts`).
+**New tokens:** `--accent-hover` (color-mix, primary-button hover), `--overlay-backdrop` (rgba 0,0,0,0.7 — Modal/Drawer/SideDrawer scrim), `--pad-card-block` / `--pad-card-inline` (responsive card padding). Removed `PlanCard`'s `box-shadow` (no-shadow rule). Stray white-alpha literals snapped to the nearest `--on-surface-*` token where clean; a few decorative one-offs remain component-local literals (PlanCard gradient, breadcrumb-chevron `0.35`, ShowcaseTile hover `brightness(1.08)`).
+**Why:** Complete ADR 0002. Build green throughout; Showcase + Connect verified identical at desktop/tablet/phone. JS bundle ~10kB smaller; CSS ~22kB (static, cacheable, CSP-clean).
+
+---

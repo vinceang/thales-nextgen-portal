@@ -14,6 +14,7 @@ export interface ModalProps {
   /** Max width in px. Default 520. */
   width?: number;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

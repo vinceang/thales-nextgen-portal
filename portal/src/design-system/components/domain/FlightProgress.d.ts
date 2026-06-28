@@ -19,6 +19,7 @@ export interface FlightProgressProps {
   remaining?: string;
   /** Fill with surface-2 instead of a transparent hairline panel. */
   filled?: boolean;
+  className?: string;
   style?: React.CSSProperties;
 }
 

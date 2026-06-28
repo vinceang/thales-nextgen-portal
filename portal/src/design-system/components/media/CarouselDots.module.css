@@ -1,0 +1,13 @@
+/* CarouselDots — position indicators. Active dot elongates + goes accent. */
+.dots { display: flex; gap: 8px; align-items: center; }
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--on-surface-faint);
+  cursor: pointer;
+  transition: all 0.3s var(--ease-smooth);
+}
+.dot[data-active="true"] { width: 22px; background: var(--color-highlight-blue); }

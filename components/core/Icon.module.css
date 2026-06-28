@@ -1,0 +1,3 @@
+/* Icon — thin line glyph. Sizing/stroke/colour are SVG attributes; only the
+   block display lives here. */
+.icon { display: block; }

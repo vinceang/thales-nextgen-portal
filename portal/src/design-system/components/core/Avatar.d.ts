@@ -13,6 +13,7 @@ export interface AvatarProps {
   size?: "sm" | "md" | "lg" | number;
   /** `square` (radius-card, on-brand default) | `circle` (radius-pill). */
   shape?: "square" | "circle";
+  className?: string;
   style?: React.CSSProperties;
 }
 

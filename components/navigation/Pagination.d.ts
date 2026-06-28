@@ -10,6 +10,7 @@ export interface PaginationProps {
   /** Total page count. */
   total?: number;
   onChange?: (page: number) => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

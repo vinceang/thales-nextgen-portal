@@ -14,6 +14,7 @@ export interface AccordionProps {
   multiple?: boolean;
   /** Indices open on mount. */
   defaultOpen?: number[];
+  className?: string;
   style?: React.CSSProperties;
 }
 

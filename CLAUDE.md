@@ -3,13 +3,14 @@
 Project memory for Claude Code. Read `README.md` and `design-system/DESIGN_SYSTEM_NOTES.md` first.
 
 ## What this is
-A React build of the **Thales NextGen In‑Flight Wi‑Fi Portal**, assembled on top of a complete in‑house design system. The component source, tokens, and assets live at the **project root** (`components/`, `tokens/`, `styles.css`, `assets/`) — copy those into the app. The components are real React ES modules styled with inline styles + CSS custom properties — **no Tailwind, no CSS‑in‑JS library**.
+A React build of the **Thales NextGen In‑Flight Wi‑Fi Portal**, assembled on top of a complete in‑house design system. The component source, tokens, and assets live at the **project root** (`components/`, `tokens/`, `styles.css`, `assets/`) — copy those into the app. The components are real React ES modules styled with **CSS Modules that consume CSS custom‑property tokens** — **no Tailwind, no CSS‑in‑JS library**. (The system originally shipped with inline `style` objects; it is being migrated to CSS Modules — see `docs/adr/0002-styling-css-modules-tokens.md`. Components not yet converted may still use inline styles.)
 
 Target page layouts are documented as live, annotated comps in `design_handoff_site_build/page-comps/` (see `PAGE_COMPS.md`). Build pages to match them — **recreate** in the app, never paste the comp HTML or its annotation chrome.
 
 ## Hard rules — do not violate
 - **Use the design system. Do not invent UI.** Build pages by composing components from `components/` (import via the barrel `components/index.js`). Before using a component, read its `.prompt.md`; prop types are in `design_handoff_site_build/COMPONENT_TYPES.md`.
 - **All visual values come from tokens.** Never hard‑code a color, font, size, radius, or shadow. Use `var(--token)`. If you need a value that doesn't exist, add a token in `design-system/tokens/`, don't inline it.
+- **Style with CSS Modules, not inline styles (ADR 0002).** Each component is `Name.jsx` + `Name.module.css` consuming `var(--token)`. States are real pseudo‑classes (`:hover`/`:focus-visible`/`:disabled`); variants/sizes are `data-*` attributes; *dynamic* per‑instance values (height, %, grid areas) pass through CSS custom properties via a minimal `style={{ "--x": v }}` — the only sanctioned `style` use besides consumer overrides. New components follow this; convert any inline‑styled component you touch.
 - **One accent hue, no second hue.** Status (Alert/Toast/Badge) is shown by icon + label, never red/green/amber.
 - **Sharp by default, no shadows.** Radius is 0 except pills/dots/toggles; depth is surface contrast. Don't add `box-shadow`.
 - **Typography roles.** Playfair = hero H1 **and large featured / hero tiles**; Montserrat = all UI/body/buttons **and ordinary gallery tile titles**; Inter = body on light surfaces. Noto Serif is opt-in only (no longer the tile default). Serif never for nav/UI/body.

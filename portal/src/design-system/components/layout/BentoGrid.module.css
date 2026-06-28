@@ -1,0 +1,25 @@
+/* BentoGrid — asymmetric named-area grid. Per-tier columns/areas/rows arrive as
+   CSS custom properties; the @media breakpoints are static (no runtime <style>).
+   Each cell's area name is passed as --bg-area. */
+.grid {
+  display: grid;
+  gap: var(--bg-gap);
+  grid-template-columns: var(--bg-cols-phone);
+  grid-template-areas: var(--bg-areas-phone);
+  grid-template-rows: var(--bg-rows-phone, none);
+}
+@media (min-width: 561px) {
+  .grid {
+    grid-template-columns: var(--bg-cols-tablet);
+    grid-template-areas: var(--bg-areas-tablet);
+    grid-template-rows: var(--bg-rows-tablet, none);
+  }
+}
+@media (min-width: 1101px) {
+  .grid {
+    grid-template-columns: var(--bg-cols-desktop);
+    grid-template-areas: var(--bg-areas-desktop);
+    grid-template-rows: var(--bg-rows-desktop, none);
+  }
+}
+.cell { grid-area: var(--bg-area); min-width: 0; min-height: 0; }

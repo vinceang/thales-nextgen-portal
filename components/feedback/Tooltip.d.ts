@@ -9,6 +9,7 @@ export interface TooltipProps {
   /** RTL-aware placement. start/end follow the inline axis. */
   placement?: "top" | "bottom" | "start" | "end";
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

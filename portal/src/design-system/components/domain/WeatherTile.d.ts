@@ -21,6 +21,7 @@ export interface WeatherTileProps {
   condition?: string;
   linkLabel?: string;
   onLink?: () => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

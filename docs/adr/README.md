@@ -11,3 +11,4 @@ supersede it with a new one.
 | # | Title | Status |
 |---|-------|--------|
 | [0001](0001-bento-cells-config-driven.md) | Bento/tile cells are configuration-driven content slots | Accepted (admin tooling deferred) |
+| [0002](0002-styling-css-modules-tokens.md) | Styling: CSS Modules + design tokens (retire inline styles) | Accepted |

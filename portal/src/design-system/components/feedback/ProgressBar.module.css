@@ -1,0 +1,43 @@
+/* ProgressBar — hairline track, highlight-blue fill. RTL-safe (logical inset). */
+@keyframes indeterminate {
+  0%   { inset-inline-start: -40%; width: 40%; }
+  100% { inset-inline-start: 100%; width: 40%; }
+}
+
+.wrap { width: 100%; }
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+.label { color: var(--on-surface-2); }
+.value { margin-inline-start: auto; color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+.track {
+  position: relative;
+  width: 100%;
+  height: var(--pb-h);
+  background: var(--color-surface-3);
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  width: var(--pb-pct);
+  background: var(--color-highlight-blue);
+  border-radius: var(--radius-control);
+  transition: width 0.4s var(--ease-smooth);
+}
+.fill[data-indeterminate="true"] {
+  position: absolute;
+  top: 0;
+  width: 40%;
+  transition: none;
+  animation: indeterminate 1.3s var(--ease-smooth) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fill[data-indeterminate="true"] { animation: none; }
+}

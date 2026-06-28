@@ -7,6 +7,7 @@ export interface CheckboxProps {
   children?: React.ReactNode;
   /** Box size in px. Default 24. */
   size?: number;
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -9,6 +9,7 @@ export interface ToastProps {
   onAction?: () => void;
   onClose?: () => void;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 export function Toast(props: ToastProps): JSX.Element;
@@ -18,6 +19,7 @@ export interface ToastViewportProps {
   /** Corner: "top-start" | "top-center" | "top-end" | "bottom-start" | "bottom-center" | "bottom-end". */
   placement?: string;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 export function ToastViewport(props: ToastViewportProps): JSX.Element;

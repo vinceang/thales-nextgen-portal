@@ -1,49 +1,30 @@
 import React from "react";
+import s from "./Card.module.css";
 
 /**
- * Card — neutral content container. Dark raised surface, hairline border, sharp
- * corners (radius-card), flat (NO shadow — depth is surface contrast). Optional
- * title/subtitle header, body, and a footer (actions sit at the inline-end).
- * For image/media tiles use ShowcaseTile; for pricing use PlanCard.
+ * Card — neutral content container. Dark raised surface, hairline border, sharp,
+ * flat. Real :hover border lift when `interactive`. Inner padding via --card-pad.
  */
-export function Card({ title, subtitle, header, footer, interactive = false, padding = 20, children, style, ...rest }) {
-  const [hover, setHover] = React.useState(false);
+export function Card({ title, subtitle, header, footer, interactive = false, padding = 20, children, className, style, ...rest }) {
   return (
     <div
-      onMouseEnter={() => interactive && setHover(true)}
-      onMouseLeave={() => interactive && setHover(false)}
-      style={{
-        display: "flex", flexDirection: "column",
-        background: "var(--color-surface-2)",
-        border: `1px solid ${hover ? "var(--color-border-strong)" : "var(--color-border)"}`,
-        borderRadius: "var(--radius-card)",
-        overflow: "hidden",
-        cursor: interactive ? "pointer" : "default",
-        transition: "border-color 0.3s var(--ease-smooth)",
-        ...style,
-      }}
+      data-interactive={interactive || undefined}
+      className={className ? `${s.card} ${className}` : s.card}
+      style={{ "--card-pad": `${padding}px`, ...style }}
       {...rest}
     >
       {(header || title) && (
-        <div style={{ padding, paddingBottom: children || footer ? 0 : padding }}>
+        <div className={s.header} data-flush={children || footer ? "true" : undefined}>
           {header || (
             <>
-              <div style={{ fontFamily: "var(--font-tile)", fontWeight: 600, fontSize: "var(--fs-h3)", color: "var(--text-primary)" }}>{title}</div>
-              {subtitle && <div style={{ fontFamily: "var(--font-sans)", fontSize: 14, color: "var(--text-secondary)", marginTop: 4 }}>{subtitle}</div>}
+              <div className={s.title}>{title}</div>
+              {subtitle && <div className={s.subtitle}>{subtitle}</div>}
             </>
           )}
         </div>
       )}
-      {children && (
-        <div style={{ padding, fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.6, color: "var(--on-surface-2)" }}>
-          {children}
-        </div>
-      )}
-      {footer && (
-        <div style={{ padding, paddingTop: 0, display: "flex", gap: 12, justifyContent: "flex-end", alignItems: "center" }}>
-          {footer}
-        </div>
-      )}
+      {children && <div className={s.body}>{children}</div>}
+      {footer && <div className={s.footer}>{footer}</div>}
     </div>
   );
 }

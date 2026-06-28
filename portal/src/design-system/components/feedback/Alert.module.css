@@ -1,0 +1,28 @@
+/* Alert — inline status banner. Status by ICON, not colour. Flat, hairline. */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font-family: var(--font-sans);
+}
+.icon { flex: none; margin-top: 1px; color: var(--color-white); }
+.alert[data-blue="true"] .icon { color: var(--color-bright-blue); }
+
+.body { flex: 1; min-width: 0; }
+.title { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.title:not(:last-child) { margin-bottom: 4px; }
+.message { font-size: 14px; line-height: 1.55; color: var(--on-surface-2); }
+
+.close {
+  flex: none;
+  padding: 2px;
+  margin-inline-end: -4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--on-surface-muted);
+}

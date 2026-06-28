@@ -6,6 +6,7 @@ export interface CarouselDotsProps {
   /** Active slide index. */
   active?: number;
   onSelect?: (index: number) => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -5,6 +5,7 @@ import {
   WeatherTile,
   BentoGrid,
 } from "../design-system/components";
+import s from "./Showcase.module.css";
 
 /* ── Sample data (no backend) ──────────────────────────────────────────────
    The Showcase is the configurable bento hub — one BentoGrid of named regions.
@@ -55,7 +56,7 @@ const byId = Object.fromEntries(TILES.map((t) => [t.id, t]));
 // A 2:1 media tile — BentoGrid controls the cell width, aspect-ratio sets height.
 function Tile({ t, titleSize = 24 }: { t: TileData; titleSize?: number }) {
   return (
-    <div style={{ aspectRatio: "2 / 1" }}>
+    <div className={s.tile21}>
       <ShowcaseTile image={t.img} kicker={t.kicker} title={t.title} titleSize={titleSize} height="100%" />
     </div>
   );
@@ -65,11 +66,9 @@ export default function Showcase() {
   const navigate = useNavigate();
 
   const items = {
-    // Row 1 — big hero (spans) + two promo cells (r1/r2). The hero fills its
-    // 2-row span on desktop (height 100%) and falls back to its 2:1 aspect when
-    // it occupies its own row on tablet/phone.
+    // Row 1 — big hero (spans) + two promo cells (r1/r2)
     hero: (
-      <div style={{ aspectRatio: "2 / 1", width: "100%", height: "100%" }}>
+      <div className={s.heroCell}>
         <HeroBanner
           image={HERO.img}
           kicker={HERO.kicker}
@@ -90,17 +89,13 @@ export default function Showcase() {
     dn: <Tile t={byId["dining"]} titleSize={22} />,
     // Row 3 — feature destination (spans) + weather panel
     ep: (
-      <div style={{ aspectRatio: "2 / 1" }}>
+      <div className={s.tile21}>
         <ShowcaseTile image={byId["epcot"].img} kicker={byId["epcot"].kicker} title={byId["epcot"].title} titleSize={44} height="100%" />
       </div>
     ),
     wx: (
-      <div style={{ background: "var(--color-black)", height: "100%", minHeight: 220 }}>
-        <WeatherTile
-          {...WEATHER}
-          iconSrc={`/assets/icons/weather/${WEATHER.code}.svg`}
-          onLink={() => navigate("/weather")}
-        />
+      <div className={s.weatherCell}>
+        <WeatherTile {...WEATHER} iconSrc={`/assets/icons/weather/${WEATHER.code}.svg`} onLink={() => navigate("/weather")} />
       </div>
     ),
     // Row 4 — four 2:1 tiles
@@ -111,7 +106,7 @@ export default function Showcase() {
   };
 
   return (
-    <div style={{ padding: 16, maxWidth: 1320, margin: "0 auto" }}>
+    <div className={s.page}>
       <BentoGrid
         gap={16}
         items={items}
@@ -121,16 +116,7 @@ export default function Showcase() {
         }}
         tablet={{
           columns: "1fr 1fr",
-          areas: [
-            "hero hero",
-            "r1 r2",
-            "sq rm",
-            "gm dn",
-            "ep ep",
-            "wx wx",
-            "en df",
-            "fg eb",
-          ],
+          areas: ["hero hero", "r1 r2", "sq rm", "gm dn", "ep ep", "wx wx", "en df", "fg eb"],
         }}
         desktop={{
           columns: "repeat(12, 1fr)",

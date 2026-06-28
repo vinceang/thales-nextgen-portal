@@ -14,6 +14,7 @@ export interface TileGridProps {
   /** Gap in px. Default 16. */
   gap?: number;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

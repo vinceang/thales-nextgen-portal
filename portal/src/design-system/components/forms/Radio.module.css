@@ -1,0 +1,25 @@
+/* Radio — circular choice; selected = blue ring + filled dot. Size via vars. */
+.label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+.input { position: absolute; opacity: 0; width: 0; height: 0; }
+.ring {
+  flex: none;
+  width: var(--rd-size);
+  height: var(--rd-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border-strong);
+  transition: all 0.2s var(--ease-smooth);
+}
+.ring[data-checked="true"] { border-color: var(--color-highlight-blue); }
+.dot {
+  width: var(--rd-dot);
+  height: var(--rd-dot);
+  border-radius: var(--radius-pill);
+  background: var(--color-highlight-blue);
+}
+.text { font-family: var(--font-sans); font-size: 15px; line-height: 1.45; color: var(--on-surface); }
+
+.group { display: flex; flex-direction: column; gap: var(--rg-gap); }

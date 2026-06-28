@@ -13,6 +13,7 @@ export interface LinkProps {
   /** Open in a new tab + rel=noopener. */
   external?: boolean;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -4,7 +4,7 @@
 then update the relevant sections when you finish work. Goal: a new session can get
 oriented from this one file plus the canonical sources it points to.
 
-_Last updated: 2026-06-28_
+_Last updated: 2026-06-28 (CSS Modules migration complete)_
 
 ---
 
@@ -99,6 +99,13 @@ upstream ratification): ShowcaseTile prominence-driven fonts + `titleFont`/`kick
 `titleStyle`/`kickerStyle` overrides + weight 600; `NavBar` Home button + Icon `home`
 glyph + `onHome`; SideDrawer nav alignment; `HeroBanner` `ctaArrow`; `height: number|string`
 on ShowcaseTile/HeroBanner.
+
+**CSS Modules migration — COMPLETE (branch `feat/css-modules-styling`, not yet merged).**
+Per ADR 0002, all 52 components + app shell/pages are now inline-style-free: styling in
+`Name.module.css` consuming tokens, real pseudo-class states, `data-*` variants, dynamic
+values via CSS custom properties. New tokens: `--accent-hover`, `--overlay-backdrop`,
+`--pad-card-block/inline`. Every component now accepts `className`. When building NEW
+components/pages, author `Name.module.css` from the start — never inline styles.
 
 ## 6. Build order (one page per session)
 
