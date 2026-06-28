@@ -69,7 +69,7 @@ export default function Showcase() {
     // 2-row span on desktop (height 100%) and falls back to its 2:1 aspect when
     // it occupies its own row on tablet/phone.
     hero: (
-      <div style={{ aspectRatio: "2 / 1", height: "100%" }}>
+      <div style={{ aspectRatio: "2 / 1", width: "100%", height: "100%" }}>
         <HeroBanner
           image={HERO.img}
           kicker={HERO.kicker}
