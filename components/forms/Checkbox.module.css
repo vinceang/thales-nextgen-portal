@@ -1,0 +1,19 @@
+/* Checkbox — square control; checked = blue fill + white check. Size via --cb-size. */
+.label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+.box {
+  flex: none;
+  width: var(--cb-size);
+  height: var(--cb-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border-strong);
+  transition: all 0.2s var(--ease-smooth);
+}
+.box[data-checked="true"] {
+  background: var(--color-highlight-blue);
+  border-color: var(--color-highlight-blue);
+}
+.text { font-family: var(--font-sans); font-size: 15px; line-height: 1.45; color: var(--on-surface); }

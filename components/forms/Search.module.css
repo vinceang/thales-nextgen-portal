@@ -1,0 +1,40 @@
+/* Search — leading magnifier + clear ×. Real :focus-within border (was JS). */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-inline: 16px;
+  padding-block: 0;
+  background: var(--color-surface-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  transition: border-color 0.2s var(--ease-smooth);
+}
+.form:focus-within { border-color: var(--color-highlight-blue); }
+
+.icon { display: inline-flex; flex: none; color: var(--on-surface-muted); }
+
+.input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-block: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form[data-size="lg"] .input { font-size: 17px; padding-block: 16px; }
+
+.clear {
+  display: inline-flex;
+  flex: none;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--on-surface-muted);
+}

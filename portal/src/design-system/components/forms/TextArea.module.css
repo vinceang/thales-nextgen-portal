@@ -1,0 +1,28 @@
+/* TextArea — multi-line field, same fill/focus as Input, vertically resizable. */
+.wrap { display: flex; flex-direction: column; gap: 8px; }
+.label { font-family: var(--font-sans); font-size: 16px; font-weight: 400; color: var(--on-surface); }
+.field {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--color-surface-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s var(--ease-smooth);
+}
+.field:focus { border-color: var(--color-highlight-blue); }
+.helper {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.count { margin-inline-start: auto; font-variant-numeric: tabular-nums; }
