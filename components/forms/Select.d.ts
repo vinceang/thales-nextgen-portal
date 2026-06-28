@@ -14,6 +14,7 @@ export interface SelectProps {
   options?: (string | SelectOption)[];
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

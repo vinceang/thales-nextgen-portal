@@ -43,6 +43,7 @@ export interface ShowcaseTileProps {
   height?: number | string;
   align?: "left" | "center";
   onClick?: () => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

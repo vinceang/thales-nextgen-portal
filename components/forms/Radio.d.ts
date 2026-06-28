@@ -9,6 +9,7 @@ export interface RadioProps {
   value?: string;
   size?: number;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 export function Radio(props: RadioProps): JSX.Element;
@@ -22,6 +23,7 @@ export interface RadioGroupProps {
   onChange?: (value: string, e: React.ChangeEvent<HTMLInputElement>) => void;
   /** Gap between options in px. Default 16. */
   gap?: number;
+  className?: string;
   style?: React.CSSProperties;
 }
 export function RadioGroup(props: RadioGroupProps): JSX.Element;

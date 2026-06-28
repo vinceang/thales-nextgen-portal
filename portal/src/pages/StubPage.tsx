@@ -1,9 +1,10 @@
 import { EmptyState } from "../design-system/components";
+import s from "./StubPage.module.css";
 
 /** Placeholder for routes not yet built this session. */
 export default function StubPage({ title, note }: { title: string; note: string }) {
   return (
-    <div style={{ padding: "var(--space-xl) var(--space-lg)" }}>
+    <div className={s.wrap}>
       <EmptyState
         icon="inbox"
         title={title}

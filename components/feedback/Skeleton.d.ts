@@ -14,6 +14,7 @@ export interface SkeletonProps {
   lines?: number;
   /** Gap between text lines in px. */
   gap?: number;
+  className?: string;
   style?: React.CSSProperties;
 }
 

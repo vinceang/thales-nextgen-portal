@@ -9,6 +9,7 @@ export interface InputProps {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   /** Style for the outer wrapper. */
+  className?: string;
   style?: React.CSSProperties;
   /** Style for the <input> itself. */
   inputStyle?: React.CSSProperties;

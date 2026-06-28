@@ -19,6 +19,7 @@ export interface SideDrawerProps {
   flight?: FlightTrackerProps;
   onSelect?: (key: string) => void;
   onClose?: () => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

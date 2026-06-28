@@ -13,6 +13,7 @@ export interface ChipProps {
   /** Optional leading element (small icon / avatar). */
   leading?: React.ReactNode;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

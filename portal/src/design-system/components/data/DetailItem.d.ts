@@ -10,6 +10,7 @@ export interface DetailItemProps {
   /** Value text. */
   value: React.ReactNode;
   align?: "left" | "center" | "right";
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -10,26 +10,19 @@ import {
   ToastViewport,
 } from "../design-system/components";
 import { getConnectContent, type PlanContent } from "../content/connect";
+import s from "./Connect.module.css";
 
 const TOAST_MS = 4000;
 
 // Render an editorial blurb with one emphasized phrase bold/full-white. Admin
 // supplies `text` + the `emphasize` substring (see content/connect.ts).
 function Blurb({ text, emphasize }: { text: string; emphasize?: string }) {
-  const style = {
-    fontFamily: "var(--font-sans)",
-    fontWeight: 400,
-    fontSize: "var(--fs-body)",
-    lineHeight: 1.7,
-    color: "var(--on-surface-2)",
-    margin: 0,
-  } as const;
-  if (!emphasize || !text.includes(emphasize)) return <p style={style}>{text}</p>;
+  if (!emphasize || !text.includes(emphasize)) return <p className={s.blurb}>{text}</p>;
   const [before, after] = text.split(emphasize);
   return (
-    <p style={style}>
+    <p className={s.blurb}>
       {before}
-      <strong style={{ fontWeight: 700, color: "var(--color-white)" }}>{emphasize}</strong>
+      <strong className={s.emph}>{emphasize}</strong>
       {after}
     </p>
   );
@@ -55,42 +48,20 @@ export default function Connect() {
   const planCols = planIds.map(() => "1fr").join(" ");
 
   return (
-    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "var(--space-2xl) var(--space-md)" }}>
-      <Breadcrumbs
-        items={[{ label: "Showcase", href: "/" }, { label: "Connect" }]}
-        style={{ marginBottom: "var(--space-md)" }}
-      />
+    <div className={s.page}>
+      <Breadcrumbs items={[{ label: "Showcase", href: "/" }, { label: "Connect" }]} className={s.crumbs} />
 
-      {/* Intro — editorial split header, or a status Alert once connected.
-          Extra vertical breathing room makes the hero section feel editorial. */}
+      {/* Intro — editorial split header, or a status Alert once connected */}
       {connected ? (
-        <Alert
-          tone="success"
-          title={`You're connected — ${connected.name}`}
-          style={{ marginBlock: "var(--space-md) var(--space-2xl)" }}
-        >
+        <Alert tone="success" title={`You're connected — ${connected.name}`} className={s.intro}>
           Your {connected.name} pass is active for the rest of this flight, across reconnections.
         </Alert>
       ) : (
         <BentoGrid
           gap={40}
-          style={{ marginBlock: "var(--space-md) var(--space-2xl)", alignItems: "start" }}
+          className={s.headerGrid}
           items={{
-            title: (
-              <h1
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  fontSize: "var(--fs-h1)",
-                  letterSpacing: "var(--tracking-headline)",
-                  lineHeight: 1.05,
-                  color: "var(--color-white)",
-                  margin: 0,
-                }}
-              >
-                {header.title}
-              </h1>
-            ),
+            title: <h1 className={s.title}>{header.title}</h1>,
             blurb: <Blurb text={header.text} emphasize={header.emphasize} />,
           }}
           phone={{ columns: "1fr", areas: ["title", "blurb"] }}
@@ -99,9 +70,8 @@ export default function Connect() {
         />
       )}
 
-      {/* Plan grid — equal heights via grid stretch. 3-up on tablet/desktop; on
-          phone it collapses to one column in REVERSE order (highest-value plan
-          on top). PlanCards fill their cell (height 100%) to equalize heights. */}
+      {/* Plan grid — 3-up on tablet/desktop; on phone it collapses to one column
+          in REVERSE order (highest-value plan on top). */}
       <BentoGrid
         gap={16}
         items={Object.fromEntries(
@@ -115,7 +85,7 @@ export default function Connect() {
               badge={p.badge}
               ctaLabel={p.ctaLabel ?? "Buy Now"}
               onSelect={() => setSelected(p)}
-              style={{ width: "100%", height: "100%" }}
+              className={s.planFill}
             />,
           ]),
         )}
@@ -132,18 +102,15 @@ export default function Connect() {
         width={460}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setSelected(null)}>
-              Cancel
-            </Button>
+            <Button variant="secondary" onClick={() => setSelected(null)}>Cancel</Button>
             <Button onClick={pay}>Pay Now</Button>
           </>
         }
       >
-        <p style={{ margin: "0 0 12px" }}>
-          You're buying the{" "}
-          <strong style={{ color: "var(--color-white)" }}>{selected?.name}</strong> pass ({selected?.price}) for this flight.
+        <p className={s.modalP}>
+          You're buying the <strong className={s.emph}>{selected?.name}</strong> pass ({selected?.price}) for this flight.
         </p>
-        <p style={{ margin: 0, color: "var(--text-secondary)", fontSize: "var(--fs-body-2)" }}>
+        <p className={s.modalFine}>
           Charged once to the card ending 4242. Access stays active until landing, across reconnections.
         </p>
       </Modal>

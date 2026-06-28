@@ -17,6 +17,7 @@ export interface CardProps {
   /** Inner padding in px. Default 20. */
   padding?: number;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

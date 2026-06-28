@@ -13,6 +13,7 @@ export interface ToggleProps {
   /** Track height in px (width is 1.8×). Default 26. */
   size?: number;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

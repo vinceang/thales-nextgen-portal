@@ -10,6 +10,7 @@ export interface IconButtonProps {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** The icon SVG (e.g. a Lucide glyph). */
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

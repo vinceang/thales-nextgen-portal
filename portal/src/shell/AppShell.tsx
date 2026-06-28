@@ -3,6 +3,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { NavBar, SideDrawer, Search } from "../design-system/components";
 import { NAV } from "./navItems";
 import Footer from "./Footer";
+import s from "./AppShell.module.css";
 
 /**
  * App shell — sticky NavBar (header) + hamburger-toggled SideDrawer (slide-out
@@ -25,7 +26,7 @@ export default function AppShell() {
   }
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div className={s.shell}>
       <NavBar
         title={current.label}
         wifiActive
@@ -33,20 +34,11 @@ export default function AppShell() {
         onHome={() => navigate("/")}
         onSearch={() => setSearchOpen((v) => !v)}
         onProfile={() => navigate("/account")}
-        style={{ position: "sticky", top: 0, zIndex: 40 }}
+        className={s.nav}
       />
 
       {searchOpen && (
-        <div
-          style={{
-            position: "sticky",
-            top: "var(--nav-height)",
-            zIndex: 39,
-            background: "var(--color-bg)",
-            borderBlockEnd: "1px solid var(--color-border)",
-            padding: "var(--space-sm) var(--space-lg)",
-          }}
-        >
+        <div className={s.searchBar}>
           <Search
             size="lg"
             autoFocus
@@ -62,12 +54,7 @@ export default function AppShell() {
         open={drawerOpen}
         items={NAV.map((n) => ({ key: n.key, label: n.label }))}
         active={current.key}
-        flight={{
-          origin: "LAX",
-          destination: "MCO",
-          duration: "3h 28m",
-          progress: 0.42,
-        }}
+        flight={{ origin: "LAX", destination: "MCO", duration: "3h 28m", progress: 0.42 }}
         onSelect={go}
         onClose={() => setDrawerOpen(false)}
       />

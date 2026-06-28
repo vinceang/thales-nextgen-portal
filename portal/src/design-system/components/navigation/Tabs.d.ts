@@ -9,6 +9,7 @@ export interface TabsProps {
   tabs?: Array<string | { value: string; label: string }>;
   value?: string;
   onChange?: (value: string) => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

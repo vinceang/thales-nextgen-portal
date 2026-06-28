@@ -27,6 +27,7 @@ export interface DataGridProps {
   /** Controlled selected ids (Set or array). */
   selected?: Set<string> | string[];
   onSelectedChange?: (next: Set<string>) => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

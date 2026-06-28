@@ -10,6 +10,7 @@ export interface BadgeProps {
   /** Render a tiny standalone status dot instead of a labelled tag. */
   dot?: boolean;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

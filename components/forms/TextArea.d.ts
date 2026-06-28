@@ -15,6 +15,7 @@ export interface TextAreaProps {
   maxLength?: number;
   /** Helper text under the field. */
   helper?: string;
+  className?: string;
   style?: React.CSSProperties;
   inputStyle?: React.CSSProperties;
 }

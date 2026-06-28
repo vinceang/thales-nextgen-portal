@@ -14,6 +14,7 @@ export interface PopoverProps {
   defaultOpen?: boolean;
   /** Node, or a render fn receiving { close }. */
   children?: React.ReactNode | ((api: { close: () => void }) => React.ReactNode);
+  className?: string;
   style?: React.CSSProperties;
 }
 

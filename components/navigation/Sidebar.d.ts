@@ -56,6 +56,7 @@ export interface SidebarProps {
    * hamburger) already drives `onOpen`, to avoid a duplicate trigger.
    */
   showToggle?: boolean;
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -15,6 +15,7 @@ export interface NavBarProps {
   wifiActive?: boolean;
   onSearch?: () => void;
   onProfile?: () => void;
+  className?: string;
   style?: React.CSSProperties;
 }
 

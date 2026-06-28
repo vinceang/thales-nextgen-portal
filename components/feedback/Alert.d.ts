@@ -11,6 +11,7 @@ export interface AlertProps {
   /** When provided, renders a dismiss ×. */
   onClose?: () => void;
   children?: React.ReactNode;
+  className?: string;
   style?: React.CSSProperties;
 }
 

@@ -10,6 +10,7 @@ export interface SpinnerProps {
   thickness?: number;
   /** Optional inline caption shown after the ring (and used as aria-label). */
   label?: string;
+  className?: string;
   style?: React.CSSProperties;
 }
 
