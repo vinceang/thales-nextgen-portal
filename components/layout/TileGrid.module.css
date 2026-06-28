@@ -1,0 +1,10 @@
+/* TileGrid — responsive equal-column grid. Per-tier templates come in as CSS
+   custom properties (the column count is baked into the value), so the @media
+   breakpoints stay static here — no runtime <style> injection. */
+.grid {
+  display: grid;
+  gap: var(--tg-gap);
+  grid-template-columns: var(--tg-cols-phone);
+}
+@media (min-width: 561px)  { .grid { grid-template-columns: var(--tg-cols-tablet); } }
+@media (min-width: 1101px) { .grid { grid-template-columns: var(--tg-cols-desktop); } }

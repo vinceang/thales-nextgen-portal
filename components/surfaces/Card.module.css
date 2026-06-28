@@ -1,0 +1,29 @@
+/* Card — neutral container. Hairline border, sharp, flat. Real :hover when
+   interactive. Inner padding via --card-pad. */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 0.3s var(--ease-smooth);
+}
+.card[data-interactive="true"] { cursor: pointer; }
+.card[data-interactive="true"]:hover { border-color: var(--color-border-strong); }
+
+.header { padding: var(--card-pad); }
+.header[data-flush="true"] { padding-bottom: 0; }
+.title { font-family: var(--font-tile); font-weight: 600; font-size: var(--fs-h3); color: var(--text-primary); }
+.subtitle { margin-top: 4px; font-family: var(--font-sans); font-size: 14px; color: var(--text-secondary); }
+
+.body { padding: var(--card-pad); font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--on-surface-2); }
+
+.footer {
+  padding: var(--card-pad);
+  padding-top: 0;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
