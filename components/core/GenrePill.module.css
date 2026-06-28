@@ -1,0 +1,21 @@
+/* GenrePill — the one rounded shape. Active = solid accent; inactive = hairline. */
+.pill {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--dur-link) var(--ease-smooth);
+  background: transparent;
+  color: var(--on-surface-2);
+  border: 1px solid var(--color-border-strong);
+}
+.pill[data-active="true"] {
+  background: var(--color-highlight-blue);
+  color: var(--color-white);
+  border-color: var(--color-highlight-blue);
+}

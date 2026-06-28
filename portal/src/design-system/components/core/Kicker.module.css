@@ -1,0 +1,12 @@
+/* Kicker — bright-blue uppercase action label above a tile/card title. */
+.kicker {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: var(--tracking-button);
+  text-transform: uppercase;
+  color: var(--color-bright-blue);
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.kicker[data-underline="true"] { text-decoration: underline; }

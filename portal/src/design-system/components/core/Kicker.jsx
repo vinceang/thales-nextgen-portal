@@ -1,23 +1,16 @@
 import React from "react";
+import s from "./Kicker.module.css";
 
 /**
  * Kicker — short ALL-CAPS bright-blue label that sits above a serif tile title.
  * Names the action: CONNECT / WATCH / LISTEN / PLAY / READ / DESTINATION.
  */
-export function Kicker({ underline = false, children, style, ...rest }) {
+export function Kicker({ underline = false, children, className, style, ...rest }) {
   return (
     <span
-      style={{
-        fontFamily: "var(--font-sans)",
-        fontWeight: 700,
-        fontSize: 14,
-        letterSpacing: "0.04em",
-        textTransform: "uppercase",
-        color: "var(--color-bright-blue)",
-        textDecoration: underline ? "underline" : "none",
-        textUnderlineOffset: 3,
-        ...style,
-      }}
+      data-underline={underline || undefined}
+      className={className ? `${s.kicker} ${className}` : s.kicker}
+      style={style}
       {...rest}
     >
       {children}

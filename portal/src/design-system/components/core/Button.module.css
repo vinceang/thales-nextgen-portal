@@ -36,10 +36,9 @@
   border-color: var(--color-border-strong);
 }
 
-/* States — real pseudo-classes (replaces the old JS hover emulation).
-   TODO(ADR 0002 §4): tokenize the two hover literals below. */
-.btn[data-variant="primary"]:hover:not(:disabled) { background: rgb(13, 130, 232); }
-.btn[data-variant="secondary"]:hover:not(:disabled) { background: rgba(255, 255, 255, 0.08); }
+/* States — real pseudo-classes (replaces the old JS hover emulation). */
+.btn[data-variant="primary"]:hover:not(:disabled) { background: var(--accent-hover); }
+.btn[data-variant="secondary"]:hover:not(:disabled) { background: var(--hover-veil); }
 
 .btn:disabled {
   opacity: 0.45;
