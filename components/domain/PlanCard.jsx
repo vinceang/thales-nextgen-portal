@@ -41,7 +41,7 @@ export function PlanCard({
       {/* Top accent — solid (recommended) or dashed (standard) */}
       <div className="plan-topbar" style={{ height: 6, ...topBar }} />
 
-      <div style={{ display: "flex", flexDirection: "column", flex: 1, padding: "32px 28px 28px" }}>
+      <div style={{ display: "flex", flexDirection: "column", flex: 1, paddingBlock: "var(--pad-card-block)", paddingInline: "var(--pad-card-inline)" }}>
         {/* Name */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
           {recommended && (

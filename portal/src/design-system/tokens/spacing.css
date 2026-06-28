@@ -12,6 +12,11 @@
   --space-xl:   48px;  /* separation between themed sections */
   --space-2xl:  64px;  /* large section side / bottom gutters */
 
+  /* Responsive card padding — fluid over 480→1200px (same range as the --fs-*
+     scale). Endpoints land on the unit-of-8 grid: 48/24 desktop → 24/16 phone. */
+  --pad-card-block:  clamp(24px, calc(24px + 24 * (100vw - 480px) / 720), 48px); /* @kind other */
+  --pad-card-inline: clamp(16px, calc(16px +  8 * (100vw - 480px) / 720), 24px); /* @kind other */
+
   /* Radius — sharp everywhere. Only pills / dots round. -------- */
   --radius-none: 0px;
   --radius-pill: 999px;  /* genre pills, dot indicators, toggles only */

@@ -132,3 +132,43 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer asked that on tablet the two promo cells stay 2:1 and occupy two columns beneath the hero, instead of stretching full-width.
 
 ---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (Connect/Plans header)
+**Rule/token changed:** Token usage — header type sizes & blurb color vs the `PlansScreen.jsx` reference's literals.
+**Was:** The reference (and the page-build spec) hard-code the editorial header: title `fontSize: 60`, blurb `fontSize: 17` and `color: rgba(255,255,255,0.82)`.
+**Now:** Used tokens: title `var(--fs-h1)` (= 60px desktop, fluid down on mobile), blurb `var(--fs-body)` (≈18px desktop, fluid) and `var(--on-surface-2)` (which IS `rgba(255,255,255,0.82)`). Bold emphasis span uses `var(--color-white)`.
+**Why:** CLAUDE rule — all colors/sizes from tokens, no hard-coded values; fluid `--fs-*` also gives the mobile down-scaling the phone mockup shows. (Visual delta: blurb 17→18px desktop; otherwise identical.)
+
+---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (Connect/Plans header layout)
+**Rule/token changed:** Layout — responsive editorial header (vs the reference's raw CSS grid).
+**Was:** `PlansScreen.jsx` lays the split header out as a plain CSS grid (`1.2fr 1fr`), relying on the ui-kit's external `.plans-head` CSS to stack it on phone.
+**Now:** Built the header with `BentoGrid` (regions `title`/`blurb`): desktop & tablet `1.2fr 1fr`, phone single-column stack — responsive without a hand-rolled media query.
+**Why:** CLAUDE rule — compose layout with TileGrid/BentoGrid, never hand-rolled grid + media queries.
+
+---
+
+### 2026-06-28 tokens/spacing.css + components/domain/PlanCard.jsx
+**Rule/token changed:** New responsive spacing tokens; PlanCard inner padding.
+**Was:** PlanCard's inner content padding was hard-coded `32px 28px 28px` (28 is off the unit-of-8 grid; not responsive).
+**Now:** Added `--pad-card-block` / `--pad-card-inline` — `clamp()` tokens fluid over 480→1200px, endpoints on the 8-grid (block 24→48px, inline 16→24px). PlanCard now uses `paddingBlock: var(--pad-card-block)` / `paddingInline: var(--pad-card-inline)` (logical, RTL-safe). Desktop 48/24, phone 24/16.
+**Why:** Designer specified card padding 48/24 desktop clamping to 24/16 phone, everything divisible by 8. (Design-system change — synced to the app copy; flag for upstream ratification.)
+
+---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (hero padding)
+**Rule/token changed:** Spacing — Connect editorial header / page gutters.
+**Was:** Page wrapper padding `40px 24px 64px`; header bottom margin `var(--space-xl)` (48px).
+**Now:** Page wrapper `var(--space-2xl) var(--space-md)` (64/24); header `marginBlock: var(--space-md) var(--space-2xl)` (24 top / 64 bottom) — more vertical breathing room around the hero section. All values ÷8.
+**Why:** Designer asked for more padding in the hero section.
+
+---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (plan grid order)
+**Rule/token changed:** Layout — plan grid (TileGrid → BentoGrid) + phone ordering.
+**Was:** Plan grid was `TileGrid columns={3} phone={1}`, stacking on phone in source order (Messaging → Browsing → High-Speed), so the cheapest plan sat on top.
+**Now:** Plan grid is a `BentoGrid` with areas derived from plan ids: desktop/tablet 3-up in source order; **phone tier reverses the areas** so the highest-value plan (High-Speed Streaming) is on top. PlanCards fill cells via `height:100%` to equalize heights. No media query.
+**Why:** Designer asked that when the layout stacks to one column, plans reverse so the highest-value plan gets top visual hierarchy.
+
+---
