@@ -108,3 +108,27 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer wanted each carousel CTA to match its card content and route to the matching page.
 
 ---
+
+### 2026-06-27 portal/src/pages/Showcase.tsx (Showcase v2)
+**Rule/token changed:** Layout — Showcase composition; v1 interactive features.
+**Was:** v1 Showcase used a hand-rolled flex hero with a rotating CarouselDots carousel, a centered GenrePill filter row, Skeleton loading states, and TileGrid "Featured"/"Destinations" rows.
+**Now:** Rebuilt as ONE `BentoGrid` (4 named rows: hero+rail, four tiles, feature+WeatherTile, four tiles) per the `ui_kits/portal/ShowcaseScreen.jsx` reference. The carousel/dots, genre-pill filter, and skeletons were dropped (the bento hub is a fixed editorial composition, not a filterable grid). Adds a `WeatherTile` panel.
+**Why:** Designer asked to rebuild the Showcase using BentoGrid (the configurable bento hub), matching the reference implementation.
+
+---
+
+### 2026-06-27 components/media/ShowcaseTile.d.ts + components/media/HeroBanner.d.ts
+**Rule/token changed:** Type signature — `height` prop.
+**Was:** `height?: number` (px only) on both ShowcaseTile and HeroBanner, though the components already apply the value directly as a CSS height.
+**Now:** Widened to `height?: number | string` so a tile/banner can fill its grid cell with `height="100%"` (the reference's aspect-ratio pattern). No runtime change; types now match behavior.
+**Why:** The BentoGrid reference sizes tiles via an aspect-ratio wrapper + `height="100%"`, which the px-only type rejected.
+
+---
+
+### 2026-06-27 portal/src/pages/Showcase.tsx (Showcase v2 — tablet rail)
+**Rule/token changed:** Layout — Showcase bento rail region (vs the `ui_kits/portal/ShowcaseScreen.jsx` reference).
+**Was:** The reference models the two row-1 promos as ONE `rail` region (a flex column of two tiles). On tablet the reference spans it full width (`"rail rail"`), so the two promos stack into full-width ultra-wide letterboxes (not 2:1).
+**Now:** Split the rail into two first-class cells `r1`/`r2`. Desktop: hero spans 2 rows with `r1`/`r2` stacked in the right 4 cols (hero fills via `aspectRatio + height:100%`, so cell bottoms align with the hero). Tablet: `"r1 r2"` places them side-by-side, each keeping its 2:1 aspect. Phone: stacked. No design-system component change — Showcase page only.
+**Why:** Designer asked that on tablet the two promo cells stay 2:1 and occupy two columns beneath the hero, instead of stretching full-width.
+
+---
