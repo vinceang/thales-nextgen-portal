@@ -1,0 +1,40 @@
+/* DataGrid — sortable/selectable table, sticky head. Real row :hover. */
+.wrap { width: 100%; overflow: auto; max-height: 100%; }
+.table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); }
+.headRow { border-bottom: 1px solid var(--color-border-strong); }
+
+.th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-bg);
+  padding: 14px 16px;
+  text-align: start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  user-select: none;
+}
+.th[data-align="end"]    { text-align: end; }
+.th[data-align="center"] { text-align: center; }
+.th[data-sortable="true"] { cursor: pointer; }
+.th[data-active="true"] { color: var(--color-bright-blue); }
+
+.selCol { position: sticky; top: 0; z-index: 1; background: var(--color-bg); width: 48px; text-align: center; padding: 14px 16px; }
+
+.thInner { display: inline-flex; align-items: center; gap: 6px; }
+.thInner[data-align="end"] { flex-direction: row-reverse; }
+.sortIcon { display: inline-flex; opacity: 0.3; }
+.th[data-active="true"] .sortIcon { opacity: 1; }
+
+.row { border-bottom: 1px solid var(--color-border); background: transparent; transition: background var(--dur-link) var(--ease-smooth); }
+.row[data-selected="true"] { background: var(--color-surface-2); }
+.row:not([data-selected="true"]):hover { background: var(--color-surface-2); }
+
+.td { padding: 14px 16px; text-align: start; font-size: 14px; color: var(--on-surface); }
+.td[data-align="end"]    { text-align: end; font-variant-numeric: tabular-nums; }
+.td[data-align="center"] { text-align: center; }
+.tdSel { padding: 14px 16px; text-align: center; }

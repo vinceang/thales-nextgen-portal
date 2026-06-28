@@ -1,0 +1,21 @@
+/* FlightTracker — drawer strip. Plane advances via --ft-pct. tone dark|theme. */
+.tracker { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.row { display: flex; align-items: center; gap: 12px; width: 100%; }
+.code { font-weight: 700; font-size: 13px; letter-spacing: 0.04em; }
+.line { position: relative; flex: 1; height: 2px; }
+.fill { position: absolute; inset-inline-start: 0; top: 0; height: 100%; width: var(--ft-pct); }
+.plane { position: absolute; top: 50%; inset-inline-start: var(--ft-pct); transform: translate(-50%, -50%) rotate(45deg); }
+.sub { font-size: 11px; letter-spacing: 0.04em; }
+
+/* dark = on the always-black drawer; theme = on a themed surface */
+.tracker[data-tone="dark"]  .code { color: var(--color-bright-blue); }
+.tracker[data-tone="dark"]  .line { background: var(--hairline-track); }
+.tracker[data-tone="dark"]  .fill,
+.tracker[data-tone="dark"]  .plane { background: var(--color-bright-blue); color: var(--color-bright-blue); }
+.tracker[data-tone="dark"]  .sub  { color: var(--on-surface-faint); }
+
+.tracker[data-tone="theme"] .code { color: var(--text-emphasis); }
+.tracker[data-tone="theme"] .line { background: var(--hairline-track); }
+.tracker[data-tone="theme"] .fill,
+.tracker[data-tone="theme"] .plane { background: var(--color-bright-blue); color: var(--color-bright-blue); }
+.tracker[data-tone="theme"] .sub  { color: var(--text-secondary); }

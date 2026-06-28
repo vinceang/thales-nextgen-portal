@@ -1,0 +1,32 @@
+/* MetricTile — line icon, uppercase label, large value. Hairline, transparent. */
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 20px;
+  background: transparent;
+  border: var(--border-width) solid var(--border-hairline);
+  border-radius: var(--radius-card);
+}
+.icon { height: 22px; color: var(--mt-icon-color); }
+.meta { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-subscript);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.value {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sub { font-size: var(--fs-body-sm); color: var(--text-secondary); }

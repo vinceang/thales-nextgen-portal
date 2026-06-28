@@ -1,0 +1,23 @@
+/* Table — semantic data table. Uppercase heads, hairline dividers, row :hover. */
+.wrap { width: 100%; overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); }
+.headRow { border-bottom: 1px solid var(--color-border-strong); }
+.th {
+  padding: 14px 16px;
+  text-align: start;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.th[data-align="end"]    { text-align: end; }
+.th[data-align="center"] { text-align: center; }
+
+.row { border-bottom: 1px solid var(--color-border); transition: background var(--dur-link) var(--ease-smooth); }
+.row:hover { background: var(--color-surface-2); }
+
+.td { padding: 14px 16px; text-align: start; font-size: 14px; color: var(--on-surface); }
+.td[data-align="end"]    { text-align: end; font-variant-numeric: tabular-nums; }
+.td[data-align="center"] { text-align: center; }

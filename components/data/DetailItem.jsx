@@ -1,46 +1,20 @@
 import React from "react";
+import s from "./DetailItem.module.css";
 
 /**
- * DetailItem — a quiet label-over-value spec pair (no icon, no border). Used for
- * secondary fact rows (Flight · Aircraft · Gate · Total distance). Lay several
- * out in a <TileGrid>.
+ * DetailItem — quiet label-over-value spec pair (no icon, no border). Group in a
+ * TileGrid for secondary fact rows.
  */
-export function DetailItem({ label, value, align = "left", style, ...rest }) {
+export function DetailItem({ label, value, align = "left", className, style, ...rest }) {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 6,
-        textAlign: align,
-        alignItems: align === "right" ? "flex-end" : align === "center" ? "center" : "flex-start",
-        minWidth: 0,
-        ...style,
-      }}
+      className={className ? `${s.item} ${className}` : s.item}
+      data-align={align !== "left" ? align : undefined}
+      style={style}
       {...rest}
     >
-      <div
-        style={{
-          fontFamily: "var(--font-sans)",
-          fontWeight: 700,
-          fontSize: "var(--fs-subscript)",
-          letterSpacing: "0.08em",
-          textTransform: "uppercase",
-          color: "var(--text-secondary)",
-        }}
-      >
-        {label}
-      </div>
-      <div
-        style={{
-          fontFamily: "var(--font-sans)",
-          fontWeight: 600,
-          fontSize: "var(--fs-body)",
-          color: "var(--text-primary)",
-        }}
-      >
-        {value}
-      </div>
+      <div className={s.label}>{label}</div>
+      <div className={s.value}>{value}</div>
     </div>
   );
 }
