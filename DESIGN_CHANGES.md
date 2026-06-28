@@ -148,3 +148,27 @@ Each entry is logged as it happens, in this format:
 **Why:** CLAUDE rule — compose layout with TileGrid/BentoGrid, never hand-rolled grid + media queries.
 
 ---
+
+### 2026-06-28 tokens/spacing.css + components/domain/PlanCard.jsx
+**Rule/token changed:** New responsive spacing tokens; PlanCard inner padding.
+**Was:** PlanCard's inner content padding was hard-coded `32px 28px 28px` (28 is off the unit-of-8 grid; not responsive).
+**Now:** Added `--pad-card-block` / `--pad-card-inline` — `clamp()` tokens fluid over 480→1200px, endpoints on the 8-grid (block 24→48px, inline 16→24px). PlanCard now uses `paddingBlock: var(--pad-card-block)` / `paddingInline: var(--pad-card-inline)` (logical, RTL-safe). Desktop 48/24, phone 24/16.
+**Why:** Designer specified card padding 48/24 desktop clamping to 24/16 phone, everything divisible by 8. (Design-system change — synced to the app copy; flag for upstream ratification.)
+
+---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (hero padding)
+**Rule/token changed:** Spacing — Connect editorial header / page gutters.
+**Was:** Page wrapper padding `40px 24px 64px`; header bottom margin `var(--space-xl)` (48px).
+**Now:** Page wrapper `var(--space-2xl) var(--space-md)` (64/24); header `marginBlock: var(--space-md) var(--space-2xl)` (24 top / 64 bottom) — more vertical breathing room around the hero section. All values ÷8.
+**Why:** Designer asked for more padding in the hero section.
+
+---
+
+### 2026-06-28 portal/src/pages/Connect.tsx (plan grid order)
+**Rule/token changed:** Layout — plan grid (TileGrid → BentoGrid) + phone ordering.
+**Was:** Plan grid was `TileGrid columns={3} phone={1}`, stacking on phone in source order (Messaging → Browsing → High-Speed), so the cheapest plan sat on top.
+**Now:** Plan grid is a `BentoGrid` with areas derived from plan ids: desktop/tablet 3-up in source order; **phone tier reverses the areas** so the highest-value plan (High-Speed Streaming) is on top. PlanCards fill cells via `height:100%` to equalize heights. No media query.
+**Why:** Designer asked that when the layout stacks to one column, plans reverse so the highest-value plan gets top visual hierarchy.
+
+---

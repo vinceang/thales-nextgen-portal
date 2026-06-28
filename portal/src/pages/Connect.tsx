@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   BentoGrid,
-  TileGrid,
   PlanCard,
   Modal,
   Button,
@@ -50,26 +49,32 @@ export default function Connect() {
     window.setTimeout(() => setToast(null), TOAST_MS);
   }
 
+  // Plan grid as a BentoGrid so the phone tier can reverse order (highest-value
+  // plan on top) without a media query. Areas are derived from the plan ids.
+  const planIds = plans.map((p) => p.id);
+  const planCols = planIds.map(() => "1fr").join(" ");
+
   return (
-    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 24px 64px" }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "var(--space-2xl) var(--space-md)" }}>
       <Breadcrumbs
         items={[{ label: "Showcase", href: "/" }, { label: "Connect" }]}
         style={{ marginBottom: "var(--space-md)" }}
       />
 
-      {/* Intro — editorial split header, or a status Alert once connected */}
+      {/* Intro — editorial split header, or a status Alert once connected.
+          Extra vertical breathing room makes the hero section feel editorial. */}
       {connected ? (
         <Alert
           tone="success"
           title={`You're connected — ${connected.name}`}
-          style={{ marginBottom: "var(--space-xl)" }}
+          style={{ marginBlock: "var(--space-md) var(--space-2xl)" }}
         >
           Your {connected.name} pass is active for the rest of this flight, across reconnections.
         </Alert>
       ) : (
         <BentoGrid
           gap={40}
-          style={{ marginBottom: "var(--space-xl)", alignItems: "start" }}
+          style={{ marginBlock: "var(--space-md) var(--space-2xl)", alignItems: "start" }}
           items={{
             title: (
               <h1
@@ -94,22 +99,30 @@ export default function Connect() {
         />
       )}
 
-      {/* Plan grid — equal heights via the grid's stretch; 3-up, stacks to 1 on phone */}
-      <TileGrid columns={3} tablet={3} phone={1} gap={16}>
-        {plans.map((p) => (
-          <PlanCard
-            key={p.id}
-            name={p.name}
-            price={p.price}
-            features={p.features}
-            recommended={p.recommended}
-            badge={p.badge}
-            ctaLabel={p.ctaLabel ?? "Buy Now"}
-            onSelect={() => setSelected(p)}
-            style={{ width: "100%" }}
-          />
-        ))}
-      </TileGrid>
+      {/* Plan grid — equal heights via grid stretch. 3-up on tablet/desktop; on
+          phone it collapses to one column in REVERSE order (highest-value plan
+          on top). PlanCards fill their cell (height 100%) to equalize heights. */}
+      <BentoGrid
+        gap={16}
+        items={Object.fromEntries(
+          plans.map((p) => [
+            p.id,
+            <PlanCard
+              name={p.name}
+              price={p.price}
+              features={p.features}
+              recommended={p.recommended}
+              badge={p.badge}
+              ctaLabel={p.ctaLabel ?? "Buy Now"}
+              onSelect={() => setSelected(p)}
+              style={{ width: "100%", height: "100%" }}
+            />,
+          ]),
+        )}
+        phone={{ columns: "1fr", areas: [...planIds].reverse() }}
+        tablet={{ columns: planCols, areas: [planIds.join(" ")] }}
+        desktop={{ columns: planCols, areas: [planIds.join(" ")] }}
+      />
 
       {/* Purchase confirm */}
       <Modal
