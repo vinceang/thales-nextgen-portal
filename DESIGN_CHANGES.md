@@ -180,3 +180,12 @@ Each entry is logged as it happens, in this format:
 **Why:** Lead frontend engineer's ruling — inline styles are not acceptable for a production white-label product (no real states, CSP friction, shallow override ceiling). Decided to standardize on CSS Modules + tokens.
 
 ---
+
+### 2026-06-28 CSS Modules migration — COMPLETE (all 52 components + app)
+**Rule/token changed:** Styling delivery (sitewide, finished); new tokens; `className` on every component.
+**Was:** Migration in progress (pilot + early waves).
+**Now:** **All 52 design-system components + the app shell/pages are inline-style-free** — presentational styling lives in `Name.module.css` consuming tokens; states are real `:hover`/`:focus-visible`/`:focus-within`/`:disabled`; variants/sizes are `data-*`; dynamic per-instance values (sizes, %, grid templates, knob travel, progress) pass through CSS custom properties. The layout primitives (`BentoGrid`/`TileGrid`) no longer inject a runtime `<style>` — `@media` is static, templates come in as vars. Every component now also accepts a `className` (added to all `.d.ts`).
+**New tokens:** `--accent-hover` (color-mix, primary-button hover), `--overlay-backdrop` (rgba 0,0,0,0.7 — Modal/Drawer/SideDrawer scrim), `--pad-card-block` / `--pad-card-inline` (responsive card padding). Removed `PlanCard`'s `box-shadow` (no-shadow rule). Stray white-alpha literals snapped to the nearest `--on-surface-*` token where clean; a few decorative one-offs remain component-local literals (PlanCard gradient, breadcrumb-chevron `0.35`, ShowcaseTile hover `brightness(1.08)`).
+**Why:** Complete ADR 0002. Build green throughout; Showcase + Connect verified identical at desktop/tablet/phone. JS bundle ~10kB smaller; CSS ~22kB (static, cacheable, CSP-clean).
+
+---
