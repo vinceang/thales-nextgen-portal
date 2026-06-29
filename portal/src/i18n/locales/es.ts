@@ -125,6 +125,20 @@ export const es: Dict = {
     savedBody: "Tus preferencias se han actualizado.",
     comingSoon: "Esta sección aún no está configurada.",
   },
+  watch: {
+    featured: "Destacado",
+    play: "Reproducir",
+    all: "Todo",
+    rows: {
+      trending: "Tendencias",
+      newReleases: "Novedades",
+      action: "Acción",
+      comedy: "Comedia",
+      scifi: "Ciencia ficción",
+      drama: "Drama",
+      documentary: "Documentales",
+    },
+  },
   footer: {
     terms: "Términos de servicio",
     privacy: "Privacidad",

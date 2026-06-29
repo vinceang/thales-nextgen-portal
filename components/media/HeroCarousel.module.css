@@ -1,0 +1,28 @@
+/* HeroCarousel — crossfading stack of HeroBanner slides + centered dots.
+   Height via --hc-h. The fade is a one-shot opacity transition (not a loop). */
+.carousel {
+  position: relative;
+  height: var(--hc-h);
+}
+
+.viewport { position: absolute; inset: 0; }
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-link) var(--ease-smooth);
+}
+.slide[data-active="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dots {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 16px;
+  justify-content: center;
+  z-index: 2;
+}

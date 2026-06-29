@@ -131,6 +131,20 @@ export const en = {
     savedBody: "Your preferences have been updated.",
     comingSoon: "This section isn't configured yet.",
   },
+  watch: {
+    featured: "Featured",
+    play: "Play",
+    all: "All",
+    rows: {
+      trending: "Trending Now",
+      newReleases: "New Releases",
+      action: "Action",
+      comedy: "Comedy",
+      scifi: "Sci-Fi",
+      drama: "Drama",
+      documentary: "Documentaries",
+    },
+  },
   footer: {
     terms: "Terms of Service",
     privacy: "Privacy",

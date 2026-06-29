@@ -218,3 +218,30 @@ Each entry is logged as it happens, in this format:
 **Why:** Build the Account/Settings page (next in the build order). Flagging the placeholder tabs + Cancel behavior + auto-fit grid for designer ratification.
 
 ---
+
+### 2026-06-29 components/media/MediaRail.* + HeroCarousel.* — two NEW design-system components
+**Rule/token changed:** Component inventory — adds `MediaRail` and `HeroCarousel`.
+**Was:** The system had `HeroBanner` (single promo), `CarouselDots` (just the indicator), `GenrePill`, and `ShowcaseTile`, but no horizontal "shelf" container and no multi-slide hero — the streaming-gallery pattern (Watch/Listen/News) had no home.
+**Now:** Added two components (authored in the canonical `components/media/` and synced to the vendored `portal/src/design-system/` copy; both have `.jsx` + `.module.css` + `.d.ts` + `.prompt.md`, are exported from both barrels, and are documented in `COMPONENT_TYPES.md`):
+- **`MediaRail`** — labelled, horizontally-scrolling row of tiles (hidden scrollbar, scroll-snap, desktop prev/next arrows that fade in on hover, hidden on touch). Generic over the tile; children carry their own width. RTL-safe (inline-axis scroll, logical arrow insets). Sharp, flat, token-driven. Requested by the designer for Watch and (upcoming) News/Listen.
+- **`HeroCarousel`** — auto-advancing stack of `HeroBanner` slides with `CarouselDots`; one-shot crossfade between slides. Autoplay is **configurable** (`autoPlay`, `intervalMs`) so white-label tenants can retune or disable rotation from the content/config seam.
+**Why:** Designer asked to build these as real, reusable DS components (not page-level one-offs) for the media-gallery pages.
+
+---
+
+### 2026-06-29 PROPOSED RULE CHANGE — auto-advancing hero vs. the motion rule
+**Rule/token changed:** Motion — CLAUDE.md says "nothing bouncy or **looping** on content."
+**Was:** No moving/auto-rotating content anywhere; all motion was state-driven (hover, link).
+**Now:** `HeroCarousel` **auto-advances** its slides on a timer (default 6s) — chosen by the designer for a Netflix-style marquee. It's restrained: a slow opacity crossfade (no slide/zoom/bounce), it **pauses on hover/focus**, and it is **fully disabled under `prefers-reduced-motion`**. Autoplay is opt-out per tenant (`autoPlay={false}`).
+**PROPOSED RULE CHANGE:** amend the motion rule to allow a *single, slow, pause-on-interaction, reduced-motion-respecting* hero auto-advance — i.e. "nothing bouncy or looping on content **except an opt-out hero carousel that crossfades, pauses on hover/focus, and honors prefers-reduced-motion**." Flagged for the designer to ratify upstream.
+**Why:** Designer explicitly chose auto-advance for the Watch hero and asked that it be configurable for white-label tenants.
+
+---
+
+### 2026-06-29 portal/src/pages/Watch.tsx (+ content/watch.ts) — Watch (media gallery)
+**Rule/token changed:** Page build — no comp exists for Watch; built from the designer's verbal direction.
+**Was:** `/watch` was a `StubPage`. There is **no `page-comps/04-watch.html`** — comps only cover 01–03.
+**Now:** Built a streaming media-gallery page composing `HeroCarousel` (configurable autoplay) + a scrollable `GenrePill` filter row + a vertical stack of `MediaRail` shelves of **portrait (2:3) `ShowcaseTile` posters**. GenrePills **filter** the shelves ("All" + one per category). Content is the `content/watch.ts` seam (ADR 0001) — a placeholder Unsplash catalogue today, the **TMDB** integration returns the same shape later. Localized: hero kicker/CTA, genre/row labels, "All" (movie titles stay verbatim). Poster tiles + the hero CTA are non-interactive placeholders (hero CTA routes to /connect as an upsell) — detail/playback routing arrives with TMDB.
+**Why:** Next page in the build order; designer gave direction (hero carousel → genre pills → scrollable category rows, Netflix/Prime/Disney+ style) in lieu of a comp. Verified desktop/phone, EN; autoplay advance + pill filtering confirmed.
+
+---
