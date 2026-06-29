@@ -4,7 +4,7 @@
 then update the relevant sections when you finish work. Goal: a new session can get
 oriented from this one file plus the canonical sources it points to.
 
-_Last updated: 2026-06-28 (i18n / language switcher — EN·FR·ES)_
+_Last updated: 2026-06-28 (Account / Settings page — comp 03)_
 
 ---
 
@@ -92,7 +92,14 @@ Connect page this way.)
   Breadcrumbs + editorial split header (BentoGrid) + 3 `PlanCard`s (`TileGrid` 3-up,
   stacks on phone) → purchase `Modal` → success `Toast` + `Alert` (header swaps to the
   Alert once connected). Content is in `src/content/connect.ts` (admin-tool seam, ADR 0001).
-- Routes still **stubbed** (`StubPage`): `/watch` `/listen` `/news` `/weather` `/account`.
+- **Account / Settings (`/account`) — DONE (comp 03).** Branch `feat/account-settings`.
+  `Tabs` (Profile · Connectivity · Billing) + Profile `Card` (Input/Select/DatePicker/
+  TextArea in a responsive auto-fit grid) + Preferences `Card` (Toggle/RadioGroup/
+  Checkbox) + right-aligned Cancel/Save → success `Toast`. Content seam in
+  `src/content/account.ts` (`getAccountContent(t)`); fully localized (EN/FR/ES).
+  Connectivity/Billing tabs show a placeholder Card (not specced in comp 03). Cancel
+  resets to defaults. Verified desktop/phone, EN + FR.
+- Routes still **stubbed** (`StubPage`): `/watch` `/listen` `/news` `/weather`.
 
 **Design-system refinements made & logged** (see `DESIGN_CHANGES.md`; flagged for
 upstream ratification): ShowcaseTile prominence-driven fonts + `titleFont`/`kickerFont`/
@@ -123,7 +130,7 @@ via headless-Chrome CDP: EN↔FR switch flips nav/pages, persists, sets `lang`.
 ## 6. Build order (one page per session)
 
 `01 Showcase ✓` → `02 Connect/Plans ✓` → `i18n / language switcher ✓` →
-**`03 Account/Settings` (NEXT, comp 03)** → `Watch / Listen / News` → `Weather`.
+`03 Account/Settings ✓` → **`Watch / Listen / News` (NEXT)** → `Weather`.
 Comps + specs: `design_handoff_site_build/page-comps/`.
 
 Per **ADR 0001**, model each page's content as a typed **content module** in

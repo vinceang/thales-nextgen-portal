@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import AppShell from "./shell/AppShell";
 import Showcase from "./pages/Showcase";
 import Connect from "./pages/Connect";
+import Account from "./pages/Account";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
         <Route path="/listen" element={<StubPage title="Listen" note="Music & audio" />} />
         <Route path="/news" element={<StubPage title="News" note="Editorial headlines" />} />
         <Route path="/weather" element={<StubPage title="Weather" note="Destination forecast" />} />
-        <Route path="/account" element={<StubPage title="Account" note="Account & settings — comp 03" />} />
+        <Route path="/account" element={<Account />} />
         <Route path="*" element={<StubPage title="Not found" note="No such page" />} />
       </Route>
     </Routes>

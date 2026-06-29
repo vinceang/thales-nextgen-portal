@@ -1,0 +1,55 @@
+/* Account / Settings — centered settings surface (comp 03). Tabs span the page
+   width; the form column is capped at 880px. All values are tokens. */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg) var(--space-2xl);
+}
+
+.tabs { margin-block-end: var(--space-lg); }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 880px;
+}
+
+/* Vertical stack of fields inside a Card. */
+.fieldCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Two-column field row that collapses to one column on narrow widths without a
+   media query (auto-fit + minmax). */
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Small uppercase caption above a control group (e.g. Temperature units). */
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-block: 4px 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.placeholder {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  color: var(--on-surface-2);
+}
