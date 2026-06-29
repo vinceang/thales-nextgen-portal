@@ -41,6 +41,8 @@ export * from "./surfaces/Modal.jsx";
 // media
 export * from "./media/CarouselDots.jsx";
 export * from "./media/HeroBanner.jsx";
+export * from "./media/HeroCarousel.jsx";
+export * from "./media/MediaRail.jsx";
 export * from "./media/ShowcaseTile.jsx";
 
 // layout

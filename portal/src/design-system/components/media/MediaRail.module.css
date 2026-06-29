@@ -1,0 +1,62 @@
+/* MediaRail — labelled horizontal "shelf" of tiles. Hidden scrollbar, scroll-snap,
+   desktop arrows that fade in on hover. Sharp by default; no shadows. */
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-inline: 2px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(16px, calc(15px + 0.4vw), 20px);
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+}
+.action { font-family: var(--font-sans); font-size: 13px; }
+
+.viewport { position: relative; }
+
+.scroller {
+  display: flex;
+  gap: var(--rail-gap, 16px);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 2px;
+  /* hide the scrollbar — the arrows + drag are the affordance */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: 2px;
+}
+.scroller::-webkit-scrollbar { display: none; }
+.scroller > * {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+/* Edge arrows — only meaningful with a fine pointer; fade in on rail hover/focus. */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: var(--overlay-backdrop);
+  opacity: 0;
+  transition: opacity var(--dur-link) var(--ease-smooth), background var(--dur-link) var(--ease-smooth);
+}
+.arrowStart { inset-inline-start: -6px; }
+.arrowEnd { inset-inline-end: -6px; }
+.viewport:hover .arrow { opacity: 1; }
+.arrow:focus-visible { opacity: 1; }
+.arrow:hover { background: var(--color-black); }
+@media (hover: none) {
+  .arrow { display: none; }
+}

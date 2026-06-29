@@ -4,7 +4,7 @@
 then update the relevant sections when you finish work. Goal: a new session can get
 oriented from this one file plus the canonical sources it points to.
 
-_Last updated: 2026-06-28 (Account / Settings page — comp 03)_
+_Last updated: 2026-06-29 (Watch media gallery + MediaRail / HeroCarousel components)_
 
 ---
 
@@ -99,7 +99,19 @@ Connect page this way.)
   `src/content/account.ts` (`getAccountContent(t)`); fully localized (EN/FR/ES).
   Connectivity/Billing tabs show a placeholder Card (not specced in comp 03). Cancel
   resets to defaults. Verified desktop/phone, EN + FR.
-- Routes still **stubbed** (`StubPage`): `/watch` `/listen` `/news` `/weather`.
+- **Watch (`/watch`) — DONE (no comp — built from designer direction).** Branch
+  `feat/watch-gallery`. Streaming media gallery: `HeroCarousel` (auto-advancing,
+  configurable) → centered `GenrePill` filter row → stack of `MediaRail` shelves of
+  portrait (2:3) `ShowcaseTile` posters. Pills **filter** the shelves. Content seam
+  `src/content/watch.ts` (placeholder Unsplash now; **TMDB** later, same shape).
+  Localized EN/FR/ES. Poster tiles + hero CTA are non-interactive placeholders
+  (detail/playback arrives with TMDB).
+- **Two NEW DS components** (canonical + vendored + types + prompts + barrels):
+  `HeroCarousel` (configurable autoplay; pauses on hover/focus + reduced-motion) and
+  `MediaRail` (horizontal shelf, hidden scrollbar, scroll-snap, desktop arrows). Reuse
+  these for Listen/News. ⚠️ Autoplay is a **proposed motion-rule change** (see
+  DESIGN_CHANGES) — restrained crossfade, opt-out, reduced-motion-safe.
+- Routes still **stubbed** (`StubPage`): `/listen` `/news` `/weather`.
 
 **Design-system refinements made & logged** (see `DESIGN_CHANGES.md`; flagged for
 upstream ratification): ShowcaseTile prominence-driven fonts + `titleFont`/`kickerFont`/
@@ -130,8 +142,9 @@ via headless-Chrome CDP: EN↔FR switch flips nav/pages, persists, sets `lang`.
 ## 6. Build order (one page per session)
 
 `01 Showcase ✓` → `02 Connect/Plans ✓` → `i18n / language switcher ✓` →
-`03 Account/Settings ✓` → **`Watch / Listen / News` (NEXT)** → `Weather`.
-Comps + specs: `design_handoff_site_build/page-comps/`.
+`03 Account/Settings ✓` → `Watch ✓` → **`Listen / News` (NEXT — reuse MediaRail /
+HeroCarousel)** → `Weather`. Comps + specs: `design_handoff_site_build/page-comps/`
+(note: only 01–03 have comps; Watch was built from direction).
 
 Per **ADR 0001**, model each page's content as a typed **content module** in
 `src/content/<page>.ts` (not inlined in JSX) — the seam a future admin tool populates.

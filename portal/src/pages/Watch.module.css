@@ -1,0 +1,42 @@
+/* Watch — media gallery page. Hero, then a scrollable genre-pill row, then a
+   vertical stack of horizontal shelves (MediaRail). All values are tokens. */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Genre filter pills — centered on the page when they fit, horizontally
+   scrollable (scrollbar hidden) when they overflow on narrow widths. The inner
+   track is `max-content` width with auto inline margins: it centers while it
+   fits, then degrades to start-aligned scrolling once it hits 100%. */
+.pills {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: 2px;
+}
+.pills::-webkit-scrollbar { display: none; }
+.pillsTrack {
+  display: flex;
+  gap: var(--space-sm);
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.pillsTrack > * { flex: 0 0 auto; }
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Portrait poster cell — fixed inline size, 2:3 aspect; the ShowcaseTile fills it. */
+.poster {
+  width: clamp(132px, 22vw, 178px);
+  aspect-ratio: 2 / 3;
+}

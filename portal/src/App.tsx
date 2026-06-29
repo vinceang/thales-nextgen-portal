@@ -3,6 +3,7 @@ import AppShell from "./shell/AppShell";
 import Showcase from "./pages/Showcase";
 import Connect from "./pages/Connect";
 import Account from "./pages/Account";
+import Watch from "./pages/Watch";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -11,7 +12,7 @@ export default function App() {
       <Route element={<AppShell />}>
         <Route path="/" element={<Showcase />} />
         <Route path="/connect" element={<Connect />} />
-        <Route path="/watch" element={<StubPage title="Watch" note="Movies & TV" />} />
+        <Route path="/watch" element={<Watch />} />
         <Route path="/listen" element={<StubPage title="Listen" note="Music & audio" />} />
         <Route path="/news" element={<StubPage title="News" note="Editorial headlines" />} />
         <Route path="/weather" element={<StubPage title="Weather" note="Destination forecast" />} />
