@@ -3,6 +3,8 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { NavBar, SideDrawer, Search } from "../design-system/components";
 import { NAV } from "./navItems";
 import Footer from "./Footer";
+import LanguageSelector from "./LanguageSelector";
+import { useI18n } from "../i18n";
 import s from "./AppShell.module.css";
 
 /**
@@ -16,6 +18,7 @@ export default function AppShell() {
   const [query, setQuery] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   const current = NAV.find((n) => n.path === location.pathname) ?? NAV[0];
 
@@ -28,7 +31,7 @@ export default function AppShell() {
   return (
     <div className={s.shell}>
       <NavBar
-        title={current.label}
+        title={t(`nav.${current.key}`)}
         wifiActive
         onMenu={() => setDrawerOpen(true)}
         onHome={() => navigate("/")}
@@ -43,7 +46,7 @@ export default function AppShell() {
             size="lg"
             autoFocus
             value={query}
-            placeholder="Search movies, music, destinations…"
+            placeholder={t("common.searchPlaceholder")}
             onChange={(v: string) => setQuery(v)}
             onSubmit={() => setSearchOpen(false)}
           />
@@ -52,9 +55,10 @@ export default function AppShell() {
 
       <SideDrawer
         open={drawerOpen}
-        items={NAV.map((n) => ({ key: n.key, label: n.label }))}
+        items={NAV.map((n) => ({ key: n.key, label: t(`nav.${n.key}`) }))}
         active={current.key}
         flight={{ origin: "LAX", destination: "MCO", duration: "3h 28m", progress: 0.42 }}
+        footer={<LanguageSelector />}
         onSelect={go}
         onClose={() => setDrawerOpen(false)}
       />

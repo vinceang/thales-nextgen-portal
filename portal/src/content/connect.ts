@@ -1,11 +1,12 @@
 // Connect / Plans page content.
 //
 // This module is the SEAM a future portal admin tool will populate (see
-// docs/adr/0001-bento-cells-config-driven.md). Today it returns static sample
-// data; later an admin-configured source (API / CMS) provides the *same shape*,
-// and the page component does not change. Keep all editorial copy, pricing, and
-// plan structure here — never inlined in the page's JSX — so the page stays a
-// pure renderer of admin-managed content.
+// docs/adr/0001-bento-cells-config-driven.md). Today it composes the *same shape*
+// from the active locale's dictionary via `t()`; later an admin-configured source
+// (API / CMS) provides that shape per language, and the page does not change.
+// Keep editorial copy in the i18n dictionaries and structure/pricing here — never
+// inlined in the page's JSX — so the page stays a pure renderer of content.
+import type { TFunc } from "../i18n";
 
 /** A purchasable Wi-Fi pass. Admin-editable per deployment/flight. */
 export interface PlanContent {
@@ -36,34 +37,36 @@ export interface ConnectContent {
   plans: PlanContent[];
 }
 
-// --- Static sample (stand-in for the admin tool's output) -------------------
-export const connectContent: ConnectContent = {
-  header: {
-    title: "The Fastest Wi-Fi in the Sky",
-    text:
-      "Please choose from the Wi-Fi plans below. We highly recommend the " +
-      "High-Speed Streaming plan, which offers internet speeds of up to 300 Mbps.",
-    emphasize: "High-Speed Streaming",
-  },
-  plans: [
-    { id: "messaging", name: "Messaging", price: "$2", features: ["Messaging", "E-mail"] },
-    { id: "browsing", name: "Browsing", price: "$4", features: ["Messaging", "E-mail", "Basic Browsing"] },
-    {
-      id: "streaming",
-      name: "High-Speed Streaming",
-      price: "$6",
-      features: ["Messaging", "E-mail", "Basic Browsing", "Streaming"],
-      recommended: true,
-      badge: "Best Value!",
-    },
-  ],
-};
-
 /**
- * Fetch the Connect page content. Swap this implementation for an admin/API
- * source later (e.g. `return api.getConnectContent(deploymentId)`) — callers and
- * the page component stay unchanged.
+ * Build the Connect page content for the active locale. Prices and plan/feature
+ * structure live here; localized copy comes from the i18n dictionary via `t`.
+ * Swap this for an admin/API source later (e.g. `api.getConnectContent(id, locale)`)
+ * — callers and the page component stay unchanged.
  */
-export function getConnectContent(): ConnectContent {
-  return connectContent;
+export function getConnectContent(t: TFunc): ConnectContent {
+  const f = {
+    messaging: t("connect.features.messaging"),
+    email: t("connect.features.email"),
+    browsing: t("connect.features.browsing"),
+    streaming: t("connect.features.streaming"),
+  };
+  return {
+    header: {
+      title: t("connect.header.title"),
+      text: t("connect.header.text"),
+      emphasize: t("connect.header.emphasize"),
+    },
+    plans: [
+      { id: "messaging", name: t("connect.plans.messaging"), price: "$2", features: [f.messaging, f.email] },
+      { id: "browsing", name: t("connect.plans.browsing"), price: "$4", features: [f.messaging, f.email, f.browsing] },
+      {
+        id: "streaming",
+        name: t("connect.plans.streaming"),
+        price: "$6",
+        features: [f.messaging, f.email, f.browsing, f.streaming],
+        recommended: true,
+        badge: t("connect.badge"),
+      },
+    ],
+  };
 }
