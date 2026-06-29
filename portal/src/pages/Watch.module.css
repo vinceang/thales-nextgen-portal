@@ -35,8 +35,18 @@
   gap: var(--space-xl);
 }
 
-/* Portrait poster cell — fixed inline size, 2:3 aspect; the ShowcaseTile fills it. */
+/* Portrait poster cell — fixed inline size, 2:3 aspect; the ShowcaseTile fills it.
+   `position: relative` anchors the favorite heart overlay. */
 .poster {
+  position: relative;
   width: clamp(132px, 22vw, 178px);
   aspect-ratio: 2 / 3;
+}
+
+/* Heart save control — top inline-end corner of the poster. */
+.fav {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  z-index: 2;
 }

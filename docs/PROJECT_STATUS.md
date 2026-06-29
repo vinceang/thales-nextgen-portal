@@ -4,7 +4,7 @@
 then update the relevant sections when you finish work. Goal: a new session can get
 oriented from this one file plus the canonical sources it points to.
 
-_Last updated: 2026-06-29 (Watch media gallery + MediaRail / HeroCarousel components)_
+_Last updated: 2026-06-29 (favorites — FavoriteButton + FavoritesProvider + Account Favorites tab)_
 
 ---
 
@@ -111,6 +111,14 @@ Connect page this way.)
   `MediaRail` (horizontal shelf, hidden scrollbar, scroll-snap, desktop arrows). Reuse
   these for Listen/News. ⚠️ Autoplay is a **proposed motion-rule change** (see
   DESIGN_CHANGES) — restrained crossfade, opt-out, reduced-motion-safe.
+- **Favorites — DONE.** Branch `feat/favorites`. New DS control `FavoriteButton` (heart
+  toggle, bright-blue when saved — never red) + `heart` Icon glyph. App-level
+  `FavoritesProvider` (`src/favorites/`, localStorage `thales.favorites`, snapshots
+  id/kind/title/image — file documents how to back it with the account API). Hearts
+  overlay the Watch posters; Account gains a **Favorites** tab listing saved titles
+  **sectioned by kind Watch / Listen / Read** (Listen/Read empty until built). Prototype
+  disclaimer line under the Account tabs. Localized EN/FR/ES. Verified: favoriting on
+  Watch persists + appears in Account, un-favorite syncs.
 - Routes still **stubbed** (`StubPage`): `/listen` `/news` `/weather`.
 
 **Design-system refinements made & logged** (see `DESIGN_CHANGES.md`; flagged for

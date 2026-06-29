@@ -93,6 +93,7 @@ export const en = {
   account: {
     tabs: {
       profile: "Profile",
+      favorites: "Favorites",
       connectivity: "Connectivity",
       billing: "Billing",
     },
@@ -130,6 +131,12 @@ export const en = {
     savedTitle: "Settings saved",
     savedBody: "Your preferences have been updated.",
     comingSoon: "This section isn't configured yet.",
+    demoNote: "Demo prototype — your settings and favorites are saved on this device only.",
+  },
+  favorites: {
+    add: "Add to favorites",
+    remove: "Remove from favorites",
+    empty: "No saved titles yet.",
   },
   watch: {
     featured: "Featured",

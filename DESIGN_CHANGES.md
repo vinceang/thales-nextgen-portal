@@ -245,3 +245,19 @@ Each entry is logged as it happens, in this format:
 **Why:** Next page in the build order; designer gave direction (hero carousel → genre pills → scrollable category rows, Netflix/Prime/Disney+ style) in lieu of a comp. Verified desktop/phone, EN; autoplay advance + pill filtering confirmed.
 
 ---
+
+### 2026-06-29 components/core/FavoriteButton.* + Icon `heart` glyph — NEW component + glyph
+**Rule/token changed:** Component inventory + Icon glyph set.
+**Was:** No "save"/favorite control and no `heart` glyph in the Icon set.
+**Now:** Added a `heart` glyph to `Icon` (both copies + the `IconName` union) and a new **`FavoriteButton`** component (canonical `components/core/` + vendored copy; `.jsx`/`.module.css`/`.d.ts`/`.prompt.md`; both barrels; `COMPONENT_TYPES.md`). It's a presentational heart toggle (`active` + `onChange`): active fills the heart **bright-blue** (the one accent — deliberately **not** red, per the one-hue/status-via-icon rule), square/sharp/flat with a semi-opaque dark chip for legibility over posters, and it stops click propagation so it can overlay a clickable tile. Active fill is done in CSS (`fill: var(--color-bright-blue)`), which overrides the Icon's `fill="none"` attribute.
+**Why:** Designer asked for a heart "save to favorites" control on media tiles. Built as a reusable DS component (Watch now; Listen/Read later).
+
+---
+
+### 2026-06-29 portal/src/favorites/* + Account "Favorites" tab — favorites feature (app-level)
+**Rule/token changed:** App architecture — adds a shared favorites store + a new Account tab (no design-system internals touched).
+**Was:** No way to save titles; Account had three tabs (Profile · Connectivity · Billing).
+**Now:** Added an app-level `FavoritesProvider` context (`portal/src/favorites/`) — `toggle`/`isFavorite`/`remove`/`byKind`, persisted to `localStorage` (`thales.favorites`). It snapshots `{ id, kind, title, image }` so the Account view renders without re-fetching (a **demo** shortcut — the file documents in detail how to back it with the account API and hydrate from the catalogue). `FavoriteButton`s overlay the Watch posters and sync app-wide. Account gains a **Favorites** tab (now Profile · Favorites · Connectivity · Billing) that lists saved titles **sectioned by kind: Watch / Listen / Read** (Listen/Read empty until those surfaces ship), each with an un-favorite heart. Added a prototype disclaimer line under the Account tabs ("Demo prototype — your settings and favorites are saved on this device only."). New i18n: `account.tabs.favorites`, `account.demoNote`, and a `favorites` block (add/remove/empty) in en/fr/es; section labels reuse `categories.{watch,listen,read}`.
+**Why:** Designer asked for a heart-save-to-favorites feature collected under the user account, categorized Watch/Listen/Read, persisted (localStorage acceptable) with clear notes on full wiring and a demo/prototype disclaimer on the account page.
+
+---

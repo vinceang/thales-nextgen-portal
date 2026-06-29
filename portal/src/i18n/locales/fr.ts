@@ -87,6 +87,7 @@ export const fr: Dict = {
   account: {
     tabs: {
       profile: "Profil",
+      favorites: "Favoris",
       connectivity: "Connectivité",
       billing: "Facturation",
     },
@@ -124,6 +125,12 @@ export const fr: Dict = {
     savedTitle: "Paramètres enregistrés",
     savedBody: "Vos préférences ont été mises à jour.",
     comingSoon: "Cette section n'est pas encore configurée.",
+    demoNote: "Prototype de démonstration — vos paramètres et favoris sont enregistrés sur cet appareil uniquement.",
+  },
+  favorites: {
+    add: "Ajouter aux favoris",
+    remove: "Retirer des favoris",
+    empty: "Aucun titre enregistré.",
   },
   watch: {
     featured: "À la une",
