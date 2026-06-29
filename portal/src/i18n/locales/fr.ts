@@ -1,0 +1,94 @@
+// Français. Typed as `Dict` so it must match en.ts key-for-key (compile-time).
+import type { Dict } from "./en";
+
+export const fr: Dict = {
+  nav: {
+    showcase: "Vitrine",
+    connect: "Connecter",
+    watch: "Regarder",
+    listen: "Écouter",
+    news: "Actualités",
+    weather: "Météo",
+    account: "Compte",
+  },
+  common: {
+    searchPlaceholder: "Rechercher films, musique, destinations…",
+    language: "Langue",
+  },
+  categories: {
+    watch: "Regarder",
+    listen: "Écouter",
+    play: "Jouer",
+    destination: "Destination",
+    travel: "Voyage",
+    shop: "Boutique",
+    read: "Lire",
+    connect: "Connecter",
+  },
+  showcase: {
+    hero: {
+      title: "Wi-Fi haut débit pour tout le vol",
+      cta: "Voir les forfaits",
+    },
+    tiles: {
+      "young-sheldon": "Young Sheldon",
+      billie: "Billie Eilish",
+      squid: "Squid Game",
+      "red-moon": "Red Moon In Venus",
+      games: "Classiques d'arcade",
+      dining: "Top 10 Restaurants",
+      epcot: "Le meilleur d'Orlando : Epcot",
+      england: "Explorez l'Angleterre",
+      "duty-free": "Sélection détaxe",
+      "fall-guy": "The Fall Guy",
+      ebooks: "Ebooks à succès",
+    },
+    weather: {
+      date: "Mar. 4 juil.",
+      city: "Orlando",
+      condition: "Partiellement ensoleillé",
+      linkLabel: "Prévisions sur 5 jours",
+    },
+  },
+  connect: {
+    crumbShowcase: "Vitrine",
+    crumbConnect: "Connecter",
+    header: {
+      title: "Le Wi-Fi le plus rapide du ciel",
+      text:
+        "Veuillez choisir parmi les forfaits Wi-Fi ci-dessous. Nous recommandons " +
+        "vivement le forfait Streaming haut débit, qui offre des débits Internet " +
+        "allant jusqu'à 300 Mbps.",
+      emphasize: "Streaming haut débit",
+    },
+    plans: {
+      messaging: "Messagerie",
+      browsing: "Navigation",
+      streaming: "Streaming haut débit",
+    },
+    features: {
+      messaging: "Messagerie",
+      email: "E-mail",
+      browsing: "Navigation de base",
+      streaming: "Streaming",
+    },
+    badge: "Meilleur rapport qualité-prix !",
+    buyNow: "Acheter",
+    connectedTitle: "Vous êtes connecté — {plan}",
+    connectedBody: "Votre forfait {plan} est actif pour le reste de ce vol, même après reconnexion.",
+    modalTitle: "Confirmer l'achat",
+    cancel: "Annuler",
+    payNow: "Payer",
+    modalBody: "Vous achetez le forfait {plan} ({price}) pour ce vol.",
+    modalFine: "Débité une seule fois sur la carte se terminant par 4242. L'accès reste actif jusqu'à l'atterrissage, même après reconnexion.",
+    toastTitle: "Paiement confirmé",
+    toastBody: "Votre forfait {plan} est actif. Bon vol.",
+  },
+  footer: {
+    terms: "Conditions d'utilisation",
+    privacy: "Confidentialité",
+    legal: "Mentions légales",
+    contact: "Contact",
+    copyright: "© {year} Thales Group. Tous droits réservés.",
+  },
+};

@@ -53,3 +53,14 @@
 }
 .item:not([data-active="true"]):hover { color: var(--on-surface-muted); }
 .item[data-active="true"] { color: var(--color-bright-blue); }
+
+/* Optional bottom-pinned slot (e.g. language selector). margin-auto pushes it to
+   the foot of the flex-column panel; content left-aligns with the nav items
+   (inset via --nav-inset) and sits under a hairline divider. */
+.footer {
+  margin-block-start: auto;
+  margin-inline-start: var(--nav-inset);
+  margin-inline-end: 28px;
+  padding-block-start: 20px;
+  border-block-start: var(--border-width) solid var(--border-hairline);
+}

@@ -1391,6 +1391,8 @@ export interface SideDrawerProps {
   active?: string;
   /** Flight tracker props rendered at the top; omit to hide. */
   flight?: FlightTrackerProps;
+  /** Optional slot pinned to the bottom of the panel (e.g. a language selector). */
+  footer?: React.ReactNode;
   onSelect?: (key: string) => void;
   onClose?: () => void;
   style?: React.CSSProperties;

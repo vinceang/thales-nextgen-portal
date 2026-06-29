@@ -12,9 +12,10 @@ const NAV_INSET_BARE = 28; // fallback when there is no flight tracker
 /**
  * SideDrawer — full-height black slide-out menu. Flight tracker at the top, large
  * single-word nav items below (active = bright-blue), dimmed backdrop. When a
- * flight tracker is shown, the nav items left-align with its origin code.
+ * flight tracker is shown, the nav items left-align with its origin code. An
+ * optional `footer` slot pins controls (e.g. a language selector) to the bottom.
  */
-export function SideDrawer({ open = false, items = [], active, flight, onSelect, onClose, className, style, ...rest }) {
+export function SideDrawer({ open = false, items = [], active, flight, footer, onSelect, onClose, className, style, ...rest }) {
   return (
     <div
       aria-hidden={!open}
@@ -40,6 +41,7 @@ export function SideDrawer({ open = false, items = [], active, flight, onSelect,
             );
           })}
         </div>
+        {footer && <div className={s.footer}>{footer}</div>}
       </nav>
     </div>
   );

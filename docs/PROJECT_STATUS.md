@@ -4,7 +4,7 @@
 then update the relevant sections when you finish work. Goal: a new session can get
 oriented from this one file plus the canonical sources it points to.
 
-_Last updated: 2026-06-28 (CSS Modules migration complete)_
+_Last updated: 2026-06-28 (i18n / language switcher — EN·FR·ES)_
 
 ---
 
@@ -107,10 +107,24 @@ values via CSS custom properties. New tokens: `--accent-hover`, `--overlay-backd
 `--pad-card-block/inline`. Every component now accepts `className`. When building NEW
 components/pages, author `Name.module.css` from the start — never inline styles.
 
+**i18n / language switcher — DONE (branch `feat/i18n-language-switcher`, not yet merged).**
+Lightweight custom React context (`portal/src/i18n/`): `I18nProvider` + `useI18n().t()`,
+typed dictionaries `locales/{en,fr,es}.ts` (`en` is the `Dict` contract — missing keys in
+fr/es fail `tsc`), `{var}` interpolation, localStorage (`thales.locale`) + `<html lang>`
+sync, runtime switch (no reload). Segmented **EN · FR · ES** selector
+(`shell/LanguageSelector`) lives in a NEW SideDrawer `footer` slot (DS extension — synced
+to both copies + `.d.ts`/`.prompt.md`/COMPONENT_TYPES, logged in DESIGN_CHANGES). Translated:
+nav, search placeholder, footer, Showcase (hero/tiles/categories/weather), Connect
+(header/plans/features/modal/toast/alert). `content/connect.ts` now takes `t` and composes
+the same `ConnectContent` shape per locale. **When building NEW pages: put every user-facing
+string in `i18n/locales/en.ts` (+ fr/es) and read via `t()` — never hard-code copy.** Verified
+via headless-Chrome CDP: EN↔FR switch flips nav/pages, persists, sets `lang`.
+
 ## 6. Build order (one page per session)
 
-`01 Showcase ✓` → `02 Connect/Plans ✓` → **`03 Account/Settings` (NEXT, comp 03)** →
-`Watch / Listen / News` → `Weather`. Comps + specs: `design_handoff_site_build/page-comps/`.
+`01 Showcase ✓` → `02 Connect/Plans ✓` → `i18n / language switcher ✓` →
+**`03 Account/Settings` (NEXT, comp 03)** → `Watch / Listen / News` → `Weather`.
+Comps + specs: `design_handoff_site_build/page-comps/`.
 
 Per **ADR 0001**, model each page's content as a typed **content module** in
 `src/content/<page>.ts` (not inlined in JSX) — the seam a future admin tool populates.

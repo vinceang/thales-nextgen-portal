@@ -189,3 +189,19 @@ Each entry is logged as it happens, in this format:
 **Why:** Complete ADR 0002. Build green throughout; Showcase + Connect verified identical at desktop/tablet/phone. JS bundle ~10kB smaller; CSS ~22kB (static, cacheable, CSP-clean).
 
 ---
+
+### 2026-06-28 components/navigation/SideDrawer.jsx (+ .d.ts, .module.css, .prompt.md)
+**Rule/token changed:** Component API — SideDrawer slots.
+**Was:** SideDrawer rendered a flight tracker head + a nav list only; no slot for extra controls.
+**Now:** Added an optional `footer` prop (ReactNode) rendered in a `.footer` block pinned to the bottom of the panel (`margin-block-start: auto`). Content left-aligns with the nav items (`margin-inline-start: var(--nav-inset)`) and sits under a hairline divider (`border-block-start: var(--border-width) solid var(--border-hairline)`). When omitted the drawer is unchanged. Synced to both the canonical `components/` copy and the vendored `portal/src/design-system/` copy; `.d.ts`, `.prompt.md`, and `COMPONENT_TYPES.md` updated.
+**Why:** The app needs a persistent language selector at the bottom of the left nav (designer's i18n mockup). A generic `footer` slot keeps the drawer composable rather than hard-coding a language control into the component.
+
+---
+
+### 2026-06-28 portal/src/i18n/* — runtime localization (EN / FR / ES)
+**Rule/token changed:** App architecture — adds a localization layer (no design-rule change; app-only, no design-system component internals touched).
+**Was:** All UI copy was hard-coded English in the shell, pages, and `content/connect.ts`.
+**Now:** Lightweight custom React context (`I18nProvider` + `useI18n().t()`), typed dictionaries (`en` is the contract; `fr`/`es` typed as `Dict` so missing keys fail at compile time), `{var}` interpolation, localStorage persistence (`thales.locale`), and `<html lang>` sync. Locale switches at runtime (context re-render, no reload). A segmented **EN · FR · ES** selector (`shell/LanguageSelector`) lives in the new SideDrawer `footer` slot — active locale fills `--color-bright-blue`. Translated: nav, search placeholder, footer, Showcase (hero/tiles/categories/weather), and Connect (header/plans/features/modal/toast/alert). `content/connect.ts` now composes its shape from `t()` (the admin seam still returns the same `ConnectContent` shape, now per-locale). Proper nouns (Young Sheldon, Squid Game, etc.) intentionally kept verbatim across locales; `emphasize` strings are verbatim substrings of their `text` in every locale so the bold span keeps working.
+**Why:** Designer asked for language selection (EN/FR/ES) switchable from the left navigation before building further pages. Lightweight context chosen over react-i18next (smaller, no dependency; supports runtime switching).
+
+---

@@ -10,17 +10,18 @@ import {
   ToastViewport,
 } from "../design-system/components";
 import { getConnectContent, type PlanContent } from "../content/connect";
+import { useI18n } from "../i18n";
 import s from "./Connect.module.css";
 
 const TOAST_MS = 4000;
 
-// Render an editorial blurb with one emphasized phrase bold/full-white. Admin
-// supplies `text` + the `emphasize` substring (see content/connect.ts).
-function Blurb({ text, emphasize }: { text: string; emphasize?: string }) {
-  if (!emphasize || !text.includes(emphasize)) return <p className={s.blurb}>{text}</p>;
+// Render copy with one emphasized phrase bold/full-white. `emphasize` is a
+// verbatim substring of `text` (the i18n dictionaries preserve this invariant).
+function Emphasize({ text, emphasize, className }: { text: string; emphasize?: string; className?: string }) {
+  if (!emphasize || !text.includes(emphasize)) return <p className={className}>{text}</p>;
   const [before, after] = text.split(emphasize);
   return (
-    <p className={s.blurb}>
+    <p className={className}>
       {before}
       <strong className={s.emph}>{emphasize}</strong>
       {after}
@@ -29,7 +30,8 @@ function Blurb({ text, emphasize }: { text: string; emphasize?: string }) {
 }
 
 export default function Connect() {
-  const { header, plans } = getConnectContent();
+  const { t } = useI18n();
+  const { header, plans } = getConnectContent(t);
   const [selected, setSelected] = useState<PlanContent | null>(null); // plan in the purchase modal
   const [connected, setConnected] = useState<PlanContent | null>(null); // active pass after pay
   const [toast, setToast] = useState<string | null>(null);
@@ -49,12 +51,12 @@ export default function Connect() {
 
   return (
     <div className={s.page}>
-      <Breadcrumbs items={[{ label: "Showcase", href: "/" }, { label: "Connect" }]} className={s.crumbs} />
+      <Breadcrumbs items={[{ label: t("connect.crumbShowcase"), href: "/" }, { label: t("connect.crumbConnect") }]} className={s.crumbs} />
 
       {/* Intro — editorial split header, or a status Alert once connected */}
       {connected ? (
-        <Alert tone="success" title={`You're connected — ${connected.name}`} className={s.intro}>
-          Your {connected.name} pass is active for the rest of this flight, across reconnections.
+        <Alert tone="success" title={t("connect.connectedTitle", { plan: connected.name })} className={s.intro}>
+          {t("connect.connectedBody", { plan: connected.name })}
         </Alert>
       ) : (
         <BentoGrid
@@ -62,7 +64,7 @@ export default function Connect() {
           className={s.headerGrid}
           items={{
             title: <h1 className={s.title}>{header.title}</h1>,
-            blurb: <Blurb text={header.text} emphasize={header.emphasize} />,
+            blurb: <Emphasize text={header.text} emphasize={header.emphasize} className={s.blurb} />,
           }}
           phone={{ columns: "1fr", areas: ["title", "blurb"] }}
           tablet={{ columns: "1.2fr 1fr", areas: ["title blurb"] }}
@@ -83,7 +85,7 @@ export default function Connect() {
               features={p.features}
               recommended={p.recommended}
               badge={p.badge}
-              ctaLabel={p.ctaLabel ?? "Buy Now"}
+              ctaLabel={p.ctaLabel ?? t("connect.buyNow")}
               onSelect={() => setSelected(p)}
               className={s.planFill}
             />,
@@ -98,28 +100,28 @@ export default function Connect() {
       <Modal
         open={!!selected}
         onClose={() => setSelected(null)}
-        title="Confirm Purchase"
+        title={t("connect.modalTitle")}
         width={460}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setSelected(null)}>Cancel</Button>
-            <Button onClick={pay}>Pay Now</Button>
+            <Button variant="secondary" onClick={() => setSelected(null)}>{t("connect.cancel")}</Button>
+            <Button onClick={pay}>{t("connect.payNow")}</Button>
           </>
         }
       >
-        <p className={s.modalP}>
-          You're buying the <strong className={s.emph}>{selected?.name}</strong> pass ({selected?.price}) for this flight.
-        </p>
-        <p className={s.modalFine}>
-          Charged once to the card ending 4242. Access stays active until landing, across reconnections.
-        </p>
+        <Emphasize
+          text={t("connect.modalBody", { plan: selected?.name ?? "", price: selected?.price ?? "" })}
+          emphasize={selected?.name}
+          className={s.modalP}
+        />
+        <p className={s.modalFine}>{t("connect.modalFine")}</p>
       </Modal>
 
       {/* Success notification — one hue: blue check, never a green card */}
       <ToastViewport placement="bottom-center">
         {toast && (
-          <Toast tone="success" title="Payment confirmed" onClose={() => setToast(null)}>
-            Your {toast} pass is active. Enjoy the flight.
+          <Toast tone="success" title={t("connect.toastTitle")} onClose={() => setToast(null)}>
+            {t("connect.toastBody", { plan: toast })}
           </Toast>
         )}
       </ToastViewport>
