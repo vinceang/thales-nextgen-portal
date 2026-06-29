@@ -206,3 +206,15 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer asked for language selection (EN/FR/ES) switchable from the left navigation before building further pages. Lightweight context chosen over react-i18next (smaller, no dependency; supports runtime switching).
 
 ---
+
+### 2026-06-28 portal/src/pages/Account.tsx (+ content/account.ts) — Account / Settings (comp 03)
+**Rule/token changed:** Page build — content modeling (ADR 0001), layout (no media query), plus two behaviors not specced in comp 03.
+**Was:** `/account` was a `StubPage`. Comp 03 specs only the **Profile** tab (Tabs · Profile Card · Preferences Card · actions row) and leaves Connectivity/Billing as empty tabs; the comp hard-codes field layout with a fixed `grid-template-columns: 1fr 1fr` and gives Cancel no behavior.
+**Now:** Built the page composing DS components (Tabs, Card, Input, Select, DatePicker, TextArea, Toggle, RadioGroup, Checkbox, Button, Toast). Deviations, all app-side (no component internals touched):
+- **Content seam (ADR 0001):** tab list + Select/Radio option sets live in `content/account.ts` (`getAccountContent(t)`), labels composed from i18n; stable `value`s are locale-independent. Field labels/placeholders read via `t()` in the page. Added an `account` block to en/fr/es (incl. a localized DatePicker placeholder).
+- **Responsive field grid:** the two-column rows use `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))` so they collapse to one column on phone **without a media query** (honors the "no hand-rolled grid + media queries" rule; BentoGrid is overkill for a form row).
+- **Connectivity / Billing tabs:** not specced — render a placeholder `Card` ("This section isn't configured yet.") so the tabs aren't blank. Replace when those sections are designed.
+- **Cancel:** restores the form to its sample defaults (comp left it unhandled) — the conventional meaning of Cancel in a settings form.
+**Why:** Build the Account/Settings page (next in the build order). Flagging the placeholder tabs + Cancel behavior + auto-fit grid for designer ratification.
+
+---
