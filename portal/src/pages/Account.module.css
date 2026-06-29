@@ -53,3 +53,28 @@
   font-size: var(--fs-body);
   color: var(--on-surface-2);
 }
+
+/* Prototype disclaimer under the tabs. */
+.demoNote {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body-2);
+  color: var(--text-secondary);
+}
+
+/* Favorites — responsive poster grid; collapses by column count, no media query. */
+.favGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: var(--space-md);
+}
+.favPoster {
+  position: relative;
+  aspect-ratio: 2 / 3;
+}
+.favHeart {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  z-index: 2;
+}

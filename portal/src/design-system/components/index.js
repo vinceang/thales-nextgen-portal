@@ -7,6 +7,7 @@ export * from "./core/Avatar.jsx";
 export * from "./core/Badge.jsx";
 export * from "./core/Button.jsx";
 export * from "./core/Chip.jsx";
+export * from "./core/FavoriteButton.jsx";
 export * from "./core/GenrePill.jsx";
 export * from "./core/Icon.jsx";
 export * from "./core/IconButton.jsx";

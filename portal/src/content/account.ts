@@ -24,6 +24,7 @@ export function getAccountContent(t: TFunc): AccountContent {
   return {
     tabs: [
       { value: "profile", label: t("account.tabs.profile") },
+      { value: "favorites", label: t("account.tabs.favorites") },
       { value: "connectivity", label: t("account.tabs.connectivity") },
       { value: "billing", label: t("account.tabs.billing") },
     ],

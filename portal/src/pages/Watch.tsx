@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeroCarousel, MediaRail, GenrePill, ShowcaseTile } from "../design-system/components";
+import { HeroCarousel, MediaRail, GenrePill, ShowcaseTile, FavoriteButton } from "../design-system/components";
 import { getWatchContent } from "../content/watch";
 import { useI18n } from "../i18n";
+import { useFavorites } from "../favorites";
 import s from "./Watch.module.css";
 
 /* Watch — streaming media gallery: auto-advancing hero, a genre-pill filter row,
@@ -12,6 +13,7 @@ import s from "./Watch.module.css";
 export default function Watch() {
   const { t } = useI18n();
   const navigate = useNavigate();
+  const { isFavorite, toggle } = useFavorites();
   const { hero, rows } = getWatchContent(t);
 
   // GenrePill filter: "all" shows every shelf; a genre key shows just that shelf.
@@ -44,11 +46,20 @@ export default function Watch() {
       <div className={s.rows}>
         {visible.map((r) => (
           <MediaRail key={r.key} title={r.label}>
-            {r.items.map((m) => (
-              <div key={m.id} className={s.poster}>
-                <ShowcaseTile image={m.poster} title={m.title} titleSize={16} height="100%" />
-              </div>
-            ))}
+            {r.items.map((m) => {
+              const fav = isFavorite(m.id);
+              return (
+                <div key={m.id} className={s.poster}>
+                  <ShowcaseTile image={m.poster} title={m.title} titleSize={16} height="100%" />
+                  <FavoriteButton
+                    className={s.fav}
+                    active={fav}
+                    onChange={() => toggle({ id: m.id, kind: "watch", title: m.title, image: m.poster })}
+                    label={fav ? t("favorites.remove") : t("favorites.add")}
+                  />
+                </div>
+              );
+            })}
           </MediaRail>
         ))}
       </div>

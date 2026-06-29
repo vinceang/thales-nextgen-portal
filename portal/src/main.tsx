@@ -5,13 +5,16 @@ import "./design-system/styles.css"; // fonts + all design tokens
 import "./index.css";
 import App from "./App.tsx";
 import { I18nProvider } from "./i18n";
+import { FavoritesProvider } from "./favorites";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <I18nProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <FavoritesProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </FavoritesProvider>
     </I18nProvider>
   </StrictMode>,
 );

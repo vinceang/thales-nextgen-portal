@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export type IconName =
-  | "menu" | "home" | "search" | "wifi" | "user" | "x"
+  | "menu" | "home" | "search" | "wifi" | "user" | "x" | "heart"
   | "plane" | "chevron-right" | "chevron-left" | "chevron-down"
   | "mountain" | "gauge" | "navigation" | "clock"
   | "sun" | "cloud" | "cloud-sun" | "cloud-rain"

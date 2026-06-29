@@ -12,12 +12,18 @@ import {
   Button,
   Toast,
   ToastViewport,
+  ShowcaseTile,
+  FavoriteButton,
 } from "../design-system/components";
 import { getAccountContent } from "../content/account";
 import { useI18n } from "../i18n";
+import { useFavorites, type FavoriteKind } from "../favorites";
 import s from "./Account.module.css";
 
 const TOAST_MS = 4000;
+
+// Favorites are grouped by the media surface they came from.
+const FAV_KINDS: FavoriteKind[] = ["watch", "listen", "read"];
 
 // Sample defaults (no backend). Cancel restores these; Save fires a success Toast.
 const DEFAULTS = {
@@ -34,6 +40,7 @@ const DEFAULTS = {
 
 export default function Account() {
   const { t } = useI18n();
+  const { byKind, isFavorite, toggle } = useFavorites();
   const { tabs, countries, units } = getAccountContent(t);
 
   const [tab, setTab] = useState("profile");
@@ -69,7 +76,9 @@ export default function Account() {
     <div className={s.page}>
       <Tabs className={s.tabs} tabs={tabs} value={tab} onChange={setTab} />
 
-      {tab === "profile" ? (
+      <p className={s.demoNote}>{t("account.demoNote")}</p>
+
+      {tab === "profile" && (
         <div className={s.content}>
           {/* Profile — text fields in a responsive two-column grid */}
           <Card title={t("account.profile.title")} subtitle={t("account.profile.subtitle")} padding={24}>
@@ -137,7 +146,40 @@ export default function Account() {
             <Button onClick={save}>{t("account.save")}</Button>
           </div>
         </div>
-      ) : (
+      )}
+
+      {tab === "favorites" && (
+        // Saved titles, grouped by media surface (Watch / Listen / Read). Backed
+        // by the FavoritesProvider; un-favorite here removes everywhere.
+        <div className={s.content}>
+          {FAV_KINDS.map((kind) => {
+            const items = byKind(kind);
+            return (
+              <Card key={kind} title={t(`categories.${kind}`)} padding={24}>
+                {items.length === 0 ? (
+                  <p className={s.placeholder}>{t("favorites.empty")}</p>
+                ) : (
+                  <div className={s.favGrid}>
+                    {items.map((m) => (
+                      <div key={m.id} className={s.favPoster}>
+                        <ShowcaseTile image={m.image} title={m.title} titleSize={15} height="100%" />
+                        <FavoriteButton
+                          className={s.favHeart}
+                          active={isFavorite(m.id)}
+                          onChange={() => toggle(m)}
+                          label={t("favorites.remove")}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </Card>
+            );
+          })}
+        </div>
+      )}
+
+      {tab !== "profile" && tab !== "favorites" && (
         // Connectivity / Billing aren't specced in comp 03 yet — placeholder card.
         <div className={s.content}>
           <Card title={tabs.find((x) => x.value === tab)?.label} padding={24}>

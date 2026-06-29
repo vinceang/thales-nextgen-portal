@@ -1,0 +1,25 @@
+/* FavoriteButton — heart save toggle, sized via --fav-size. Square, sharp,
+   flat (no shadow). A semi-opaque dark chip keeps the heart legible over bright
+   poster art. Active = heart fills bright-blue (CSS `fill` overrides the icon's
+   fill="none" attribute). One accent only — never red. */
+.btn {
+  display: inline-grid;
+  place-items: center;
+  width: calc(var(--fav-size) + 16px);
+  height: calc(var(--fav-size) + 16px);
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background: var(--overlay-backdrop);
+  color: var(--color-white);
+  transition: color var(--dur-link) var(--ease-smooth), background var(--dur-link) var(--ease-smooth);
+}
+
+.btn:hover { background: var(--color-black); }
+.btn:not([data-active="true"]):hover { color: var(--color-bright-blue); }
+
+/* Filled heart when saved. */
+.btn[data-active="true"] svg {
+  fill: var(--color-bright-blue);
+  stroke: var(--color-bright-blue);
+}
