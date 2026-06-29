@@ -194,6 +194,7 @@ Each entry is logged as it happens, in this format:
 **Rule/token changed:** Component API — SideDrawer slots.
 **Was:** SideDrawer rendered a flight tracker head + a nav list only; no slot for extra controls.
 **Now:** Added an optional `footer` prop (ReactNode) rendered in a `.footer` block pinned to the bottom of the panel (`margin-block-start: auto`). Content left-aligns with the nav items (`margin-inline-start: var(--nav-inset)`) and sits under a hairline divider (`border-block-start: var(--border-width) solid var(--border-hairline)`). When omitted the drawer is unchanged. Synced to both the canonical `components/` copy and the vendored `portal/src/design-system/` copy; `.d.ts`, `.prompt.md`, and `COMPONENT_TYPES.md` updated.
+**Follow-up (symmetric insets):** the panel's interior was inset `--nav-inset` on the inline-start but only 28px on the inline-end, so the flight tracker (MCO) and the footer hairline sat tight to the right edge while the left had a wide gutter. Set the inline-end inset to `var(--nav-inset)` too — `.head` (`padding-inline-end`), `.nav` (`padding-inline-end`), and `.footer` (`margin-inline-end`) — so the tracker, nav, and hairline are evenly margined left/right. The close button still sits in the 20px start gutter (head `padding-inline-start: 20px`).
 **Why:** The app needs a persistent language selector at the bottom of the left nav (designer's i18n mockup). A generic `footer` slot keeps the drawer composable rather than hard-coding a language control into the component.
 
 ---
