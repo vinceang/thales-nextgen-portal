@@ -12,6 +12,6 @@ Heart "save to favorites" toggle for media tiles (Watch / Listen / Read). Presen
 </div>
 ```
 
-- Active = the heart fills **bright-blue** (the system's one accent — status/save is never red/green). Inactive = white outline on a semi-opaque dark chip so it reads over bright posters.
-- Square, sharp, flat (no shadow). Stops click propagation, so it can overlay a clickable tile without triggering the tile.
+- Active = the heart fills **bright-blue** (the system's one accent — status/save is never red/green). Inactive = white outline.
+- Sits in a translucent dark **circle** (44px at the default 20px heart) so it reads over bright posters — circular is the sanctioned radius exception; flat, no shadow. Stops click propagation, so it can overlay a clickable tile without triggering the tile.
 - Pass a state-dependent `label` for the aria-label/tooltip ("Add to favorites" / "Remove from favorites"). Wire `active`/`onChange` to your favorites store (e.g. a FavoritesProvider context).
