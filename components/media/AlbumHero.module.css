@@ -34,11 +34,15 @@
   box-sizing: border-box;
 }
 
-/* Crisp featured cover — square, sized by width so it scales down on phone. */
+/* Crisp featured cover — sized by width so it scales down on phone. Aspect and
+   width are token-driven: square album art by default, portrait book covers via
+   the `aspect` / `coverWidth` props. Capped to the hero's padded height so a
+   tall portrait cover never overflows. */
 .cover {
   flex: 0 0 auto;
-  width: clamp(120px, 38%, 340px);
-  aspect-ratio: 1 / 1;
+  width: var(--ah-cover-w, clamp(120px, 38%, 340px));
+  aspect-ratio: var(--ah-cover-aspect, 1 / 1);
+  max-height: calc(100% - 2 * clamp(20px, 4vw, 48px));
   object-fit: cover;
   border-radius: var(--radius-card);
   background: var(--color-surface-2);

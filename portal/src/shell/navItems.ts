@@ -11,6 +11,7 @@ export const NAV: NavItem[] = [
   { key: "connect", label: "Connect", path: "/connect" },
   { key: "watch", label: "Watch", path: "/watch" },
   { key: "listen", label: "Listen", path: "/listen" },
+  { key: "read", label: "Read", path: "/read" },
   { key: "news", label: "News", path: "/news" },
   { key: "weather", label: "Weather", path: "/weather" },
   { key: "account", label: "Account", path: "/account" },

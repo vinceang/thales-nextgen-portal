@@ -10,6 +10,7 @@ export const en = {
     connect: "Connect",
     watch: "Watch",
     listen: "Listen",
+    read: "Read",
     news: "News",
     weather: "Weather",
     account: "Account",
@@ -162,6 +163,18 @@ export const en = {
       hiphop: "Hip-Hop",
       rock: "Rock",
       chill: "Chill",
+    },
+  },
+  read: {
+    readNow: "Read Now",
+    all: "All",
+    rows: {
+      newReleases: "New Releases",
+      bestsellers: "Bestsellers",
+      fiction: "Fiction",
+      nonfiction: "Nonfiction",
+      mystery: "Mystery",
+      kids: "Kids",
     },
   },
   footer: {

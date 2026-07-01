@@ -7,6 +7,7 @@ export const es: Dict = {
     connect: "Conectar",
     watch: "Ver",
     listen: "Escuchar",
+    read: "Leer",
     news: "Noticias",
     weather: "Clima",
     account: "Cuenta",
@@ -156,6 +157,18 @@ export const es: Dict = {
       hiphop: "Hip-Hop",
       rock: "Rock",
       chill: "Relax",
+    },
+  },
+  read: {
+    readNow: "Leer",
+    all: "Todo",
+    rows: {
+      newReleases: "Novedades",
+      bestsellers: "Más vendidos",
+      fiction: "Ficción",
+      nonfiction: "No ficción",
+      mystery: "Misterio",
+      kids: "Infantil",
     },
   },
   footer: {
