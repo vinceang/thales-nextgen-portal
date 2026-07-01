@@ -1,22 +1,20 @@
-/* SourceRail — monochrome source logos in a fading scroller. Theme-safe via
-   semantic tokens: inactive = foreground logo (--text-primary), slightly dimmed
-   → white in dark mode, carbon in light mode. Active = inverted chip
-   (--text-primary fill, --bg-page logo) on a rounded chip (--radius-chip). Flat,
-   no shadow. Selection is the fill, not a hue. */
+/* SourceRail — monochrome source logos in a fading scroller. img-embedded SVGs
+   ignore CSS `color`/currentColor, so logos are tinted with `filter` (a
+   silhouette). Theme-safe: inactive = foreground silhouette (white in dark mode,
+   dark in light mode); active = inverted logo on a rounded --text-primary chip.
+   Flat, no shadow. Selection is the fill, not a hue. */
 .item {
   display: grid;
   place-items: center;
-  height: 64px;
+  height: 72px;
   padding: var(--space-sm) var(--space-md);
   border: none;
   border-radius: var(--radius-chip);
   background: transparent;
-  color: var(--text-primary);
   opacity: 0.8;
   cursor: pointer;
   transition:
     opacity var(--dur-link) var(--ease-smooth),
-    color var(--dur-link) var(--ease-smooth),
     background var(--dur-link) var(--ease-smooth);
 }
 .item:hover { opacity: 1; }
@@ -24,7 +22,18 @@
 .item[data-active="true"] {
   opacity: 1;
   background: var(--text-primary);
-  color: var(--bg-page);
 }
 
-.logo { height: 22px; width: auto; display: block; }
+.logo {
+  height: 30px;
+  width: auto;
+  display: block;
+  /* White silhouette in dark mode (the default theme). */
+  filter: brightness(0) invert(1);
+}
+/* Dark logo on the light active chip. */
+.item[data-active="true"] .logo { filter: brightness(0); }
+
+/* Light theme: page foreground is dark, so flip both. */
+:global([data-theme="light"]) .logo { filter: brightness(0); }
+:global([data-theme="light"]) .item[data-active="true"] .logo { filter: brightness(0) invert(1); }

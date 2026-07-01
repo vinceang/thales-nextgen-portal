@@ -12,6 +12,6 @@ Horizontally-scrollable row of **news-source logos** (monochrome, `currentColor`
 />
 ```
 
-- Feed **monochrome** SVGs that paint with `currentColor` — the rail tints them (dim inactive, dark-on-light when active). Don't pass full-colour brand logos.
-- Selection is shown by the light chip fill, not a hue (one-accent rule); the chip is sharp (radius 0).
+- Feed **monochrome** SVGs (single-tone on transparent). The rail tints them to a **silhouette** with a CSS `filter` — foreground when inactive (white in dark mode, dark in light mode), inverted on the active chip. (img-embedded SVGs ignore `color`/`currentColor`, so a filter is used, not the token directly.) Full-colour logos get flattened to a silhouette — prefer monochrome.
+- Selection is shown by the light chip fill, not a hue (one-accent rule); the chip is rounded (`--radius-chip`).
 - `active` / `onSelect` are yours to wire to page state (which source's feed to show).
