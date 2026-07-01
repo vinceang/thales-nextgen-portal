@@ -35,7 +35,8 @@
   /* Scrims — sit under serif titles over imagery --------------- */
   --scrim-bottom: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0) 70%); /* @kind color */
   --scrim-full:   linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0) 100%); /* @kind color */
-  --overlay-backdrop: rgba(0, 0, 0, 0.7); /* @kind color */ /* dim behind Modal / Drawer / SideDrawer; also the translucent FavoriteButton circle — stays black in both themes */
+  --overlay-backdrop: rgba(0, 0, 0, 0.7); /* @kind color */ /* dim behind Modal / Drawer / SideDrawer — stays black in both themes */
+  --overlay-backdrop-soft: #00000050; /* @kind color */ /* lighter translucent black chip for controls over imagery (FavoriteButton circle) */
 
   /* ── Semantic aliases ──────────────────────────────────────── */
   --bg-page:        var(--color-bg);

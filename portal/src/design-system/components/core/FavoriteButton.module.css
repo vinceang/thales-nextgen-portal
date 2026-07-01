@@ -12,7 +12,7 @@
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  background: var(--overlay-backdrop);
+  background: var(--overlay-backdrop-soft);
   color: var(--color-white);
   transition: color var(--dur-link) var(--ease-smooth);
 }
