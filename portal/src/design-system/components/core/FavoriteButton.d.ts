@@ -12,7 +12,7 @@ export interface FavoriteButtonProps {
   onChange?: (next: boolean) => void;
   /** Accessible label / tooltip (e.g. "Add to favorites"). */
   label?: string;
-  /** Heart glyph size in px. Default 20. */
+  /** Heart glyph size in px. Default 16 (→ a 40px circle). */
   size?: number;
   className?: string;
   style?: React.CSSProperties;

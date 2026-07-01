@@ -8,7 +8,7 @@ import s from "./FavoriteButton.module.css";
  * the heart fills bright-blue (the one accent — never red). Stops click
  * propagation so it can sit over a clickable tile without triggering it.
  */
-export function FavoriteButton({ active = false, onChange, label = "Favorite", size = 20, className, style, ...rest }) {
+export function FavoriteButton({ active = false, onChange, label = "Favorite", size = 16, className, style, ...rest }) {
   return (
     <button
       type="button"
