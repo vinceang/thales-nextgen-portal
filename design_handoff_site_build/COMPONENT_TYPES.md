@@ -846,25 +846,32 @@ export interface HeroSlide {
 }
 
 /**
- * Auto-advancing stack of HeroBanner slides with CarouselDots. Autoplay is
- * configurable (white-label): `autoPlay` toggles it, `intervalMs` sets cadence.
- * Pauses on hover/focus and under prefers-reduced-motion.
+ * Auto-advancing stack of slides with CarouselDots. By default each slide is a
+ * HeroBanner; pass `renderSlide` to render a custom slide (e.g. AlbumHero) and
+ * reuse the autoplay/dots/crossfade machinery. Autoplay is configurable
+ * (white-label): `autoPlay` toggles it, `intervalMs` sets cadence. Pauses on
+ * hover/focus and under prefers-reduced-motion.
+ *
+ * Generic over the slide type `T` — defaults to `HeroSlide` (the shape the
+ * built-in HeroBanner rendering consumes).
  */
-export interface HeroCarouselProps {
-  slides?: HeroSlide[];
+export interface HeroCarouselProps<T = HeroSlide> {
+  slides?: T[];
+  /** Custom slide renderer. When set, overrides the default HeroBanner. */
+  renderSlide?: (slide: T, index: number) => React.ReactNode;
   /** Auto-advance slides. Default true. */
   autoPlay?: boolean;
   /** Cadence between slides in ms. Default 6000. */
   intervalMs?: number;
   /** Carousel height — px number or a CSS length. Default 480. */
   height?: number | string;
-  /** Fired when a slide's CTA is clicked: (slide, index). */
-  onCta?: (slide: HeroSlide, index: number) => void;
+  /** Fired when a default (HeroBanner) slide's CTA is clicked: (slide, index). */
+  onCta?: (slide: T, index: number) => void;
   className?: string;
   style?: React.CSSProperties;
 }
 
-export function HeroCarousel(props: HeroCarouselProps): JSX.Element;
+export function HeroCarousel<T = HeroSlide>(props: HeroCarouselProps<T>): JSX.Element;
 ```
 
 ### MediaCard  
@@ -1520,6 +1527,64 @@ export interface PaginationProps {
 }
 
 export function Pagination(props: PaginationProps): JSX.Element;
+```
+
+### Sidebar  
+<sub>`components/navigation/Sidebar.jsx`</sub>
+
+```ts
+import * as React from "react";
+import type { FlightTrackerProps } from "../domain/FlightTracker";
+
+export interface SidebarItem {
+  /** Selection key (defaults to label). */
+  key?: string;
+  /** @deprecated alias for `key`. */
+  value?: string;
+  label: React.ReactNode;
+  /** Leading line-icon name (shown in both treatments). */
+  icon?: string;
+  /** Trailing count / tag. */
+  badge?: React.ReactNode;
+}
+
+/**
+ * The portal's configurable navigation surface — the two white-label sidebar
+ * treatments the IFE shipped, switched by `variant`. The mini flight tracker is
+ * a configurable item in either: pass `flight` to show it, omit to hide.
+ */
+export interface SidebarProps {
+  /**
+   *  "overlay" (A) — full-height slide-out drawer over a backdrop, large
+   *                  single-word items (the white-label default skin). Default.
+   *  "rail"    (B) — persistent icon rail pinned to the inline-start edge;
+   *                  expanding it widens the rail in-flow and pushes content.
+   */
+  variant?: "overlay" | "rail";
+  /** Nav items — strings or { key, label, icon, badge }. */
+  items?: (string | SidebarItem)[];
+  /** Active item key. */
+  active?: string;
+  onSelect?: (key: string) => void;
+  /** Mini flight tracker shown at the top of the panel; omit to hide. */
+  flight?: FlightTrackerProps;
+  /** Expanded/open state (overlay: drawer open; rail: widened). Self-managed if uncontrolled. */
+  open?: boolean;
+  /** Expand the rail (`rail`, controlled mode). */
+  onOpen?: () => void;
+  /** Collapse the rail / close the drawer. */
+  onClose?: () => void;
+  /** Toggle the rail's expanded state (`rail`, controlled mode). */
+  onToggle?: () => void;
+  /** Optional uppercase cap above the items in the expanded rail. */
+  title?: string;
+  /** Show the rail's own expand (hamburger) button (`rail` only). Default true. */
+  showToggle?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function Sidebar(props: SidebarProps): JSX.Element;
 ```
 
 ### SideDrawer  
