@@ -319,3 +319,9 @@ Each entry is logged as it happens, in this format:
 - The active chip is **rounded** via a new `--radius-chip: 12px` token (both `tokens/spacing.css` copies) — a deliberate rounded exception to the sharp default, at the designer's request.
 - The active chip is now an **inverted** surface (`background: var(--text-primary)`, `color: var(--bg-page)`) instead of hardcoded white/black, so it flips correctly when **light mode** lands (white chip + dark logo in dark; dark chip + light logo in light).
 **Why:** Designer asked for white inactive logos + a rounded container, and flagged that dark/light mode is coming — so the component was moved off `--color-white`/`--color-black` onto semantic tokens that theme. Resolves the earlier "sharp source chip" flag.
+
+### 2026-07-01 SourceRail — logos tinted via CSS filter (fix), larger
+**Rule/token changed:** SourceRail logo rendering; no token change.
+**Was:** Logos were `<img src=…svg>` relying on `color: var(--text-primary)` (currentColor) to go white — but img-embedded SVGs are isolated documents that ignore the parent's `color`, so they rendered in their own default black (near-invisible on the dark page). Logo height 22px.
+**Now:** Tint the logos with a **CSS `filter`** silhouette: inactive `brightness(0) invert(1)` (white in dark mode), active `brightness(0)` (dark on the light chip). Light theme flips both via `:global([data-theme="light"])`. Bumped logo height 22 → **30px** and rail height 64 → 72px (designer: "bigger"). Theme-safe without relying on currentColor.
+**Why:** The white-inactive-logos change didn't actually render (currentColor doesn't cross the `<img>` boundary); filter is the correct tint for img-embedded monochrome SVGs. Designer also asked for larger logos.
