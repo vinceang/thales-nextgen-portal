@@ -282,3 +282,15 @@ Each entry is logged as it happens, in this format:
 **Was:** The heart sat on a transparent button with a soft `--scrim-radial` glow behind it (the earlier attempt to replace the removed square chip).
 **Now:** The heart sits in a **translucent dark circle** — `background: var(--overlay-backdrop)`, `border-radius: 50%`, sized `calc(--fav-size + 24px)` = **44px** at the default 20px heart (~12px padding all round). Circular is the sanctioned radius exception (dots/pills/toggles); still flat, no shadow. Removed the `::before` scrim and the now-unused `--scrim-radial` token from both `tokens/colors.css` copies. Updated `.module.css` + `.prompt.md` (both copies).
 **Why:** Designer preferred a clean translucent circle over the diffuse glow; 44px is a standard tap target. Legibility over bright art now comes from the circle fill (same `--overlay-backdrop` the old square chip used) rather than a gradient.
+
+### 2026-07-01 FavoriteButton circle — final shipped values (supersedes the entry above)
+**Rule/token changed:** FavoriteButton default size + circle diameter + fill; new `--overlay-backdrop-soft` token.
+**Was:** The entry above landed the translucent circle at `--overlay-backdrop` (rgba 0,0,0,0.7), `calc(--fav-size + 24px)` = 44px, 20px heart.
+**Now (iterated to designer preference over several passes):**
+- Default heart `size` **20 → 16** (`FavoriteButton.jsx`, both copies).
+- Circle diameter `calc(--fav-size + 24px)` **→ `+ 20px`** = **36px** at the default heart (~10px padding each side).
+- Circle fill **→ `#00000050`** via a new token **`--overlay-backdrop-soft`** (added to both `tokens/colors.css`), replacing the reuse of `--overlay-backdrop`. (Note: `#00000050` is ~31% alpha, not 50% — used verbatim as specified.)
+- Updated `.d.ts` / `.module.css` / `.prompt.md` (both copies) and `design_handoff_site_build/COMPONENT_TYPES.md` (FavoriteButton size default; also added the previously-undocumented `AlbumHero` + `MediaCard` entries).
+**Why:** Designer refined the control after seeing it live — smaller heart, tighter circle, lighter fill. Circular remains the sanctioned radius exception; still flat, no shadow, one accent.
+
+> **Carry-back to the canonical design-system project** (per CLAUDE.md sync protocol): FavoriteButton restyle (36px translucent circle, size 16, `--overlay-backdrop-soft` = `#00000050`); AlbumHero new `aspect` / `coverWidth` props; new `--overlay-backdrop-soft` token. Applied here in the app repo; not yet mirrored upstream.
