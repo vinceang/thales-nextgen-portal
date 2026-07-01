@@ -55,11 +55,9 @@
 }
 
 /* Prototype disclaimer under the tabs. */
+/* Prototype disclaimer — rendered as an info Alert; just space it from the content. */
 .demoNote {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: var(--fs-body-2);
-  color: var(--text-secondary);
+  margin-block-end: var(--space-lg);
 }
 
 /* Favorites — responsive poster grid; collapses by column count, no media query. */

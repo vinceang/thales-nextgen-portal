@@ -10,6 +10,7 @@ import {
   RadioGroup,
   Checkbox,
   Button,
+  Alert,
   Toast,
   ToastViewport,
   ShowcaseTile,
@@ -76,7 +77,7 @@ export default function Account() {
     <div className={s.page}>
       <Tabs className={s.tabs} tabs={tabs} value={tab} onChange={setTab} />
 
-      <p className={s.demoNote}>{t("account.demoNote")}</p>
+      <Alert tone="info" className={s.demoNote}>{t("account.demoNote")}</Alert>
 
       {tab === "profile" && (
         <div className={s.content}>

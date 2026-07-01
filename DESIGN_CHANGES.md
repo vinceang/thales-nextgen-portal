@@ -377,3 +377,9 @@ Each entry is logged as it happens, in this format:
 **Was:** `EmptyState.module.css` `.title` used `--font-tile` (Noto Serif) — the same serif-for-UI inconsistency Card had.
 **Now:** Title uses `--font-sans` (Montserrat). Kept the element a `<div>` (not an `<h3>`) since EmptyState nests in arbitrary contexts and shouldn't force a heading into the outline. Updated the jsx doc comment + prompt ("serif" → "Montserrat"). Both DS copies synced.
 **Why:** Designer confirmed EmptyState should follow the same rule — serif never for UI titles.
+
+### 2026-07-01 Account demo note → Alert (info)
+**Rule/token changed:** App-level — Account uses the DS `Alert` for the prototype disclaimer (no new component; no DS change).
+**Was:** The "Demo prototype — settings saved on this device only" line was a bespoke muted `<p className={s.demoNote}>`.
+**Now:** Rendered as `<Alert tone="info">` — the established note/callout pattern (leading info glyph in bright-blue per the one-hue rule, dark surface-2, hairline border, flat). Slimmed `.demoNote` to just a bottom margin.
+**Why:** Designer wanted the demo note given a proper note/alert treatment via an established UI class — the DS already has `Alert` for exactly this, so no new component was needed.
