@@ -261,3 +261,9 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer asked for a heart-save-to-favorites feature collected under the user account, categorized Watch/Listen/Read, persisted (localStorage acceptable) with clear notes on full wiring and a demo/prototype disclaimer on the account page.
 
 ---
+
+### 2026-07-01 components/core/FavoriteButton.module.css — removed backdrop chip
+**Rule/token changed:** Component styling — FavoriteButton no longer renders a background chip.
+**Was:** The heart sat on a semi-opaque dark chip (`background: var(--overlay-backdrop)`, `:hover` → `--color-black`) intended to keep it legible over bright poster art. Over dark art the chip read as a visible translucent box in the tile corner.
+**Now:** Background is `transparent` (both canonical + vendored copies); the padded tap target is kept but invisible, so the white heart sits directly on the art. Removed the now-unused `:hover` background rule and its transition. Active fill (bright-blue) and the not-active hover color unchanged.
+**Why:** Designer flagged the visible transparent box behind the heart on media tiles and asked to remove it. Trade-off: no chip means slightly less contrast over very bright art (still per the no-shadow rule — no drop-shadow substitute added).
