@@ -6,14 +6,18 @@ import s from "./AlbumHero.module.css";
 function len(v, d) { const x = v ?? d; return typeof x === "number" ? `${x}px` : x; }
 
 /**
- * AlbumHero — a "now featured" music hero. The same square cover is shown crisp
- * at 1:1 and again as a heavily-blurred, full-bleed background "aura"; a dark
- * gradient over the aura keeps the light text (kicker / title / subtitle) legible.
- * Designed to be dropped into HeroCarousel via its `renderSlide`.
+ * AlbumHero — a "now featured" media hero. The same cover is shown crisp at its
+ * natural aspect and again as a heavily-blurred, full-bleed background "aura"; a
+ * dark gradient over the aura keeps the light text (kicker / title / subtitle)
+ * legible. Cover aspect + width are configurable so it works for square album
+ * art (default) or portrait book covers (`aspect="2 / 3"`). Designed to be
+ * dropped into HeroCarousel via its `renderSlide`.
  */
-export function AlbumHero({ cover, kicker, title, subtitle, ctaLabel, onCta, height = 440, className, style, ...rest }) {
+export function AlbumHero({ cover, kicker, title, subtitle, ctaLabel, onCta, height = 440, aspect = "1 / 1", coverWidth, className, style, ...rest }) {
+  const vars = { "--ah-h": len(height, 440), "--ah-cover-aspect": aspect };
+  if (coverWidth) vars["--ah-cover-w"] = coverWidth;
   return (
-    <div className={className ? `${s.hero} ${className}` : s.hero} style={{ "--ah-h": len(height, 440), ...style }} {...rest}>
+    <div className={className ? `${s.hero} ${className}` : s.hero} style={{ ...vars, ...style }} {...rest}>
       {cover && <img src={cover} alt="" aria-hidden="true" className={s.bg} />}
       <div className={s.overlay} />
       <div className={s.content}>
