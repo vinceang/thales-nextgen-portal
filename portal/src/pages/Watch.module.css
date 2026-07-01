@@ -9,25 +9,11 @@
   gap: var(--space-lg);
 }
 
-/* Genre filter pills — centered on the page when they fit, horizontally
-   scrollable (scrollbar hidden) when they overflow on narrow widths. The inner
-   track is `max-content` width with auto inline margins: it centers while it
-   fits, then degrades to start-aligned scrolling once it hits 100%. */
+/* Genre filter pills — FadeScroller centers them when they fit and fades +
+   scrolls when they overflow on narrow widths (owns the mask + hidden scrollbar). */
 .pills {
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   padding-block: 2px;
 }
-.pills::-webkit-scrollbar { display: none; }
-.pillsTrack {
-  display: flex;
-  gap: var(--space-sm);
-  width: max-content;
-  max-width: 100%;
-  margin-inline: auto;
-}
-.pillsTrack > * { flex: 0 0 auto; }
 
 .rows {
   display: flex;

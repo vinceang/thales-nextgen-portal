@@ -1,0 +1,53 @@
+/* NewsHero — featured story: image + Playfair headline. Two columns on
+   desktop/tablet, stacked on phone (≤560, the system's phone breakpoint).
+   Sharp, flat, no shadow. */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+}
+.hero[data-clickable="true"] { cursor: pointer; }
+
+.media { overflow: hidden; }
+.img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  background: var(--color-surface-2);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.date {
+  color: var(--on-surface-2);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 3.4vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.time {
+  margin-block-start: var(--space-xs);
+  color: var(--on-surface-2);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+@media (max-width: 560px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+  }
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeroCarousel, MediaRail, GenrePill, ShowcaseTile, FavoriteButton } from "../design-system/components";
+import { HeroCarousel, MediaRail, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller } from "../design-system/components";
 import { getWatchContent } from "../content/watch";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
@@ -30,18 +30,16 @@ export default function Watch() {
         onCta={() => navigate("/connect")}
       />
 
-      <div className={s.pills}>
-        <div className={s.pillsTrack}>
-          <GenrePill active={genre === "all"} onClick={() => setGenre("all")}>
-            {t("watch.all")}
+      <FadeScroller className={s.pills}>
+        <GenrePill active={genre === "all"} onClick={() => setGenre("all")}>
+          {t("watch.all")}
+        </GenrePill>
+        {rows.map((r) => (
+          <GenrePill key={r.key} active={genre === r.key} onClick={() => setGenre(r.key)}>
+            {r.label}
           </GenrePill>
-          {rows.map((r) => (
-            <GenrePill key={r.key} active={genre === r.key} onClick={() => setGenre(r.key)}>
-              {r.label}
-            </GenrePill>
-          ))}
-        </div>
-      </div>
+        ))}
+      </FadeScroller>
 
       <div className={s.rows}>
         {visible.map((r) => (

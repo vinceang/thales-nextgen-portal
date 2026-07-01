@@ -171,6 +171,18 @@ export const fr: Dict = {
       kids: "Jeunesse",
     },
   },
+  news: {
+    categories: {
+      all: "Tout",
+      world: "Monde",
+      politics: "Politique",
+      business: "Économie",
+      technology: "Technologie",
+      sports: "Sport",
+      entertainment: "Divertissement",
+      health: "Santé",
+    },
+  },
   footer: {
     terms: "Conditions d'utilisation",
     privacy: "Confidentialité",
