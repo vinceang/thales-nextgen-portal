@@ -294,6 +294,35 @@ export interface SpinnerProps {
 export function Spinner(props: SpinnerProps): JSX.Element;
 ```
 
+### ViewToggle  
+<sub>`components/core/ViewToggle.jsx`</sub>
+
+```ts
+import * as React from "react";
+
+/** Gallery layout mode. */
+export type GalleryView = "grid" | "list";
+
+/**
+ * Two-option segmented control for switching a gallery between grid and list
+ * layouts. Presentational — the consumer owns `value` + `onChange`. The selected
+ * segment is an inverted fill (theme-safe), not a hue.
+ */
+export interface ViewToggleProps {
+  /** Current view. Default "grid". */
+  value?: GalleryView;
+  onChange?: (view: GalleryView) => void;
+  /** Accessible label / tooltip for the grid button. Default "Grid view". */
+  gridLabel?: string;
+  /** Accessible label / tooltip for the list button. Default "List view". */
+  listLabel?: string;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function ViewToggle(props: ViewToggleProps): JSX.Element;
+```
+
 ---
 
 ## forms
@@ -952,6 +981,37 @@ export interface MediaRailProps {
 }
 
 export function MediaRail(props: MediaRailProps): JSX.Element;
+```
+
+### MediaRow  
+<sub>`components/media/MediaRow.jsx`</sub>
+
+```ts
+import * as React from "react";
+
+/**
+ * Horizontal list row for gallery LIST mode: a thumbnail (aspect configurable)
+ * + title/subtitle/meta, with optional trailing content (e.g. a FavoriteButton).
+ * Sibling to MediaCard (which stacks its caption below a cover).
+ */
+export interface MediaRowProps {
+  /** Thumbnail image URL. */
+  image?: string;
+  /** Thumbnail aspect ratio (CSS `aspect-ratio`). Default "1 / 1"; e.g. "2 / 3" for books. */
+  aspect?: string;
+  title: React.ReactNode;
+  /** Secondary line (artist, author…). */
+  subtitle?: React.ReactNode;
+  /** Tertiary line (e.g. a relative timestamp). */
+  meta?: React.ReactNode;
+  /** Trailing node at the inline-end (e.g. a FavoriteButton). */
+  trailing?: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function MediaRow(props: MediaRowProps): JSX.Element;
 ```
 
 ### NewsCard  

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeroCarousel, MediaRail, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller } from "../design-system/components";
+import { HeroCarousel, MediaRail, MediaRow, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getWatchContent } from "../content/watch";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
@@ -18,6 +18,7 @@ export default function Watch() {
 
   // GenrePill filter: "all" shows every shelf; a genre key shows just that shelf.
   const [genre, setGenre] = useState("all");
+  const [view, setView] = useState<"grid" | "list">("grid");
   const visible = genre === "all" ? rows : rows.filter((r) => r.key === genre);
 
   return (
@@ -41,25 +42,55 @@ export default function Watch() {
         ))}
       </FadeScroller>
 
+      <div className={s.toolbar}>
+        <ViewToggle value={view} onChange={setView} gridLabel={t("common.viewGrid")} listLabel={t("common.viewList")} />
+      </div>
+
       <div className={s.rows}>
-        {visible.map((r) => (
-          <MediaRail key={r.key} title={r.label}>
-            {r.items.map((m) => {
-              const fav = isFavorite(m.id);
-              return (
-                <div key={m.id} className={s.poster}>
-                  <ShowcaseTile image={m.poster} title={m.title} titleSize={16} height="100%" />
-                  <FavoriteButton
-                    className={s.fav}
-                    active={fav}
-                    onChange={() => toggle({ id: m.id, kind: "watch", title: m.title, image: m.poster })}
-                    label={fav ? t("favorites.remove") : t("favorites.add")}
-                  />
-                </div>
-              );
-            })}
-          </MediaRail>
-        ))}
+        {visible.map((r) =>
+          view === "grid" ? (
+            <MediaRail key={r.key} title={r.label}>
+              {r.items.map((m) => {
+                const fav = isFavorite(m.id);
+                return (
+                  <div key={m.id} className={s.poster}>
+                    <ShowcaseTile image={m.poster} title={m.title} titleSize={16} height="100%" />
+                    <FavoriteButton
+                      className={s.fav}
+                      active={fav}
+                      onChange={() => toggle({ id: m.id, kind: "watch", title: m.title, image: m.poster })}
+                      label={fav ? t("favorites.remove") : t("favorites.add")}
+                    />
+                  </div>
+                );
+              })}
+            </MediaRail>
+          ) : (
+            <section key={r.key} className={s.listSection}>
+              <h3 className={s.listTitle}>{r.label}</h3>
+              <div className={s.list}>
+                {r.items.map((m) => {
+                  const fav = isFavorite(m.id);
+                  return (
+                    <MediaRow
+                      key={m.id}
+                      image={m.poster}
+                      aspect="2 / 3"
+                      title={m.title}
+                      trailing={
+                        <FavoriteButton
+                          active={fav}
+                          onChange={() => toggle({ id: m.id, kind: "watch", title: m.title, image: m.poster })}
+                          label={fav ? t("favorites.remove") : t("favorites.add")}
+                        />
+                      }
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          )
+        )}
       </div>
     </div>
   );

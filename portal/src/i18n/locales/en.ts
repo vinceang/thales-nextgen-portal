@@ -18,6 +18,8 @@ export const en = {
   common: {
     searchPlaceholder: "Search movies, music, destinations…",
     language: "Language",
+    viewGrid: "Grid view",
+    viewList: "List view",
   },
   // Tile kickers / section labels, keyed by category.
   categories: {

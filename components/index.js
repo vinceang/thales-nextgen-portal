@@ -15,6 +15,7 @@ export * from "./core/IconButton.jsx";
 export * from "./core/Kicker.jsx";
 export * from "./core/Link.jsx";
 export * from "./core/Spinner.jsx";
+export * from "./core/ViewToggle.jsx";
 
 // forms
 export * from "./forms/Checkbox.jsx";
@@ -47,6 +48,7 @@ export * from "./media/AlbumHero.jsx";
 export * from "./media/HeroCarousel.jsx";
 export * from "./media/MediaCard.jsx";
 export * from "./media/MediaRail.jsx";
+export * from "./media/MediaRow.jsx";
 export * from "./media/NewsCard.jsx";
 export * from "./media/NewsHero.jsx";
 export * from "./media/ShowcaseTile.jsx";

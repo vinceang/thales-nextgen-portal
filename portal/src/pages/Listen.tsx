@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeroCarousel, AlbumHero, MediaRail, MediaCard, GenrePill, FavoriteButton, FadeScroller } from "../design-system/components";
+import { HeroCarousel, AlbumHero, MediaRail, MediaCard, MediaRow, GenrePill, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getListenContent } from "../content/listen";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
@@ -18,6 +18,7 @@ export default function Listen() {
   const { hero, rows } = getListenContent(t);
 
   const [genre, setGenre] = useState("all");
+  const [view, setView] = useState<"grid" | "list">("grid");
   const visible = genre === "all" ? rows : rows.filter((r) => r.key === genre);
 
   return (
@@ -51,25 +52,56 @@ export default function Listen() {
         ))}
       </FadeScroller>
 
+      <div className={s.toolbar}>
+        <ViewToggle value={view} onChange={setView} gridLabel={t("common.viewGrid")} listLabel={t("common.viewList")} />
+      </div>
+
       <div className={s.rows}>
-        {visible.map((r) => (
-          <MediaRail key={r.key} title={r.label}>
-            {r.items.map((a) => {
-              const fav = isFavorite(a.id);
-              return (
-                <div key={a.id} className={s.album}>
-                  <MediaCard image={a.cover} title={a.title} subtitle={a.artist} />
-                  <FavoriteButton
-                    className={s.fav}
-                    active={fav}
-                    onChange={() => toggle({ id: a.id, kind: "listen", title: a.title, image: a.cover })}
-                    label={fav ? t("favorites.remove") : t("favorites.add")}
-                  />
-                </div>
-              );
-            })}
-          </MediaRail>
-        ))}
+        {visible.map((r) =>
+          view === "grid" ? (
+            <MediaRail key={r.key} title={r.label}>
+              {r.items.map((a) => {
+                const fav = isFavorite(a.id);
+                return (
+                  <div key={a.id} className={s.album}>
+                    <MediaCard image={a.cover} title={a.title} subtitle={a.artist} />
+                    <FavoriteButton
+                      className={s.fav}
+                      active={fav}
+                      onChange={() => toggle({ id: a.id, kind: "listen", title: a.title, image: a.cover })}
+                      label={fav ? t("favorites.remove") : t("favorites.add")}
+                    />
+                  </div>
+                );
+              })}
+            </MediaRail>
+          ) : (
+            <section key={r.key} className={s.listSection}>
+              <h3 className={s.listTitle}>{r.label}</h3>
+              <div className={s.list}>
+                {r.items.map((a) => {
+                  const fav = isFavorite(a.id);
+                  return (
+                    <MediaRow
+                      key={a.id}
+                      image={a.cover}
+                      aspect="1 / 1"
+                      title={a.title}
+                      subtitle={a.artist}
+                      trailing={
+                        <FavoriteButton
+                          active={fav}
+                          onChange={() => toggle({ id: a.id, kind: "listen", title: a.title, image: a.cover })}
+                          label={fav ? t("favorites.remove") : t("favorites.add")}
+                        />
+                      }
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          )
+        )}
       </div>
     </div>
   );

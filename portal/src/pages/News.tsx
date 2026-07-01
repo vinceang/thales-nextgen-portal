@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SourceRail, FadeScroller, GenrePill, NewsHero, NewsCard, TileGrid } from "../design-system/components";
+import { SourceRail, FadeScroller, GenrePill, NewsHero, NewsCard, MediaRow, TileGrid, ViewToggle } from "../design-system/components";
 import { getNewsContent } from "../content/news";
 import { useI18n } from "../i18n";
 import s from "./News.module.css";
@@ -18,6 +18,7 @@ export default function News() {
 
   const [source, setSource] = useState(sources[0]?.id);
   const [category, setCategory] = useState("all");
+  const [view, setView] = useState<"grid" | "list">("grid");
 
   const visible = category === "all" ? stories : stories.filter((a) => a.category === category);
 
@@ -43,17 +44,36 @@ export default function News() {
         />
       )}
 
-      <TileGrid columns={4} tablet={3} phone={1} gap={24}>
-        {visible.map((a) => (
-          <NewsCard
-            key={a.id}
-            image={a.image}
-            timeAgo={a.timeAgo}
-            title={a.title}
-            onClick={() => navigate("/connect")}
-          />
-        ))}
-      </TileGrid>
+      <div className={s.toolbar}>
+        <ViewToggle value={view} onChange={setView} gridLabel={t("common.viewGrid")} listLabel={t("common.viewList")} />
+      </div>
+
+      {view === "grid" ? (
+        <TileGrid columns={4} tablet={3} phone={1} gap={24}>
+          {visible.map((a) => (
+            <NewsCard
+              key={a.id}
+              image={a.image}
+              timeAgo={a.timeAgo}
+              title={a.title}
+              onClick={() => navigate("/connect")}
+            />
+          ))}
+        </TileGrid>
+      ) : (
+        <div className={s.list}>
+          {visible.map((a) => (
+            <MediaRow
+              key={a.id}
+              image={a.image}
+              aspect="16 / 10"
+              title={a.title}
+              meta={a.timeAgo}
+              onClick={() => navigate("/connect")}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
