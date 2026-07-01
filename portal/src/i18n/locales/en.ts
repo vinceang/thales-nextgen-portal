@@ -152,6 +152,18 @@ export const en = {
       documentary: "Documentaries",
     },
   },
+  listen: {
+    play: "Play",
+    all: "All",
+    rows: {
+      newReleases: "New Releases",
+      topCharts: "Top Charts",
+      pop: "Pop",
+      hiphop: "Hip-Hop",
+      rock: "Rock",
+      chill: "Chill",
+    },
+  },
   footer: {
     terms: "Terms of Service",
     privacy: "Privacy",

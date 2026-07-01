@@ -1,0 +1,46 @@
+/* Listen — music gallery. Mirrors Watch, but album cards are square with a
+   caption below. All values are tokens. */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Genre filter pills — centered when they fit, scrollable when they overflow. */
+.pills {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: 2px;
+}
+.pills::-webkit-scrollbar { display: none; }
+.pillsTrack {
+  display: flex;
+  gap: var(--space-sm);
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+.pillsTrack > * { flex: 0 0 auto; }
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* Album cell — fixed inline size; the MediaCard fills the width, the heart
+   overlays the (top) cover corner. */
+.album {
+  position: relative;
+  width: clamp(150px, 22vw, 190px);
+}
+.fav {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  z-index: 2;
+}

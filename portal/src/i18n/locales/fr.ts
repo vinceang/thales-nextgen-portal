@@ -146,6 +146,18 @@ export const fr: Dict = {
       documentary: "Documentaires",
     },
   },
+  listen: {
+    play: "Lecture",
+    all: "Tout",
+    rows: {
+      newReleases: "Nouveautés",
+      topCharts: "Top des charts",
+      pop: "Pop",
+      hiphop: "Hip-Hop",
+      rock: "Rock",
+      chill: "Détente",
+    },
+  },
   footer: {
     terms: "Conditions d'utilisation",
     privacy: "Confidentialité",

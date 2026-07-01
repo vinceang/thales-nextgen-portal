@@ -1,5 +1,19 @@
 # React + TypeScript + Vite
 
+> **The app lives in this `portal/` subdirectory, not the repo root.** The repo
+> root is the design system. To run locally:
+>
+> ```bash
+> cd portal
+> npm install
+> npm run dev
+> ```
+>
+> **Deploying (Vercel):** the repo-root `vercel.json` handles this — it builds
+> from `portal/` and outputs `portal/dist`, with an SPA rewrite for
+> react-router. No dashboard **Root Directory** change is required. Node is
+> pinned to 22 via the repo-root `.nvmrc`.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:

@@ -1,0 +1,71 @@
+/* AlbumHero — crisp 1:1 cover + the same image as a blurred full-bleed aura,
+   under a dark gradient for legible light text. Height via --ah-h. Sharp, flat. */
+.hero {
+  position: relative;
+  height: var(--ah-h);
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--color-surface-2);
+}
+
+/* Blurred aura — same cover, scaled up so the blur doesn't reveal edges. */
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+  filter: blur(44px) saturate(1.4) brightness(0.6);
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  padding: clamp(20px, 4vw, 48px);
+  box-sizing: border-box;
+}
+
+/* Crisp featured cover — square, sized by width so it scales down on phone. */
+.cover {
+  flex: 0 0 auto;
+  width: clamp(120px, 38%, 340px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  background: var(--color-surface-2);
+}
+
+.text {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-white);
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 48px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-white);
+}
+.subtitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 1.4vw, 20px);
+  color: var(--on-surface-2);
+}
+.cta { margin-block-start: 8px; }
