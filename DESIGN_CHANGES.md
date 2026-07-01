@@ -363,3 +363,11 @@ Each entry is logged as it happens, in this format:
 - News category FadeScroller is **centered** (default), matching the media galleries' pill rows.
 - Card `title` is a semantic **`<h3>`** in **Montserrat** (`--font-sans`, `margin: 0`, same `--fs-h3` size). Affects all Card usages (all in Account — settings/UI contexts), fixing the Account section titles ("Preferences", etc.) the designer flagged. Both DS copies synced.
 **Why:** Designer asked to center the News category group and to make the Account section titles H3s in Montserrat. The Card change aligns the component with the design system's own typography rule (UI/card titles are sans, serif is opt-in) and improves heading semantics.
+
+### 2026-07-01 Docs: purge "serif card title" inconsistencies
+**Rule/token changed:** Documentation only — align Card/Kicker/typography guidance with the code (Card title is now Montserrat h3).
+**Was:** Several docs still implied card titles are serif: `Card.d.ts` ("Serif title"), `Kicker.d.ts`/`.module.css` ("above a serif tile/card title"), `tokens/typography.css` + `design_handoff_site_build/README.md` ("Noto Serif = tile / card titles"), and the COMPONENT_TYPES Kicker note.
+**Now:** Updated all of them to state that `--font-tile` (Noto Serif) is **opt-in for media-tile / hero titles only — not cards, not the default tile**, and that a Card `title` is an `<h3>` in Montserrat. Added an explicit title-font bullet to `Card.prompt.md`. Both DS copies synced.
+**Why:** Follow-up to the Card title fix — the guidance contradicted the corrected code and the "serif never for UI" typography rule.
+
+> **FLAG — EmptyState title:** `EmptyState.module.css` `.title` still uses `--font-tile` (Noto Serif) for what is a UI/empty-state heading — the same inconsistency Card had. Left as-is (not in scope, and an empty-state heading is a plausible "soft editorial" exception), but flagging for the design system to decide whether it should also be Montserrat.

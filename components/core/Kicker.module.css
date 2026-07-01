@@ -1,4 +1,4 @@
-/* Kicker — bright-blue uppercase action label above a tile/card title. */
+/* Kicker — bright-blue uppercase action label above a media-tile or hero title. */
 .kicker {
   font-family: var(--font-sans);
   font-weight: 700;

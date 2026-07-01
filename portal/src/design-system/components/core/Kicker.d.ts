@@ -8,5 +8,5 @@ export interface KickerProps {
   style?: React.CSSProperties;
 }
 
-/** Bright-blue uppercase action label that sits above a serif tile/card title. */
+/** Bright-blue uppercase action label that sits above a media-tile or hero title. */
 export function Kicker(props: KickerProps): JSX.Element;

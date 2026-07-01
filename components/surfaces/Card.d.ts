@@ -5,7 +5,8 @@ import * as React from "react";
  * For media tiles use ShowcaseTile; for pricing use PlanCard.
  */
 export interface CardProps {
-  /** Serif title in the header (or pass a custom `header`). */
+  /** Header title — rendered as an `<h3>` in Montserrat (the UI face; serif is
+   *  reserved for media tiles/heroes). Or pass a custom `header`. */
   title?: string;
   subtitle?: string;
   /** Custom header node (overrides title/subtitle). */
