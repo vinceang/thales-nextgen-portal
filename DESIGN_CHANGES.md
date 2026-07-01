@@ -333,3 +333,9 @@ Each entry is logged as it happens, in this format:
 - **Fix:** removed `max-width: 100%` from the track — `width: max-content` now lets it overflow and scroll, while `margin-inline: auto` still centers it when it fits.
 - **New `controls` prop:** opt-in desktop prev/next arrows (IconButton + chevrons), positioned like MediaRail's — they **fade in on hover**, are hidden on touch (`@media (hover: none)`), and only render when the row actually overflows (ResizeObserver checks `scrollWidth > clientWidth`). Wired on `SourceRail` and the News category row.
 **Why:** Designer reported the source rail scrolled on phone but had no way to scroll on desktop, and suggested a hover arrow. Matches the MediaRail arrow affordance for consistency.
+
+### 2026-07-01 Pill rails — desktop hover arrows everywhere
+**Rule/token changed:** Usage — enabled FadeScroller `controls` on all filter/pill rails.
+**Was:** Only SourceRail + the News category row had the desktop hover arrows; the Watch/Listen/Read genre-pill rows had none.
+**Now:** Added `controls` to the genre-pill FadeScroller on Watch, Listen, and Read. Arrows still only appear when a row overflows (fade in on hover, hidden on touch), so centered rows that fit are unchanged.
+**Why:** Designer asked for the arrow treatment on the pill rails everywhere, for a consistent horizontal-scroll affordance across the app.

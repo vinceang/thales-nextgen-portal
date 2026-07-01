@@ -43,7 +43,7 @@ export default function Read() {
         )}
       />
 
-      <FadeScroller className={s.pills}>
+      <FadeScroller controls className={s.pills}>
         <GenrePill active={genre === "all"} onClick={() => setGenre("all")}>
           {t("read.all")}
         </GenrePill>
