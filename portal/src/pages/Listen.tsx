@@ -40,7 +40,7 @@ export default function Listen() {
         )}
       />
 
-      <FadeScroller className={s.pills}>
+      <FadeScroller controls className={s.pills}>
         <GenrePill active={genre === "all"} onClick={() => setGenre("all")}>
           {t("listen.all")}
         </GenrePill>
