@@ -4,7 +4,7 @@ import s from "./EmptyState.module.css";
 
 /**
  * EmptyState — centered placeholder for a view with no content yet: a quiet line
- * icon in a hairline ring, a serif title, a muted message, an optional action.
+ * icon in a hairline ring, a Montserrat title, a muted message, an optional action.
  */
 export function EmptyState({ icon = "inbox", title, message, action, className, style, ...rest }) {
   return (

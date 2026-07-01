@@ -371,3 +371,9 @@ Each entry is logged as it happens, in this format:
 **Why:** Follow-up to the Card title fix — the guidance contradicted the corrected code and the "serif never for UI" typography rule.
 
 > **FLAG — EmptyState title:** `EmptyState.module.css` `.title` still uses `--font-tile` (Noto Serif) for what is a UI/empty-state heading — the same inconsistency Card had. Left as-is (not in scope, and an empty-state heading is a plausible "soft editorial" exception), but flagging for the design system to decide whether it should also be Montserrat.
+
+### 2026-07-01 EmptyState title → Montserrat (resolves the flag above)
+**Rule/token changed:** EmptyState title font.
+**Was:** `EmptyState.module.css` `.title` used `--font-tile` (Noto Serif) — the same serif-for-UI inconsistency Card had.
+**Now:** Title uses `--font-sans` (Montserrat). Kept the element a `<div>` (not an `<h3>`) since EmptyState nests in arbitrary contexts and shouldn't force a heading into the outline. Updated the jsx doc comment + prompt ("serif" → "Montserrat"). Both DS copies synced.
+**Why:** Designer confirmed EmptyState should follow the same rule — serif never for UI titles.

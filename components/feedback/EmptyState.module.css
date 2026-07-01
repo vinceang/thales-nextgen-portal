@@ -19,6 +19,6 @@
   border: 1px solid var(--color-border);
   color: var(--on-surface-faint);
 }
-.title { font-family: var(--font-tile); font-weight: 600; font-size: var(--fs-h3); color: var(--text-primary); }
+.title { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h3); color: var(--text-primary); }
 .message { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--text-secondary); }
 .action { margin-top: 8px; }
