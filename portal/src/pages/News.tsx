@@ -25,7 +25,7 @@ export default function News() {
     <div className={s.page}>
       <SourceRail sources={sources} active={source} onSelect={setSource} />
 
-      <FadeScroller center={false} className={s.categories}>
+      <FadeScroller center={false} controls className={s.categories}>
         {categories.map((c) => (
           <GenrePill key={c.key} active={category === c.key} onClick={() => setCategory(c.key)}>
             {c.label}

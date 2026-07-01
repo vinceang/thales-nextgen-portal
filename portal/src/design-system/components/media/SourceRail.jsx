@@ -10,7 +10,7 @@ import s from "./SourceRail.module.css";
  */
 export function SourceRail({ sources = [], active, onSelect, className, style, ...rest }) {
   return (
-    <FadeScroller center={false} className={className ? `${s.rail} ${className}` : s.rail} style={style} {...rest}>
+    <FadeScroller center={false} controls className={className ? `${s.rail} ${className}` : s.rail} style={style} {...rest}>
       {sources.map((src) => (
         <button
           key={src.id}

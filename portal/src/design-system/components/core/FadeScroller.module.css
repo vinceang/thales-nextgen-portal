@@ -1,7 +1,10 @@
 /* FadeScroller — horizontal scroller with an edge-fade mask (outer items appear
-   to fade out) and a hidden scrollbar. Fade width via --fade-size; gap via
-   --fade-gap. The mask is alpha-only (black = keep, transparent = fade) — a
-   mechanism, not a themeable colour. Sharp, flat, no shadow. */
+   to fade out) and a hidden scrollbar. Optional desktop arrows (fade in on
+   hover). Fade width via --fade-size; gap via --fade-gap. The mask is alpha-only
+   (black = keep, transparent = fade) — a mechanism, not a themeable colour.
+   Sharp, flat, no shadow. */
+.viewport { position: relative; }
+
 .scroller {
   overflow-x: auto;
   overflow-y: hidden;
@@ -19,10 +22,34 @@
   display: flex;
   gap: var(--fade-gap, var(--space-sm));
   width: max-content;
-  max-width: 100%;
   padding-inline: var(--fade-size, 32px);
 }
 .track > * { flex: 0 0 auto; }
 
-/* Center the row when it fits; when it overflows, max-content wins and it scrolls. */
+/* Center the row when it fits (max-content narrower than the scroller). When it
+   overflows, the track is wider than the scroller and scrolls; margin: auto then
+   has no effect. (No max-width here — that would clamp the track to the scroller
+   width and stop it from ever overflowing/scrolling.) */
 .track[data-center="true"] { margin-inline: auto; }
+
+/* Optional desktop arrows — only rendered when the row overflows; fade in on
+   viewport hover / focus. Hidden on touch (native scroll is the affordance). */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: var(--overlay-backdrop);
+  opacity: 0;
+  transition:
+    opacity var(--dur-link) var(--ease-smooth),
+    background var(--dur-link) var(--ease-smooth);
+}
+.arrowStart { inset-inline-start: -6px; }
+.arrowEnd { inset-inline-end: -6px; }
+.viewport:hover .arrow { opacity: 1; }
+.arrow:focus-visible { opacity: 1; }
+.arrow:hover { background: var(--color-black); }
+@media (hover: none) {
+  .arrow { display: none; }
+}
