@@ -1,31 +1,20 @@
-/* FavoriteButton — heart save toggle, sized via --fav-size. Square, sharp,
-   flat (no shadow, no backdrop chip). The heart sits directly on the art over a
-   soft radial scrim (glow, not a hard box) that keeps it legible on bright art.
-   Active = heart fills bright-blue (CSS `fill` overrides the icon's fill="none"
-   attribute). One accent only — never red. */
+/* FavoriteButton — heart save toggle in a translucent circle (44px at the
+   default size = 20px heart + 12px each side). Circular is the sanctioned radius
+   exception (dots/pills/toggles); flat, no shadow. Active = heart fills
+   bright-blue (CSS `fill` overrides the icon's fill="none"). One accent — never
+   red. */
 .btn {
-  position: relative;
-  isolation: isolate;
   display: inline-grid;
   place-items: center;
-  width: calc(var(--fav-size) + 16px);
-  height: calc(var(--fav-size) + 16px);
+  width: calc(var(--fav-size) + 24px);
+  height: calc(var(--fav-size) + 24px);
   padding: 0;
   border: none;
+  border-radius: 50%;
   cursor: pointer;
-  background: transparent;
+  background: var(--overlay-backdrop);
   color: var(--color-white);
   transition: color var(--dur-link) var(--ease-smooth);
-}
-
-/* Soft glow behind the heart — fades fully to transparent, so no visible chip. */
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: -25%;
-  z-index: -1;
-  background: var(--scrim-radial);
-  pointer-events: none;
 }
 
 .btn:not([data-active="true"]):hover { color: var(--color-bright-blue); }
