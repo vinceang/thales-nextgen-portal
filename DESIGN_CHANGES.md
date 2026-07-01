@@ -310,3 +310,12 @@ Each entry is logged as it happens, in this format:
 > **FLAG — component overlap for the design system to reconcile:** the existing (but **unused**) `domain/NewsItem` also renders a lead story + headline rows, but only in a *stacked* lead / *row* form — it can't produce the mockup's side-by-side hero or vertical-card grid, hence NewsHero/NewsCard. The design system should decide whether to deprecate `NewsItem`, or keep it for compact list contexts (e.g. a "more headlines" sidebar).
 > **FLAG — sharp source chip:** the active `SourceRail` chip is a **sharp** light square (per the no-round rule), where the mockup shows rounded corners. Kept sharp for DS consistency; revisit if the designer wants it rounded.
 > **Carry-back:** all of the above (4 new components + the FadeScroller retrofit) applies in the app repo; mirror to the canonical design-system project.
+
+### 2026-07-01 SourceRail — white inactive logos, rounded chip, theme-safe (supersedes the sharp-chip flag)
+**Rule/token changed:** New `--radius-chip` token; SourceRail switched to theme-flipping semantic tokens.
+**Was:** Inactive logos were dimmed `--on-surface-2`; the active chip was a **sharp** `--color-white` square with a `--color-black` logo (flagged as a deviation from the rounded mockup, and hardcoded to dark-mode colors).
+**Now:**
+- Inactive logos use `--text-primary` at 0.8 opacity → **white in dark mode**, carbon in light mode (per the designer's "white when inactive").
+- The active chip is **rounded** via a new `--radius-chip: 12px` token (both `tokens/spacing.css` copies) — a deliberate rounded exception to the sharp default, at the designer's request.
+- The active chip is now an **inverted** surface (`background: var(--text-primary)`, `color: var(--bg-page)`) instead of hardcoded white/black, so it flips correctly when **light mode** lands (white chip + dark logo in dark; dark chip + light logo in light).
+**Why:** Designer asked for white inactive logos + a rounded container, and flagged that dark/light mode is coming — so the component was moved off `--color-white`/`--color-black` onto semantic tokens that theme. Resolves the earlier "sharp source chip" flag.

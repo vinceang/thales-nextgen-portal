@@ -1,27 +1,30 @@
-/* SourceRail — monochrome source logos in a fading scroller. Inactive = dimmed
-   currentColor; active = solid light chip. Sharp (radius 0, per the no-round
-   rule), flat, no shadow. Selection legibility is the light fill, not a hue. */
+/* SourceRail — monochrome source logos in a fading scroller. Theme-safe via
+   semantic tokens: inactive = foreground logo (--text-primary), slightly dimmed
+   → white in dark mode, carbon in light mode. Active = inverted chip
+   (--text-primary fill, --bg-page logo) on a rounded chip (--radius-chip). Flat,
+   no shadow. Selection is the fill, not a hue. */
 .item {
   display: grid;
   place-items: center;
   height: 64px;
   padding: var(--space-sm) var(--space-md);
   border: none;
+  border-radius: var(--radius-chip);
   background: transparent;
-  color: var(--on-surface-2);
-  opacity: 0.55;
+  color: var(--text-primary);
+  opacity: 0.8;
   cursor: pointer;
   transition:
     opacity var(--dur-link) var(--ease-smooth),
     color var(--dur-link) var(--ease-smooth),
     background var(--dur-link) var(--ease-smooth);
 }
-.item:hover { opacity: 0.9; }
+.item:hover { opacity: 1; }
 
 .item[data-active="true"] {
   opacity: 1;
-  background: var(--color-white);
-  color: var(--color-black);
+  background: var(--text-primary);
+  color: var(--bg-page);
 }
 
 .logo { height: 22px; width: auto; display: block; }
