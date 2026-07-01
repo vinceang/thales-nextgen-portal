@@ -14,3 +14,4 @@ Auto-advancing hero — a stack of HeroBanner slides with CarouselDots. The Watc
 - Autoplay pauses on hover/focus and is **disabled entirely under `prefers-reduced-motion`** (accessibility + the system's restrained-motion stance). Dots and manual selection always work.
 - Each slide forwards straight to `HeroBanner` (image, kicker, Playfair title, CTA). The crossfade is a one-shot opacity transition — nothing loops or bounces.
 - For a single, static promo use `HeroBanner` directly; use the carousel only when there are multiple featured items.
+- Pass `renderSlide={(slide, i) => …}` to render a custom slide visual (e.g. `AlbumHero` for music) while keeping the autoplay/dots/crossfade machinery. The default rendering (HeroBanner) is used when `renderSlide` is omitted.

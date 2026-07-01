@@ -6,14 +6,17 @@ import s from "./HeroCarousel.module.css";
 function len(v, d) { const x = v ?? d; return typeof x === "number" ? `${x}px` : x; }
 
 /**
- * HeroCarousel — a stack of HeroBanner slides with CarouselDots. Autoplay is
- * configurable for white-label tenants: `autoPlay` toggles it and `intervalMs`
+ * HeroCarousel — a stack of slides with CarouselDots. By default each slide is a
+ * HeroBanner; pass `renderSlide(slide, index)` to render a custom slide visual
+ * (e.g. AlbumHero) while reusing the autoplay/dots/crossfade machinery. Autoplay
+ * is configurable for white-label tenants: `autoPlay` toggles it and `intervalMs`
  * sets the cadence (drive both from your content/config seam). Pauses on
  * hover/focus and when the OS requests reduced motion. Slides crossfade — no
  * looping/bouncing content motion.
  */
 export function HeroCarousel({
   slides = [],
+  renderSlide,
   autoPlay = true,
   intervalMs = 6000,
   height = 480,
@@ -60,15 +63,19 @@ export function HeroCarousel({
             data-active={i === index ? "true" : undefined}
             aria-hidden={i === index ? undefined : true}
           >
-            <HeroBanner
-              image={sl.image}
-              kicker={sl.kicker}
-              title={sl.title}
-              ctaLabel={sl.ctaLabel}
-              ctaArrow={sl.ctaArrow}
-              height="100%"
-              onCta={() => onCta && onCta(sl, i)}
-            />
+            {renderSlide ? (
+              renderSlide(sl, i)
+            ) : (
+              <HeroBanner
+                image={sl.image}
+                kicker={sl.kicker}
+                title={sl.title}
+                ctaLabel={sl.ctaLabel}
+                ctaArrow={sl.ctaArrow}
+                height="100%"
+                onCta={() => onCta && onCta(sl, i)}
+              />
+            )}
           </div>
         ))}
       </div>
