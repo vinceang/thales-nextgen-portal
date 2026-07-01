@@ -15,6 +15,8 @@ export const es: Dict = {
   common: {
     searchPlaceholder: "Buscar películas, música, destinos…",
     language: "Idioma",
+    viewGrid: "Vista de cuadrícula",
+    viewList: "Vista de lista",
   },
   categories: {
     watch: "Ver",

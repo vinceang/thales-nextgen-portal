@@ -14,3 +14,15 @@
 .categories {
   margin-block-start: calc(-1 * var(--space-xs));
 }
+
+/* View toggle sits top-right, above the story collection. */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* List mode — a flat vertical list of story rows. */
+.list {
+  display: flex;
+  flex-direction: column;
+}

@@ -345,3 +345,13 @@ Each entry is logged as it happens, in this format:
 **Was:** The hero carousel navigated only via CarouselDots + autoplay — no arrow controls.
 **Now:** Added prev/next arrows (IconButton + chevrons) that step the slide with wraparound; they **fade in on hover/focus** and are **hidden on touch** (`@media (hover: none)`), matching the MediaRail / FadeScroller arrow treatment. Shown only with multiple slides; autoplay still pauses on hover. Both DS copies + prompt updated.
 **Why:** Designer asked for the hover-arrow affordance on the hero carousel too, for consistency across all the app's horizontal/slide navigators.
+
+### 2026-07-01 Grid/list view toggle on all galleries + ViewToggle / MediaRow
+**Rule/token changed:** New components (ViewToggle, MediaRow) + two Icon glyphs (grid, list); galleries gain a view toggle.
+**Was:** Watch/Listen/Read showed genre shelves (MediaRail tiles) only; News showed a TileGrid of cards only. No list view, no grid/list control.
+**Now:** Added a **grid/list toggle** to every gallery (Watch, Listen, Read, News), top-right above the collection. New design-system pieces (canonical + vendored, docs, barrels, COMPONENT_TYPES):
+- **ViewToggle** (core) — two-option segmented control (grid | list); selected segment is an inverted `--text-primary`/`--bg-page` fill (theme-safe, deliberately not the accent hue). `gridLabel`/`listLabel` are i18n'd (`common.viewGrid`/`viewList`, en/fr/es).
+- **MediaRow** (media) — list-mode row: fixed-height thumbnail (aspect-driven width) + title/subtitle/meta + optional trailing (e.g. FavoriteButton), hairline divider.
+- Added `grid` + `list` glyphs to the Icon set (both copies).
+- **List mode** keeps the genre/category **sections** (heading + a vertical row list) on the media galleries; News (a flat filtered grid) becomes a flat row list. Heroes stay in both modes. Row aspect matches each surface: 1:1 Listen, 2:3 Watch/Read posters, 16:10 News.
+**Why:** Designer asked for a grid/list toggle on the galleries; sections-as-row-lists chosen (over a flat list) to mirror the grid structure. Toggle state is per-page/session (not persisted) for now.
