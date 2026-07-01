@@ -133,7 +133,7 @@ All values are CSS custom properties on `:root`. Components read them via `var(-
 
 ### Typography — four families, one role each
 - `--font-display` *(Playfair Display)* — big hero / section H1 **only**
-- `--font-tile` *(Noto Serif Display)* — cinematic tile / card titles
+- `--font-tile` *(Noto Serif Display)* — **opt-in** cinematic media-tile / hero titles (not cards; not the default tile)
 - `--font-sans` *(Montserrat)* — all UI, body, buttons, labels
 - `--font-body-alt` *(Inter)* — body on light surfaces
 

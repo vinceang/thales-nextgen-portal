@@ -1,7 +1,7 @@
 /* ── Typography tokens ──────────────────────────────────────────
    Four families, each with one clear role.
    Playfair Display  = BIG HERO / section H1 ONLY (the largest display type).
-   Noto Serif Display = cinematic tile / card titles.
+   Noto Serif Display = opt-in cinematic media-tile / hero titles (NOT cards or the default tile).
    Montserrat        = everything functional — nav, UI, body, buttons, labels.
    Inter             = body on light surfaces.
    Serif is never used for navigation, UI, or body. */
@@ -9,7 +9,7 @@
 :root {
   /* Families ---------------------------------------------------- */
   --font-display:  "Playfair Display", Georgia, serif;     /* hero / section H1 */
-  --font-tile:     "Noto Serif Display", Georgia, serif;   /* cinematic tile / card titles */
+  --font-tile:     "Noto Serif Display", Georgia, serif;   /* opt-in cinematic media-tile / hero titles */
   --font-sans:     "Montserrat", system-ui, sans-serif;    /* UI, body, buttons, labels */
   --font-body-alt: "Inter", system-ui, sans-serif;         /* body on light surfaces */
 
