@@ -26,3 +26,25 @@
   justify-content: center;
   z-index: 2;
 }
+
+/* Prev/next arrows — fade in on hover/focus (like MediaRail); hidden on touch,
+   where the dots + swipe are the affordance. */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: var(--overlay-backdrop);
+  opacity: 0;
+  transition:
+    opacity var(--dur-link) var(--ease-smooth),
+    background var(--dur-link) var(--ease-smooth);
+}
+.arrowStart { inset-inline-start: 16px; }
+.arrowEnd { inset-inline-end: 16px; }
+.carousel:hover .arrow { opacity: 1; }
+.arrow:focus-visible { opacity: 1; }
+.arrow:hover { background: var(--color-black); }
+@media (hover: none) {
+  .arrow { display: none; }
+}

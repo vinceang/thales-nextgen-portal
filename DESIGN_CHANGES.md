@@ -339,3 +339,9 @@ Each entry is logged as it happens, in this format:
 **Was:** Only SourceRail + the News category row had the desktop hover arrows; the Watch/Listen/Read genre-pill rows had none.
 **Now:** Added `controls` to the genre-pill FadeScroller on Watch, Listen, and Read. Arrows still only appear when a row overflows (fade in on hover, hidden on touch), so centered rows that fit are unchanged.
 **Why:** Designer asked for the arrow treatment on the pill rails everywhere, for a consistent horizontal-scroll affordance across the app.
+
+### 2026-07-01 HeroCarousel — prev/next hover arrows
+**Rule/token changed:** HeroCarousel gains prev/next arrows (no new prop, no token change).
+**Was:** The hero carousel navigated only via CarouselDots + autoplay — no arrow controls.
+**Now:** Added prev/next arrows (IconButton + chevrons) that step the slide with wraparound; they **fade in on hover/focus** and are **hidden on touch** (`@media (hover: none)`), matching the MediaRail / FadeScroller arrow treatment. Shown only with multiple slides; autoplay still pauses on hover. Both DS copies + prompt updated.
+**Why:** Designer asked for the hover-arrow affordance on the hero carousel too, for consistency across all the app's horizontal/slide navigators.

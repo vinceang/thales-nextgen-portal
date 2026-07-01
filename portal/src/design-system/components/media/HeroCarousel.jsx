@@ -1,12 +1,15 @@
 import React from "react";
 import { HeroBanner } from "./HeroBanner.jsx";
 import { CarouselDots } from "./CarouselDots.jsx";
+import { IconButton } from "../core/IconButton.jsx";
+import { Icon } from "../core/Icon.jsx";
 import s from "./HeroCarousel.module.css";
 
 function len(v, d) { const x = v ?? d; return typeof x === "number" ? `${x}px` : x; }
 
 /**
- * HeroCarousel — a stack of slides with CarouselDots. By default each slide is a
+ * HeroCarousel — a stack of slides with CarouselDots and prev/next arrows (the
+ * arrows fade in on hover, hidden on touch). By default each slide is a
  * HeroBanner; pass `renderSlide(slide, index)` to render a custom slide visual
  * (e.g. AlbumHero) while reusing the autoplay/dots/crossfade machinery. Autoplay
  * is configurable for white-label tenants: `autoPlay` toggles it and `intervalMs`
@@ -41,6 +44,8 @@ export function HeroCarousel({
     const id = window.setTimeout(() => setIndex((i) => (i + 1) % count), intervalMs);
     return () => window.clearTimeout(id);
   }, [autoPlay, reduce, paused, count, index, intervalMs]);
+
+  const go = (dir) => setIndex((i) => (i + dir + count) % count);
 
   if (count === 0) return null;
 
@@ -79,7 +84,17 @@ export function HeroCarousel({
           </div>
         ))}
       </div>
-      {count > 1 && <CarouselDots className={s.dots} count={count} active={index} onSelect={setIndex} />}
+      {count > 1 && (
+        <>
+          <IconButton label="Previous slide" className={`${s.arrow} ${s.arrowStart}`} onClick={() => go(-1)}>
+            <Icon name="chevron-left" />
+          </IconButton>
+          <IconButton label="Next slide" className={`${s.arrow} ${s.arrowEnd}`} onClick={() => go(1)}>
+            <Icon name="chevron-right" />
+          </IconButton>
+          <CarouselDots className={s.dots} count={count} active={index} onSelect={setIndex} />
+        </>
+      )}
     </div>
   );
 }
