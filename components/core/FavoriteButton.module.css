@@ -1,5 +1,5 @@
-/* FavoriteButton — heart save toggle in a translucent circle (44px at the
-   default size = 20px heart + 12px each side). Circular is the sanctioned radius
+/* FavoriteButton — heart save toggle in a translucent circle (40px at the
+   default size = 16px heart + 12px each side). Circular is the sanctioned radius
    exception (dots/pills/toggles); flat, no shadow. Active = heart fills
    bright-blue (CSS `fill` overrides the icon's fill="none"). One accent — never
    red. */
