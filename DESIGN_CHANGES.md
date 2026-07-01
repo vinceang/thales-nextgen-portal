@@ -355,3 +355,11 @@ Each entry is logged as it happens, in this format:
 - Added `grid` + `list` glyphs to the Icon set (both copies).
 - **List mode** keeps the genre/category **sections** (heading + a vertical row list) on the media galleries; News (a flat filtered grid) becomes a flat row list. Heroes stay in both modes. Row aspect matches each surface: 1:1 Listen, 2:3 Watch/Read posters, 16:10 News.
 **Why:** Designer asked for a grid/list toggle on the galleries; sections-as-row-lists chosen (over a flat list) to mirror the grid structure. Toggle state is per-page/session (not persisted) for now.
+
+### 2026-07-01 News category pills centered + Card title → Montserrat h3
+**Rule/token changed:** News category-row alignment; Card title element + font (brings Card in line with the typography rule).
+**Was:** News category pills were left-aligned (`center={false}`). The Card component rendered its `title` as a `<div>` in `--font-tile` (Noto Serif Display) — a generic (non-heading) element in a serif face, which conflicts with "Serif never for nav/UI/body" and "Noto Serif is opt-in only".
+**Now:**
+- News category FadeScroller is **centered** (default), matching the media galleries' pill rows.
+- Card `title` is a semantic **`<h3>`** in **Montserrat** (`--font-sans`, `margin: 0`, same `--fs-h3` size). Affects all Card usages (all in Account — settings/UI contexts), fixing the Account section titles ("Preferences", etc.) the designer flagged. Both DS copies synced.
+**Why:** Designer asked to center the News category group and to make the Account section titles H3s in Montserrat. The Card change aligns the component with the design system's own typography rule (UI/card titles are sans, serif is opt-in) and improves heading semantics.

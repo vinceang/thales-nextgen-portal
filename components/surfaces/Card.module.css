@@ -14,7 +14,7 @@
 
 .header { padding: var(--card-pad); }
 .header[data-flush="true"] { padding-bottom: 0; }
-.title { font-family: var(--font-tile); font-weight: 600; font-size: var(--fs-h3); color: var(--text-primary); }
+.title { margin: 0; font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-h3); color: var(--text-primary); }
 .subtitle { margin-top: 4px; font-family: var(--font-sans); font-size: 14px; color: var(--text-secondary); }
 
 .body { padding: var(--card-pad); font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--on-surface-2); }

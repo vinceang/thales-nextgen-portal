@@ -17,7 +17,7 @@ export function Card({ title, subtitle, header, footer, interactive = false, pad
         <div className={s.header} data-flush={children || footer ? "true" : undefined}>
           {header || (
             <>
-              <div className={s.title}>{title}</div>
+              <h3 className={s.title}>{title}</h3>
               {subtitle && <div className={s.subtitle}>{subtitle}</div>}
             </>
           )}
