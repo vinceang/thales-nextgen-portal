@@ -125,6 +125,9 @@ export interface FadeScrollerProps extends React.HTMLAttributes<HTMLDivElement> 
   gap?: number | string;
   /** Center the track when its content fits (vs. left-aligned). Default true. */
   center?: boolean;
+  /** Show desktop prev/next arrows when the row overflows (fade in on hover;
+   *  hidden on touch). Default false. */
+  controls?: boolean;
   children?: React.ReactNode;
 }
 

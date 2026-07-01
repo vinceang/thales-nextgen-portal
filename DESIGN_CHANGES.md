@@ -325,3 +325,11 @@ Each entry is logged as it happens, in this format:
 **Was:** Logos were `<img src=…svg>` relying on `color: var(--text-primary)` (currentColor) to go white — but img-embedded SVGs are isolated documents that ignore the parent's `color`, so they rendered in their own default black (near-invisible on the dark page). Logo height 22px.
 **Now:** Tint the logos with a **CSS `filter`** silhouette: inactive `brightness(0) invert(1)` (white in dark mode), active `brightness(0)` (dark on the light chip). Light theme flips both via `:global([data-theme="light"])`. Bumped logo height 22 → **30px** and rail height 64 → 72px (designer: "bigger"). Theme-safe without relying on currentColor.
 **Why:** The white-inactive-logos change didn't actually render (currentColor doesn't cross the `<img>` boundary); filter is the correct tint for img-embedded monochrome SVGs. Designer also asked for larger logos.
+
+### 2026-07-01 FadeScroller — scroll fix + optional desktop arrow controls
+**Rule/token changed:** FadeScroller (fix + new `controls` prop). No token change.
+**Was:** The track had `max-width: 100%`, which clamped it to the scroller width so an overflowing row never scrolled on desktop (it worked on touch via native scroll, but the hidden scrollbar left no mouse affordance). No arrow controls.
+**Now:**
+- **Fix:** removed `max-width: 100%` from the track — `width: max-content` now lets it overflow and scroll, while `margin-inline: auto` still centers it when it fits.
+- **New `controls` prop:** opt-in desktop prev/next arrows (IconButton + chevrons), positioned like MediaRail's — they **fade in on hover**, are hidden on touch (`@media (hover: none)`), and only render when the row actually overflows (ResizeObserver checks `scrollWidth > clientWidth`). Wired on `SourceRail` and the News category row.
+**Why:** Designer reported the source rail scrolled on phone but had no way to scroll on desktop, and suggested a hover arrow. Matches the MediaRail arrow affordance for consistency.
