@@ -7,6 +7,7 @@ export * from "./core/Avatar.jsx";
 export * from "./core/Badge.jsx";
 export * from "./core/Button.jsx";
 export * from "./core/Chip.jsx";
+export * from "./core/FadeScroller.jsx";
 export * from "./core/FavoriteButton.jsx";
 export * from "./core/GenrePill.jsx";
 export * from "./core/Icon.jsx";
@@ -46,7 +47,10 @@ export * from "./media/AlbumHero.jsx";
 export * from "./media/HeroCarousel.jsx";
 export * from "./media/MediaCard.jsx";
 export * from "./media/MediaRail.jsx";
+export * from "./media/NewsCard.jsx";
+export * from "./media/NewsHero.jsx";
 export * from "./media/ShowcaseTile.jsx";
+export * from "./media/SourceRail.jsx";
 
 // layout
 export * from "./layout/BentoGrid.jsx";

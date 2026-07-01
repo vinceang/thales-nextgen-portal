@@ -1,0 +1,54 @@
+/* NewsCard — vertical card in a grid (image on top, timestamp above title);
+   flips to an image-left row on phone (≤560), title above timestamp. Sharp,
+   flat, no shadow. */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.card[data-clickable="true"] { cursor: pointer; }
+
+.media { overflow: hidden; }
+.img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--color-surface-2);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.time {
+  color: var(--on-surface-2);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+@media (max-width: 560px) {
+  .card {
+    flex-direction: row;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+  .media { flex: 0 0 92px; }
+  .img { aspect-ratio: 1 / 1; }
+  /* Row layout: title first, timestamp under it (reverse the column). */
+  .body {
+    flex: 1 1 auto;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    gap: 4px;
+  }
+}

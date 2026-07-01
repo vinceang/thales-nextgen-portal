@@ -1,0 +1,28 @@
+/* FadeScroller — horizontal scroller with an edge-fade mask (outer items appear
+   to fade out) and a hidden scrollbar. Fade width via --fade-size; gap via
+   --fade-gap. The mask is alpha-only (black = keep, transparent = fade) — a
+   mechanism, not a themeable colour. Sharp, flat, no shadow. */
+.scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-size, 32px), #000 calc(100% - var(--fade-size, 32px)), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-size, 32px), #000 calc(100% - var(--fade-size, 32px)), transparent 100%);
+}
+.scroller::-webkit-scrollbar { display: none; }
+
+/* Padding-inline = fade width so the first/last child can be scrolled fully
+   clear of the fade (readable at the extremes); at rest the empty inset means
+   the leading fade sits over blank space, not the first item. */
+.track {
+  display: flex;
+  gap: var(--fade-gap, var(--space-sm));
+  width: max-content;
+  max-width: 100%;
+  padding-inline: var(--fade-size, 32px);
+}
+.track > * { flex: 0 0 auto; }
+
+/* Center the row when it fits; when it overflows, max-content wins and it scrolls. */
+.track[data-center="true"] { margin-inline: auto; }

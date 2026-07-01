@@ -177,6 +177,18 @@ export const en = {
       kids: "Kids",
     },
   },
+  news: {
+    categories: {
+      all: "All",
+      world: "World",
+      politics: "Politics",
+      business: "Business",
+      technology: "Technology",
+      sports: "Sports",
+      entertainment: "Entertainment",
+      health: "Health",
+    },
+  },
   footer: {
     terms: "Terms of Service",
     privacy: "Privacy",

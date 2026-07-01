@@ -171,6 +171,18 @@ export const es: Dict = {
       kids: "Infantil",
     },
   },
+  news: {
+    categories: {
+      all: "Todo",
+      world: "Mundo",
+      politics: "Política",
+      business: "Economía",
+      technology: "Tecnología",
+      sports: "Deportes",
+      entertainment: "Entretenimiento",
+      health: "Salud",
+    },
+  },
   footer: {
     terms: "Términos de servicio",
     privacy: "Privacidad",

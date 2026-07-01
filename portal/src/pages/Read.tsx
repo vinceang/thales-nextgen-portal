@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { HeroCarousel, AlbumHero, MediaRail, MediaCard, GenrePill, FavoriteButton } from "../design-system/components";
+import { HeroCarousel, AlbumHero, MediaRail, MediaCard, GenrePill, FavoriteButton, FadeScroller } from "../design-system/components";
 import { getReadContent } from "../content/read";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
@@ -43,18 +43,16 @@ export default function Read() {
         )}
       />
 
-      <div className={s.pills}>
-        <div className={s.pillsTrack}>
-          <GenrePill active={genre === "all"} onClick={() => setGenre("all")}>
-            {t("read.all")}
+      <FadeScroller className={s.pills}>
+        <GenrePill active={genre === "all"} onClick={() => setGenre("all")}>
+          {t("read.all")}
+        </GenrePill>
+        {rows.map((r) => (
+          <GenrePill key={r.key} active={genre === r.key} onClick={() => setGenre(r.key)}>
+            {r.label}
           </GenrePill>
-          {rows.map((r) => (
-            <GenrePill key={r.key} active={genre === r.key} onClick={() => setGenre(r.key)}>
-              {r.label}
-            </GenrePill>
-          ))}
-        </div>
-      </div>
+        ))}
+      </FadeScroller>
 
       <div className={s.rows}>
         {visible.map((r) => (

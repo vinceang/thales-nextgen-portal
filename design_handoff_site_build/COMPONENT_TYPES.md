@@ -106,6 +106,31 @@ export interface ChipProps {
 export function Chip(props: ChipProps): JSX.Element;
 ```
 
+### FadeScroller  
+<sub>`components/core/FadeScroller.jsx`</sub>
+
+```ts
+import * as React from "react";
+
+/**
+ * Horizontally-scrolling row with an edge-fade at both ends (a CSS mask, so the
+ * outermost items appear to fade out) and a hidden scrollbar. The reusable fade
+ * treatment for non-tile scrollers (source rails, filter-pill rows); tile
+ * shelves use MediaRail.
+ */
+export interface FadeScrollerProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Fade width at each end — px number or CSS length. Default 32. */
+  fade?: number | string;
+  /** Gap between children — px number or CSS length. Default var(--space-sm). */
+  gap?: number | string;
+  /** Center the track when its content fits (vs. left-aligned). Default true. */
+  center?: boolean;
+  children?: React.ReactNode;
+}
+
+export function FadeScroller(props: FadeScrollerProps): JSX.Element;
+```
+
 ### FavoriteButton  
 <sub>`components/core/FavoriteButton.jsx`</sub>
 
@@ -926,6 +951,60 @@ export interface MediaRailProps {
 export function MediaRail(props: MediaRailProps): JSX.Element;
 ```
 
+### NewsCard  
+<sub>`components/media/NewsCard.jsx`</sub>
+
+```ts
+import * as React from "react";
+
+/**
+ * Secondary news story: image, relative timestamp, and title. In a grid it's a
+ * vertical card (image on top); on phone it flips to an image-left list row.
+ * Presentational; `onClick` opens the story.
+ */
+export interface NewsCardProps {
+  /** Story image URL. */
+  image?: string;
+  /** Relative timestamp (e.g. "2 minutes ago"). */
+  timeAgo?: React.ReactNode;
+  /** Story title (Montserrat). */
+  title: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function NewsCard(props: NewsCardProps): JSX.Element;
+```
+
+### NewsHero  
+<sub>`components/media/NewsHero.jsx`</sub>
+
+```ts
+import * as React from "react";
+
+/**
+ * Featured news story: a large image beside a date, a Playfair headline, and a
+ * relative timestamp. Two columns on desktop/tablet, stacked on phone.
+ * Presentational; `onClick` opens the story.
+ */
+export interface NewsHeroProps {
+  /** Story image URL. */
+  image?: string;
+  /** Date line above the headline (e.g. "Aug 3, 2024"). */
+  date?: React.ReactNode;
+  /** Headline (Playfair). */
+  title: React.ReactNode;
+  /** Relative timestamp under the headline (e.g. "an hour ago"). */
+  timeAgo?: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function NewsHero(props: NewsHeroProps): JSX.Element;
+```
+
 ### ShowcaseTile  
 <sub>`components/media/ShowcaseTile.jsx`</sub>
 
@@ -979,6 +1058,39 @@ export interface ShowcaseTileProps {
 }
 
 export function ShowcaseTile(props: ShowcaseTileProps): JSX.Element;
+```
+
+### SourceRail  
+<sub>`components/media/SourceRail.jsx`</sub>
+
+```ts
+import * as React from "react";
+
+/** A selectable news source. */
+export interface NewsSource {
+  /** Stable id (selection key). */
+  id: string;
+  /** Display name (used for the button's aria-label / tooltip). */
+  name: string;
+  /** Monochrome logo URL (an SVG using `currentColor` works best). */
+  logo: string;
+}
+
+/**
+ * Horizontally-scrollable row of news-source logos. Inactive sources are dimmed;
+ * the active one lifts to a solid light chip. Presentational — the consumer owns
+ * selection via `active` + `onSelect`. Edge-fade + hidden scrollbar from FadeScroller.
+ */
+export interface SourceRailProps {
+  sources?: NewsSource[];
+  /** Active source id. */
+  active?: string;
+  onSelect?: (id: string) => void;
+  className?: string;
+  style?: React.CSSProperties;
+}
+
+export function SourceRail(props: SourceRailProps): JSX.Element;
 ```
 
 ---

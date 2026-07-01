@@ -294,3 +294,19 @@ Each entry is logged as it happens, in this format:
 **Why:** Designer refined the control after seeing it live — smaller heart, tighter circle, lighter fill. Circular remains the sanctioned radius exception; still flat, no shadow, one accent.
 
 > **Carry-back to the canonical design-system project** (per CLAUDE.md sync protocol): FavoriteButton restyle (36px translucent circle, size 16, `--overlay-backdrop-soft` = `#00000050`); AlbumHero new `aspect` / `coverWidth` props; new `--overlay-backdrop-soft` token. Applied here in the app repo; not yet mirrored upstream.
+
+### 2026-07-01 News page + FadeScroller / SourceRail / NewsHero / NewsCard + edge-fade retrofit
+**Rule/token changed:** New components + a reusable horizontal-scroll treatment (edge-fade); new app page `/news`.
+**Was:** `/news` was a `StubPage`. Horizontal scrollers for non-tile rows (the Watch/Listen/Read genre pills) had a hidden scrollbar but **no edge fade**. No source-logo rail, no side-by-side news hero, no news grid card.
+**Now:** Built the News page from three Framer mockups (desktop/tablet/phone; no page-comp exists). New design-system components (canonical + vendored, `.jsx`/`.module.css`/`.d.ts`/`.prompt.md`, both barrels, COMPONENT_TYPES.md):
+- **FadeScroller** (core) — horizontal scroller with an **edge-fade mask** (outer items fade at both ends) + hidden scrollbar; `fade`/`gap`/`center` props. The reusable "fade" treatment for **non-tile** scrollers.
+- **SourceRail** (media) — scrollable monochrome source logos (`currentColor`); dim inactive, active = solid light chip; wraps FadeScroller.
+- **NewsHero** (media) — featured story: image + date + Playfair headline + timestamp; two columns on desktop/tablet, stacks on phone.
+- **NewsCard** (media) — secondary story: vertical card in a grid, flips to an image-left row on phone.
+- Page: `portal/src/pages/News.tsx` (+ css), `content/news.ts` seam (mock sources/categories/stories; a news aggregator returns the same shape later), 14 monochrome logos in `public/assets/logos/news/`, `/news` route, and `news.categories.*` i18n (en/fr/es). Category filters the grid; **source selection is visual-only** for now.
+- **Retrofit:** Watch/Listen/Read genre-pill rows now use `<FadeScroller>` (replacing local `.pills`/`.pillsTrack` scroller CSS) so all non-tile scrollers share the edge-fade. Tile shelves (MediaRail) are deliberately unchanged.
+**Why:** Designer asked for the News page per the mockups, plus the missing edge-fade on horizontal (non-tile) scrollers. Categories reuse `GenrePill` (rounded) for consistency with the sibling media pages — a deliberate deviation from the mockup's sharp rectangular chips (designer's call).
+
+> **FLAG — component overlap for the design system to reconcile:** the existing (but **unused**) `domain/NewsItem` also renders a lead story + headline rows, but only in a *stacked* lead / *row* form — it can't produce the mockup's side-by-side hero or vertical-card grid, hence NewsHero/NewsCard. The design system should decide whether to deprecate `NewsItem`, or keep it for compact list contexts (e.g. a "more headlines" sidebar).
+> **FLAG — sharp source chip:** the active `SourceRail` chip is a **sharp** light square (per the no-round rule), where the mockup shows rounded corners. Kept sharp for DS consistency; revisit if the designer wants it rounded.
+> **Carry-back:** all of the above (4 new components + the FadeScroller retrofit) applies in the app repo; mirror to the canonical design-system project.
