@@ -26,6 +26,7 @@
      tokens (e.g. --radius-card: 12px) without touching any component. */
   --radius-card:    var(--radius-none); /* @kind other */ /* tiles, cards, panels, images */
   --radius-control: var(--radius-none); /* @kind other */ /* buttons, inputs, selects */
+  --radius-chip:    12px;               /* @kind other */ /* rounded selection chip — the active SourceRail logo tile (a deliberate rounded exception) */
 
   /* Borders ---------------------------------------------------- */
   --border-width: 1px;
