@@ -10,6 +10,7 @@
 // Post copy (titles, body) is authored content and stays verbatim across locales;
 // only surrounding chrome (labels, section titles) is i18n, resolved in the pages.
 import type { TFunc } from "../i18n";
+import { loadDrafts } from "./blogStore";
 
 /** Which editorial section a post belongs to (also its route base). */
 export type BlogSection = "destinations" | "travel";
@@ -53,7 +54,9 @@ export interface BlogPost {
 // CMS supplies its own assets.
 const img = (id: string, w = 1200) => `https://images.unsplash.com/photo-${id}?w=${w}&q=80`;
 
-const POSTS: BlogPost[] = [
+// Seeded posts (the "published" catalogue). Author-created drafts from the
+// Studio (localStorage) are merged on top by the getters below.
+const SEED: BlogPost[] = [
   // ── Destinations ─────────────────────────────────────────────────────────
   {
     slug: "orlando-epcot",
@@ -183,15 +186,22 @@ const POSTS: BlogPost[] = [
   },
 ];
 
-/** All posts in a section (featured first, then by original order). */
-export function getPosts(section: BlogSection): BlogPost[] {
-  const inSection = POSTS.filter((p) => p.section === section);
-  return [...inSection].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+// Drafts + seed for a section, with drafts taking precedence on slug collisions.
+function allInSection(section: BlogSection): BlogPost[] {
+  const drafts = loadDrafts().filter((p) => p.section === section);
+  const draftSlugs = new Set(drafts.map((p) => p.slug));
+  const seed = SEED.filter((p) => p.section === section && !draftSlugs.has(p.slug));
+  return [...drafts, ...seed];
 }
 
-/** A single post by section + slug (undefined if not found). */
+/** All posts in a section (featured first; author drafts ahead of seed). */
+export function getPosts(section: BlogSection): BlogPost[] {
+  return allInSection(section).sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+}
+
+/** A single post by section + slug — a matching draft wins over the seed. */
 export function getPost(section: BlogSection, slug: string): BlogPost | undefined {
-  return POSTS.find((p) => p.section === section && p.slug === slug);
+  return allInSection(section).find((p) => p.slug === slug);
 }
 
 /** Section chrome (title + subtitle) — the only i18n bit; posts stay verbatim. */

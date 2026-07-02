@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Kicker } from "../design-system/components";
+import { Kicker, Button } from "../design-system/components";
 import { getPosts, getSectionMeta, type BlogSection } from "../content/blog";
 import { BlogCard } from "../components/blog/BlogCard";
 import { useI18n } from "../i18n";
@@ -20,8 +20,13 @@ export default function BlogIndex({ section }: { section: BlogSection }) {
   return (
     <div className={s.page}>
       <header className={s.head}>
-        <h1 className={s.title}>{meta.title}</h1>
-        <p className={s.subtitle}>{meta.subtitle}</p>
+        <div className={s.headText}>
+          <h1 className={s.title}>{meta.title}</h1>
+          <p className={s.subtitle}>{meta.subtitle}</p>
+        </div>
+        <Button variant="secondary" size="sm" onClick={() => navigate(`/studio?section=${section}`)}>
+          {t("blog.newPost")}
+        </Button>
       </header>
 
       {featured && (

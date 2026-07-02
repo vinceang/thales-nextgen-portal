@@ -467,3 +467,19 @@ Each entry is logged as it happens, in this format:
 - `pages/BlogIndex.tsx` (featured lead hero + card grid) and `pages/BlogArticle.tsx` (cover hero, byline w/ initials avatar, tag `Badge`s, `PostBody`, "more in section" via `NewsItem`), on slug routes `/{section}` and `/{section}/:slug`.
 - Showcase tiles deep-link to specific articles (epcot → `/destinations/orlando-epcot`, england → `/travel/exploring-england`); dining → `/destinations`. `blog.*` i18n (section titles/subtitles, "More in", not-found) in en/es/fr.
 **Why:** Designer wanted Destinations/Travel as blog-type pages architected for a future local CMS. **Typography note (needs ratifying):** long-form body is Montserrat (serif stays out of body per the rules), but article/section titles + subheads + pull-quotes use **Playfair** (display) for editorial voice — a slightly broader use of the display face than "hero H1 / featured tiles." Sections are **not** in the top nav (reached via Showcase tiles), matching how Shop is handled. Post copy/imagery is placeholder behind the CMS seam.
+
+---
+
+### 2026-07-01 In-app blog CMS — Studio editor + localStorage store (`pages/Studio.tsx`, `content/blogStore.ts`)
+**Rule/token changed:** New authoring surface (app-level) composing DS form controls (`Input`, `TextArea`, `Select`, `Checkbox`, `Button`, `Card`, `Badge`, `Icon`) + tokens; no DS primitive changed. Adds `/studio` route.
+**Was:** Blog content was TS-seeded only; no way to author in-app.
+**Now:** A **structured block editor** at `/studio`: post metadata + a body built from typed blocks (add / reorder / delete heading·paragraph·quote·list·image), a live **Preview** rendered through the same `PostBody`, and a **drafts list** (edit/delete). Posts persist to `localStorage` via `content/blogStore.ts` and are merged into `getPosts`/`getPost` (drafts win on slug), so a new post appears immediately in its section + at `/{section}/{slug}`. Reached via a **"Write a post"** button on each blog index (`blog.newPost`, i18n en/es/fr).
+**Why:** Designer chose the block-editor approach (our content model is typed blocks, so editing `BlogBlock[]` directly avoids a markdown parser / heavyweight RTE and best showcases the portable-block architecture — a portfolio piece). **Notes:** (1) Studio UI copy is intentionally **English-only** — an admin/author tool, not a passenger-facing screen; only the public "Write a post" button is localized. (2) Only drafts (localStorage) are editable; seeded posts are read-only. (3) The **markdown file loader (Option A)** was deliberately not built — a clean follow-up for the git-CMS story. (4) `Icon.d.ts` gained `chevron-up` (present in `Icon.jsx`, missing from the type union — the drift noted earlier).
+
+---
+
+### 2026-07-01 New token `--text-reading` for long-form body (`tokens/colors.css`)
+**Rule/token changed:** Added a semantic text color token in both themes; used by the blog `PostBody`.
+**Was:** Long-form article body + list items used `--text-secondary` (the muted grey meant for captions/meta) — too low-contrast for sustained reading on the dark surface (designer flagged it as too dark).
+**Now:** New `--text-reading` — dark theme `rgb(206,213,221)` (softer than pure-white `--text-primary`, far higher contrast than secondary), light theme `rgb(58,68,79)`. `PostBody` paragraphs + list items now use it; captions/quote-attribution stay `--text-secondary`.
+**Why:** Body copy needs a dedicated reading color between primary and secondary; added as a token (not an inline value) per the tokens rule so the whole system can reuse it for any long-form text. **Candidate for the DS** as the standard body-reading color.
