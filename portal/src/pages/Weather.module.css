@@ -1,0 +1,449 @@
+/* Weather — destination hero + city gallery, with a 5-Day Forecast sub-view.
+   Full-bleed hero image; the gallery + forecast sit on the page grid. All values
+   are tokens. Cards are pure-black tiles (the weather module's signature surface);
+   the one colored element is the AccuWeather glyph. Responsiveness is CSS-only:
+   the gallery is a 5-up grid that steps to 3-up (tablet) and a row list (phone). */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-2xl);
+}
+
+/* Constrains gallery / forecast blocks; the hero stays full-bleed above it. */
+.wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: var(--space-lg);
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 440px;
+  overflow: hidden;
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: stretch;
+}
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Legibility scrim — darker at top where the city name sits. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+.heroCity {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, calc(28px + 4vw), 64px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.attribution {
+  display: block;
+  height: 16px;
+  width: auto;
+  margin: var(--space-sm) 0 var(--space-md);
+  opacity: 0.92;
+}
+.heroReading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.heroTemp {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(28px, calc(20px + 2vw), 40px);
+  letter-spacing: -0.01em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.heroCond {
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(15px, calc(13px + 0.5vw), 20px);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Primary CTA — the accent hue, sharp, UPPERCASE. */
+.cta {
+  flex: none;
+  margin-top: 6px;
+  border: none;
+  cursor: pointer;
+  background: var(--color-highlight-blue);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 16px 26px;
+  transition: filter var(--dur-link) var(--ease-smooth);
+}
+.cta:hover {
+  filter: brightness(1.08);
+}
+.cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ── Unit toggle (°F / °C) ─────────────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-block: var(--space-md);
+}
+.unit {
+  display: inline-flex;
+}
+.unitSeg {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 18px;
+  color: #fff;
+  background: var(--color-black);
+  transition: background var(--dur-link) var(--ease-smooth);
+}
+.unitSeg[data-active] {
+  background: var(--color-highlight-blue);
+}
+.unitSeg:focus-visible {
+  outline: 2px solid var(--color-bright-blue);
+  outline-offset: -2px;
+}
+
+/* ── City gallery — cards (desktop / tablet) ───────────────────────────── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-black);
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 20px 12px 18px;
+}
+.cardImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: 0;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.78) 100%);
+}
+/* Text sits above the image + scrim; the image (only img child) stays behind. */
+.card > :not(.cardImg) {
+  position: relative;
+  z-index: 2;
+}
+.cardName {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.cardGlyph {
+  margin: auto 0;
+}
+.cardTemp {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.cardCond {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.72);
+  text-wrap: balance;
+}
+
+/* ── City gallery — row list (phone) ───────────────────────────────────── */
+.list {
+  display: none;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+.row:last-child {
+  border-bottom: none;
+}
+.rowText {
+  flex: 1;
+  min-width: 0;
+}
+.rowName {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.rowCond {
+  margin-top: 2px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.66);
+}
+.rowTemp {
+  flex: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.92);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tablet — 3-up gallery. */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Phone — swap the card grid for the row list. */
+@media (max-width: 560px) {
+  .wrap {
+    padding-inline: var(--space-sm);
+  }
+  .cards {
+    display: none;
+  }
+  .list {
+    display: flex;
+  }
+}
+
+/* ── 5-Day Forecast sub-view ───────────────────────────────────────────── */
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-bright-blue);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 0;
+}
+.back:focus-visible {
+  outline: 2px solid var(--color-bright-blue);
+  outline-offset: 2px;
+}
+
+.fcHero {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  background: var(--color-surface-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.fcHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+}
+.fcHeroText {
+  position: relative;
+  z-index: 1;
+}
+.fcKicker {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-bright-blue);
+}
+.fcCity {
+  margin: 4px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, calc(28px + 3vw), 52px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.fcHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+.fcTitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(20px, calc(16px + 1vw), 26px);
+  color: var(--text-primary);
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+}
+.fcDay {
+  background: var(--color-black);
+  padding: 26px 12px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.fcDayName {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+}
+.fcDayTemp {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+.fcDayCond {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.7);
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  .forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── News + radar ──────────────────────────────────────────────────────── */
+.newsGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+.radar {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radarImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.radarLabel {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+.newsTitle {
+  margin: 0 0 var(--space-md);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(19px, calc(16px + 0.8vw), 24px);
+  color: var(--text-primary);
+}
+.newsList {
+  display: flex;
+  flex-direction: column;
+}
+.newsDivider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-sm) 0;
+}
+
+@media (max-width: 720px) {
+  .newsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}

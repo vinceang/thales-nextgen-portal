@@ -7,6 +7,7 @@ import Watch from "./pages/Watch";
 import Listen from "./pages/Listen";
 import Read from "./pages/Read";
 import News from "./pages/News";
+import Weather from "./pages/Weather";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
         <Route path="/listen" element={<Listen />} />
         <Route path="/read" element={<Read />} />
         <Route path="/news" element={<News />} />
-        <Route path="/weather" element={<StubPage title="Weather" note="Destination forecast" />} />
+        <Route path="/weather" element={<Weather />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<StubPage title="Not found" note="No such page" />} />
       </Route>
