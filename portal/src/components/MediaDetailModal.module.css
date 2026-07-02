@@ -1,0 +1,248 @@
+/* MediaDetailModal — poster + metadata detail inside the DS Modal. All values
+   are tokens. Two columns on desktop, stacked on mobile. Sharp, flat; the one
+   accent is the blue score ring + primary action (no second hue). */
+
+/* Modal renders a header holding just the close button (no title passed) — push
+   it to the inline-end so the X sits top-right over the content. */
+.dialog > :first-child {
+  justify-content: flex-end;
+  padding-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  background: var(--color-surface-3);
+  border-radius: var(--radius-card);
+}
+
+.details {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, calc(20px + 1.4vw), 34px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.year {
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Meta line: certification box, then dot-separated facts. */
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-top: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.cert {
+  padding: 1px 6px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-none);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+.metaItem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+/* Dot separators between facts (not before the first). */
+.metaItem + .metaItem::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--text-secondary);
+  margin-inline-end: 14px;
+  margin-inline-start: -8px;
+  opacity: 0.7;
+}
+
+/* Score + primary actions row. */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+.score {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.scoreLabel {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.1;
+  max-width: 64px;
+  color: var(--text-primary);
+}
+.ring {
+  flex: none;
+}
+.ringTrack {
+  stroke: var(--color-border-strong);
+}
+.ringFill {
+  stroke: var(--color-bright-blue);
+  transition: stroke-dasharray var(--dur-link) var(--ease-smooth);
+}
+.ringText {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  fill: var(--text-primary);
+}
+.ringPct {
+  font-size: 8px;
+}
+.trailer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tabs {
+  margin-top: var(--space-lg);
+}
+
+.panel {
+  padding-top: var(--space-md);
+}
+.tagline {
+  margin: 0 0 var(--space-sm);
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.overview {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+.credit {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-md);
+}
+.creditName {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.creditRole {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Cast — two-up on desktop, one column on mobile. */
+.cast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+}
+.castMember {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.castAvatar,
+.castPhoto {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+}
+.castAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-3);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+.castPhoto {
+  object-fit: cover;
+}
+.castText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.castName {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.castChar {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Stack poster above details, single-column cast, on narrow viewports. */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    justify-items: center;
+  }
+  .poster {
+    width: 160px;
+  }
+  .details {
+    width: 100%;
+  }
+  .title {
+    text-align: center;
+  }
+  .metaRow,
+  .actions {
+    justify-content: center;
+  }
+  .cast {
+    grid-template-columns: 1fr;
+  }
+}

@@ -141,6 +141,14 @@ export const en = {
     remove: "Remove from favorites",
     empty: "No saved titles yet.",
   },
+  // Shared media-detail modal chrome (Watch now; Listen/Read reuse it later).
+  media: {
+    overview: "Overview",
+    cast: "Cast",
+    playTrailer: "Play Trailer",
+    userScore: "User Score",
+    director: "Director",
+  },
   watch: {
     featured: "Featured",
     play: "Play",
