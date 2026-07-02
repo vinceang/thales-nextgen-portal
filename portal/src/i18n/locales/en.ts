@@ -191,6 +191,13 @@ export const en = {
       health: "Health",
     },
   },
+  weather: {
+    forecastCta: "5 Day Forecast",
+    forecastTitle: "5-Day Forecast",
+    back: "Weather",
+    newsTitle: "Weather News for {city}",
+    radar: "Live Doppler Radar",
+  },
   footer: {
     terms: "Terms of Service",
     privacy: "Privacy",

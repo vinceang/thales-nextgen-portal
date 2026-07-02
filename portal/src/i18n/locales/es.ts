@@ -185,6 +185,13 @@ export const es: Dict = {
       health: "Salud",
     },
   },
+  weather: {
+    forecastCta: "Pronóstico de 5 días",
+    forecastTitle: "Pronóstico de 5 días",
+    back: "Clima",
+    newsTitle: "Noticias meteorológicas de {city}",
+    radar: "Radar Doppler en vivo",
+  },
   footer: {
     terms: "Términos de servicio",
     privacy: "Privacidad",
