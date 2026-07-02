@@ -483,3 +483,16 @@ Each entry is logged as it happens, in this format:
 **Was:** Long-form article body + list items used `--text-secondary` (the muted grey meant for captions/meta) — too low-contrast for sustained reading on the dark surface (designer flagged it as too dark).
 **Now:** New `--text-reading` — dark theme `rgb(206,213,221)` (softer than pure-white `--text-primary`, far higher contrast than secondary), light theme `rgb(58,68,79)`. `PostBody` paragraphs + list items now use it; captions/quote-attribution stay `--text-secondary`.
 **Why:** Body copy needs a dedicated reading color between primary and secondary; added as a token (not an inline value) per the tokens rule so the whole system can reuse it for any long-form text. **Candidate for the DS** as the standard body-reading color.
+
+---
+
+### 2026-07-01 Wi-Fi checkout: payment form + connectivity state + actionable header icon
+**Rule/token changed:** New payment flow + a connectivity context; small additive `NavBar` prop and DS type-accuracy fixes. No visual rule changed.
+**Was:** The Connect purchase modal was a one-line confirm ("charged to card ending 4242"); the header Wi-Fi icon was decorative (`wifiActive` hardcoded true, no handler).
+**Now:**
+- `components/PaymentForm.tsx` — a demo card form: cardholder, number (auto-spaced, **Visa/Mastercard** brand detection + label), expiry (MM/YY), CVC. **Format-only** validation (16 digits, supported brand, non-past expiry, 3-digit CVC); it processes no payment and stores/transmits no card data, with an inline info `Alert` saying so. Submits via a shared `formId` so the Modal footer's Pay button (`type="submit" form=…`) drives it.
+- `connectivity/ConnectivityProvider.tsx` — localStorage-backed active-plan context (`connect`/`disconnect`/`connected`), wrapped in `main.tsx` (mirrors FavoritesProvider). Connect's purchase now calls `connect(plan)` instead of local state.
+- Header **Wi-Fi icon** now reflects real state: `NavBar` gained an `onWifi` prop; `AppShell` passes `wifiActive={connected}` (off until a plan is bought) and `onWifi → /connect`. Buying a plan flips it on; it persists across reloads.
+- `connect.pay.*` + `connect.payAmount` i18n (en/es/fr).
+- **DS type fix:** `Input.d.ts` / `Button.d.ts` prop interfaces now extend the native `InputHTMLAttributes` / `ButtonHTMLAttributes` (the components already spread `...rest` at runtime; the types were just incomplete — this unblocks `inputMode`, `autoComplete`, `form`, etc.).
+**Why:** Designer wanted a showcaseable payment form + flow (Visa/MC, format validation, explicitly no real charge/capture) and the header Wi-Fi icon to start off and link to plans. Building a demo-only form that captures nothing and charges nothing is a UI feature, not real payment handling. **Note:** the old `connect.modalFine` / `connect.payNow` keys are now unused (left in place).

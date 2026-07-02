@@ -13,6 +13,8 @@ export interface NavBarProps {
   onHome?: () => void;
   /** Wi-Fi glyph active (bright-blue) when connected. */
   wifiActive?: boolean;
+  /** Click handler for the Wi-Fi status icon (e.g. open the plans page). */
+  onWifi?: () => void;
   onSearch?: () => void;
   onProfile?: () => void;
   className?: string;
