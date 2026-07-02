@@ -13,6 +13,7 @@ export const NAV: NavItem[] = [
   { key: "listen", label: "Listen", path: "/listen" },
   { key: "read", label: "Read", path: "/read" },
   { key: "play", label: "Play", path: "/play" },
+  { key: "shop", label: "Shop", path: "/shop" },
   { key: "news", label: "News", path: "/news" },
   { key: "weather", label: "Weather", path: "/weather" },
   { key: "account", label: "Account", path: "/account" },

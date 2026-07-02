@@ -125,12 +125,18 @@ routed `<Outlet>`. Providers in `main.tsx`: `I18nProvider` → `FavoritesProvide
   list). `BlogIndex` (featured hero + card grid) + `BlogArticle` (`/{section}/:slug`:
   cover hero, byline, tags, block body via **`PostBody`**, more-in footer). Showcase
   tiles deep-link to specific articles.
+- **Shop (`/shop`)** — onboard **store**: category-pill filter + responsive product
+  grid (`ProductCard`). Products (snacks/comfort/tech/duty-free) share the base
+  `Product` type with Wi-Fi plans (`content/commerce.ts`) and **check out through the
+  same `CheckoutModal` + `PaymentForm`** — one payment flow across the portal, as in the
+  original. Buy → checkout → "Order confirmed" toast. `content/shop.ts`. In the sliding nav.
 - **Studio (`/studio`)** — in-app **CMS editor**: a structured block editor over the
   `BlogPost` model with live Preview (same `PostBody`) + a drafts list. Persists to
   `localStorage` via `content/blogStore.ts`; drafts merge over the seed in
   `getPosts`/`getPost`, so new posts appear live in their section. Reached via a "Write a
   post" button on each blog index. (English-only admin tool.)
-- **Stubbed (`StubPage`):** `/shop` only.
+- **Stubbed:** none — every nav section is built. `StubPage` remains only for the
+  not-found (`*`) route.
 
 **App-level state (localStorage, provider pattern):** `FavoritesProvider`
 (`thales.favorites`, kinds watch/listen/read/**play**), `ConnectivityProvider`
@@ -159,7 +165,8 @@ routed `<Outlet>`. Providers in `main.tsx`: `I18nProvider` → `FavoritesProvide
 
 ## 7. Open items / follow-ups
 
-- **Shop (`/shop`)** — still a StubPage; only remaining unbuilt section.
+- **Shop cart** — checkout is single-item (mirrors the Wi-Fi flow); a multi-item cart
+  is a natural follow-up. Product images are placeholder Unsplash.
 - **Blog markdown loader (git-CMS story)** — deliberately deferred (Option A). Author
   `.md` + frontmatter → parse to `BlogBlock[]` behind the same `getPosts`/`getPost` seam;
   complements the Studio (localStorage) editor.
