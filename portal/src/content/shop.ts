@@ -36,7 +36,7 @@ const PRODUCTS: ShopProduct[] = [
   { id: "dark-chocolate", name: "Dark Chocolate Bar", price: "$3.50", category: "snacks", image: img("1511381939415-e44015466834"), blurb: "70% cocoa, single-origin." },
   { id: "sparkling-water", name: "Sparkling Water", price: "$2.50", category: "snacks", image: img("1602143407151-7111542de6e8"), blurb: "Chilled, lightly carbonated." },
   { id: "neck-pillow", name: "Memory-Foam Neck Pillow", price: "$19.99", category: "comfort", image: img("1520006403909-838d6b92c22e"), blurb: "Contoured support for long-haul rest." },
-  { id: "travel-blanket", name: "Travel Blanket", price: "$24.99", category: "comfort", image: img("1580301762395-83a4c9c86df1"), blurb: "Soft, packable, and warm." },
+  { id: "travel-blanket", name: "Travel Blanket", price: "$24.99", category: "comfort", image: img("1522771739844-6a9f6d5f14af"), blurb: "Soft, packable, and warm." },
   { id: "sleep-kit", name: "Sleep Mask & Earplugs", price: "$12.99", category: "comfort", image: img("1541781774459-bb2af2f05b55"), blurb: "Block out light and cabin noise." },
   { id: "headphones", name: "Wireless Headphones", price: "$89.99", category: "tech", image: img("1505740420928-5e560c06d30e"), blurb: "Over-ear, active noise cancelling." },
   { id: "power-bank", name: "USB-C Power Bank", price: "$39.99", category: "tech", image: img("1609091839311-d5365f9ff1c5"), blurb: "10,000 mAh, fast-charge ready." },
