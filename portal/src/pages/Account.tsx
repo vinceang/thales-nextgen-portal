@@ -24,7 +24,7 @@ import s from "./Account.module.css";
 const TOAST_MS = 4000;
 
 // Favorites are grouped by the media surface they came from.
-const FAV_KINDS: FavoriteKind[] = ["watch", "listen", "read"];
+const FAV_KINDS: FavoriteKind[] = ["watch", "listen", "read", "play"];
 
 // Sample defaults (no backend). Cancel restores these; Save fires a success Toast.
 const DEFAULTS = {

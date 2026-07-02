@@ -20,7 +20,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import type { ReactNode } from "react";
 
 /** The media surfaces a favorite can come from. */
-export type FavoriteKind = "watch" | "listen" | "read";
+export type FavoriteKind = "watch" | "listen" | "read" | "play";
 
 export interface FavoriteItem {
   /** Stable id (catalogue / future TMDB id). */

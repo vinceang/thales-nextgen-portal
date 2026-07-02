@@ -43,8 +43,18 @@
   flex-direction: column;
 }
 
-/* Landscape game cell — fixed inline size, 16:9; the ShowcaseTile fills it. */
+/* Landscape game cell — fixed inline size, 16:9; the ShowcaseTile fills it.
+   `position: relative` anchors the favorite heart overlay. */
 .card {
+  position: relative;
   width: clamp(240px, 34vw, 320px);
   aspect-ratio: 16 / 9;
+}
+
+/* Heart save control — top inline-end corner of the cell. */
+.fav {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  z-index: 2;
 }

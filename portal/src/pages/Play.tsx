@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { HeroCarousel, MediaRail, MediaRow, GenrePill, ShowcaseTile, FadeScroller, ViewToggle } from "../design-system/components";
+import { HeroCarousel, MediaRail, MediaRow, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getPlayContent, getGame, type Game } from "../content/play";
 import { MediaDetailModal, type MediaDetail } from "../components/MediaDetailModal";
 import { useI18n } from "../i18n";
+import { useFavorites } from "../favorites";
 import s from "./Play.module.css";
 
 /* Play — web / HTML5 games gallery. The Watch layout with landscape (16:9) game
@@ -12,7 +13,11 @@ import s from "./Play.module.css";
    is stubbed (the Play button) until titles are licensed. */
 export default function Play() {
   const { t } = useI18n();
+  const { isFavorite, toggle } = useFavorites();
   const { hero, rows } = getPlayContent(t);
+
+  // Save a game to favorites (kind="play" → Account → Favorites → Play).
+  const toggleFav = (g: Game) => toggle({ id: g.id, kind: "play", title: g.title, image: g.image });
 
   const [genre, setGenre] = useState("all");
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -74,26 +79,45 @@ export default function Play() {
         {visible.map((r) =>
           view === "grid" ? (
             <MediaRail key={r.key} title={r.label}>
-              {r.items.map((g) => (
-                <div key={g.id} className={s.card}>
-                  <ShowcaseTile image={g.image} title={g.title} titleSize={18} height="100%" onClick={() => setDetail(g)} />
-                </div>
-              ))}
+              {r.items.map((g) => {
+                const fav = isFavorite(g.id);
+                return (
+                  <div key={g.id} className={s.card}>
+                    <ShowcaseTile image={g.image} title={g.title} titleSize={18} height="100%" onClick={() => setDetail(g)} />
+                    <FavoriteButton
+                      className={s.fav}
+                      active={fav}
+                      onChange={() => toggleFav(g)}
+                      label={fav ? t("favorites.remove") : t("favorites.add")}
+                    />
+                  </div>
+                );
+              })}
             </MediaRail>
           ) : (
             <section key={r.key} className={s.listSection}>
               <h3 className={s.listTitle}>{r.label}</h3>
               <div className={s.list}>
-                {r.items.map((g) => (
-                  <MediaRow
-                    key={g.id}
-                    image={g.image}
-                    aspect="16 / 9"
-                    title={g.title}
-                    subtitle={g.genre}
-                    onClick={() => setDetail(g)}
-                  />
-                ))}
+                {r.items.map((g) => {
+                  const fav = isFavorite(g.id);
+                  return (
+                    <MediaRow
+                      key={g.id}
+                      image={g.image}
+                      aspect="16 / 9"
+                      title={g.title}
+                      subtitle={g.genre}
+                      onClick={() => setDetail(g)}
+                      trailing={
+                        <FavoriteButton
+                          active={fav}
+                          onChange={() => toggleFav(g)}
+                          label={fav ? t("favorites.remove") : t("favorites.add")}
+                        />
+                      }
+                    />
+                  );
+                })}
               </div>
             </section>
           )
@@ -104,6 +128,8 @@ export default function Play() {
         open={!!detail}
         media={detail ? toDetail(detail) : null}
         onClose={() => setDetail(null)}
+        isFavorite={detail ? isFavorite(detail.id) : false}
+        onToggleFavorite={() => detail && toggleFav(detail)}
         t={t}
       />
     </div>
