@@ -55,6 +55,36 @@
   color: var(--on-surface-2);
 }
 
+/* Connectivity — active-pass detail rows (label / value). */
+.connMeta {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.connRow {
+  display: flex;
+  gap: var(--space-md);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.connRow:last-child {
+  border-bottom: none;
+}
+.connLabel {
+  flex: none;
+  width: 120px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.connValue {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 /* Prototype disclaimer under the tabs. */
 /* Prototype disclaimer — rendered as an info Alert; just space it from the content. */
 .demoNote {

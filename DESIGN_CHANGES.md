@@ -496,3 +496,11 @@ Each entry is logged as it happens, in this format:
 - `connect.pay.*` + `connect.payAmount` i18n (en/es/fr).
 - **DS type fix:** `Input.d.ts` / `Button.d.ts` prop interfaces now extend the native `InputHTMLAttributes` / `ButtonHTMLAttributes` (the components already spread `...rest` at runtime; the types were just incomplete — this unblocks `inputMode`, `autoComplete`, `form`, etc.).
 **Why:** Designer wanted a showcaseable payment form + flow (Visa/MC, format validation, explicitly no real charge/capture) and the header Wi-Fi icon to start off and link to plans. Building a demo-only form that captures nothing and charges nothing is a UI feature, not real payment handling. **Note:** the old `connect.modalFine` / `connect.payNow` keys are now unused (left in place).
+
+---
+
+### 2026-07-01 Account → Connectivity tab reflects the active Wi-Fi plan (`pages/Account.tsx`)
+**Rule/token changed:** App-level — Connectivity tab now reads the `ConnectivityProvider`; no DS change. (Billing keeps the "coming soon" placeholder.)
+**Was:** The Connectivity tab fell through to the generic "This section isn't configured yet." placeholder.
+**Now:** When connected, it shows a success `Alert` (reusing `connect.connectedTitle/Body`) plus a Plan / Price / Status(Active) detail list and a **Disconnect** button (`disconnect()`); when not connected, a prompt + **View Plans** button → `/connect`. New `account.connectivity.*` i18n (en/es/fr).
+**Why:** Designer asked the Connectivity tab to reflect the purchased plan. Closes the loop: buy in Connect → header icon on → managed here (disconnect flips everything back off).

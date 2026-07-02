@@ -146,6 +146,15 @@ export const es: Dict = {
     savedBody: "Tus preferencias se han actualizado.",
     comingSoon: "Esta sección aún no está configurada.",
     demoNote: "Prototipo de demostración: tus ajustes y favoritos se guardan solo en este dispositivo.",
+    connectivity: {
+      notConnected: "No estás conectado. Elige un plan de Wi-Fi para conectarte.",
+      viewPlans: "Ver planes",
+      disconnect: "Desconectar",
+      plan: "Plan",
+      price: "Precio",
+      status: "Estado",
+      active: "Activo",
+    },
   },
   favorites: {
     add: "Añadir a favoritos",
