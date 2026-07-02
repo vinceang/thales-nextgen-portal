@@ -4,9 +4,20 @@ import s from "./Modal.module.css";
 
 /**
  * Modal — centered blocking dialog over a dim backdrop (no frosted blur). Sharp,
- * flat. Esc / backdrop click close. Render conditionally on `open`. Width via var.
+ * flat. Esc / backdrop click close. Controlled by `open`; the panel stays mounted
+ * through a short exit animation (backdrop fade + dialog rise), then unmounts.
+ * Motion is disabled under prefers-reduced-motion. Width via var.
  */
 export function Modal({ open, onClose, title, footer, width = 520, children, className, style, ...rest }) {
+  // Keep rendering during the exit animation, then unmount (timeout-driven so it
+  // still tears down correctly when motion is reduced / animations are off).
+  const [render, setRender] = React.useState(open);
+  React.useEffect(() => {
+    if (open) { setRender(true); return; }
+    const id = setTimeout(() => setRender(false), 240);
+    return () => clearTimeout(id);
+  }, [open]);
+
   React.useEffect(() => {
     if (!open) return;
     const onEsc = (e) => { if (e.key === "Escape") onClose && onClose(); };
@@ -14,13 +25,16 @@ export function Modal({ open, onClose, title, footer, width = 520, children, cla
     return () => document.removeEventListener("keydown", onEsc);
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!render) return null;
+
+  const state = open ? "open" : "closed";
 
   return (
-    <div className={s.backdrop} onMouseDown={(e) => { if (e.target === e.currentTarget) onClose && onClose(); }}>
+    <div className={s.backdrop} data-state={state} onMouseDown={(e) => { if (e.target === e.currentTarget) onClose && onClose(); }}>
       <div
         role="dialog"
         aria-modal="true"
+        data-state={state}
         className={className ? `${s.dialog} ${className}` : s.dialog}
         style={{ "--modal-w": `${width}px`, ...style }}
         {...rest}

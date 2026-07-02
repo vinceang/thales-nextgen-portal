@@ -41,3 +41,26 @@
 }
 .body { padding: 24px; overflow-y: auto; font-family: var(--font-sans); font-size: 15px; line-height: 1.65; color: var(--on-surface-2); }
 .footer { display: flex; gap: 12px; justify-content: flex-end; padding: 0 24px 24px; }
+
+/* ── Open / close motion ─────────────────────────────────────────────────── */
+@keyframes modalBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalBackdropOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes modalDialogIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes modalDialogOut {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(10px) scale(0.98); }
+}
+
+.backdrop[data-state="open"] { animation: modalBackdropIn 200ms var(--ease-smooth); }
+.backdrop[data-state="closed"] { animation: modalBackdropOut 220ms var(--ease-smooth) forwards; }
+.dialog[data-state="open"] { animation: modalDialogIn 220ms var(--ease-smooth); }
+.dialog[data-state="closed"] { animation: modalDialogOut 200ms var(--ease-smooth) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop[data-state],
+  .dialog[data-state] { animation: none; }
+  .backdrop[data-state="closed"] { opacity: 0; }
+}

@@ -145,9 +145,17 @@ export const en = {
   media: {
     overview: "Overview",
     cast: "Cast",
+    tracklist: "Tracklist",
+    details: "Details",
     playTrailer: "Play Trailer",
     userScore: "User Score",
     director: "Director",
+    label: "Label",
+    publisher: "Publisher",
+    pages: "Pages",
+    language: "Language",
+    trackCount: "{n} tracks",
+    pageCount: "{n} pages",
   },
   watch: {
     featured: "Featured",
