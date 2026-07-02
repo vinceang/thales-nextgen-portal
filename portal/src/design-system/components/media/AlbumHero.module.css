@@ -37,12 +37,14 @@
 /* Crisp featured cover — sized by width so it scales down on phone. Aspect and
    width are token-driven: square album art by default, portrait book covers via
    the `aspect` / `coverWidth` props. Capped to the hero's padded height so a
-   tall portrait cover never overflows. */
+   tall portrait cover never overflows — `100%` already resolves against the
+   content box (i.e. the padded area), so no extra padding subtraction (that
+   double-counted the padding and squashed the square cover into a landscape). */
 .cover {
   flex: 0 0 auto;
   width: var(--ah-cover-w, clamp(120px, 38%, 340px));
   aspect-ratio: var(--ah-cover-aspect, 1 / 1);
-  max-height: calc(100% - 2 * clamp(20px, 4vw, 48px));
+  max-height: 100%;
   object-fit: cover;
   border-radius: var(--radius-card);
   background: var(--color-surface-2);
