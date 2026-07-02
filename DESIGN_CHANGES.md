@@ -447,3 +447,11 @@ Each entry is logged as it happens, in this format:
 **Was:** `/play` was a placeholder StubPage.
 **Now:** A games gallery: auto-advancing `HeroCarousel`, genre-pill filter, grid/list `ViewToggle`, and category shelves of **landscape (16:9)** game cells (`ShowcaseTile`). Clicking a game (or the hero CTA) opens the shared `MediaDetailModal` in **Overview | Details** form (Details = Developer / Players / Controls / Category) with a **Play** primary action. Content + placeholder catalogue in `content/play.ts` behind the games-service seam; `play.*` i18n added (en/es/fr).
 **Why:** Designer asked to build the Play games gallery. Reuses the established gallery + detail-modal patterns. **Notes:** (1) actual gameplay is stubbed — the Play button is the launch seam until titles are licensed; (2) games are **not favoritable** yet — `FavoriteKind` is watch/listen/read only, so adding a "play" kind (+ an Account → Favorites shelf) is a follow-up; (3) game art is placeholder Unsplash reused from other pools.
+
+---
+
+### 2026-07-01 Games are favoritable (`FavoritesProvider`, `Play`, `Account`)
+**Rule/token changed:** App-level — `FavoriteKind` gains `"play"`; no DS primitive changed. Supersedes note (2) on the Play-gallery entry above.
+**Was:** Favorites covered watch/listen/read; Play tiles had no save control.
+**Now:** `FavoriteKind = "watch" | "listen" | "read" | "play"`. Play grid tiles + list rows carry a `FavoriteButton`, and the game detail modal's heart is wired. Account → Favorites gains a **Play** shelf automatically (added `"play"` to `FAV_KINDS`; the card title reuses the existing `categories.play` label).
+**Why:** Designer asked that games be favoritable. Same one-hue heart + `useFavorites` pattern as the other galleries. Minor: the shared Account favorites grid uses portrait cells, so landscape game art crops there (same as square album art already does).
