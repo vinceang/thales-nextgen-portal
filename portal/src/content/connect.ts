@@ -7,14 +7,10 @@
 // Keep editorial copy in the i18n dictionaries and structure/pricing here — never
 // inlined in the page's JSX — so the page stays a pure renderer of content.
 import type { TFunc } from "../i18n";
+import type { Product } from "./commerce";
 
-/** A purchasable Wi-Fi pass. Admin-editable per deployment/flight. */
-export interface PlanContent {
-  /** Stable id (used as React key and the admin record id). */
-  id: string;
-  name: string;
-  /** Display price, e.g. "$6". (Admin sets amount + currency; formatted upstream.) */
-  price: string;
+/** A purchasable Wi-Fi pass — a `Product` (shared base with Shop) plus plan fields. */
+export interface PlanContent extends Product {
   /** Feature lines shown with blue check bullets. */
   features: string[];
   /** Emphasize as the recommended plan (blue bar, star, badge, filled CTA). */

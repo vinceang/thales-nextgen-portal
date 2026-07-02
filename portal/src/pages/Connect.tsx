@@ -2,20 +2,16 @@ import { useState } from "react";
 import {
   BentoGrid,
   PlanCard,
-  Modal,
-  Button,
   Breadcrumbs,
   Alert,
   Toast,
   ToastViewport,
 } from "../design-system/components";
 import { getConnectContent, type PlanContent } from "../content/connect";
-import { PaymentForm } from "../components/PaymentForm";
+import { CheckoutModal } from "../components/CheckoutModal";
 import { useI18n } from "../i18n";
 import { useConnectivity } from "../connectivity";
 import s from "./Connect.module.css";
-
-const PAY_FORM_ID = "wifi-payment";
 
 const TOAST_MS = 4000;
 
@@ -101,28 +97,22 @@ export default function Connect() {
         desktop={{ columns: planCols, areas: [planIds.join(" ")] }}
       />
 
-      {/* Purchase confirm */}
-      <Modal
+      {/* Purchase — shared checkout flow (also used by Shop) */}
+      <CheckoutModal
         open={!!selected}
-        onClose={() => setSelected(null)}
         title={t("connect.modalTitle")}
-        width={460}
-        footer={
-          <>
-            <Button variant="secondary" onClick={() => setSelected(null)}>{t("connect.cancel")}</Button>
-            <Button type="submit" form={PAY_FORM_ID}>
-              {t("connect.payAmount", { price: selected?.price ?? "" })}
-            </Button>
-          </>
+        summary={
+          <Emphasize
+            text={t("connect.modalBody", { plan: selected?.name ?? "", price: selected?.price ?? "" })}
+            emphasize={selected?.name}
+            className={s.modalP}
+          />
         }
-      >
-        <Emphasize
-          text={t("connect.modalBody", { plan: selected?.name ?? "", price: selected?.price ?? "" })}
-          emphasize={selected?.name}
-          className={s.modalP}
-        />
-        {selected && <PaymentForm formId={PAY_FORM_ID} t={t} onValidSubmit={pay} />}
-      </Modal>
+        payLabel={t("connect.payAmount", { price: selected?.price ?? "" })}
+        onClose={() => setSelected(null)}
+        onPaid={pay}
+        t={t}
+      />
 
       {/* Success notification — one hue: blue check, never a green card */}
       <ToastViewport placement="bottom-center">

@@ -528,3 +528,15 @@ Each entry is logged as it happens, in this format:
 **Was:** No About page.
 **Now:** Route `/about` — a maker/portfolio page (bio header with circular portrait + Playfair name + eyebrow, then discipline `Card`s with `Badge` tags, and a closing note). Content adapted from the maker's Sojurno About page (`/Users/vincentang/Documents/projects/sojurno-v2`), rebuilt with DS components + tokens (the source's **Tailwind was NOT copied** — recreated per the styling rules) and adapted for this portal: bio references the Thales NextGen portal, engineering mentions **CSS Modules + tokens** (not Tailwind), "Marketplace & Community" → "Design Systems", UX/Product focus → in-flight. Fully translatable (`about.*` + `footer.about`, en/es/fr; es/fr harvested from the source where unchanged). Footer link added.
 **Why:** Designer asked for an About Us page, footer link, content copied from the other project. Portrait is a neutral Unsplash placeholder (swap a real photo into `public/`). Circular portrait uses `--radius-pill` (the sanctioned rounded exception).
+
+---
+
+### 2026-07-02 Shop (onboard store) + shared Product base & checkout flow
+**Rule/token changed:** App-level — new page + shared commerce primitives; no DS change. `/shop` was a StubPage; Shop added to the sliding nav.
+**Was:** `/shop` stubbed; the Wi-Fi purchase Modal + PaymentForm were inlined in Connect.
+**Now:** Modeled on the original portal, where Wi-Fi plans and store products shared one `Product` class and one payment flow:
+- `content/commerce.ts` — base `Product` (id/name/price). `PlanContent` (connect) and `ShopProduct` (shop) both extend it.
+- `components/CheckoutModal.tsx` — extracted shared checkout (DS `Modal` + summary + `PaymentForm`); **Connect refactored to use it**, and Shop reuses it. One payment flow across the portal.
+- `pages/Shop.tsx` + `content/shop.ts` + `components/ProductCard.tsx` — onboard store in the media-gallery layout (category pills + responsive product grid). Buy → `CheckoutModal` → "Order confirmed" toast. Placeholder catalogue (snacks/comfort/tech/duty-free), Unsplash art.
+- **Shop** added to `navItems.ts` (sliding nav) + `nav.shop`; `shop.*` i18n (en/es/fr). Route `/shop` renders `Shop`.
+**Why:** Designer asked to build Shop following the original architecture — products sharing the plan's base class + payment flow — using the media-gallery layout, and to add Shop to the sliding nav. Demo only: no order placed, nothing charged (format-only card validation). Checkout is single-item (mirrors Wi-Fi); a cart is a follow-up.
