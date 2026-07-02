@@ -105,10 +105,12 @@ export interface MediaDetailModalProps {
   onClose: () => void;
   isFavorite?: boolean;
   onToggleFavorite?: () => void;
+  /** Primary-action click (e.g. launch a game). No-op placeholder if omitted. */
+  onPrimaryAction?: () => void;
   t: TFunc;
 }
 
-export function MediaDetailModal({ open, media, onClose, isFavorite = false, onToggleFavorite, t }: MediaDetailModalProps) {
+export function MediaDetailModal({ open, media, onClose, isFavorite = false, onToggleFavorite, onPrimaryAction, t }: MediaDetailModalProps) {
   // The type-specific second tab, chosen by whichever detail data is present.
   const secondary = media?.cast?.length
     ? { value: "cast", label: t("media.cast") }
@@ -157,7 +159,7 @@ export function MediaDetailModal({ open, media, onClose, isFavorite = false, onT
                 <span className={s.scoreLabel}>{media.scoreLabel ?? t("media.userScore")}</span>
               </div>
             )}
-            <Button className={s.trailer}>
+            <Button className={s.trailer} onClick={onPrimaryAction}>
               <Icon name={media.primaryActionIcon ?? "play"} size={16} /> {media.primaryActionLabel}
             </Button>
             {onToggleFavorite && (

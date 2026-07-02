@@ -2,6 +2,8 @@ import { useState } from "react";
 import { HeroCarousel, MediaRail, MediaRow, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getPlayContent, getGame, type Game } from "../content/play";
 import { MediaDetailModal, type MediaDetail } from "../components/MediaDetailModal";
+import { GameLauncher } from "../components/GameLauncher";
+import { isPlayable } from "../games/registry";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
 import s from "./Play.module.css";
@@ -9,8 +11,9 @@ import s from "./Play.module.css";
 /* Play — web / HTML5 games gallery. The Watch layout with landscape (16:9) game
    art: auto-advancing hero, a genre-pill filter row, then horizontally-scrolling
    category shelves. Clicking a game opens the detail modal (Overview | Details)
-   with a Play action. Data comes from the content/play.ts seam; actual gameplay
-   is stubbed (the Play button) until titles are licensed. */
+   with a Play action. Data comes from the content/play.ts seam. Games with a
+   `gameKey` are real and playable (launched in the GameLauncher); the rest are
+   catalogue placeholders whose Play button reads "Coming soon". */
 export default function Play() {
   const { t } = useI18n();
   const { isFavorite, toggle } = useFavorites();
@@ -30,6 +33,15 @@ export default function Play() {
     if (g) setDetail(g);
   };
 
+  // The game currently running in the full-screen launcher (null = none).
+  const [playing, setPlaying] = useState<Game | null>(null);
+  // Launch a playable game: close the detail modal, open the launcher.
+  const launch = (g: Game) => {
+    if (!isPlayable(g.gameKey)) return;
+    setDetail(null);
+    setPlaying(g);
+  };
+
   // Map a game into the generic media-detail shape (Overview | Details).
   const toDetail = (g: Game): MediaDetail => ({
     title: g.title,
@@ -38,7 +50,7 @@ export default function Play() {
     year: g.year,
     facts: [g.genre, g.players],
     score: g.score,
-    primaryActionLabel: t("play.playGame"),
+    primaryActionLabel: isPlayable(g.gameKey) ? t("play.playGame") : t("play.comingSoon"),
     primaryActionIcon: "play",
     tagline: g.tagline,
     overview: g.about,
@@ -84,6 +96,7 @@ export default function Play() {
                 return (
                   <div key={g.id} className={s.card}>
                     <ShowcaseTile image={g.image} title={g.title} titleSize={18} height="100%" onClick={() => setDetail(g)} />
+                    {isPlayable(g.gameKey) && <span className={s.playable}>{t("play.playable")}</span>}
                     <FavoriteButton
                       className={s.fav}
                       active={fav}
@@ -130,6 +143,14 @@ export default function Play() {
         onClose={() => setDetail(null)}
         isFavorite={detail ? isFavorite(detail.id) : false}
         onToggleFavorite={() => detail && toggleFav(detail)}
+        onPrimaryAction={() => detail && launch(detail)}
+        t={t}
+      />
+
+      <GameLauncher
+        gameKey={playing?.gameKey ?? null}
+        title={playing?.title ?? ""}
+        onClose={() => setPlaying(null)}
         t={t}
       />
     </div>

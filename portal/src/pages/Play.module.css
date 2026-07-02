@@ -58,3 +58,21 @@
   inset-inline-end: 8px;
   z-index: 2;
 }
+
+/* "Playable" badge — marks games that actually launch (vs catalogue placeholders).
+   Bottom inline-start corner so it clears the title + heart. Accent-filled pill. */
+.playable {
+  position: absolute;
+  bottom: 8px;
+  inset-inline-start: 8px;
+  z-index: 2;
+  padding: 3px 9px;
+  background: var(--accent);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+}
