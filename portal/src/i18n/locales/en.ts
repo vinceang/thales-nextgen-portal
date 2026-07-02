@@ -93,6 +93,22 @@ export const en = {
     modalFine: "Charged once to the card ending 4242. Access stays active until landing, across reconnections.",
     toastTitle: "Payment confirmed",
     toastBody: "Your {plan} pass is active. Enjoy the flight.",
+    payAmount: "Pay {price}",
+    pay: {
+      cardName: "Cardholder name",
+      cardNamePlaceholder: "Name on card",
+      cardNumber: "Card number",
+      expiry: "Expiry",
+      cvc: "CVC",
+      accepted: "We accept Visa and Mastercard",
+      demo: "Demo only — no payment is processed and no card details are stored.",
+      errRequired: "Required",
+      errNumber: "Enter a valid 16-digit card number",
+      errBrand: "Only Visa and Mastercard are accepted",
+      errExpiry: "Use MM/YY",
+      errExpired: "Card has expired",
+      errCvc: "3-digit code",
+    },
   },
   account: {
     tabs: {

@@ -87,6 +87,22 @@ export const es: Dict = {
     modalFine: "Se cobra una sola vez a la tarjeta terminada en 4242. El acceso permanece activo hasta el aterrizaje, incluso tras reconexiones.",
     toastTitle: "Pago confirmado",
     toastBody: "Tu pase {plan} está activo. Disfruta del vuelo.",
+    payAmount: "Pagar {price}",
+    pay: {
+      cardName: "Titular de la tarjeta",
+      cardNamePlaceholder: "Nombre en la tarjeta",
+      cardNumber: "Número de tarjeta",
+      expiry: "Vencimiento",
+      cvc: "CVC",
+      accepted: "Aceptamos Visa y Mastercard",
+      demo: "Solo demostración: no se procesa ningún pago ni se guardan datos de la tarjeta.",
+      errRequired: "Obligatorio",
+      errNumber: "Introduce un número de tarjeta válido de 16 dígitos",
+      errBrand: "Solo se aceptan Visa y Mastercard",
+      errExpiry: "Usa MM/AA",
+      errExpired: "La tarjeta ha caducado",
+      errCvc: "Código de 3 dígitos",
+    },
   },
   account: {
     tabs: {

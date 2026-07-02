@@ -87,6 +87,22 @@ export const fr: Dict = {
     modalFine: "Débité une seule fois sur la carte se terminant par 4242. L'accès reste actif jusqu'à l'atterrissage, même après reconnexion.",
     toastTitle: "Paiement confirmé",
     toastBody: "Votre forfait {plan} est actif. Bon vol.",
+    payAmount: "Payer {price}",
+    pay: {
+      cardName: "Titulaire de la carte",
+      cardNamePlaceholder: "Nom sur la carte",
+      cardNumber: "Numéro de carte",
+      expiry: "Expiration",
+      cvc: "CVC",
+      accepted: "Nous acceptons Visa et Mastercard",
+      demo: "Démo uniquement — aucun paiement n'est traité et aucune donnée de carte n'est conservée.",
+      errRequired: "Requis",
+      errNumber: "Saisissez un numéro de carte valide à 16 chiffres",
+      errBrand: "Seules les cartes Visa et Mastercard sont acceptées",
+      errExpiry: "Format MM/AA",
+      errExpired: "Carte expirée",
+      errCvc: "Code à 3 chiffres",
+    },
   },
   account: {
     tabs: {

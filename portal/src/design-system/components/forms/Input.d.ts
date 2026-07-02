@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export interface InputProps {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "style"> {
   /** Field label rendered above the input. */
   label?: string;
   id?: string;

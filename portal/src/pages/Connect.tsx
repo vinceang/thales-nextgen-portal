@@ -10,8 +10,12 @@ import {
   ToastViewport,
 } from "../design-system/components";
 import { getConnectContent, type PlanContent } from "../content/connect";
+import { PaymentForm } from "../components/PaymentForm";
 import { useI18n } from "../i18n";
+import { useConnectivity } from "../connectivity";
 import s from "./Connect.module.css";
+
+const PAY_FORM_ID = "wifi-payment";
 
 const TOAST_MS = 4000;
 
@@ -32,13 +36,14 @@ function Emphasize({ text, emphasize, className }: { text: string; emphasize?: s
 export default function Connect() {
   const { t } = useI18n();
   const { header, plans } = getConnectContent(t);
+  const { plan: connected, connect } = useConnectivity(); // active pass (also drives the header Wi-Fi icon)
   const [selected, setSelected] = useState<PlanContent | null>(null); // plan in the purchase modal
-  const [connected, setConnected] = useState<PlanContent | null>(null); // active pass after pay
   const [toast, setToast] = useState<string | null>(null);
 
+  // Called when the payment form's format checks pass (no real charge).
   function pay() {
     if (!selected) return;
-    setConnected(selected);
+    connect({ id: selected.id, name: selected.name, price: selected.price });
     setToast(selected.name);
     setSelected(null);
     window.setTimeout(() => setToast(null), TOAST_MS);
@@ -105,7 +110,9 @@ export default function Connect() {
         footer={
           <>
             <Button variant="secondary" onClick={() => setSelected(null)}>{t("connect.cancel")}</Button>
-            <Button onClick={pay}>{t("connect.payNow")}</Button>
+            <Button type="submit" form={PAY_FORM_ID}>
+              {t("connect.payAmount", { price: selected?.price ?? "" })}
+            </Button>
           </>
         }
       >
@@ -114,7 +121,7 @@ export default function Connect() {
           emphasize={selected?.name}
           className={s.modalP}
         />
-        <p className={s.modalFine}>{t("connect.modalFine")}</p>
+        {selected && <PaymentForm formId={PAY_FORM_ID} t={t} onValidSubmit={pay} />}
       </Modal>
 
       {/* Success notification — one hue: blue check, never a green card */}

@@ -5,6 +5,7 @@ import { NAV } from "./navItems";
 import Footer from "./Footer";
 import LanguageSelector from "./LanguageSelector";
 import { useI18n } from "../i18n";
+import { useConnectivity } from "../connectivity";
 import s from "./AppShell.module.css";
 
 /**
@@ -19,6 +20,7 @@ export default function AppShell() {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useI18n();
+  const { connected } = useConnectivity();
 
   const current = NAV.find((n) => n.path === location.pathname) ?? NAV[0];
 
@@ -32,7 +34,8 @@ export default function AppShell() {
     <div className={s.shell}>
       <NavBar
         title={t(`nav.${current.key}`)}
-        wifiActive
+        wifiActive={connected}
+        onWifi={() => navigate("/connect")}
         onMenu={() => setDrawerOpen(true)}
         onHome={() => navigate("/")}
         onSearch={() => setSearchOpen((v) => !v)}
