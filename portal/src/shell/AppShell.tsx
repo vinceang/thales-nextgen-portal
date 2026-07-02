@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { NavBar, SideDrawer, Search } from "../design-system/components";
 import { NAV } from "./navItems";
@@ -23,6 +23,13 @@ export default function AppShell() {
   const { connected } = useConnectivity();
 
   const current = NAV.find((n) => n.path === location.pathname) ?? NAV[0];
+
+  // Reset scroll to the top on every route change — otherwise a new page opens
+  // at the previous page's scroll offset. (The window is the scroll container;
+  // keyed on pathname so in-page hash/state changes don't jump.)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   function go(key: string) {
     const item = NAV.find((n) => n.key === key);

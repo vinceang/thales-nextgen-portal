@@ -16,7 +16,7 @@
   height: 100%;
   object-fit: cover;
   transform: scale(1.2);
-  filter: blur(44px) saturate(1.4) brightness(0.6);
+  filter: blur(16px) saturate(1.4) brightness(0.6);
 }
 .overlay {
   position: absolute;
