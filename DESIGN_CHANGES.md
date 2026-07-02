@@ -609,3 +609,16 @@ Each entry is logged as it happens, in this format:
 **Now:** `max-height: 100%;` — the `100%` already equals the padded area, so the cover fills it correctly: square album art renders a true 1:1 (verified 340×340 in-browser), and portrait book covers (Read, `aspect="2 / 3"`) still cap to the padded height (now using the full height instead of an over-tight cap).
 **Why:** Designer flagged that the Listen hero cover wasn't 1:1. Root-caused in-browser (computed box 340×248) to the padding being counted twice. One-line fix; benefits Read too.
 
+---
+
+### 2026-07-02 Open Library build-time snapshot for Read (real catalogue) — new build tooling
+**Rule/token changed:** App architecture / build tooling; no DS change. Fulfils the ADR-0001 content seam for Read with real data. Same pattern as the TMDB (Watch) and Deezer (Listen) snapshots. Completes real assets for all three media galleries.
+**Was:** `content/read.ts` returned an invented placeholder catalogue (Unsplash portrait art, fictional books).
+**Now:** Read data comes from a **build-time Open Library snapshot** committed into the app:
+- `scripts/openlibrary-snapshot.mjs` — Open Library's API needs **no key/token/auth** (nothing in `.env`). Each row is one `/search.json` (which already returns pages/publisher/language/rating/subject) plus a per-book `/works/{id}.json` for the jacket synopsis. Rows: newReleases (recent + most-read), bestsellers (most-read), fiction/nonfiction/mystery/kids (subject searches sorted by rating). Covers are full-res jackets from `covers.openlibrary.org`. → `src/content/data/read.json` (committed).
+- Data cleanup in the script: forces English (search returns arbitrary editions' languages), maps ISO language codes → names, picks a clean genre from noisy subject tags (known-genre hint list + fallback), and scrubs Open Library's user-submitted synopses (strips source-citation tails, markdown, HTML, backslashes, and "pdf/free download" spam). `score` uses the real Open Library rating ×20 when present, else a deterministic 72–88 fallback.
+- Sends a descriptive `User-Agent` (points at the public repo) per Open Library etiquette; gentle rate gate (~110ms) + 429 retry.
+- `content/read.ts` reads the JSON and **falls back** to the placeholder catalogue when empty. Chrome (labels) stays localized via `t()`.
+- Wired into the shared guarded pre-commit hook (now refreshes all three: TMDB + Deezer + Open Library) and `npm run snapshot:read` / `npm run snapshot` (all three).
+**Why:** Designer asked to make Read real too — keyless, like Deezer. Open Library was chosen over Google Books (lower-res thumbnail covers, key recommended) because this page is a portrait-cover gallery where full-res jackets matter most, and over NYT Books (key required, no covers). First real snapshot: 6 rows / 59 books (real covers/authors/synopses/ratings verified in-browser). All three media galleries (Watch/Listen/Read) now run on real catalogues.
+

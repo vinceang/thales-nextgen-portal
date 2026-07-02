@@ -6,6 +6,7 @@
 // Book/author names stay verbatim across locales; only chrome (kicker/CTA/row
 // labels) is i18n.
 import type { TFunc } from "../i18n";
+import snapshotRaw from "./data/read.json";
 
 export interface ReadBook {
   /** Stable id (React key + future catalogue id). */
@@ -106,7 +107,26 @@ const POOL: ReadBook[] = BOOKS.map((b, i) => ({
 
 const rotate = (n: number) => POOL.slice(n).concat(POOL.slice(0, n));
 
+// The committed Open Library snapshot (scripts/openlibrary-snapshot.mjs). When
+// populated it is the real catalogue; when empty (no snapshot yet) the page falls
+// back to the placeholder catalogue above, so the app always builds. Row/hero
+// chrome (labels) is localized here via `t()`; the snapshot holds data only.
+interface ReadSnapshot {
+  generatedAt: string | null;
+  hero: { slides: { id: string; cover: string; title: string; author: string }[] };
+  rows: { key: string; items: ReadBook[] }[];
+}
+const snapshot = snapshotRaw as unknown as ReadSnapshot;
+
 export function getReadContent(t: TFunc): ReadContent {
+  if (snapshot.rows.length > 0) {
+    return {
+      hero: { autoPlay: true, intervalMs: 6000, slides: snapshot.hero.slides },
+      rows: snapshot.rows.map((r) => ({ key: r.key, label: t(`read.rows.${r.key}`), items: r.items })),
+    };
+  }
+
+  // Fallback: placeholder catalogue (Unsplash art, invented books).
   return {
     hero: {
       autoPlay: true,

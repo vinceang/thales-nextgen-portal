@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "snapshot:tmdb": "node scripts/tmdb-snapshot.mjs",
     "snapshot:deezer": "node scripts/deezer-snapshot.mjs",
-    "snapshot": "npm run snapshot:tmdb && npm run snapshot:deezer",
+    "snapshot:read": "node scripts/openlibrary-snapshot.mjs",
+    "snapshot": "npm run snapshot:tmdb && npm run snapshot:deezer && npm run snapshot:read",
     "prepare": "git -C .. config core.hooksPath .githooks || true"
   },
   "dependencies": {
