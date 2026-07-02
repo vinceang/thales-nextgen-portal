@@ -21,6 +21,10 @@ export default function App() {
         <Route path="/read" element={<Read />} />
         <Route path="/news" element={<News />} />
         <Route path="/weather" element={<Weather />} />
+        <Route path="/play" element={<StubPage title="Play" note="Web & HTML5 games" />} />
+        <Route path="/destinations" element={<StubPage title="Destinations" note="Featured destination guides" />} />
+        <Route path="/travel" element={<StubPage title="Travel" note="Trip inspiration & guides" />} />
+        <Route path="/shop" element={<StubPage title="Shop" note="Duty-free & in-flight shopping" />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<StubPage title="Not found" note="No such page" />} />
       </Route>

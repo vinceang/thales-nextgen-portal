@@ -11,6 +11,7 @@ export const en = {
     watch: "Watch",
     listen: "Listen",
     read: "Read",
+    play: "Play",
     news: "News",
     weather: "Weather",
     account: "Account",

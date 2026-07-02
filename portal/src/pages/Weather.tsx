@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { WeatherGlyph, NewsItem, Icon } from "../design-system/components";
 import { getWeatherContent, cToF, type WeatherContent, type WeatherCity, type ForecastDay } from "../content/weather";
 import { useI18n } from "../i18n";
@@ -185,7 +186,12 @@ export default function Weather() {
   const { t } = useI18n();
   const w = getWeatherContent(t);
 
-  const [view, setView] = useState<"gallery" | "forecast">("gallery");
+  // Deep-link support: /weather?view=forecast opens the destination's 5-day
+  // forecast directly (e.g. from the Showcase weather tile).
+  const [params] = useSearchParams();
+  const [view, setView] = useState<"gallery" | "forecast">(
+    params.get("view") === "forecast" ? "forecast" : "gallery",
+  );
   const [unit, setUnit] = useState<Unit>("F");
 
   return view === "forecast" ? (
