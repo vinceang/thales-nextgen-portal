@@ -601,3 +601,11 @@ Each entry is logged as it happens, in this format:
 - Wired into the same guarded pre-commit hook (now refreshes both TMDB + Deezer) and `npm run snapshot:deezer` / `npm run snapshot` (both).
 **Why:** Designer asked to make Listen real too. Deezer was chosen over MusicBrainz (metadata-only, no images/charts, heavy rate-limit) and Spotify (needs OAuth secret, no charts API, gutted several endpoints in late-2024) as the closest keyless "TMDB of music" — one API with cover art + charts + tracklists that maps cleanly onto the existing row structure. First real snapshot: 6 rows / 68 albums; cover URLs verified 200. Read (books) still on placeholders (would need Open Library / Google Books).
 
+---
+
+### 2026-07-02 AlbumHero cover aspect-ratio bug — `media/AlbumHero.module.css`
+**Rule/token changed:** DS component bug fix — the featured `.cover`'s `max-height`. Affects AlbumHero everywhere (Listen, Read).
+**Was:** `max-height: calc(100% - 2 * clamp(20px, 4vw, 48px));` — intended to keep the cover within the hero's padded height. But a percentage `max-height` already resolves against the flex container's **content box** (padding excluded), so this **double-subtracted the padding**: with a 440px hero the cover capped at 344 − 96 = **248px** while width stayed 340px, squashing the square album cover into a **landscape** box (aspect-ratio was overridden by the tighter max-height).
+**Now:** `max-height: 100%;` — the `100%` already equals the padded area, so the cover fills it correctly: square album art renders a true 1:1 (verified 340×340 in-browser), and portrait book covers (Read, `aspect="2 / 3"`) still cap to the padded height (now using the full height instead of an over-tight cap).
+**Why:** Designer flagged that the Listen hero cover wasn't 1:1. Root-caused in-browser (computed box 340×248) to the padding being counted twice. One-line fix; benefits Read too.
+
