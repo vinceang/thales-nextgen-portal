@@ -4,6 +4,7 @@ import { getShopContent, type ShopProduct } from "../content/shop";
 import { ProductCard } from "../components/ProductCard";
 import { CheckoutModal } from "../components/CheckoutModal";
 import { useI18n } from "../i18n";
+import { usePurchases } from "../purchases";
 import s from "./Shop.module.css";
 
 const TOAST_MS = 4000;
@@ -14,6 +15,7 @@ const TOAST_MS = 4000;
    content/shop.ts seam. Demo only: no order is placed and nothing is charged. */
 export default function Shop() {
   const { t } = useI18n();
+  const { record } = usePurchases();
   const { categories, products } = getShopContent(t);
 
   const [cat, setCat] = useState("all");
@@ -25,6 +27,7 @@ export default function Shop() {
   // Fires when the payment form's format checks pass (no real order/charge).
   function paid() {
     if (!buying) return;
+    record({ kind: "shop", name: buying.name, price: buying.price, image: buying.image });
     setToast(buying.name);
     setBuying(null);
     window.setTimeout(() => setToast(null), TOAST_MS);
@@ -65,7 +68,18 @@ export default function Shop() {
       <CheckoutModal
         open={!!buying}
         title={t("shop.checkoutTitle")}
-        summary={<p className={s.summary}>{t("shop.summary", { name: buying?.name ?? "", price: buying?.price ?? "" })}</p>}
+        summary={
+          buying && (
+            <div className={s.summary}>
+              <p className={s.summaryLabel}>{t("shop.summary")}</p>
+              <div className={s.orderLine}>
+                <img className={s.orderThumb} src={buying.image} alt="" />
+                <span className={s.orderName}>{buying.name}</span>
+                <span className={s.orderPrice}>{buying.price}</span>
+              </div>
+            </div>
+          )
+        }
         payLabel={t("connect.payAmount", { price: buying?.price ?? "" })}
         onClose={() => setBuying(null)}
         onPaid={paid}

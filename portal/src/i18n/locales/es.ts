@@ -97,6 +97,7 @@ export const es: Dict = {
       cvc: "CVC",
       accepted: "Aceptamos Visa y Mastercard",
       demo: "Solo demostración: no se procesa ningún pago ni se guardan datos de la tarjeta.",
+      fillDemo: "Usar una tarjeta de prueba",
       errRequired: "Obligatorio",
       errNumber: "Introduce un número de tarjeta válido de 16 dígitos",
       errBrand: "Solo se aceptan Visa y Mastercard",
@@ -110,7 +111,7 @@ export const es: Dict = {
       profile: "Perfil",
       favorites: "Favoritos",
       connectivity: "Conectividad",
-      billing: "Facturación",
+      purchases: "Compras",
     },
     profile: {
       title: "Perfil",
@@ -155,6 +156,14 @@ export const es: Dict = {
       price: "Precio",
       status: "Estado",
       active: "Activo",
+    },
+    purchases: {
+      title: "Compras",
+      subtitle: "Tus pedidos de este vuelo",
+      empty: "Aún no hay compras. Compra un plan de Wi-Fi o algo de la Tienda.",
+      order: "Pedido",
+      kindPlan: "Plan de Wi-Fi",
+      kindShop: "Artículo de tienda",
     },
   },
   favorites: {
@@ -253,7 +262,7 @@ export const es: Dict = {
     all: "Todo",
     buy: "Comprar",
     checkoutTitle: "Pago",
-    summary: "Estás comprando {name} por {price}.",
+    summary: "Estás comprando:",
     toastTitle: "Pedido confirmado",
     toastBody: "{name} se entregará en tu asiento.",
     categories: {

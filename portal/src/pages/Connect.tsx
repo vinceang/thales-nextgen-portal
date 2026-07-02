@@ -11,6 +11,7 @@ import { getConnectContent, type PlanContent } from "../content/connect";
 import { CheckoutModal } from "../components/CheckoutModal";
 import { useI18n } from "../i18n";
 import { useConnectivity } from "../connectivity";
+import { usePurchases } from "../purchases";
 import s from "./Connect.module.css";
 
 const TOAST_MS = 4000;
@@ -33,6 +34,7 @@ export default function Connect() {
   const { t } = useI18n();
   const { header, plans } = getConnectContent(t);
   const { plan: connected, connect } = useConnectivity(); // active pass (also drives the header Wi-Fi icon)
+  const { record } = usePurchases();
   const [selected, setSelected] = useState<PlanContent | null>(null); // plan in the purchase modal
   const [toast, setToast] = useState<string | null>(null);
 
@@ -40,6 +42,7 @@ export default function Connect() {
   function pay() {
     if (!selected) return;
     connect({ id: selected.id, name: selected.name, price: selected.price });
+    record({ kind: "plan", name: selected.name, price: selected.price });
     setToast(selected.name);
     setSelected(null);
     window.setTimeout(() => setToast(null), TOAST_MS);

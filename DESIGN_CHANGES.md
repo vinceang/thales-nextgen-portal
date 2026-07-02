@@ -540,3 +540,22 @@ Each entry is logged as it happens, in this format:
 - `pages/Shop.tsx` + `content/shop.ts` + `components/ProductCard.tsx` — onboard store in the media-gallery layout (category pills + responsive product grid). Buy → `CheckoutModal` → "Order confirmed" toast. Placeholder catalogue (snacks/comfort/tech/duty-free), Unsplash art.
 - **Shop** added to `navItems.ts` (sliding nav) + `nav.shop`; `shop.*` i18n (en/es/fr). Route `/shop` renders `Shop`.
 **Why:** Designer asked to build Shop following the original architecture — products sharing the plan's base class + payment flow — using the media-gallery layout, and to add Shop to the sliding nav. Demo only: no order placed, nothing charged (format-only card validation). Checkout is single-item (mirrors Wi-Fi); a cart is a follow-up.
+
+---
+
+### 2026-07-02 Checkout summary as an order line + Account "Purchases" tab
+**Rule/token changed:** App-level — checkout summary layout + a new Account tab backed by a purchases store; no DS change.
+**Was:** (1) Shop `CheckoutModal` summary was a sentence: "You're buying {name} for {price}." (2) Account had a placeholder **Billing** tab showing "coming soon".
+**Now:**
+- **Checkout summary** (`pages/Shop.tsx`, `Shop.module.css`, `shop.summary` en/es/fr): a "You're buying:" label above an order line — product **thumbnail** (44px square, sharp) + name (left) + price (right) in a bordered surface-3 chip. `shop.summary` reduced to the bare label. Connect (Wi-Fi) checkout unchanged (plans have no image).
+- **Purchases tab** (renamed from Billing): new `purchases/PurchasesProvider.tsx` (context + localStorage, same pattern as Favorites/Connectivity) records every successful checkout — **both** Shop items and Wi-Fi plans call `record()` on pay. Each order gets a client-minted order id (`TN-XXXXXX`) + timestamp. Account `purchases` tab lists them newest-first: thumbnail (plans render a flat token square) · name · meta line (`kind · Order TN-… · localized timestamp`) · price. Empty state when none. `account.tabs.billing` → `account.tabs.purchases`; new `account.purchases.*` (en/es/fr). `account.comingSoon` now orphaned (left in dict for reuse). Provider wired in `main.tsx`.
+**Why:** Designer asked to (1) show the product with a thumbnail in the checkout summary, and (2) replace the Billing placeholder with a real Purchases list showing order id + timestamp. Order ids/timestamps are minted client-side (demo); a real backend would return them from the order API.
+
+---
+
+### 2026-07-02 Checkout "Use a test card" prefill — `components/PaymentForm.tsx`
+**Rule/token changed:** App-level convenience; no DS change. New link-style button token usage inside the demo-only info Alert.
+**Was:** The demo-only Alert was static text; testers had to type card details by hand.
+**Now:** A small link-style CTA ("Use a test card") sits inline after the demo-only message. Clicking it prefills a valid Visa **test** card (`4111 1111 1111 1111`, name "Demo Cardholder", `12/34`, CVC `123`) and clears any validation errors, so the flow can be exercised in one click. Styled as a link — `--accent` + underline, sharp, no fill, real `:hover`/`:focus-visible` (`.demoFill` in `PaymentForm.module.css`). New `connect.pay.fillDemo` string (en/es/fr). Shared by both checkouts (Wi-Fi + Shop) since they use the one `PaymentForm`.
+**Why:** Designer asked for a small link/CTA in the demo message that prefills the card info (`4111111111111111`). Purely a demo affordance — no real card, format-only validation unchanged.
+
