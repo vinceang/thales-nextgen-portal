@@ -189,6 +189,20 @@ export const fr: Dict = {
       kids: "Jeunesse",
     },
   },
+  blog: {
+    moreIn: "Plus dans {section}",
+    notFound: "Cet article est introuvable.",
+    sections: {
+      destinations: {
+        title: "Destinations",
+        subtitle: "Des guides vers votre destination — et la suivante.",
+      },
+      travel: {
+        title: "Voyage",
+        subtitle: "Conseils, inspiration et l'art du voyage.",
+      },
+    },
+  },
   play: {
     featured: "À la une",
     playGame: "Jouer",

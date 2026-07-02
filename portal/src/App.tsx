@@ -9,6 +9,8 @@ import Read from "./pages/Read";
 import News from "./pages/News";
 import Weather from "./pages/Weather";
 import Play from "./pages/Play";
+import BlogIndex from "./pages/BlogIndex";
+import BlogArticle from "./pages/BlogArticle";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -23,8 +25,10 @@ export default function App() {
         <Route path="/news" element={<News />} />
         <Route path="/weather" element={<Weather />} />
         <Route path="/play" element={<Play />} />
-        <Route path="/destinations" element={<StubPage title="Destinations" note="Featured destination guides" />} />
-        <Route path="/travel" element={<StubPage title="Travel" note="Trip inspiration & guides" />} />
+        <Route path="/destinations" element={<BlogIndex section="destinations" />} />
+        <Route path="/destinations/:slug" element={<BlogArticle section="destinations" />} />
+        <Route path="/travel" element={<BlogIndex section="travel" />} />
+        <Route path="/travel/:slug" element={<BlogArticle section="travel" />} />
         <Route path="/shop" element={<StubPage title="Shop" note="Duty-free & in-flight shopping" />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<StubPage title="Not found" note="No such page" />} />

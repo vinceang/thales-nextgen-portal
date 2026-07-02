@@ -137,8 +137,8 @@ export function getShowcaseTiles(tr: TFunc): Record<string, ShowcaseTileConfig> 
     ebooks: link("ebooks", "/read"),
     games: link("games", "/play"),
     dining: link("dining", "/destinations"),
-    epcot: link("epcot", "/destinations"),
-    england: link("england", "/travel"),
+    epcot: link("epcot", "/destinations/orlando-epcot"),
+    england: link("england", "/travel/exploring-england"),
     "duty-free": link("duty-free", "/shop"),
   };
 }
