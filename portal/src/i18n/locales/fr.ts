@@ -8,6 +8,7 @@ export const fr: Dict = {
     watch: "Regarder",
     listen: "Écouter",
     read: "Lire",
+    play: "Jouer",
     news: "Actualités",
     weather: "Météo",
     account: "Compte",

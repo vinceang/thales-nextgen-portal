@@ -423,3 +423,19 @@ Each entry is logged as it happens, in this format:
 **Was:** Modal mounted/unmounted instantly on `open` (no transition).
 **Now:** Backdrop fades and the dialog rises + scales (10px / 0.98→1) on open, and reverses on close; the panel stays mounted through a ~220 ms exit (timeout-driven so it also tears down when animations are off). Uses `--ease-smooth`; durations are literal ms (200–220) — **no motion-duration token existed for this**, a candidate token for the DS. Disabled under `prefers-reduced-motion`.
 **Why:** Designer asked for animation on modal open/close. Kept subtle and on-system (short, eased, no bounce, respects reduced-motion) per the motion rules in CLAUDE.md.
+
+---
+
+### 2026-07-01 Showcase bento tiles made config-driven + wired (`portal/src/content/showcase.ts`, `pages/Showcase.tsx`)
+**Rule/token changed:** App-level architecture — tiles now carry a typed `action`; no DS primitive changed. Fulfils the "tiles must be configurable" requirement.
+**Was:** Showcase tiles were decorative (no click wiring except the hero → Connect and the weather tile → /weather landing).
+**Now:** Tile behaviour is data in `content/showcase.ts`: each tile has `action: { kind: "modal", detail } | { kind: "link", to }`. Media singles (Young Sheldon, Squid Game, The Fall Guy → Overview|Cast; Red Moon In Venus → Overview|Tracklist) open the `MediaDetailModal`; collections/other tiles link to a view (billie→/listen, ebooks→/read, games→/play, dining+epcot→/destinations, england→/travel, duty-free→/shop). The weather panel deep-links to the destination's 5-day forecast (`/weather?view=forecast`); `Weather` reads that param to open the forecast sub-view directly. Modal media tiles are favoritable (kind from the tile).
+**Why:** Designer asked that tiles know their type and launch the corresponding detail modal or view, with weather going straight to the destination forecast. Detail payloads are placeholder stand-ins behind the same content seam as the section pages.
+
+---
+
+### 2026-07-01 New routes + Play nav section (`App.tsx`, `shell/navItems.ts`)
+**Rule/token changed:** Added a **Play** primary nav section and four stub routes; nav bar gains one item.
+**Was:** Nav = Showcase · Connect · Watch · Listen · Read · News · Weather · Account. No /play, /destinations, /travel, /shop routes.
+**Now:** Added **Play** to the nav (between Read and News) → `/play` (StubPage: "Web & HTML5 games"), plus tile-reached stubs `/destinations`, `/travel`, `/shop`. i18n `nav.play` + labels added in en/es/fr.
+**Why:** Designer noted the original Thales portal offered a Play/games section (HTML/web games); added it as a real section now with a stub page (games gallery to follow). Destination/travel/shop are placeholder stubs pending real views. **Flag:** adding Play to the top nav is a visible IA change — confirm placement/labeling.
