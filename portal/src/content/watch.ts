@@ -6,6 +6,7 @@
 // won't change. Proper-noun titles stay verbatim across locales; only chrome
 // (kickers, CTAs, row/genre labels) comes from the i18n dictionary via `t`.
 import type { TFunc } from "../i18n";
+import snapshotRaw from "./data/watch.json";
 
 /** One billed cast member (photo optional — initials avatar until TMDB supplies profiles). */
 export interface CastMember {
@@ -149,7 +150,35 @@ const POOL: WatchMovie[] = IDS.map((id, i) => ({
 // Reuse the pool across rows in a different order so each shelf looks distinct.
 const rotate = (n: number) => POOL.slice(n).concat(POOL.slice(0, n));
 
+// The committed TMDB snapshot (scripts/tmdb-snapshot.mjs). When populated it is
+// the real catalogue; when empty (no snapshot generated yet) the page falls back
+// to the placeholder catalogue above, so the app always builds. Row/hero *chrome*
+// (labels, kickers, CTAs) is localized here via `t()` — the snapshot holds data
+// only, never translated strings.
+interface WatchSnapshot {
+  generatedAt: string | null;
+  hero: { slides: { id: string; image: string; title: string }[] };
+  rows: { key: string; items: WatchMovie[] }[];
+}
+const snapshot = snapshotRaw as unknown as WatchSnapshot;
+
 export function getWatchContent(t: TFunc): WatchContent {
+  if (snapshot.rows.length > 0) {
+    return {
+      hero: {
+        autoPlay: true,
+        intervalMs: 6000,
+        slides: snapshot.hero.slides.map((sl) => ({
+          ...sl,
+          kicker: t("watch.featured"),
+          ctaLabel: t("watch.play"),
+        })),
+      },
+      rows: snapshot.rows.map((r) => ({ key: r.key, label: t(`watch.rows.${r.key}`), items: r.items })),
+    };
+  }
+
+  // Fallback: placeholder catalogue (Unsplash art, invented titles).
   return {
     hero: {
       autoPlay: true,
