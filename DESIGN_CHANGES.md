@@ -559,3 +559,19 @@ Each entry is logged as it happens, in this format:
 **Now:** A small link-style CTA ("Use a test card") sits inline after the demo-only message. Clicking it prefills a valid Visa **test** card (`4111 1111 1111 1111`, name "Demo Cardholder", `12/34`, CVC `123`) and clears any validation errors, so the flow can be exercised in one click. Styled as a link — `--accent` + underline, sharp, no fill, real `:hover`/`:focus-visible` (`.demoFill` in `PaymentForm.module.css`). New `connect.pay.fillDemo` string (en/es/fr). Shared by both checkouts (Wi-Fi + Shop) since they use the one `PaymentForm`.
 **Why:** Designer asked for a small link/CTA in the demo message that prefills the card info (`4111111111111111`). Purely a demo affordance — no real card, format-only validation unchanged.
 
+---
+
+### 2026-07-02 Scroll-to-top on route change — `shell/AppShell.tsx`
+**Rule/token changed:** App-level behavior; no DS change.
+**Was:** Navigating between pages kept the window's previous scroll offset, so a new page could open partway down.
+**Now:** `AppShell` runs `window.scrollTo(0, 0)` on every `location.pathname` change (keyed on pathname, so in-page state/hash changes — e.g. Account tabs, Shop category pills — don't jump).
+**Why:** Designer reported pages opening at the prior scroll position instead of the top.
+
+---
+
+### 2026-07-02 AlbumHero background blur 44px → 16px — `media/AlbumHero.module.css`
+**Rule/token changed:** DS component internal — the media hero's blurred background aura (`.bg` filter). Blur radius only; `saturate`/`brightness` unchanged.
+**Was:** `filter: blur(44px) saturate(1.4) brightness(0.6);`
+**Now:** `filter: blur(16px) saturate(1.4) brightness(0.6);` — a tighter, less diffuse aura behind the cover art.
+**Why:** Designer asked to set the media hero background blur to 16px. (Blur amount is a hard-coded literal, not a token; flagged since it edits a DS component's CSS. PROPOSED RULE CHANGE: add a blur token scale upstream so the hero aura reads `var(--blur-hero)` instead of a literal.)
+
