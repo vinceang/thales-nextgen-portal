@@ -512,3 +512,11 @@ Each entry is logged as it happens, in this format:
 **Was:** Account → Favorites used the poster grid at every width; on phone the posters rendered oversized (one tall poster per row).
 **Now:** On phone (≤560px) each favorites group renders as stacked `MediaRow` list rows (thumbnail + title + trailing heart, aspect per surface: posters 2:3, albums 1:1, games 16:9); the poster grid stays on tablet/desktop. CSS-only swap (both rendered, media query toggles), matching the gallery pages' grid↔list pattern.
 **Why:** Designer asked favorites to switch to list-view cards / vertical stack on phone.
+
+---
+
+### 2026-07-02 Footer link pages (Terms / Privacy / Legal / Contact) — `pages/InfoPage.tsx`, `content/info.ts`
+**Rule/token changed:** New text-only editorial pages reusing the blog reading column + `PostBody`; no DS change. Footer links now route (were `href="#"`).
+**Was:** Footer links were dead anchors; no pages behind them.
+**Now:** Routes `/terms` `/privacy` `/legal` `/contact` → a shared `InfoPage` (kicker + Playfair title + "last updated" + block body via `PostBody`, no cover image) for consistency with the content pages. Footer uses react-router `Link`. Content is placeholder but **translatable**: structure in `content/info.ts` (reuses the `BlogBlock` model, no image blocks), copy in `info.*` (en/es/fr). Titles reuse the existing `footer.*` labels.
+**Why:** Designer asked for footer link pages, made-up content, translatable, on the blog template minus images — consistent with the content pages.
