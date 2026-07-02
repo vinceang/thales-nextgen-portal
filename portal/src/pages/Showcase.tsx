@@ -8,6 +8,7 @@ import {
 } from "../design-system/components";
 import { getShowcaseTiles } from "../content/showcase";
 import { MediaDetailModal } from "../components/MediaDetailModal";
+import { FeaturedMediaTile } from "../components/FeaturedMediaTile";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
 import s from "./Showcase.module.css";
@@ -40,16 +41,32 @@ export default function Showcase() {
     else navigate(action.to);
   }
 
-  // A 2:1 media/link tile — BentoGrid controls the cell width, aspect sets height.
+  // A 2:1 tile — BentoGrid controls the cell width, aspect sets height. Media
+  // (modal) tiles use FeaturedMediaTile (whole cover on a blurred aura, no crop);
+  // curated link tiles keep the full-bleed ShowcaseTile.
   function Tile({ id, titleSize = 24 }: { id: string; titleSize?: number }) {
     const cfg = tiles[id];
+    const title = cfg.title ?? tr(`showcase.tiles.${id}`);
+    if (cfg.action.kind === "modal") {
+      return (
+        <div className={s.tile21}>
+          <FeaturedMediaTile
+            image={cfg.img}
+            aspect={cfg.cat === "listen" ? "1 / 1" : "2 / 3"}
+            kicker={tr(`categories.${cfg.cat}`)}
+            title={title}
+            titleSize={titleSize}
+            onClick={() => activate(id)}
+          />
+        </div>
+      );
+    }
     return (
       <div className={s.tile21}>
         <ShowcaseTile
           image={cfg.img}
           kicker={tr(`categories.${cfg.cat}`)}
-          // Dynamic media tiles carry a real title; curated link tiles use i18n.
-          title={cfg.title ?? tr(`showcase.tiles.${id}`)}
+          title={title}
           titleSize={titleSize}
           height="100%"
           onClick={() => activate(id)}
