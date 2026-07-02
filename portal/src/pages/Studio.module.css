@@ -1,0 +1,205 @@
+/* Studio — in-app blog editor. Composes DS form controls + Card; tokens only. */
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, calc(22px + 2vw), 40px);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.subtitle {
+  margin: 6px 0 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.headActions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Shared vertical field stack. */
+.fieldCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+@media (max-width: 560px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Block editor */
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.block {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--color-surface-1);
+}
+.blockBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.blockType {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.blockTools {
+  display: flex;
+  gap: 4px;
+}
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color var(--dur-link) var(--ease-smooth), border-color var(--dur-link) var(--ease-smooth);
+}
+.iconBtn:hover:not(:disabled) {
+  color: var(--text-primary);
+  border-color: var(--color-border-strong);
+}
+.iconBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.listItemRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.listItemRow > :first-child {
+  flex: 1;
+}
+
+.addRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.deleteRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Preview */
+.previewMeta {
+  margin-bottom: var(--space-md);
+}
+.previewKicker {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-bright-blue);
+}
+.previewTitle {
+  margin: 8px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(26px, calc(20px + 2vw), 40px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.previewExcerpt {
+  margin: 10px 0 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  color: var(--text-secondary);
+}
+
+/* Drafts list */
+.empty {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+.draftList {
+  display: flex;
+  flex-direction: column;
+}
+.draftRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.draftRow:last-child {
+  border-bottom: none;
+}
+.draftText {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.draftTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.draftMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.draftActions {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}

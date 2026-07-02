@@ -192,6 +192,7 @@ export const fr: Dict = {
   blog: {
     moreIn: "Plus dans {section}",
     notFound: "Cet article est introuvable.",
+    newPost: "Écrire un article",
     sections: {
       destinations: {
         title: "Destinations",

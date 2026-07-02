@@ -2,7 +2,7 @@ import * as React from "react";
 
 export type IconName =
   | "menu" | "home" | "search" | "wifi" | "user" | "x" | "heart"
-  | "plane" | "chevron-right" | "chevron-left" | "chevron-down"
+  | "plane" | "chevron-right" | "chevron-left" | "chevron-down" | "chevron-up"
   | "mountain" | "gauge" | "navigation" | "clock"
   | "sun" | "cloud" | "cloud-sun" | "cloud-rain"
   | "moon" | "cloud-moon" | "wind"

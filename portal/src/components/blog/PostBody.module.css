@@ -23,7 +23,7 @@
   font-family: var(--font-sans);
   font-size: 17px;
   line-height: 1.75;
-  color: var(--text-secondary);
+  color: var(--text-reading);
 }
 
 /* Figures break to the full reading-column width; caption sits beneath. */
@@ -85,7 +85,7 @@
   font-family: var(--font-sans);
   font-size: 17px;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: var(--text-reading);
 }
 .listItem::marker {
   color: var(--color-bright-blue);

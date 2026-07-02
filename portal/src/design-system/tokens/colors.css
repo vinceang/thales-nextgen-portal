@@ -46,6 +46,7 @@
 
   --text-primary:   var(--color-white);
   --text-secondary: var(--color-grey);
+  --text-reading:   rgb(206, 213, 221); /* long-form body — softer than primary, far higher contrast than secondary */
   --text-emphasis:  var(--color-bright-blue);
   --text-on-light:  var(--color-ink);
 
@@ -107,6 +108,7 @@
   --surface-input:  var(--color-surface-3);
   --text-primary:   rgb(24, 31, 40);  /* Thales carbon, not pure black */
   --text-secondary: var(--color-grey);
+  --text-reading:   rgb(58, 68, 79); /* long-form body on light — softer than primary, higher contrast than secondary */
   --text-emphasis:  var(--color-bright-blue);
   --accent:         var(--color-highlight-blue);
   --accent-active:  var(--color-bright-blue);

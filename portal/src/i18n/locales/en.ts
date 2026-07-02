@@ -199,6 +199,7 @@ export const en = {
   blog: {
     moreIn: "More in {section}",
     notFound: "That story couldn't be found.",
+    newPost: "Write a post",
     sections: {
       destinations: {
         title: "Destinations",
