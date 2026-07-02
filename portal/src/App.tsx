@@ -13,6 +13,7 @@ import BlogIndex from "./pages/BlogIndex";
 import BlogArticle from "./pages/BlogArticle";
 import Studio from "./pages/Studio";
 import InfoPage from "./pages/InfoPage";
+import About from "./pages/About";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/privacy" element={<InfoPage pageKey="privacy" />} />
         <Route path="/legal" element={<InfoPage pageKey="legal" />} />
         <Route path="/contact" element={<InfoPage pageKey="contact" />} />
+        <Route path="/about" element={<About />} />
         <Route path="/shop" element={<StubPage title="Shop" note="Duty-free & in-flight shopping" />} />
         <Route path="/account" element={<Account />} />
         <Route path="*" element={<StubPage title="Not found" note="No such page" />} />

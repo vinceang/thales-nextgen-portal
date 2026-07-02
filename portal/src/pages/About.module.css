@@ -1,0 +1,95 @@
+/* About (maker page) — bio header + discipline cards. Tokens only. */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+}
+.portrait {
+  width: 128px;
+  height: 128px;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
+  background: var(--color-surface-3);
+}
+.title {
+  margin: 10px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(36px, calc(28px + 3vw), 60px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+.bio {
+  margin: var(--space-md) 0 0;
+  max-width: 62ch;
+  font-family: var(--font-sans);
+  font-size: clamp(16px, calc(14px + 0.5vw), 19px);
+  line-height: 1.7;
+  color: var(--text-reading);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(18px, calc(16px + 0.6vw), 22px);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.cardBody {
+  margin: var(--space-sm) 0 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-reading);
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--space-md);
+}
+
+.note {
+  max-width: 80ch;
+  margin: 0;
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .head {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .portrait {
+    width: 96px;
+    height: 96px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

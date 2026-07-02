@@ -7,6 +7,7 @@ import s from "./Footer.module.css";
 // keys resolved at render so the footer re-localizes with the rest of the app.
 // Each link routes to its info page (client-side).
 const LINKS = [
+  { key: "about", to: "/about" },
   { key: "terms", to: "/terms" },
   { key: "privacy", to: "/privacy" },
   { key: "legal", to: "/legal" },
