@@ -22,6 +22,8 @@ export interface WatchMovie {
   title: string;
   /** Portrait (2:3) poster URL. */
   poster: string;
+  /** Landscape (16:9) backdrop URL — used for the Showcase's wide tile. */
+  backdrop?: string;
   // ── Detail metadata (populates the MediaDetailModal; TMDB later) ──────────
   /** Release year. */
   year: number;

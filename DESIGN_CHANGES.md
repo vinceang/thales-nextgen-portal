@@ -642,3 +642,13 @@ Each entry is logged as it happens, in this format:
 **Now:** Media tiles use a new `FeaturedMediaTile` (app-level, `components/`): the **whole cover** is shown at its native aspect (poster/book 2:3, album 1:1) floated over a blurred + darkened fill of the same cover, with the kicker + title beside it — the same "aura" treatment as each gallery's `AlbumHero`, so a featured tile visually rhymes with the hero it came from. No crop. Tokens only, sharp (`--radius-card` = 0), no shadow; the blur is `filter: blur()` (not a shadow) and mirrors AlbumHero's blessed aura. Cover aspect passed per tile (`listen` → 1/1, else 2/3). `Showcase.tsx` renders `FeaturedMediaTile` for modal (media) tiles and keeps the DS `ShowcaseTile` for the photographic link tiles (Play, destinations, Shop) — a deliberate "posters vs photos" distinction.
 **Why:** Designer asked to make the tile crop favor the poster; chose poster-on-blur (over smart-crop / flat-surface) for the premium hero-echo look. Verified in-browser across all 6 tiles (portrait, square, and book covers all shown whole).
 
+---
+
+### 2026-07-02 Showcase Watch tiles use the TMDB backdrop (16:9, full-bleed)
+**Rule/token changed:** App-level — Watch featured tiles use the landscape backdrop instead of the poster-on-blur frame; adds a `backdrop` field to the Watch snapshot. No DS change.
+**Was:** All 6 Showcase media tiles used FeaturedMediaTile (whole cover on a blurred aura). For Watch that meant a portrait poster framed in the wide 2:1 cell.
+**Now:** Watch has a proper 16:9 **backdrop** from TMDB, which fills the 2:1 tile cleanly (a cinematic still), so Watch tiles render **full-bleed** (the DS ShowcaseTile) like the photographic link tiles — while Listen (square) and Read (portrait) keep the framed cover-on-blur. Implementation:
+- `WatchMovie` gains an optional `backdrop`; `tmdb-snapshot.mjs` maps `backdrop_path` → `w780` (snapshot regenerated; 84/84 movies have one). The MediaDetailModal still uses the portrait `poster`.
+- `ShowcaseTileConfig` gains `fill?: "cover" | "frame"`; the manager sets Watch tiles to `img = backdrop`, `fill: "cover"` (falls back to poster + frame if a movie has no backdrop). `Showcase.tsx` renders FeaturedMediaTile only when `fill !== "cover"`.
+**Why:** Designer suggested that TMDB items use the backdrop so they're 16:9/2:1 and fill the wide tile naturally. Result: film/TV read as widescreen stills, music/books as framed covers — a nice editorial mix. Verified in-browser (Obsession, Enola Holmes 3 as full-bleed backdrops).
+
