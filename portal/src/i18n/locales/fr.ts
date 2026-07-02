@@ -146,6 +146,15 @@ export const fr: Dict = {
     savedBody: "Vos préférences ont été mises à jour.",
     comingSoon: "Cette section n'est pas encore configurée.",
     demoNote: "Prototype de démonstration — vos paramètres et favoris sont enregistrés sur cet appareil uniquement.",
+    connectivity: {
+      notConnected: "Vous n'êtes pas connecté. Choisissez un forfait Wi-Fi pour vous connecter.",
+      viewPlans: "Voir les forfaits",
+      disconnect: "Déconnecter",
+      plan: "Forfait",
+      price: "Prix",
+      status: "Statut",
+      active: "Actif",
+    },
   },
   favorites: {
     add: "Ajouter aux favoris",

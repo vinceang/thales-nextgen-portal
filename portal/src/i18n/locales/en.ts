@@ -152,6 +152,15 @@ export const en = {
     savedBody: "Your preferences have been updated.",
     comingSoon: "This section isn't configured yet.",
     demoNote: "Demo prototype — your settings and favorites are saved on this device only.",
+    connectivity: {
+      notConnected: "You're not connected. Choose a Wi-Fi plan to get online.",
+      viewPlans: "View Plans",
+      disconnect: "Disconnect",
+      plan: "Plan",
+      price: "Price",
+      status: "Status",
+      active: "Active",
+    },
   },
   favorites: {
     add: "Add to favorites",

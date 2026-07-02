@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Tabs,
   Card,
@@ -19,6 +20,7 @@ import {
 import { getAccountContent } from "../content/account";
 import { useI18n } from "../i18n";
 import { useFavorites, type FavoriteKind } from "../favorites";
+import { useConnectivity } from "../connectivity";
 import s from "./Account.module.css";
 
 const TOAST_MS = 4000;
@@ -41,7 +43,9 @@ const DEFAULTS = {
 
 export default function Account() {
   const { t } = useI18n();
+  const navigate = useNavigate();
   const { byKind, isFavorite, toggle } = useFavorites();
+  const { plan, connected, disconnect } = useConnectivity();
   const { tabs, countries, units } = getAccountContent(t);
 
   const [tab, setTab] = useState("profile");
@@ -180,8 +184,48 @@ export default function Account() {
         </div>
       )}
 
-      {tab !== "profile" && tab !== "favorites" && (
-        // Connectivity / Billing aren't specced in comp 03 yet — placeholder card.
+      {tab === "connectivity" && (
+        // Reflects the active Wi-Fi pass from the ConnectivityProvider (set by the
+        // Connect checkout; also drives the header Wi-Fi icon).
+        <div className={s.content}>
+          <Card title={t("account.tabs.connectivity")} padding={24}>
+            {connected && plan ? (
+              <div className={s.fieldCol}>
+                <Alert tone="success" title={t("connect.connectedTitle", { plan: plan.name })}>
+                  {t("connect.connectedBody", { plan: plan.name })}
+                </Alert>
+                <dl className={s.connMeta}>
+                  <div className={s.connRow}>
+                    <dt className={s.connLabel}>{t("account.connectivity.plan")}</dt>
+                    <dd className={s.connValue}>{plan.name}</dd>
+                  </div>
+                  <div className={s.connRow}>
+                    <dt className={s.connLabel}>{t("account.connectivity.price")}</dt>
+                    <dd className={s.connValue}>{plan.price}</dd>
+                  </div>
+                  <div className={s.connRow}>
+                    <dt className={s.connLabel}>{t("account.connectivity.status")}</dt>
+                    <dd className={s.connValue}>{t("account.connectivity.active")}</dd>
+                  </div>
+                </dl>
+                <div className={s.actions}>
+                  <Button variant="secondary" onClick={disconnect}>{t("account.connectivity.disconnect")}</Button>
+                </div>
+              </div>
+            ) : (
+              <div className={s.fieldCol}>
+                <p className={s.placeholder}>{t("account.connectivity.notConnected")}</p>
+                <div className={s.actions}>
+                  <Button onClick={() => navigate("/connect")}>{t("account.connectivity.viewPlans")}</Button>
+                </div>
+              </div>
+            )}
+          </Card>
+        </div>
+      )}
+
+      {tab === "billing" && (
+        // Billing isn't specced in comp 03 yet — placeholder card.
         <div className={s.content}>
           <Card title={tabs.find((x) => x.value === tab)?.label} padding={24}>
             <p className={s.placeholder}>{t("account.comingSoon")}</p>
