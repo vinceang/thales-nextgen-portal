@@ -15,6 +15,7 @@ import {
   Toast,
   ToastViewport,
   ShowcaseTile,
+  MediaRow,
   FavoriteButton,
 } from "../design-system/components";
 import { getAccountContent } from "../content/account";
@@ -27,6 +28,14 @@ const TOAST_MS = 4000;
 
 // Favorites are grouped by the media surface they came from.
 const FAV_KINDS: FavoriteKind[] = ["watch", "listen", "read", "play"];
+
+// Thumbnail aspect per surface (posters portrait, albums square, games landscape).
+const FAV_ASPECT: Record<FavoriteKind, string> = {
+  watch: "2 / 3",
+  read: "2 / 3",
+  listen: "1 / 1",
+  play: "16 / 9",
+};
 
 // Sample defaults (no backend). Cancel restores these; Save fires a success Toast.
 const DEFAULTS = {
@@ -164,19 +173,41 @@ export default function Account() {
                 {items.length === 0 ? (
                   <p className={s.placeholder}>{t("favorites.empty")}</p>
                 ) : (
-                  <div className={s.favGrid}>
-                    {items.map((m) => (
-                      <div key={m.id} className={s.favPoster}>
-                        <ShowcaseTile image={m.image} title={m.title} titleSize={15} height="100%" />
-                        <FavoriteButton
-                          className={s.favHeart}
-                          active={isFavorite(m.id)}
-                          onChange={() => toggle(m)}
-                          label={t("favorites.remove")}
+                  <>
+                    {/* Desktop / tablet: poster grid. */}
+                    <div className={s.favGrid}>
+                      {items.map((m) => (
+                        <div key={m.id} className={s.favPoster}>
+                          <ShowcaseTile image={m.image} title={m.title} titleSize={15} height="100%" />
+                          <FavoriteButton
+                            className={s.favHeart}
+                            active={isFavorite(m.id)}
+                            onChange={() => toggle(m)}
+                            label={t("favorites.remove")}
+                          />
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Phone: stacked list rows (CSS toggles which is shown). */}
+                    <div className={s.favList}>
+                      {items.map((m) => (
+                        <MediaRow
+                          key={m.id}
+                          image={m.image}
+                          aspect={FAV_ASPECT[kind]}
+                          title={m.title}
+                          trailing={
+                            <FavoriteButton
+                              active={isFavorite(m.id)}
+                              onChange={() => toggle(m)}
+                              label={t("favorites.remove")}
+                            />
+                          }
                         />
-                      </div>
-                    ))}
-                  </div>
+                      ))}
+                    </div>
+                  </>
                 )}
               </Card>
             );
