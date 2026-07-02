@@ -189,6 +189,23 @@ export const es: Dict = {
       kids: "Infantil",
     },
   },
+  play: {
+    featured: "Destacado",
+    playGame: "Jugar",
+    all: "Todo",
+    developer: "Desarrollador",
+    players: "Jugadores",
+    controls: "Controles",
+    category: "Categoría",
+    rows: {
+      arcade: "Arcade",
+      puzzle: "Ingenio y palabras",
+      racing: "Carreras",
+      strategy: "Estrategia",
+      card: "Cartas y casino",
+      kids: "Niños",
+    },
+  },
   news: {
     categories: {
       all: "Todo",

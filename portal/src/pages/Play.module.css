@@ -1,0 +1,50 @@
+/* Play — games gallery. Mirrors Watch (hero, genre pills, view toggle, shelves)
+   but with landscape (16:9) game cells. All values are tokens. */
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-lg) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.pills {
+  padding-block: 2px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* List mode — each genre keeps its heading; its rail becomes a row list. */
+.listSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.listTitle {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(16px, calc(15px + 0.4vw), 20px);
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+}
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Landscape game cell — fixed inline size, 16:9; the ShowcaseTile fills it. */
+.card {
+  width: clamp(240px, 34vw, 320px);
+  aspect-ratio: 16 / 9;
+}

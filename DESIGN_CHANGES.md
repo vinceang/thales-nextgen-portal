@@ -439,3 +439,11 @@ Each entry is logged as it happens, in this format:
 **Was:** Nav = Showcase · Connect · Watch · Listen · Read · News · Weather · Account. No /play, /destinations, /travel, /shop routes.
 **Now:** Added **Play** to the nav (between Read and News) → `/play` (StubPage: "Web & HTML5 games"), plus tile-reached stubs `/destinations`, `/travel`, `/shop`. i18n `nav.play` + labels added in en/es/fr.
 **Why:** Designer noted the original Thales portal offered a Play/games section (HTML/web games); added it as a real section now with a stub page (games gallery to follow). Destination/travel/shop are placeholder stubs pending real views. **Flag:** adding Play to the top nav is a visible IA change — confirm placement/labeling.
+
+---
+
+### 2026-07-01 Play games gallery built (`portal/src/pages/Play.tsx`, `content/play.ts`)
+**Rule/token changed:** App-level page — mirrors the Watch/Listen/Read gallery pattern; no DS primitive changed. `/play` route now renders the gallery (was a StubPage).
+**Was:** `/play` was a placeholder StubPage.
+**Now:** A games gallery: auto-advancing `HeroCarousel`, genre-pill filter, grid/list `ViewToggle`, and category shelves of **landscape (16:9)** game cells (`ShowcaseTile`). Clicking a game (or the hero CTA) opens the shared `MediaDetailModal` in **Overview | Details** form (Details = Developer / Players / Controls / Category) with a **Play** primary action. Content + placeholder catalogue in `content/play.ts` behind the games-service seam; `play.*` i18n added (en/es/fr).
+**Why:** Designer asked to build the Play games gallery. Reuses the established gallery + detail-modal patterns. **Notes:** (1) actual gameplay is stubbed — the Play button is the launch seam until titles are licensed; (2) games are **not favoritable** yet — `FavoriteKind` is watch/listen/read only, so adding a "play" kind (+ an Account → Favorites shelf) is a follow-up; (3) game art is placeholder Unsplash reused from other pools.
