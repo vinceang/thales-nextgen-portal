@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HeroCarousel, MediaRail, MediaRow, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
-import { getWatchContent } from "../content/watch";
+import { getWatchContent, type WatchMovie } from "../content/watch";
+import { MediaDetailModal } from "../components/MediaDetailModal";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
 import s from "./Watch.module.css";
@@ -20,6 +21,9 @@ export default function Watch() {
   const [genre, setGenre] = useState("all");
   const [view, setView] = useState<"grid" | "list">("grid");
   const visible = genre === "all" ? rows : rows.filter((r) => r.key === genre);
+
+  // Clicking a poster/row opens the detail modal for that title.
+  const [detail, setDetail] = useState<WatchMovie | null>(null);
 
   return (
     <div className={s.page}>
@@ -54,7 +58,7 @@ export default function Watch() {
                 const fav = isFavorite(m.id);
                 return (
                   <div key={m.id} className={s.poster}>
-                    <ShowcaseTile image={m.poster} title={m.title} titleSize={16} height="100%" />
+                    <ShowcaseTile image={m.poster} title={m.title} titleSize={16} height="100%" onClick={() => setDetail(m)} />
                     <FavoriteButton
                       className={s.fav}
                       active={fav}
@@ -77,6 +81,7 @@ export default function Watch() {
                       image={m.poster}
                       aspect="2 / 3"
                       title={m.title}
+                      onClick={() => setDetail(m)}
                       trailing={
                         <FavoriteButton
                           active={fav}
@@ -92,6 +97,17 @@ export default function Watch() {
           )
         )}
       </div>
+
+      <MediaDetailModal
+        open={!!detail}
+        media={detail}
+        onClose={() => setDetail(null)}
+        isFavorite={detail ? isFavorite(detail.id) : false}
+        onToggleFavorite={() =>
+          detail && toggle({ id: detail.id, kind: "watch", title: detail.title, image: detail.poster })
+        }
+        t={t}
+      />
     </div>
   );
 }

@@ -383,3 +383,27 @@ Each entry is logged as it happens, in this format:
 **Was:** The "Demo prototype — settings saved on this device only" line was a bespoke muted `<p className={s.demoNote}>`.
 **Now:** Rendered as `<Alert tone="info">` — the established note/callout pattern (leading info glyph in bright-blue per the one-hue rule, dark surface-2, hairline border, flat). Slimmed `.demoNote` to just a bottom margin.
 **Why:** Designer wanted the demo note given a proper note/alert treatment via an established UI class — the DS already has `Alert` for exactly this, so no new component was needed.
+
+---
+
+### 2026-07-01 Weather page destination → Orlando
+**Rule/token changed:** App-level content (`portal/src/content/weather.ts`) — no DS change.
+**Was:** Weather hero destination was Melbourne (from the comps), with an Australia-themed 5-day forecast + weather news.
+**Now:** Hero is Orlando, FL to match the flight-tracker/Showcase destination (same Epcot image + "Partly Sunny, 79.5° F" as the Showcase weather tile); forecast + news retuned to Central Florida so the forecast sub-view reads coherently.
+**Why:** Designer asked the weather destination to match the flight destination. Melbourne stays as the first gallery card; only the hero/forecast/news changed.
+
+---
+
+### 2026-07-01 Icon catalog — added `play` glyph
+**Rule/token changed:** `design-system/components/core/Icon.jsx` + `Icon.d.ts` — added `play` to the line-icon set (Lucide-equivalent triangle `points="6 3 20 12 6 21 6 3"`).
+**Was:** No play glyph existed in the Icon catalog.
+**Now:** `<Icon name="play" />` available; used by the media-detail "Play Trailer" action.
+**Why:** Needed a play affordance for media playback controls. Additive to the catalog (no existing glyph changed); the `Icon.d.ts` union was also out of sync with `Icon.jsx` (missing several existing glyphs) — only `play` was added here, the broader drift is noted for the designer.
+
+---
+
+### 2026-07-01 New app component — MediaDetailModal (`portal/src/components/MediaDetailModal.tsx`)
+**Rule/token changed:** New composed feature component (app-level, not a DS primitive). Composes DS `Modal`, `Tabs`, `Button`, `FavoriteButton`, `Icon` + tokens only.
+**Was:** Media tiles (Watch) were non-interactive; no detail view existed.
+**Now:** Clicking a poster/row opens a TMDB-style detail overlay: poster + metadata (certification box, release date · genres · runtime), a circular **user-score ring**, Play Trailer + favorite actions, and an **Overview | Cast** tab set. Two columns on desktop, stacked on mobile. New `components/` folder created for shared app-level feature components (siblings to `pages/` and `shell/`).
+**Why:** Designer asked for a media-details modal (movies/TV first, other media types to follow) with an Overview | Cast tabbed treatment. Notable on-system deviations from the TMDB reference: score ring uses the single blue accent (not TMDB's green/amber), and there is no blurred backdrop image (system rule: no frosted blur, depth via surface contrast). Built on a generic `MediaDetail` shape so Listen/Read can reuse it. Watch content (`content/watch.ts`) extended with placeholder detail + cast metadata behind the TMDB seam. **Candidate to promote into the DS as a domain component if ratified.**

@@ -92,28 +92,30 @@ const CITIES: WeatherCity[] = [
   { id: "kolkata", name: "Kolkata", image: tall("1558431382-27e303142255"), code: 17, condition: "Partly Sunny w/ T-Storms", highC: 30.5, lowC: 24.5 },
 ];
 
+// Orlando in summer — warm, with the daily afternoon-thunderstorm pattern.
 const FORECAST: ForecastDay[] = [
-  { day: "Today", code: 14, condition: "Partly Sunny w/ Showers", highC: 19.5, lowC: 10.5 },
-  { day: "Wed", code: 3, condition: "Partly Sunny", highC: 21.5, lowC: 11.5 },
-  { day: "Thu", code: 1, condition: "Sunny", highC: 23.5, lowC: 12.5 },
-  { day: "Fri", code: 12, condition: "Showers", highC: 18.5, lowC: 11.5 },
-  { day: "Sat", code: 6, condition: "Mostly Cloudy", highC: 20.5, lowC: 12.5 },
+  { day: "Today", code: 3, condition: "Partly Sunny", highC: 33.5, lowC: 24.5 },
+  { day: "Wed", code: 16, condition: "Mostly Cloudy w/ T-Storms", highC: 32.5, lowC: 24.5 },
+  { day: "Thu", code: 15, condition: "T-Storms", highC: 31.5, lowC: 23.5 },
+  { day: "Fri", code: 4, condition: "Intermittent Clouds", highC: 33.5, lowC: 24.5 },
+  { day: "Sat", code: 1, condition: "Sunny", highC: 34.5, lowC: 25.5 },
 ];
 
 const NEWS: WeatherNews[] = [
-  { id: "wx1", image: news("1428592953211-077101b2021b"), headline: "Cold front to sweep southeast Australia through the weekend", timeAgo: "12 minutes ago" },
-  { id: "wx2", image: news("1561553543-e4c7b608b98d"), headline: "Coastal showers ease as high pressure builds over the Bight", timeAgo: "48 minutes ago" },
-  { id: "wx3", image: news("1500674425229-f692875b0ab7"), headline: "Warmer-than-average week ahead for the southern states", timeAgo: "2 hours ago" },
+  { id: "wx1", image: news("1428592953211-077101b2021b"), headline: "Afternoon storms return to Central Florida through the weekend", timeAgo: "12 minutes ago" },
+  { id: "wx2", image: news("1561553543-e4c7b608b98d"), headline: "Heat advisory in effect across the I-4 corridor", timeAgo: "48 minutes ago" },
+  { id: "wx3", image: news("1500674425229-f692875b0ab7"), headline: "Tropical moisture to raise humidity across the peninsula", timeAgo: "2 hours ago" },
 ];
 
 export function getWeatherContent(_t: TFunc): WeatherContent {
   return {
     hero: {
-      city: "Melbourne",
-      image: wide("1514395462725-fb4566210144"),
-      code: 14,
-      condition: "Partly Sunny w/ Showers",
-      tempC: 38.5,
+      // Destination — matches the flight tracker / Showcase (Orlando, FL).
+      city: "Orlando",
+      image: wide("1597466599360-3b9775841aec"),
+      code: 3,
+      condition: "Partly Sunny",
+      tempC: 26.4, // → 79.5° F, matching the Showcase weather tile
     },
     cities: CITIES,
     forecast: FORECAST,

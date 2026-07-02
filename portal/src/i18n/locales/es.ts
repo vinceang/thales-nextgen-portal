@@ -135,6 +135,13 @@ export const es: Dict = {
     remove: "Quitar de favoritos",
     empty: "Aún no hay títulos guardados.",
   },
+  media: {
+    overview: "Sinopsis",
+    cast: "Reparto",
+    playTrailer: "Ver tráiler",
+    userScore: "Puntuación",
+    director: "Director",
+  },
   watch: {
     featured: "Destacado",
     play: "Reproducir",

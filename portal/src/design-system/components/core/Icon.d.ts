@@ -6,7 +6,7 @@ export type IconName =
   | "mountain" | "gauge" | "navigation" | "clock"
   | "sun" | "cloud" | "cloud-sun" | "cloud-rain"
   | "moon" | "cloud-moon" | "wind"
-  | "check" | "eye" | "credit-card";
+  | "check" | "eye" | "credit-card" | "play";
 
 export interface IconProps {
   /** Glyph name. */

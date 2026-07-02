@@ -135,6 +135,13 @@ export const fr: Dict = {
     remove: "Retirer des favoris",
     empty: "Aucun titre enregistré.",
   },
+  media: {
+    overview: "Synopsis",
+    cast: "Distribution",
+    playTrailer: "Bande-annonce",
+    userScore: "Note",
+    director: "Réalisateur",
+  },
   watch: {
     featured: "À la une",
     play: "Lecture",
