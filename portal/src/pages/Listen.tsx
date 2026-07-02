@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HeroCarousel, AlbumHero, MediaRail, MediaCard, MediaRow, GenrePill, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getListenContent, type ListenAlbum } from "../content/listen";
-import { MediaDetailModal, type MediaDetail } from "../components/MediaDetailModal";
+import { MediaDetailModal } from "../components/MediaDetailModal";
+import { listenDetail } from "../content/mediaDetail";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
 import s from "./Listen.module.css";
@@ -24,22 +25,6 @@ export default function Listen() {
 
   // Clicking a cover/row opens the detail modal for that album.
   const [detail, setDetail] = useState<ListenAlbum | null>(null);
-
-  // Map an album into the generic media-detail shape (Overview | Tracklist).
-  const toDetail = (a: ListenAlbum): MediaDetail => ({
-    title: a.title,
-    poster: a.cover,
-    posterAspect: "1 / 1",
-    subtitle: a.artist,
-    year: a.year,
-    facts: [a.genre, t("media.trackCount", { n: a.tracks.length }), a.length],
-    score: a.score,
-    primaryActionLabel: t("listen.play"),
-    primaryActionIcon: "play",
-    overview: a.about,
-    credit: { name: a.label, role: t("media.label") },
-    tracks: a.tracks,
-  });
 
   return (
     <div className={s.page}>
@@ -127,7 +112,7 @@ export default function Listen() {
 
       <MediaDetailModal
         open={!!detail}
-        media={detail ? toDetail(detail) : null}
+        media={detail ? listenDetail(detail, t) : null}
         onClose={() => setDetail(null)}
         isFavorite={detail ? isFavorite(detail.id) : false}
         onToggleFavorite={() =>

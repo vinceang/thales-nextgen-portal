@@ -30,6 +30,8 @@ export default function Showcase() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeAction = activeId ? tiles[activeId].action : null;
   const activeDetail = activeAction?.kind === "modal" ? activeAction.detail : null;
+  // Favorite by the catalogue id so Showcase + gallery favorites are one and the same.
+  const favId = activeAction?.kind === "modal" ? activeAction.favId ?? activeId : null;
 
   // Activate a tile: open its modal, or navigate to its linked view.
   function activate(id: string) {
@@ -46,7 +48,8 @@ export default function Showcase() {
         <ShowcaseTile
           image={cfg.img}
           kicker={tr(`categories.${cfg.cat}`)}
-          title={tr(`showcase.tiles.${id}`)}
+          // Dynamic media tiles carry a real title; curated link tiles use i18n.
+          title={cfg.title ?? tr(`showcase.tiles.${id}`)}
           titleSize={titleSize}
           height="100%"
           onClick={() => activate(id)}
@@ -70,11 +73,11 @@ export default function Showcase() {
         />
       </div>
     ),
-    r1: <Tile id="young-sheldon" titleSize={22} />,
-    r2: <Tile id="billie" titleSize={22} />,
+    r1: <Tile id="feat-watch-1" titleSize={22} />,
+    r2: <Tile id="feat-listen-1" titleSize={22} />,
     // Row 2 — four 2:1 tiles
-    sq: <Tile id="squid" />,
-    rm: <Tile id="red-moon" />,
+    sq: <Tile id="feat-watch-2" />,
+    rm: <Tile id="feat-listen-2" />,
     gm: <Tile id="games" />,
     dn: <Tile id="dining" titleSize={22} />,
     // Row 3 — feature destination (spans) + weather panel
@@ -97,8 +100,8 @@ export default function Showcase() {
     // Row 4 — four 2:1 tiles
     en: <Tile id="england" titleSize={22} />,
     df: <Tile id="duty-free" titleSize={22} />,
-    fg: <Tile id="fall-guy" />,
-    eb: <Tile id="ebooks" titleSize={22} />,
+    fg: <Tile id="feat-read-2" />,
+    eb: <Tile id="feat-read-1" titleSize={22} />,
   };
 
   return (
@@ -130,10 +133,10 @@ export default function Showcase() {
         open={!!activeDetail}
         media={activeDetail}
         onClose={() => setActiveId(null)}
-        isFavorite={activeId ? isFavorite(activeId) : false}
+        isFavorite={favId ? isFavorite(favId) : false}
         onToggleFavorite={() => {
-          if (!activeId || activeAction?.kind !== "modal" || !activeDetail) return;
-          toggle({ id: activeId, kind: activeAction.favKind, title: activeDetail.title, image: activeDetail.poster });
+          if (!favId || activeAction?.kind !== "modal" || !activeDetail) return;
+          toggle({ id: favId, kind: activeAction.favKind, title: activeDetail.title, image: activeDetail.poster });
         }}
         t={tr}
       />

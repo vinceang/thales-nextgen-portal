@@ -622,3 +622,15 @@ Each entry is logged as it happens, in this format:
 - Wired into the shared guarded pre-commit hook (now refreshes all three: TMDB + Deezer + Open Library) and `npm run snapshot:read` / `npm run snapshot` (all three).
 **Why:** Designer asked to make Read real too — keyless, like Deezer. Open Library was chosen over Google Books (lower-res thumbnail covers, key recommended) because this page is a portrait-cover gallery where full-res jackets matter most, and over NYT Books (key required, no covers). First real snapshot: 6 rows / 59 books (real covers/authors/synopses/ratings verified in-browser). All three media galleries (Watch/Listen/Read) now run on real catalogues.
 
+---
+
+### 2026-07-02 ShowcaseMediaTileManager — Showcase media tiles driven by gallery hero picks
+**Rule/token changed:** App architecture — the Showcase's media tiles are now derived from the media galleries instead of hand-authored; no DS change.
+**Was:** `content/showcase.ts` hand-authored 6 media tiles (young-sheldon, squid, fall-guy, red-moon, billie→link, ebooks→link) with **invented** covers + fake cast/tracklists.
+**Now:** A **ShowcaseMediaTileManager** (`content/showcaseMedia.ts`) surfaces the **first two hero-carousel picks of each gallery** (Watch/Listen/Read → 6 tiles) as real Showcase tiles:
+- It reads the same source the galleries do (`getWatchContent`/`getListenContent`/`getReadContent`, which resolve the committed snapshot or the placeholder fallback), resolving each hero pick to its full record by title. So it's **always in sync** — when a media snapshot refreshes, the featured Showcase tiles change with it, with **no separate build step / file / hook** (runtime-derived, can't drift). Works in fallback mode too.
+- Each tile opens the **full MediaDetailModal** (same modal as inside the gallery) and shares the gallery's favorite id+kind (new `favId` on the tile's modal action → favoriting from the Showcase and the gallery are one action).
+- Extracted the three detail mappers into a shared `content/mediaDetail.ts` (`watchDetail`/`listenDetail`/`readDetail`), now used by both the galleries and the manager (single source of truth, no drift). `content/showcase.ts` gains an optional `title` (real media title; curated link tiles still use i18n) and injects the 6 dynamic tiles; the curated non-media tiles (Play, destinations, Shop, Weather, Connect hero) are unchanged. `Showcase.tsx` slots `feat-watch-1/2`, `feat-listen-1/2`, `feat-read-1/2`.
+- Orphaned `showcase.tiles.{young-sheldon,squid,fall-guy,red-moon,billie,ebooks}` i18n keys are now unused (left in the dictionaries; harmless).
+**Why:** Designer asked for a manager that assigns the top-two hero picks per gallery to Showcase tiles, synced when the source snapshots sync. Verified in-browser: Showcase shows Obsession/Enola Holmes 3 (Watch), V8/The Wow! Signal (Listen), Words of Radiance/Atomic Habits (Read), each opening its real modal.
+
