@@ -504,3 +504,11 @@ Each entry is logged as it happens, in this format:
 **Was:** The Connectivity tab fell through to the generic "This section isn't configured yet." placeholder.
 **Now:** When connected, it shows a success `Alert` (reusing `connect.connectedTitle/Body`) plus a Plan / Price / Status(Active) detail list and a **Disconnect** button (`disconnect()`); when not connected, a prompt + **View Plans** button → `/connect`. New `account.connectivity.*` i18n (en/es/fr).
 **Why:** Designer asked the Connectivity tab to reflect the purchased plan. Closes the loop: buy in Connect → header icon on → managed here (disconnect flips everything back off).
+
+---
+
+### 2026-07-02 Account favorites → list rows on phone (`pages/Account.tsx`)
+**Rule/token changed:** App-level responsive tweak; no DS change.
+**Was:** Account → Favorites used the poster grid at every width; on phone the posters rendered oversized (one tall poster per row).
+**Now:** On phone (≤560px) each favorites group renders as stacked `MediaRow` list rows (thumbnail + title + trailing heart, aspect per surface: posters 2:3, albums 1:1, games 16:9); the poster grid stays on tablet/desktop. CSS-only swap (both rendered, media query toggles), matching the gallery pages' grid↔list pattern.
+**Why:** Designer asked favorites to switch to list-view cards / vertical stack on phone.

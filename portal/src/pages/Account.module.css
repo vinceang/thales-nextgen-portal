@@ -107,3 +107,17 @@
   inset-inline-end: 8px;
   z-index: 2;
 }
+
+/* Phone favorites — stacked list rows instead of the poster grid. */
+.favList {
+  display: none;
+  flex-direction: column;
+}
+@media (max-width: 560px) {
+  .favGrid {
+    display: none;
+  }
+  .favList {
+    display: flex;
+  }
+}
