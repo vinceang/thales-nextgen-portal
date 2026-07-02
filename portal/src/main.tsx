@@ -7,15 +7,18 @@ import App from "./App.tsx";
 import { I18nProvider } from "./i18n";
 import { FavoritesProvider } from "./favorites";
 import { ConnectivityProvider } from "./connectivity";
+import { PurchasesProvider } from "./purchases";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <I18nProvider>
       <FavoritesProvider>
         <ConnectivityProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <PurchasesProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </PurchasesProvider>
         </ConnectivityProvider>
       </FavoritesProvider>
     </I18nProvider>

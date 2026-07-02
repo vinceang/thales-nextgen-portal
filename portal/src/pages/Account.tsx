@@ -22,6 +22,7 @@ import { getAccountContent } from "../content/account";
 import { useI18n } from "../i18n";
 import { useFavorites, type FavoriteKind } from "../favorites";
 import { useConnectivity } from "../connectivity";
+import { usePurchases } from "../purchases";
 import s from "./Account.module.css";
 
 const TOAST_MS = 4000;
@@ -37,6 +38,11 @@ const FAV_ASPECT: Record<FavoriteKind, string> = {
   play: "16 / 9",
 };
 
+// Localized "Jul 2, 2026, 3:41 PM"-style order timestamp.
+function orderTimestamp(at: number, locale: string): string {
+  return new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short" }).format(at);
+}
+
 // Sample defaults (no backend). Cancel restores these; Save fires a success Toast.
 const DEFAULTS = {
   name: "Vincent Ang",
@@ -51,10 +57,11 @@ const DEFAULTS = {
 };
 
 export default function Account() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const navigate = useNavigate();
   const { byKind, isFavorite, toggle } = useFavorites();
   const { plan, connected, disconnect } = useConnectivity();
+  const { purchases } = usePurchases();
   const { tabs, countries, units } = getAccountContent(t);
 
   const [tab, setTab] = useState("profile");
@@ -255,11 +262,37 @@ export default function Account() {
         </div>
       )}
 
-      {tab === "billing" && (
-        // Billing isn't specced in comp 03 yet — placeholder card.
+      {tab === "purchases" && (
+        // Order history — both checkout flows (Wi-Fi plans + Shop items) record
+        // here via the PurchasesProvider. Newest first; demo data on this device.
         <div className={s.content}>
-          <Card title={tabs.find((x) => x.value === tab)?.label} padding={24}>
-            <p className={s.placeholder}>{t("account.comingSoon")}</p>
+          <Card title={t("account.purchases.title")} subtitle={t("account.purchases.subtitle")} padding={24}>
+            {purchases.length === 0 ? (
+              <p className={s.placeholder}>{t("account.purchases.empty")}</p>
+            ) : (
+              <ul className={s.orderList}>
+                {purchases.map((p) => (
+                  <li key={p.orderId} className={s.order}>
+                    {p.image ? (
+                      <img className={s.orderThumb} src={p.image} alt="" loading="lazy" />
+                    ) : (
+                      <span className={s.orderThumb} data-plan />
+                    )}
+                    <div className={s.orderMain}>
+                      <span className={s.orderName}>{p.name}</span>
+                      <span className={s.orderMeta}>
+                        {t(p.kind === "plan" ? "account.purchases.kindPlan" : "account.purchases.kindShop")}
+                        {" · "}
+                        {t("account.purchases.order")} {p.orderId}
+                        {" · "}
+                        {orderTimestamp(p.at, locale)}
+                      </span>
+                    </div>
+                    <span className={s.orderPrice}>{p.price}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </Card>
         </div>
       )}

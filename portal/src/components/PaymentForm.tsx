@@ -74,9 +74,24 @@ export function PaymentForm({ formId, t, onValidSubmit }: PaymentFormProps) {
     if (validate()) onValidSubmit();
   }
 
+  // Demo convenience — drop in a valid Visa test card so the flow can be tried
+  // without typing. Clears any prior validation errors. (No real card.)
+  function fillDemo() {
+    setName("Demo Cardholder");
+    setNumber(groupNumber("4111111111111111"));
+    setExpiry("12/34");
+    setCvc("123");
+    setErrors({});
+  }
+
   return (
     <form id={formId} onSubmit={handleSubmit} className={s.form} noValidate>
-      <Alert tone="info">{t("connect.pay.demo")}</Alert>
+      <Alert tone="info">
+        {t("connect.pay.demo")}{" "}
+        <button type="button" className={s.demoFill} onClick={fillDemo}>
+          {t("connect.pay.fillDemo")}
+        </button>
+      </Alert>
 
       <div className={s.field}>
         <Input

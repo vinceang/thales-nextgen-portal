@@ -103,6 +103,7 @@ export const en = {
       cvc: "CVC",
       accepted: "We accept Visa and Mastercard",
       demo: "Demo only — no payment is processed and no card details are stored.",
+      fillDemo: "Use a test card",
       errRequired: "Required",
       errNumber: "Enter a valid 16-digit card number",
       errBrand: "Only Visa and Mastercard are accepted",
@@ -116,7 +117,7 @@ export const en = {
       profile: "Profile",
       favorites: "Favorites",
       connectivity: "Connectivity",
-      billing: "Billing",
+      purchases: "Purchases",
     },
     profile: {
       title: "Profile",
@@ -161,6 +162,14 @@ export const en = {
       price: "Price",
       status: "Status",
       active: "Active",
+    },
+    purchases: {
+      title: "Purchases",
+      subtitle: "Your orders from this flight",
+      empty: "No purchases yet. Buy a Wi-Fi plan or something from the Shop.",
+      order: "Order",
+      kindPlan: "Wi-Fi plan",
+      kindShop: "Shop item",
     },
   },
   favorites: {
@@ -260,7 +269,7 @@ export const en = {
     all: "All",
     buy: "Buy",
     checkoutTitle: "Checkout",
-    summary: "You're buying {name} for {price}.",
+    summary: "You're buying:",
     toastTitle: "Order confirmed",
     toastBody: "{name} will be delivered to your seat.",
     categories: {
