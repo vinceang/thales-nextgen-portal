@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HeroCarousel, MediaRail, MediaRow, GenrePill, ShowcaseTile, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getWatchContent, type WatchMovie } from "../content/watch";
-import { MediaDetailModal } from "../components/MediaDetailModal";
+import { MediaDetailModal, type MediaDetail } from "../components/MediaDetailModal";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
 import s from "./Watch.module.css";
@@ -24,6 +24,23 @@ export default function Watch() {
 
   // Clicking a poster/row opens the detail modal for that title.
   const [detail, setDetail] = useState<WatchMovie | null>(null);
+
+  // Map a film into the generic media-detail shape (Overview | Cast).
+  const toDetail = (m: WatchMovie): MediaDetail => ({
+    title: m.title,
+    poster: m.poster,
+    posterAspect: "2 / 3",
+    year: m.year,
+    certification: m.certification,
+    facts: [m.releaseDate, m.genres, m.runtime],
+    score: m.score,
+    primaryActionLabel: t("media.playTrailer"),
+    primaryActionIcon: "play",
+    tagline: m.tagline,
+    overview: m.overview,
+    credit: { name: m.director, role: t("media.director") },
+    cast: m.cast,
+  });
 
   return (
     <div className={s.page}>
@@ -100,7 +117,7 @@ export default function Watch() {
 
       <MediaDetailModal
         open={!!detail}
-        media={detail}
+        media={detail ? toDetail(detail) : null}
         onClose={() => setDetail(null)}
         isFavorite={detail ? isFavorite(detail.id) : false}
         onToggleFavorite={() =>

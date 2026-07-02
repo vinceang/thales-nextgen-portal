@@ -407,3 +407,19 @@ Each entry is logged as it happens, in this format:
 **Was:** Media tiles (Watch) were non-interactive; no detail view existed.
 **Now:** Clicking a poster/row opens a TMDB-style detail overlay: poster + metadata (certification box, release date · genres · runtime), a circular **user-score ring**, Play Trailer + favorite actions, and an **Overview | Cast** tab set. Two columns on desktop, stacked on mobile. New `components/` folder created for shared app-level feature components (siblings to `pages/` and `shell/`).
 **Why:** Designer asked for a media-details modal (movies/TV first, other media types to follow) with an Overview | Cast tabbed treatment. Notable on-system deviations from the TMDB reference: score ring uses the single blue accent (not TMDB's green/amber), and there is no blurred backdrop image (system rule: no frosted blur, depth via surface contrast). Built on a generic `MediaDetail` shape so Listen/Read can reuse it. Watch content (`content/watch.ts`) extended with placeholder detail + cast metadata behind the TMDB seam. **Candidate to promote into the DS as a domain component if ratified.**
+
+---
+
+### 2026-07-01 MediaDetailModal extended to Listen + Read (music / books)
+**Rule/token changed:** App-level — same `MediaDetailModal` now drives all three galleries; no DS primitive changed.
+**Was:** The detail modal was Watch-only (Overview | Cast); Listen/Read tiles were non-interactive.
+**Now:** The modal's `MediaDetail` shape was generalized (poster aspect, `subtitle` for artist/author, a `facts[]` meta line, a `primaryActionLabel`/icon, and a single type-specific second tab). Second tab is chosen by the data present: **Cast** (film/TV), **Tracklist** (music, 1:1 cover + numbered rows), or **Details** (books, label/value rows). Listen (`content/listen.ts`) and Read (`content/read.ts`) content extended with placeholder detail + tracklist / publication metadata behind their seams; each page maps its item into `MediaDetail`. Read's primary action reuses the existing `eye` glyph ("Read Now"); music/film use `play`.
+**Why:** Designer asked to extend the detail modal to Listen/Read. One component, three mappings — keeps the pattern consistent and DRY.
+
+---
+
+### 2026-07-01 Modal — open/close animation (`design-system/components/surfaces/Modal.jsx` + `.module.css`)
+**Rule/token changed:** `Modal` gained enter/exit motion; affects every modal (Connect purchase confirm + the media-detail modal).
+**Was:** Modal mounted/unmounted instantly on `open` (no transition).
+**Now:** Backdrop fades and the dialog rises + scales (10px / 0.98→1) on open, and reverses on close; the panel stays mounted through a ~220 ms exit (timeout-driven so it also tears down when animations are off). Uses `--ease-smooth`; durations are literal ms (200–220) — **no motion-duration token existed for this**, a candidate token for the DS. Disabled under `prefers-reduced-motion`.
+**Why:** Designer asked for animation on modal open/close. Kept subtle and on-system (short, eased, no bounce, respects reduced-motion) per the motion rules in CLAUDE.md.

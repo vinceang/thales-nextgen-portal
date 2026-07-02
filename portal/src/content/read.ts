@@ -14,6 +14,16 @@ export interface ReadBook {
   author: string;
   /** Portrait (2:3) cover art URL. */
   cover: string;
+  // ── Detail metadata (populates the MediaDetailModal; catalogue/OPDS later) ──
+  year: number;
+  genre: string;
+  pages: number;
+  publisher: string;
+  language: string;
+  /** Reader score, 0–100. */
+  score: number;
+  /** Jacket synopsis. */
+  synopsis: string;
 }
 
 export interface ReadRow {
@@ -69,7 +79,30 @@ const BOOKS = [
   { title: "Northern Bloom", author: "Wilder Hale" },
 ];
 
-const POOL: ReadBook[] = BOOKS.map((b, i) => ({ id: `b${i + 1}`, title: b.title, author: b.author, cover: cover(IDS[i]) }));
+// Per-book detail metadata, parallel to BOOKS (catalogue/OPDS replaces later).
+interface BookDetail { year: number; genre: string; pages: number; publisher: string; language: string; score: number; synopsis: string; }
+const DETAILS: BookDetail[] = [
+  { year: 2024, genre: "Literary Fiction", pages: 342, publisher: "Harbor & Vale", language: "English", score: 86, synopsis: "A cartographer inherits her grandmother's unfinished atlas and, chart by chart, retraces a family's crossings — and the one secret it kept from every map." },
+  { year: 2023, genre: "Science Fiction", pages: 408, publisher: "Ashwood Press", language: "English", score: 79, synopsis: "In a metropolis printed fresh each morning, an archivist discovers yesterday's city bleeding through — and with it, a version of himself he was never meant to meet." },
+  { year: 2025, genre: "Mystery", pages: 296, publisher: "Locke & Sons", language: "English", score: 82, synopsis: "When a night-shift lighthouse keeper vanishes at a precise latitude, a burned-out detective follows a trail of tide charts toward an impossible confession." },
+  { year: 2024, genre: "Historical", pages: 512, publisher: "Gilt House", language: "English", score: 88, synopsis: "Across one gilded, disastrous season, a clockmaker's daughter learns that the finest instruments in the city measure not time, but ambition." },
+  { year: 2022, genre: "Essays", pages: 224, publisher: "Small Fires", language: "English", score: 75, synopsis: "A naturalist walks the edges of controlled burns and quiet grief in a slim, incandescent collection about the things that need to be lost to grow back." },
+  { year: 2025, genre: "Literary Fiction", pages: 318, publisher: "June Harbor Books", language: "English", score: 80, synopsis: "Three generations of a fishing family gather for a funeral that refuses to stay solemn, in a novel as briny and stubborn as the coast it loves." },
+  { year: 2026, genre: "Fantasy", pages: 456, publisher: "Nova Editions", language: "English", score: 84, synopsis: "In a country where the sun sets only once a year, two rival lamplighters must keep the last dusk from becoming permanent." },
+  { year: 2023, genre: "Thriller", pages: 372, publisher: "Ridgeway", language: "English", score: 77, synopsis: "A haulage driver takes a route no map recommends and discovers the road itself is keeping a ledger of everyone who's ever tried to disappear." },
+  { year: 2025, genre: "Science Fiction", pages: 430, publisher: "Meridian", language: "English", score: 81, synopsis: "A terraforming crew wakes from cryosleep to find their new world already inhabited — by the meticulous records of a colony that never arrived." },
+  { year: 2024, genre: "Nonfiction", pages: 288, publisher: "Pike & Co.", language: "English", score: 78, synopsis: "A quietly radical history of the machines we built to be quiet, from the pneumatic tube to the noise-cancelled cabin." },
+  { year: 2026, genre: "Mystery", pages: 334, publisher: "Elm Park", language: "English", score: 83, synopsis: "Forty years of neighbourhood gossip resurface when a demolished house gives up a diary, and a retired teacher decides some stories are worth finishing." },
+  { year: 2025, genre: "Fiction", pages: 306, publisher: "Wilder House", language: "English", score: 76, synopsis: "A botanist returns to the valley of her childhood to catalogue a bloom that shouldn't exist — and the winter that keeps insisting it does." },
+];
+
+const POOL: ReadBook[] = BOOKS.map((b, i) => ({
+  id: `b${i + 1}`,
+  title: b.title,
+  author: b.author,
+  cover: cover(IDS[i]),
+  ...DETAILS[i],
+}));
 
 const rotate = (n: number) => POOL.slice(n).concat(POOL.slice(0, n));
 

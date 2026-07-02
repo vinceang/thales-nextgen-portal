@@ -18,7 +18,7 @@
 
 .poster {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: var(--poster-aspect, 2 / 3);
   object-fit: cover;
   background: var(--color-surface-3);
   border-radius: var(--radius-card);
@@ -41,6 +41,15 @@
 }
 .year {
   font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Artist / author line under the title. */
+.subtitle {
+  margin-top: 4px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
   color: var(--text-secondary);
 }
 
@@ -220,6 +229,77 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* Tracklist (music) — numbered rows with trailing duration. */
+.tracks {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-md) 0 0;
+  counter-reset: none;
+}
+.track {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+}
+.track:last-child {
+  border-bottom: none;
+}
+.trackNo {
+  flex: none;
+  width: 20px;
+  text-align: end;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.trackTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.trackDur {
+  flex: none;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Details (book) — label / value rows. */
+.factsList {
+  margin: 0;
+  padding-top: var(--space-md);
+}
+.factRow {
+  display: flex;
+  gap: var(--space-md);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+}
+.factRow:last-child {
+  border-bottom: none;
+}
+.factLabel {
+  flex: none;
+  width: 120px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.factValue {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  color: var(--text-primary);
 }
 
 /* Stack poster above details, single-column cast, on narrow viewports. */

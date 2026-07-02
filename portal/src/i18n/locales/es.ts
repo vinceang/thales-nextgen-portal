@@ -138,9 +138,17 @@ export const es: Dict = {
   media: {
     overview: "Sinopsis",
     cast: "Reparto",
+    tracklist: "Lista de canciones",
+    details: "Detalles",
     playTrailer: "Ver tráiler",
     userScore: "Puntuación",
     director: "Director",
+    label: "Sello",
+    publisher: "Editorial",
+    pages: "Páginas",
+    language: "Idioma",
+    trackCount: "{n} canciones",
+    pageCount: "{n} páginas",
   },
   watch: {
     featured: "Destacado",

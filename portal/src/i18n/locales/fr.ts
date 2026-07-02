@@ -138,9 +138,17 @@ export const fr: Dict = {
   media: {
     overview: "Synopsis",
     cast: "Distribution",
+    tracklist: "Liste des titres",
+    details: "Détails",
     playTrailer: "Bande-annonce",
     userScore: "Note",
     director: "Réalisateur",
+    label: "Label",
+    publisher: "Éditeur",
+    pages: "Pages",
+    language: "Langue",
+    trackCount: "{n} titres",
+    pageCount: "{n} pages",
   },
   watch: {
     featured: "À la une",
