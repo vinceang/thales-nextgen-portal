@@ -5,6 +5,7 @@
 // music API would return this same shape (hero albums + genre rows). Album/artist
 // names stay verbatim across locales; only chrome (kicker/CTA/row labels) is i18n.
 import type { TFunc } from "../i18n";
+import snapshotRaw from "./data/listen.json";
 
 /** One track on an album (Tracklist tab). */
 export interface Track {
@@ -132,7 +133,26 @@ const POOL: ListenAlbum[] = ALBUMS.map((a, i) => ({
 
 const rotate = (n: number) => POOL.slice(n).concat(POOL.slice(0, n));
 
+// The committed Deezer snapshot (scripts/deezer-snapshot.mjs). When populated it
+// is the real catalogue; when empty (no snapshot yet) the page falls back to the
+// placeholder catalogue above, so the app always builds. Row/hero chrome (labels,
+// kickers, CTAs) is localized here via `t()`; the snapshot holds data only.
+interface ListenSnapshot {
+  generatedAt: string | null;
+  hero: { slides: { id: string; cover: string; title: string; artist: string }[] };
+  rows: { key: string; items: ListenAlbum[] }[];
+}
+const snapshot = snapshotRaw as unknown as ListenSnapshot;
+
 export function getListenContent(t: TFunc): ListenContent {
+  if (snapshot.rows.length > 0) {
+    return {
+      hero: { autoPlay: true, intervalMs: 6000, slides: snapshot.hero.slides },
+      rows: snapshot.rows.map((r) => ({ key: r.key, label: t(`listen.rows.${r.key}`), items: r.items })),
+    };
+  }
+
+  // Fallback: placeholder catalogue (Unsplash art, invented albums).
   return {
     hero: {
       autoPlay: true,

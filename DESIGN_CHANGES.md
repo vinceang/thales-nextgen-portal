@@ -588,3 +588,16 @@ Each entry is logged as it happens, in this format:
 - **Scope:** TMDB is movies/TV only → **Watch** is real; **Listen/Read stay on placeholders** (would need a music / books source later).
 **Why:** Designer asked to hook up TMDB for real assets. Chosen approach (build-time snapshot, committed JSON, manual/48h-guarded refresh) keeps the key off the client and out of Vercel entirely, keeps the build offline/deterministic, and mirrors the "content cached on the aircraft" model of a real in-flight portal. First real snapshot: 7 rows / 61 movies; poster/backdrop/profile URLs verified 200.
 
+---
+
+### 2026-07-02 Deezer build-time snapshot for Listen (real catalogue) — new build tooling
+**Rule/token changed:** App architecture / build tooling; no DS change. Fulfils the ADR-0001 content seam for Listen with real data. Same pattern as the TMDB/Watch snapshot.
+**Was:** `content/listen.ts` returned an invented placeholder catalogue (Unsplash art, fictional albums).
+**Now:** Listen data comes from a **build-time Deezer snapshot** committed into the app:
+- `scripts/deezer-snapshot.mjs` — Deezer's public API needs **no key/token/auth at all** (nothing in `.env`). Fetches new-releases + chart + genre rows (Pop 132 / Hip-Hop 116 / Rock 152) + a ranked "chill" search, then each album's `/album/{id}` detail (label, genres, tracklist with durations, fan count) and maps to the existing `ListenAlbum` shape → `src/content/data/listen.json` (committed). Covers use Deezer's public CDN (1000×1000).
+- Handles Deezer's ~50 req/5s limit: a shared interval gate spaces requests (~7/s) and quota errors (code 4) back off + retry.
+- `content/listen.ts` reads the JSON and **falls back** to the placeholder catalogue when empty. Chrome (labels) stays localized via `t()`; snapshot holds data only.
+- Field mapping is complete except two: `score` is derived from Deezer fan counts (approximate, 55–99), and `about` is empty (Deezer has no album descriptions). All other fields (cover/title/artist/year/genre/label/length/tracks) are real.
+- Wired into the same guarded pre-commit hook (now refreshes both TMDB + Deezer) and `npm run snapshot:deezer` / `npm run snapshot` (both).
+**Why:** Designer asked to make Listen real too. Deezer was chosen over MusicBrainz (metadata-only, no images/charts, heavy rate-limit) and Spotify (needs OAuth secret, no charts API, gutted several endpoints in late-2024) as the closest keyless "TMDB of music" — one API with cover art + charts + tracklists that maps cleanly onto the existing row structure. First real snapshot: 6 rows / 68 albums; cover URLs verified 200. Read (books) still on placeholders (would need Open Library / Google Books).
+
