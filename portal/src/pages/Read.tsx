@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HeroCarousel, AlbumHero, MediaRail, MediaCard, MediaRow, GenrePill, FavoriteButton, FadeScroller, ViewToggle } from "../design-system/components";
 import { getReadContent, type ReadBook } from "../content/read";
-import { MediaDetailModal, type MediaDetail } from "../components/MediaDetailModal";
+import { MediaDetailModal } from "../components/MediaDetailModal";
+import { readDetail } from "../content/mediaDetail";
 import { useI18n } from "../i18n";
 import { useFavorites } from "../favorites";
 import s from "./Read.module.css";
@@ -25,25 +26,6 @@ export default function Read() {
 
   // Clicking a cover/row opens the detail modal for that book.
   const [detail, setDetail] = useState<ReadBook | null>(null);
-
-  // Map a book into the generic media-detail shape (Overview | Details).
-  const toDetail = (b: ReadBook): MediaDetail => ({
-    title: b.title,
-    poster: b.cover,
-    posterAspect: "2 / 3",
-    subtitle: b.author,
-    year: b.year,
-    facts: [b.genre, t("media.pageCount", { n: b.pages })],
-    score: b.score,
-    primaryActionLabel: t("read.readNow"),
-    primaryActionIcon: "eye",
-    overview: b.synopsis,
-    details: [
-      { label: t("media.publisher"), value: b.publisher },
-      { label: t("media.pages"), value: String(b.pages) },
-      { label: t("media.language"), value: b.language },
-    ],
-  });
 
   return (
     <div className={s.page}>
@@ -133,7 +115,7 @@ export default function Read() {
 
       <MediaDetailModal
         open={!!detail}
-        media={detail ? toDetail(detail) : null}
+        media={detail ? readDetail(detail, t) : null}
         onClose={() => setDetail(null)}
         isFavorite={detail ? isFavorite(detail.id) : false}
         onToggleFavorite={() =>
