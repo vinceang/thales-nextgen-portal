@@ -634,3 +634,11 @@ Each entry is logged as it happens, in this format:
 - Orphaned `showcase.tiles.{young-sheldon,squid,fall-guy,red-moon,billie,ebooks}` i18n keys are now unused (left in the dictionaries; harmless).
 **Why:** Designer asked for a manager that assigns the top-two hero picks per gallery to Showcase tiles, synced when the source snapshots sync. Verified in-browser: Showcase shows Obsession/Enola Holmes 3 (Watch), V8/The Wow! Signal (Listen), Words of Radiance/Atomic Habits (Read), each opening its real modal.
 
+---
+
+### 2026-07-02 FeaturedMediaTile — poster-on-blur for Showcase media tiles — `components/FeaturedMediaTile.*`
+**Rule/token changed:** New app-level component; no DS change. Follows the established AlbumHero aura pattern.
+**Was:** The 6 featured media tiles rendered as plain `ShowcaseTile`s — full-bleed `object-fit: cover` in a 2:1 cell. Portrait posters (Watch/Read 2:3) and square album art (Listen 1:1) were hard-cropped to a thin horizontal band, cutting off titles (Words of Radiance / Atomic Habits showed a cropped strip).
+**Now:** Media tiles use a new `FeaturedMediaTile` (app-level, `components/`): the **whole cover** is shown at its native aspect (poster/book 2:3, album 1:1) floated over a blurred + darkened fill of the same cover, with the kicker + title beside it — the same "aura" treatment as each gallery's `AlbumHero`, so a featured tile visually rhymes with the hero it came from. No crop. Tokens only, sharp (`--radius-card` = 0), no shadow; the blur is `filter: blur()` (not a shadow) and mirrors AlbumHero's blessed aura. Cover aspect passed per tile (`listen` → 1/1, else 2/3). `Showcase.tsx` renders `FeaturedMediaTile` for modal (media) tiles and keeps the DS `ShowcaseTile` for the photographic link tiles (Play, destinations, Shop) — a deliberate "posters vs photos" distinction.
+**Why:** Designer asked to make the tile crop favor the poster; chose poster-on-blur (over smart-crop / flat-surface) for the premium hero-echo look. Verified in-browser across all 6 tiles (portrait, square, and book covers all shown whole).
+
