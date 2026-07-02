@@ -249,11 +249,23 @@ export const en = {
   play: {
     featured: "Featured",
     playGame: "Play",
+    comingSoon: "Coming Soon",
+    playable: "Playable",
     all: "All",
     developer: "Developer",
     players: "Players",
     controls: "Controls",
     category: "Category",
+    // Game launcher + in-game chrome
+    restart: "Restart",
+    exit: "Exit",
+    score: "Score",
+    best: "Best",
+    newGame: "New Game",
+    keepGoing: "Keep Going",
+    gameOver: "Game Over",
+    youWin: "You Win!",
+    hint2048: "Use the arrow keys or swipe to move the tiles.",
     rows: {
       arcade: "Arcade",
       puzzle: "Puzzle & Word",
