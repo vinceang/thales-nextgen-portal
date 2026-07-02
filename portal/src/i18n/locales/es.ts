@@ -189,6 +189,20 @@ export const es: Dict = {
       kids: "Infantil",
     },
   },
+  blog: {
+    moreIn: "Más en {section}",
+    notFound: "No se encontró ese artículo.",
+    sections: {
+      destinations: {
+        title: "Destinos",
+        subtitle: "Guías para adonde vas — y adónde ir después.",
+      },
+      travel: {
+        title: "Viajes",
+        subtitle: "Consejos, inspiración y el arte de viajar.",
+      },
+    },
+  },
   play: {
     featured: "Destacado",
     playGame: "Jugar",

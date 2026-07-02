@@ -1,0 +1,92 @@
+/* PostBody — editorial long-form typography. All values are tokens. Body copy is
+   Montserrat (serif is reserved for nav/UI-free display); section subheads use
+   Playfair for editorial contrast. Blockquotes are the one accent (bright-blue
+   rule), sharp corners, no shadows. */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.heading {
+  margin: var(--space-md) 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, calc(18px + 1vw), 28px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.paragraph {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Figures break to the full reading-column width; caption sits beneath. */
+.figure {
+  margin: var(--space-sm) 0;
+}
+.image {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-card);
+  background: var(--color-surface-3);
+}
+.caption {
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
+/* Pull-quote — leading accent rule, larger display type. */
+.quote {
+  margin: var(--space-sm) 0;
+  padding-inline-start: var(--space-md);
+  border-inline-start: 3px solid var(--color-bright-blue);
+}
+.quoteText {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(19px, calc(16px + 0.8vw), 24px);
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+.quoteCite {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+.quoteCite::before {
+  content: "— ";
+}
+
+.list {
+  margin: 0;
+  padding-inline-start: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.listItem {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.listItem::marker {
+  color: var(--color-bright-blue);
+}

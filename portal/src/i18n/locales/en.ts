@@ -196,6 +196,20 @@ export const en = {
       kids: "Kids",
     },
   },
+  blog: {
+    moreIn: "More in {section}",
+    notFound: "That story couldn't be found.",
+    sections: {
+      destinations: {
+        title: "Destinations",
+        subtitle: "Guides to where you're headed — and where to go next.",
+      },
+      travel: {
+        title: "Travel",
+        subtitle: "Tips, inspiration, and the art of the journey.",
+      },
+    },
+  },
   play: {
     featured: "Featured",
     playGame: "Play",

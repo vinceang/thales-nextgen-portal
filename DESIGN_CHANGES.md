@@ -455,3 +455,15 @@ Each entry is logged as it happens, in this format:
 **Was:** Favorites covered watch/listen/read; Play tiles had no save control.
 **Now:** `FavoriteKind = "watch" | "listen" | "read" | "play"`. Play grid tiles + list rows carry a `FavoriteButton`, and the game detail modal's heart is wired. Account → Favorites gains a **Play** shelf automatically (added `"play"` to `FAV_KINDS`; the card title reuses the existing `categories.play` label).
 **Why:** Designer asked that games be favoritable. Same one-hue heart + `useFavorites` pattern as the other galleries. Minor: the shared Account favorites grid uses portrait cells, so landscape game art crops there (same as square album art already does).
+
+---
+
+### 2026-07-01 Destinations + Travel built as a blog engine with a local-CMS content model
+**Rule/token changed:** New editorial pages + a portable content model + two app components; no DS primitive changed. `/destinations` and `/travel` were StubPages.
+**Was:** Destination/Travel showcase tiles linked to placeholder StubPages.
+**Now:** Both are one **blog engine** parameterized by `section`:
+- `content/blog.ts` — the local "CMS" seam: each `BlogPost` is metadata + a `body` of typed **blocks** (`paragraph | heading | image | quote | list`), i.e. a portable rich-text model. `getPosts(section)` / `getPost(section, slug)` are the swap points for a real headless CMS or markdown loader. Seeded with 3 Destinations + 3 Travel posts (original placeholder copy).
+- `components/blog/PostBody.tsx` — the block renderer (CMS rendering primitive); `components/blog/BlogCard.tsx` — editorial index card.
+- `pages/BlogIndex.tsx` (featured lead hero + card grid) and `pages/BlogArticle.tsx` (cover hero, byline w/ initials avatar, tag `Badge`s, `PostBody`, "more in section" via `NewsItem`), on slug routes `/{section}` and `/{section}/:slug`.
+- Showcase tiles deep-link to specific articles (epcot → `/destinations/orlando-epcot`, england → `/travel/exploring-england`); dining → `/destinations`. `blog.*` i18n (section titles/subtitles, "More in", not-found) in en/es/fr.
+**Why:** Designer wanted Destinations/Travel as blog-type pages architected for a future local CMS. **Typography note (needs ratifying):** long-form body is Montserrat (serif stays out of body per the rules), but article/section titles + subheads + pull-quotes use **Playfair** (display) for editorial voice — a slightly broader use of the display face than "hero H1 / featured tiles." Sections are **not** in the top nav (reached via Showcase tiles), matching how Shop is handled. Post copy/imagery is placeholder behind the CMS seam.
