@@ -520,3 +520,11 @@ Each entry is logged as it happens, in this format:
 **Was:** Footer links were dead anchors; no pages behind them.
 **Now:** Routes `/terms` `/privacy` `/legal` `/contact` → a shared `InfoPage` (kicker + Playfair title + "last updated" + block body via `PostBody`, no cover image) for consistency with the content pages. Footer uses react-router `Link`. Content is placeholder but **translatable**: structure in `content/info.ts` (reuses the `BlogBlock` model, no image blocks), copy in `info.*` (en/es/fr). Titles reuse the existing `footer.*` labels.
 **Why:** Designer asked for footer link pages, made-up content, translatable, on the blog template minus images — consistent with the content pages.
+
+---
+
+### 2026-07-02 About (maker) page — `pages/About.tsx`
+**Rule/token changed:** New page composing DS `Card`/`Badge`/`Kicker` + tokens; footer gains an About link. No DS change.
+**Was:** No About page.
+**Now:** Route `/about` — a maker/portfolio page (bio header with circular portrait + Playfair name + eyebrow, then discipline `Card`s with `Badge` tags, and a closing note). Content adapted from the maker's Sojurno About page (`/Users/vincentang/Documents/projects/sojurno-v2`), rebuilt with DS components + tokens (the source's **Tailwind was NOT copied** — recreated per the styling rules) and adapted for this portal: bio references the Thales NextGen portal, engineering mentions **CSS Modules + tokens** (not Tailwind), "Marketplace & Community" → "Design Systems", UX/Product focus → in-flight. Fully translatable (`about.*` + `footer.about`, en/es/fr; es/fr harvested from the source where unchanged). Footer link added.
+**Why:** Designer asked for an About Us page, footer link, content copied from the other project. Portrait is a neutral Unsplash placeholder (swap a real photo into `public/`). Circular portrait uses `--radius-pill` (the sanctioned rounded exception).
