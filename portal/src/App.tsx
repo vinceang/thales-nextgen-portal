@@ -8,6 +8,7 @@ import Listen from "./pages/Listen";
 import Read from "./pages/Read";
 import News from "./pages/News";
 import Weather from "./pages/Weather";
+import Play from "./pages/Play";
 import StubPage from "./pages/StubPage";
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
         <Route path="/read" element={<Read />} />
         <Route path="/news" element={<News />} />
         <Route path="/weather" element={<Weather />} />
-        <Route path="/play" element={<StubPage title="Play" note="Web & HTML5 games" />} />
+        <Route path="/play" element={<Play />} />
         <Route path="/destinations" element={<StubPage title="Destinations" note="Featured destination guides" />} />
         <Route path="/travel" element={<StubPage title="Travel" note="Trip inspiration & guides" />} />
         <Route path="/shop" element={<StubPage title="Shop" note="Duty-free & in-flight shopping" />} />

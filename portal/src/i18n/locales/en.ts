@@ -196,6 +196,23 @@ export const en = {
       kids: "Kids",
     },
   },
+  play: {
+    featured: "Featured",
+    playGame: "Play",
+    all: "All",
+    developer: "Developer",
+    players: "Players",
+    controls: "Controls",
+    category: "Category",
+    rows: {
+      arcade: "Arcade",
+      puzzle: "Puzzle & Word",
+      racing: "Racing",
+      strategy: "Strategy",
+      card: "Card & Casino",
+      kids: "Kids",
+    },
+  },
   news: {
     categories: {
       all: "All",
