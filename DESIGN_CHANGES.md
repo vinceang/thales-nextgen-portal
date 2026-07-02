@@ -575,3 +575,16 @@ Each entry is logged as it happens, in this format:
 **Now:** `filter: blur(16px) saturate(1.4) brightness(0.6);` — a tighter, less diffuse aura behind the cover art.
 **Why:** Designer asked to set the media hero background blur to 16px. (Blur amount is a hard-coded literal, not a token; flagged since it edits a DS component's CSS. PROPOSED RULE CHANGE: add a blur token scale upstream so the hero aura reads `var(--blur-hero)` instead of a literal.)
 
+---
+
+### 2026-07-02 TMDB build-time snapshot for Watch (real catalogue) — new build tooling
+**Rule/token changed:** App architecture / build tooling; no DS change. Fulfils the ADR-0001 content seam for Watch with real data.
+**Was:** `content/watch.ts` returned an invented placeholder catalogue (Unsplash art, fictional titles).
+**Now:** Watch data comes from a **build-time TMDB snapshot** committed into the app — no runtime key, no backend, seam stays synchronous:
+- `scripts/tmdb-snapshot.mjs` — reads a TMDB v4 Read Access Token from `portal/.env.local` (git-ignored; **never bundled/shipped**), fetches trending + now-playing + 5 genre rows, maps each movie (via `/movie/{id}?append_to_response=credits,release_dates`) to the existing `WatchMovie` shape, and writes `src/content/data/watch.json` (committed). Images use TMDB's public CDN (`image.tmdb.org/t/p/…`) — no key at runtime.
+- `content/watch.ts` now reads that JSON and **falls back** to the placeholder catalogue when the snapshot is empty (so the app always builds with no token/network). Row/hero *chrome* (labels, kickers, CTAs) stays localized via `t()`; the snapshot holds data only.
+- **Refresh trigger:** guarded pre-commit hook (`.githooks/pre-commit`, wired via `core.hooksPath` + a `prepare` script) regenerates only when the snapshot is stale (>48h), `git add`s it, and is **fail-open** (missing token / offline / TMDB error → warn, never block the commit). Manual refresh: `npm run snapshot:tmdb`.
+- `.gitignore` now ignores `.env*` (was only `*.local`); `.env.example` documents the token; `tsconfig.app.json` gains `resolveJsonModule`.
+- **Scope:** TMDB is movies/TV only → **Watch** is real; **Listen/Read stay on placeholders** (would need a music / books source later).
+**Why:** Designer asked to hook up TMDB for real assets. Chosen approach (build-time snapshot, committed JSON, manual/48h-guarded refresh) keeps the key off the client and out of Vercel entirely, keeps the build offline/deterministic, and mirrors the "content cached on the aircraft" model of a real in-flight portal. First real snapshot: 7 rows / 61 movies; poster/backdrop/profile URLs verified 200.
+

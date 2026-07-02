@@ -1,0 +1,12 @@
+#!/bin/sh
+# Pre-commit: refresh the TMDB Watch snapshot only when it's stale (>48h).
+#
+# Guarded + fail-open by design: if the snapshot is fresh it skips instantly (no
+# network); if the token is missing or TMDB is unreachable it warns and lets the
+# commit proceed. It never blocks a commit over external data. Shared/versioned
+# via core.hooksPath=.githooks (set by `npm run prepare` in portal/).
+root="$(git rev-parse --show-toplevel)"
+cd "$root/portal" 2>/dev/null || exit 0
+[ -f scripts/tmdb-snapshot.mjs ] || exit 0
+node scripts/tmdb-snapshot.mjs --if-stale --stage --max-age-hours 48 || true
+exit 0
