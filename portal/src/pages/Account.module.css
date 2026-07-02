@@ -1,7 +1,8 @@
 /* Account / Settings — centered settings surface (comp 03). Tabs span the page
    width; the form column is capped at 880px. All values are tokens. */
 .page {
-  max-width: 1200px;
+  /* Settings forms read better in a comfortable column than at full width. */
+  max-width: 920px;
   margin: 0 auto;
   padding: var(--space-md) var(--space-lg) var(--space-2xl);
 }
