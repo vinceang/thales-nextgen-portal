@@ -9,6 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "snapshot:tmdb": "node scripts/tmdb-snapshot.mjs",
+    "snapshot:deezer": "node scripts/deezer-snapshot.mjs",
+    "snapshot": "npm run snapshot:tmdb && npm run snapshot:deezer",
     "prepare": "git -C .. config core.hooksPath .githooks || true"
   },
   "dependencies": {

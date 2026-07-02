@@ -1,0 +1,5846 @@
+{
+  "generatedAt": "2026-07-02T20:39:42.257Z",
+  "source": "Deezer",
+  "hero": {
+    "slides": [
+      {
+        "id": "lh-1014049891",
+        "cover": "https://cdn-images.dzcdn.net/images/cover/b4ee0dc871ae59bef5e06cb1a0c7ce15/1000x1000-000000-80-0-0.jpg",
+        "title": "V8",
+        "artist": "THE 8"
+      },
+      {
+        "id": "lh-941826421",
+        "cover": "https://cdn-images.dzcdn.net/images/cover/15f362eec97e06eacddfb61b404a3fdb/1000x1000-000000-80-0-0.jpg",
+        "title": "The Wow! Signal",
+        "artist": "Muse"
+      },
+      {
+        "id": "lh-315928777",
+        "cover": "https://cdn-images.dzcdn.net/images/cover/1d3d8b593468d30cb2f2f03da8d82fda/1000x1000-000000-80-0-0.jpg",
+        "title": "WE",
+        "artist": "Arcade Fire"
+      }
+    ]
+  },
+  "rows": [
+    {
+      "key": "newReleases",
+      "items": [
+        {
+          "id": "1005303131",
+          "title": "BLISS",
+          "artist": "Mairo",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/7c3a41327bdf54985e84c3b64fa3213e/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Monde Libre & Dissonance",
+          "length": "20 min",
+          "score": 78,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4086065451",
+              "title": "LOUP D'MER",
+              "duration": "1:47"
+            },
+            {
+              "id": "4086065461",
+              "title": "PARC DES SOURDS",
+              "duration": "1:57"
+            },
+            {
+              "id": "4086065471",
+              "title": "HAGOS",
+              "duration": "2:15"
+            },
+            {
+              "id": "4086065481",
+              "title": "SATO",
+              "duration": "2:35"
+            },
+            {
+              "id": "4086065491",
+              "title": "ANTIOXYDANT",
+              "duration": "2:02"
+            },
+            {
+              "id": "4086065501",
+              "title": "TOUR D'IVOIRE",
+              "duration": "2:36"
+            },
+            {
+              "id": "4086065511",
+              "title": "ALBA BISTRO FREESTYLE",
+              "duration": "2:09"
+            },
+            {
+              "id": "4086065521",
+              "title": "ERA",
+              "duration": "2:02"
+            },
+            {
+              "id": "4086065531",
+              "title": "SECOND SOUFFLE",
+              "duration": "2:17"
+            }
+          ]
+        },
+        {
+          "id": "1014049891",
+          "title": "V8",
+          "artist": "THE 8",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/b4ee0dc871ae59bef5e06cb1a0c7ce15/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Asian Music",
+          "label": "PLEDIS Entertainment",
+          "length": "22 min",
+          "score": 73,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4112800811",
+              "title": "Friend",
+              "duration": "3:00"
+            },
+            {
+              "id": "4112800851",
+              "title": "BEAT",
+              "duration": "2:35"
+            },
+            {
+              "id": "4112800881",
+              "title": "singasong",
+              "duration": "3:07"
+            },
+            {
+              "id": "4112800901",
+              "title": "mia",
+              "duration": "2:52"
+            },
+            {
+              "id": "4112800931",
+              "title": "coloring",
+              "duration": "3:18"
+            },
+            {
+              "id": "4112800961",
+              "title": "girlsnboys",
+              "duration": "2:39"
+            },
+            {
+              "id": "4112800991",
+              "title": "8DM",
+              "duration": "2:28"
+            },
+            {
+              "id": "4112801021",
+              "title": "rat race",
+              "duration": "2:19"
+            }
+          ]
+        },
+        {
+          "id": "1011421741",
+          "title": "NOCTURNO",
+          "artist": "Eslabon Armado",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/f5869553c6c7d5f1532c42b3833991b0/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Traditional Mexicano",
+          "label": "Armado Records",
+          "length": "55 min",
+          "score": 73,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4104302371",
+              "title": "OJOS DE DIABLA",
+              "duration": "3:11"
+            },
+            {
+              "id": "4104302401",
+              "title": "AMIGOS CON DERECHOS",
+              "duration": "2:48"
+            },
+            {
+              "id": "4104302421",
+              "title": "CORTA VENAS",
+              "duration": "4:35"
+            },
+            {
+              "id": "4104302441",
+              "title": "K",
+              "duration": "3:42"
+            },
+            {
+              "id": "4104302471",
+              "title": "BÉSAME",
+              "duration": "3:30"
+            },
+            {
+              "id": "4104302501",
+              "title": "MORIR TRES VECES",
+              "duration": "3:28"
+            },
+            {
+              "id": "4104302531",
+              "title": "CHULA",
+              "duration": "3:28"
+            },
+            {
+              "id": "4104302561",
+              "title": "ASI LO QUISO DIOS 2",
+              "duration": "3:13"
+            },
+            {
+              "id": "4104302591",
+              "title": "X TI",
+              "duration": "3:14"
+            },
+            {
+              "id": "4104302631",
+              "title": "CARMEN",
+              "duration": "3:09"
+            },
+            {
+              "id": "4104302661",
+              "title": "CON LICOR",
+              "duration": "3:49"
+            },
+            {
+              "id": "4104302671",
+              "title": "SAFAERA",
+              "duration": "3:08"
+            },
+            {
+              "id": "4104302691",
+              "title": "OJITOS PERSAS",
+              "duration": "4:10"
+            },
+            {
+              "id": "4104302701",
+              "title": "NUNCA EH LLORADO",
+              "duration": "3:35"
+            },
+            {
+              "id": "4104302711",
+              "title": "SIEMPRE SIEMPRE",
+              "duration": "3:25"
+            },
+            {
+              "id": "4104302721",
+              "title": "QUE NO SE APAGUE",
+              "duration": "2:57"
+            }
+          ]
+        },
+        {
+          "id": "1009317931",
+          "title": "Just The Punk Stuff",
+          "artist": "The Offspring",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/bf6ab76af02e8a110458641b09db8936/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rock",
+          "label": "UME - Global Clearing House",
+          "length": "54 min",
+          "score": 77,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4098080911",
+              "title": "All I Want",
+              "duration": "1:55"
+            },
+            {
+              "id": "4098080921",
+              "title": "Come Out Swinging",
+              "duration": "2:47"
+            },
+            {
+              "id": "4098080931",
+              "title": "No Brakes",
+              "duration": "2:04"
+            },
+            {
+              "id": "4098080941",
+              "title": "Elders",
+              "duration": "2:11"
+            },
+            {
+              "id": "4098080951",
+              "title": "The Meaning Of Life",
+              "duration": "2:57"
+            },
+            {
+              "id": "4098080961",
+              "title": "Light It Up",
+              "duration": "2:52"
+            },
+            {
+              "id": "4098080971",
+              "title": "Blackball",
+              "duration": "3:24"
+            },
+            {
+              "id": "4098080981",
+              "title": "Mota",
+              "duration": "2:57"
+            },
+            {
+              "id": "4098080991",
+              "title": "Da Hui",
+              "duration": "1:42"
+            },
+            {
+              "id": "4098081001",
+              "title": "Dirty Magic",
+              "duration": "4:00"
+            },
+            {
+              "id": "4098081011",
+              "title": "Gone Away (1997)",
+              "duration": "4:29"
+            },
+            {
+              "id": "4098081021",
+              "title": "Long Way Home",
+              "duration": "2:23"
+            },
+            {
+              "id": "4098081031",
+              "title": "All Along",
+              "duration": "1:38"
+            },
+            {
+              "id": "4098081041",
+              "title": "Beheaded",
+              "duration": "2:52"
+            },
+            {
+              "id": "4098081051",
+              "title": "Conspiracy Of One",
+              "duration": "2:17"
+            },
+            {
+              "id": "4098081061",
+              "title": "Cool To Hate",
+              "duration": "2:47"
+            },
+            {
+              "id": "4098081081",
+              "title": "Hassan Chop",
+              "duration": "2:20"
+            },
+            {
+              "id": "4098081101",
+              "title": "Jennifer Lost The War",
+              "duration": "2:35"
+            },
+            {
+              "id": "4098081121",
+              "title": "Never Gonna Find Me",
+              "duration": "2:38"
+            },
+            {
+              "id": "4098081141",
+              "title": "The End Of The Line",
+              "duration": "3:02"
+            }
+          ]
+        },
+        {
+          "id": "958933391",
+          "title": "Banks Of The Trinity",
+          "artist": "Cody Johnson",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/84a5a5efcb2544418ff704da80e1cc0f/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Country",
+          "label": "CoJo Music/Warner Records Nashville",
+          "length": "52 min",
+          "score": 72,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3954011351",
+              "title": "Horseback",
+              "duration": "2:48"
+            },
+            {
+              "id": "3954011361",
+              "title": "Hello Lonesome",
+              "duration": "2:58"
+            },
+            {
+              "id": "3954011371",
+              "title": "Fool Proof",
+              "duration": "2:36"
+            },
+            {
+              "id": "3954011381",
+              "title": "Take Me Back (Leave Me There)",
+              "duration": "2:58"
+            },
+            {
+              "id": "3954011391",
+              "title": "Banks Of The Trinity",
+              "duration": "2:58"
+            },
+            {
+              "id": "3954011401",
+              "title": "I Want You",
+              "duration": "3:10"
+            },
+            {
+              "id": "3954011411",
+              "title": "I Have",
+              "duration": "3:40"
+            },
+            {
+              "id": "3954011421",
+              "title": "Bible For A Boy (For Jaycee)",
+              "duration": "3:06"
+            },
+            {
+              "id": "3954011431",
+              "title": "Kissing A Married Woman",
+              "duration": "3:27"
+            },
+            {
+              "id": "3954011441",
+              "title": "Every Man",
+              "duration": "3:18"
+            },
+            {
+              "id": "3954011451",
+              "title": "Motel Miss You",
+              "duration": "2:52"
+            },
+            {
+              "id": "3954011461",
+              "title": "Shoot The Bull",
+              "duration": "3:04"
+            },
+            {
+              "id": "3954011471",
+              "title": "Cricket On A Hook",
+              "duration": "3:23"
+            },
+            {
+              "id": "3954011481",
+              "title": "Time Bomb",
+              "duration": "4:05"
+            },
+            {
+              "id": "3954011491",
+              "title": "Thank Somebody Country",
+              "duration": "3:45"
+            },
+            {
+              "id": "3954011501",
+              "title": "Yippy Ty Oh Hey Hey",
+              "duration": "3:48"
+            }
+          ]
+        },
+        {
+          "id": "1001866341",
+          "title": "Harmony",
+          "artist": "Brutalismus 3000",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/65517a3706115a8054f44cccdb3e6eda/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Electro",
+          "label": "Columbia Local",
+          "length": "36 min",
+          "score": 73,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4076099651",
+              "title": "No Friends In The Company",
+              "duration": "2:25"
+            },
+            {
+              "id": "4076099661",
+              "title": "Garland",
+              "duration": "2:58"
+            },
+            {
+              "id": "4076099671",
+              "title": "A Milli",
+              "duration": "2:27"
+            },
+            {
+              "id": "4076099681",
+              "title": "Mother Bug",
+              "duration": "2:42"
+            },
+            {
+              "id": "4076099691",
+              "title": "I Bring My Gun To The Function (with Boys Noize)",
+              "duration": "3:10"
+            },
+            {
+              "id": "4076099701",
+              "title": "Kairo",
+              "duration": "3:35"
+            },
+            {
+              "id": "4076099711",
+              "title": "Morning Is For The Happy (with Anya Taylor-Joy)",
+              "duration": "1:17"
+            },
+            {
+              "id": "4076099721",
+              "title": "You Were Never Really Here But I Miss Ya",
+              "duration": "2:24"
+            },
+            {
+              "id": "4076099731",
+              "title": "Friends At The Pigshed (with Underworld)",
+              "duration": "3:57"
+            },
+            {
+              "id": "4076099741",
+              "title": "Gore Louvre",
+              "duration": "3:00"
+            },
+            {
+              "id": "4076099751",
+              "title": "Leonard Cohen",
+              "duration": "3:06"
+            },
+            {
+              "id": "4076099761",
+              "title": "Testo Skin Part 1",
+              "duration": "2:49"
+            },
+            {
+              "id": "4076099771",
+              "title": "Testo Skin Part 2",
+              "duration": "2:35"
+            }
+          ]
+        },
+        {
+          "id": "956370211",
+          "title": "Your Day Will Come",
+          "artist": "Chanel Beads",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/487c67fbfc5a54c580e6e5e5f36dba25/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Alternative",
+          "label": "Jagjaguwar",
+          "length": "43 min",
+          "score": 72,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3947078071",
+              "title": "Drums Only",
+              "duration": "4:32"
+            },
+            {
+              "id": "3947078081",
+              "title": "Song for the Messenger",
+              "duration": "3:03"
+            },
+            {
+              "id": "3947078091",
+              "title": "The Coward Forgets His Nightmare",
+              "duration": "3:33"
+            },
+            {
+              "id": "3947078101",
+              "title": "Profane Break",
+              "duration": "2:13"
+            },
+            {
+              "id": "3947078111",
+              "title": "JBL in the Fireplace",
+              "duration": "3:21"
+            },
+            {
+              "id": "3947078121",
+              "title": "Tyler Richard",
+              "duration": "3:01"
+            },
+            {
+              "id": "3947078131",
+              "title": "Outside Your Life",
+              "duration": "4:41"
+            },
+            {
+              "id": "3947078141",
+              "title": "Dust in the Wind",
+              "duration": "2:50"
+            },
+            {
+              "id": "3947078151",
+              "title": "Silver Cup",
+              "duration": "2:20"
+            },
+            {
+              "id": "3947078161",
+              "title": "Opening in the Gate",
+              "duration": "2:09"
+            },
+            {
+              "id": "3947078171",
+              "title": "Spirit Showing",
+              "duration": "2:23"
+            },
+            {
+              "id": "3947078181",
+              "title": "Drunk Stupid in the Structure",
+              "duration": "2:30"
+            },
+            {
+              "id": "3947078191",
+              "title": "Boss",
+              "duration": "3:07"
+            },
+            {
+              "id": "3947078201",
+              "title": "Beaten With Sticks",
+              "duration": "2:49"
+            }
+          ]
+        },
+        {
+          "id": "955618831",
+          "title": "CRASH!",
+          "artist": "RAT BOY",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/af4b82cc034f349cba28b76e75457b19/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Alternative",
+          "label": "Hellcat/Epitaph",
+          "length": "41 min",
+          "score": 68,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3945130311",
+              "title": "BROKEN",
+              "duration": "1:47"
+            },
+            {
+              "id": "3945130321",
+              "title": "HIGH LIFE",
+              "duration": "2:11"
+            },
+            {
+              "id": "3945130331",
+              "title": "AWAY DAYS",
+              "duration": "1:33"
+            },
+            {
+              "id": "3945130341",
+              "title": "BASEBALL BAT",
+              "duration": "2:24"
+            },
+            {
+              "id": "3945130351",
+              "title": "GUN TO MY HEAD",
+              "duration": "3:00"
+            },
+            {
+              "id": "3945130361",
+              "title": "SICK OF IT",
+              "duration": "3:11"
+            },
+            {
+              "id": "3945130371",
+              "title": "CITY BOYS",
+              "duration": "1:41"
+            },
+            {
+              "id": "3945130381",
+              "title": "PUBLIC WARNING",
+              "duration": "2:21"
+            },
+            {
+              "id": "3945130391",
+              "title": "THE RIVER",
+              "duration": "2:47"
+            },
+            {
+              "id": "3945130401",
+              "title": "SKELETONS",
+              "duration": "2:12"
+            },
+            {
+              "id": "3945130411",
+              "title": "NIGHT BUS",
+              "duration": "0:58"
+            },
+            {
+              "id": "3945130421",
+              "title": "BLIND",
+              "duration": "2:12"
+            },
+            {
+              "id": "3945130431",
+              "title": "MAKE ME STAY",
+              "duration": "2:43"
+            },
+            {
+              "id": "3945130441",
+              "title": "S.O.S",
+              "duration": "2:03"
+            },
+            {
+              "id": "3945130451",
+              "title": "DEAD END",
+              "duration": "2:07"
+            },
+            {
+              "id": "3945130461",
+              "title": "ARRESTED DEVELOPMENT",
+              "duration": "2:51"
+            },
+            {
+              "id": "3945130471",
+              "title": "REASON",
+              "duration": "2:27"
+            },
+            {
+              "id": "3945130481",
+              "title": "NO STARS",
+              "duration": "2:42"
+            }
+          ]
+        },
+        {
+          "id": "941826421",
+          "title": "The Wow! Signal",
+          "artist": "Muse",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/15f362eec97e06eacddfb61b404a3fdb/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Alternative",
+          "label": "Warner Records",
+          "length": "45 min",
+          "score": 85,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3906424801",
+              "title": "The Dark Forest",
+              "duration": "5:15"
+            },
+            {
+              "id": "3906424811",
+              "title": "Nightshift Superstar",
+              "duration": "4:07"
+            },
+            {
+              "id": "3906424821",
+              "title": "Shimmering Scars",
+              "duration": "4:28"
+            },
+            {
+              "id": "3906424831",
+              "title": "Cryogen",
+              "duration": "5:01"
+            },
+            {
+              "id": "3906424841",
+              "title": "Be With You",
+              "duration": "3:35"
+            },
+            {
+              "id": "3906424851",
+              "title": "Hexagons",
+              "duration": "5:26"
+            },
+            {
+              "id": "3906424861",
+              "title": "The Sickness In You & I",
+              "duration": "4:17"
+            },
+            {
+              "id": "3906424871",
+              "title": "Unravelling",
+              "duration": "3:57"
+            },
+            {
+              "id": "3906424881",
+              "title": "Hush",
+              "duration": "3:55"
+            },
+            {
+              "id": "3906424891",
+              "title": "Space Debris",
+              "duration": "5:23"
+            }
+          ]
+        },
+        {
+          "id": "937845751",
+          "title": "Probable Claws",
+          "artist": "Sincere Engineer",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/8dd80065e3df16eafef573316bde8e9e/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Alternative",
+          "label": "Hopeless Records",
+          "length": "40 min",
+          "score": 66,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3895419931",
+              "title": "Twist My Tongue",
+              "duration": "4:08"
+            },
+            {
+              "id": "3895419941",
+              "title": "Cooler",
+              "duration": "3:17"
+            },
+            {
+              "id": "3895419951",
+              "title": "Pilot Light",
+              "duration": "3:31"
+            },
+            {
+              "id": "3895419961",
+              "title": "DNA",
+              "duration": "3:13"
+            },
+            {
+              "id": "3895419981",
+              "title": "LOL",
+              "duration": "3:36"
+            },
+            {
+              "id": "3895419991",
+              "title": "Fast Forward, Rewind",
+              "duration": "3:33"
+            },
+            {
+              "id": "3895420001",
+              "title": "Hallucinogenic",
+              "duration": "3:21"
+            },
+            {
+              "id": "3895420011",
+              "title": "Arborvitae Evergreen",
+              "duration": "3:10"
+            },
+            {
+              "id": "3895420021",
+              "title": "The Perfect Crime",
+              "duration": "3:06"
+            },
+            {
+              "id": "3895420031",
+              "title": "Settle Up With Your Downfall",
+              "duration": "3:38"
+            },
+            {
+              "id": "3895420041",
+              "title": "Dynamite",
+              "duration": "5:03"
+            }
+          ]
+        },
+        {
+          "id": "1009303721",
+          "title": "KILL THE KING",
+          "artist": "T.I.",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/66d2c8211fba55a8441987c62ce68c36/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Grand Hustle LLC / EMPIRE",
+          "length": "51 min",
+          "score": 69,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4098005061",
+              "title": "A KING'S THOUGHT",
+              "duration": "0:40"
+            },
+            {
+              "id": "4098005071",
+              "title": "SEE WH'AM SAYIN",
+              "duration": "2:56"
+            },
+            {
+              "id": "4098005081",
+              "title": "LET 'EM KNOW",
+              "duration": "2:55"
+            },
+            {
+              "id": "4098005091",
+              "title": "WHERE I'M FROM",
+              "duration": "3:45"
+            },
+            {
+              "id": "4098005101",
+              "title": "RANT",
+              "duration": "3:36"
+            },
+            {
+              "id": "4098005111",
+              "title": "MR HIM",
+              "duration": "2:25"
+            },
+            {
+              "id": "4098005121",
+              "title": "HOW IT WENT",
+              "duration": "3:14"
+            },
+            {
+              "id": "4098005131",
+              "title": "DOPE BOYS ACADEMY",
+              "duration": "2:56"
+            },
+            {
+              "id": "4098005141",
+              "title": "PISTOL ON THE DANCE FLOOR",
+              "duration": "2:36"
+            },
+            {
+              "id": "4098005151",
+              "title": "AND WON'T",
+              "duration": "3:14"
+            },
+            {
+              "id": "4098005161",
+              "title": "GORGEOUS",
+              "duration": "3:06"
+            },
+            {
+              "id": "4098005171",
+              "title": "WE ON",
+              "duration": "2:57"
+            },
+            {
+              "id": "4098005181",
+              "title": "LLOGCLAY",
+              "duration": "3:39"
+            },
+            {
+              "id": "4098005191",
+              "title": "EGO",
+              "duration": "1:25"
+            },
+            {
+              "id": "4098005201",
+              "title": "TRAUMA BOND",
+              "duration": "2:40"
+            },
+            {
+              "id": "4098005211",
+              "title": "REPRESENT A TIME",
+              "duration": "3:25"
+            },
+            {
+              "id": "4098005221",
+              "title": "BIG DOG",
+              "duration": "2:32"
+            },
+            {
+              "id": "4098005231",
+              "title": "CONTINENTAL",
+              "duration": "3:02"
+            }
+          ]
+        },
+        {
+          "id": "933561281",
+          "title": "Hum of Hurt",
+          "artist": "Converge",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/3da3e427bec76bdb38d20f635af8c9f4/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rock",
+          "label": "Epitaph",
+          "length": "33 min",
+          "score": 75,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3884121641",
+              "title": "Slip the Noose",
+              "duration": "1:43"
+            },
+            {
+              "id": "3884121651",
+              "title": "Doom in Bloom",
+              "duration": "3:17"
+            },
+            {
+              "id": "3884121671",
+              "title": "It Only Gets Worse",
+              "duration": "2:13"
+            },
+            {
+              "id": "3884121681",
+              "title": "Detonator",
+              "duration": "3:36"
+            },
+            {
+              "id": "3884121691",
+              "title": "I Won't Let You Go",
+              "duration": "2:56"
+            },
+            {
+              "id": "3884121701",
+              "title": "It's Not Up To Us",
+              "duration": "2:43"
+            },
+            {
+              "id": "3884121711",
+              "title": "Dream Debris",
+              "duration": "6:00"
+            },
+            {
+              "id": "3884121721",
+              "title": "It Used to Matter",
+              "duration": "2:31"
+            },
+            {
+              "id": "3884121731",
+              "title": "Hum of Hurt",
+              "duration": "3:35"
+            },
+            {
+              "id": "3884121741",
+              "title": "Nothing is Over",
+              "duration": "4:55"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "topCharts",
+      "items": [
+        {
+          "id": "1014049891",
+          "title": "V8",
+          "artist": "THE 8",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/b4ee0dc871ae59bef5e06cb1a0c7ce15/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Asian Music",
+          "label": "PLEDIS Entertainment",
+          "length": "22 min",
+          "score": 73,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4112800811",
+              "title": "Friend",
+              "duration": "3:00"
+            },
+            {
+              "id": "4112800851",
+              "title": "BEAT",
+              "duration": "2:35"
+            },
+            {
+              "id": "4112800881",
+              "title": "singasong",
+              "duration": "3:07"
+            },
+            {
+              "id": "4112800901",
+              "title": "mia",
+              "duration": "2:52"
+            },
+            {
+              "id": "4112800931",
+              "title": "coloring",
+              "duration": "3:18"
+            },
+            {
+              "id": "4112800961",
+              "title": "girlsnboys",
+              "duration": "2:39"
+            },
+            {
+              "id": "4112800991",
+              "title": "8DM",
+              "duration": "2:28"
+            },
+            {
+              "id": "4112801021",
+              "title": "rat race",
+              "duration": "2:19"
+            }
+          ]
+        },
+        {
+          "id": "941826421",
+          "title": "The Wow! Signal",
+          "artist": "Muse",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/15f362eec97e06eacddfb61b404a3fdb/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Alternative",
+          "label": "Warner Records",
+          "length": "45 min",
+          "score": 85,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3906424801",
+              "title": "The Dark Forest",
+              "duration": "5:15"
+            },
+            {
+              "id": "3906424811",
+              "title": "Nightshift Superstar",
+              "duration": "4:07"
+            },
+            {
+              "id": "3906424821",
+              "title": "Shimmering Scars",
+              "duration": "4:28"
+            },
+            {
+              "id": "3906424831",
+              "title": "Cryogen",
+              "duration": "5:01"
+            },
+            {
+              "id": "3906424841",
+              "title": "Be With You",
+              "duration": "3:35"
+            },
+            {
+              "id": "3906424851",
+              "title": "Hexagons",
+              "duration": "5:26"
+            },
+            {
+              "id": "3906424861",
+              "title": "The Sickness In You & I",
+              "duration": "4:17"
+            },
+            {
+              "id": "3906424871",
+              "title": "Unravelling",
+              "duration": "3:57"
+            },
+            {
+              "id": "3906424881",
+              "title": "Hush",
+              "duration": "3:55"
+            },
+            {
+              "id": "3906424891",
+              "title": "Space Debris",
+              "duration": "5:23"
+            }
+          ]
+        },
+        {
+          "id": "315928777",
+          "title": "WE",
+          "artist": "Arcade Fire",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/1d3d8b593468d30cb2f2f03da8d82fda/1000x1000-000000-80-0-0.jpg",
+          "year": 2022,
+          "genre": "Alternative",
+          "label": "Columbia",
+          "length": "40 min",
+          "score": 86,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1740358387",
+              "title": "Age of Anxiety I",
+              "duration": "5:27"
+            },
+            {
+              "id": "1740358397",
+              "title": "Age of Anxiety II (Rabbit Hole)",
+              "duration": "6:41"
+            },
+            {
+              "id": "1740358407",
+              "title": "Prelude",
+              "duration": "0:30"
+            },
+            {
+              "id": "1740358417",
+              "title": "End of the Empire I-III",
+              "duration": "5:23"
+            },
+            {
+              "id": "1740358427",
+              "title": "End of the Empire IV (Sagittarius A*)",
+              "duration": "3:54"
+            },
+            {
+              "id": "1740358437",
+              "title": "The Lightning I",
+              "duration": "3:01"
+            },
+            {
+              "id": "1740358447",
+              "title": "The Lightning II",
+              "duration": "2:34"
+            },
+            {
+              "id": "1740358457",
+              "title": "Unconditional I (Lookout Kid)",
+              "duration": "4:33"
+            },
+            {
+              "id": "1740358467",
+              "title": "Unconditional II (Race and Religion) (feat. Peter Gabriel)",
+              "duration": "4:20"
+            },
+            {
+              "id": "1740358477",
+              "title": "WE",
+              "duration": "3:51"
+            }
+          ]
+        },
+        {
+          "id": "1013456401",
+          "title": "DELTARUNE Chapter 5 (Original Game Soundtrack)",
+          "artist": "Toby Fox",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/d4c8f16e5b2160f6963a18fcbcc52dd6/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Films/Games",
+          "label": "Materia Collective",
+          "length": "36 min",
+          "score": 75,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4111085871",
+              "title": "Chapter 5 Logo",
+              "duration": "0:08"
+            },
+            {
+              "id": "4111085881",
+              "title": "Inappropriate Recycling",
+              "duration": "1:36"
+            },
+            {
+              "id": "4111085901",
+              "title": "Pirate Dojo",
+              "duration": "0:52"
+            },
+            {
+              "id": "4111085911",
+              "title": "4rd Sanctuary",
+              "duration": "1:19"
+            },
+            {
+              "id": "4111085931",
+              "title": "Festival",
+              "duration": "2:00"
+            },
+            {
+              "id": "4111085941",
+              "title": "Catfession...?",
+              "duration": "0:42"
+            },
+            {
+              "id": "4111085961",
+              "title": "Bratfession...?",
+              "duration": "0:42"
+            },
+            {
+              "id": "4111085971",
+              "title": "I guess I'm in love",
+              "duration": "2:57"
+            },
+            {
+              "id": "4111085991",
+              "title": "Weirder Birds",
+              "duration": "0:37"
+            },
+            {
+              "id": "4111086011",
+              "title": "Your Dad's Best Friend",
+              "duration": "0:28"
+            },
+            {
+              "id": "4111086031",
+              "title": "Garden of Hopes and Dreams",
+              "duration": "3:23"
+            },
+            {
+              "id": "4111086051",
+              "title": "Rakuichi Buster",
+              "duration": "1:49"
+            },
+            {
+              "id": "4111086061",
+              "title": "The Diner Song of Best Friends",
+              "duration": "1:25"
+            },
+            {
+              "id": "4111086081",
+              "title": "Ride the Board",
+              "duration": "0:10"
+            },
+            {
+              "id": "4111086101",
+              "title": "Quiet Glade",
+              "duration": "3:17"
+            },
+            {
+              "id": "4111086111",
+              "title": "Who might you be?",
+              "duration": "1:04"
+            },
+            {
+              "id": "4111086131",
+              "title": "Petal Dance",
+              "duration": "1:32"
+            },
+            {
+              "id": "4111086151",
+              "title": "Flying Feather",
+              "duration": "0:27"
+            },
+            {
+              "id": "4111086171",
+              "title": "Sunset of Seven Suns",
+              "duration": "1:36"
+            },
+            {
+              "id": "4111086181",
+              "title": "Shop 3",
+              "duration": "1:15"
+            },
+            {
+              "id": "4111086201",
+              "title": "Violet Tactics",
+              "duration": "1:05"
+            },
+            {
+              "id": "4111086211",
+              "title": "Flower King",
+              "duration": "0:40"
+            },
+            {
+              "id": "4111086221",
+              "title": "Flower Foyer",
+              "duration": "0:55"
+            },
+            {
+              "id": "4111086231",
+              "title": "Flower Castle",
+              "duration": "4:30"
+            },
+            {
+              "id": "4111086241",
+              "title": "Thousand Cafe Zukan",
+              "duration": "1:29"
+            }
+          ]
+        },
+        {
+          "id": "925811491",
+          "title": "After The Astronaut",
+          "artist": "Butthole Surfers",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/4faea8ad6f06092b1f0326db4df9f601/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Alternative",
+          "label": "Sunset Blvd Records",
+          "length": "46 min",
+          "score": 70,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3863046041",
+              "title": "Weird Revolution",
+              "duration": "4:04"
+            },
+            {
+              "id": "3863046051",
+              "title": "Intelligent Guy (Astronaut Version)",
+              "duration": "3:16"
+            },
+            {
+              "id": "3863046061",
+              "title": "Jet Fighter",
+              "duration": "2:43"
+            },
+            {
+              "id": "3863046071",
+              "title": "Mexico",
+              "duration": "3:51"
+            },
+            {
+              "id": "3863046081",
+              "title": "Imbuya",
+              "duration": "2:56"
+            },
+            {
+              "id": "3863046091",
+              "title": "Venus",
+              "duration": "3:53"
+            },
+            {
+              "id": "3863046101",
+              "title": "The Last Astronaut",
+              "duration": "4:38"
+            },
+            {
+              "id": "3863046111",
+              "title": "Yentel",
+              "duration": "3:22"
+            },
+            {
+              "id": "3863046121",
+              "title": "Junkie Jenny in Gaytown",
+              "duration": "4:23"
+            },
+            {
+              "id": "3863046131",
+              "title": "They Came In",
+              "duration": "5:04"
+            },
+            {
+              "id": "3863046141",
+              "title": "I Don't Have A Problem",
+              "duration": "5:01"
+            },
+            {
+              "id": "3863046151",
+              "title": "Turkey and Dressing",
+              "duration": "2:43"
+            }
+          ]
+        },
+        {
+          "id": "105611632",
+          "title": "Lateralus",
+          "artist": "TOOL",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/1645f3b192206dc412353b06491290d4/1000x1000-000000-80-0-0.jpg",
+          "year": 2001,
+          "genre": "Rock",
+          "label": "RCA Records Label",
+          "length": "79 min",
+          "score": 88,
+          "about": "",
+          "tracks": [
+            {
+              "id": "722078492",
+              "title": "The Grudge",
+              "duration": "8:36"
+            },
+            {
+              "id": "722078502",
+              "title": "Eon Blue Apocalypse",
+              "duration": "1:04"
+            },
+            {
+              "id": "722078512",
+              "title": "The Patient",
+              "duration": "7:13"
+            },
+            {
+              "id": "722078522",
+              "title": "Mantra",
+              "duration": "1:12"
+            },
+            {
+              "id": "722078532",
+              "title": "Schism",
+              "duration": "6:47"
+            },
+            {
+              "id": "722078542",
+              "title": "Parabol",
+              "duration": "3:04"
+            },
+            {
+              "id": "722078552",
+              "title": "Parabola",
+              "duration": "6:03"
+            },
+            {
+              "id": "722078562",
+              "title": "Ticks & Leeches",
+              "duration": "8:10"
+            },
+            {
+              "id": "722078572",
+              "title": "Lateralus",
+              "duration": "9:24"
+            },
+            {
+              "id": "722078582",
+              "title": "Disposition",
+              "duration": "4:46"
+            },
+            {
+              "id": "722078592",
+              "title": "Reflection",
+              "duration": "11:07"
+            },
+            {
+              "id": "722078602",
+              "title": "Triad",
+              "duration": "8:46"
+            },
+            {
+              "id": "722078612",
+              "title": "Faaip De Oiad",
+              "duration": "2:39"
+            }
+          ]
+        },
+        {
+          "id": "978162551",
+          "title": "Devil May Cry: Season 2 (Soundtrack from the Netflix Series)",
+          "artist": "Power Glove",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/ae10b2776bacd0cc8cf1cfcc4ff2e339/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rock",
+          "label": "Netflix Music",
+          "length": "74 min",
+          "score": 77,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4008577201",
+              "title": "See U in Hell (from the Netflix Series \"Devil May Cry\")",
+              "duration": "4:04"
+            },
+            {
+              "id": "4008577211",
+              "title": "Bazooka",
+              "duration": "4:30"
+            },
+            {
+              "id": "4008577221",
+              "title": "Getting Away with Murder (2020) (Power Glove Remix)",
+              "duration": "5:43"
+            },
+            {
+              "id": "4008577231",
+              "title": "Cold Steel",
+              "duration": "1:35"
+            },
+            {
+              "id": "4008577241",
+              "title": "Suffocating Misery",
+              "duration": "2:39"
+            },
+            {
+              "id": "4008577251",
+              "title": "Meet Me in the Afterlife (Power Glove Remix)",
+              "duration": "3:33"
+            },
+            {
+              "id": "4008577261",
+              "title": "Shall Never Surrender",
+              "duration": "2:58"
+            },
+            {
+              "id": "4008577271",
+              "title": "Jackpot (Titles)",
+              "duration": "0:27"
+            },
+            {
+              "id": "4008577281",
+              "title": "Yamato (Echoes of the Blade)",
+              "duration": "1:46"
+            },
+            {
+              "id": "4008577291",
+              "title": "The Fallen",
+              "duration": "2:56"
+            },
+            {
+              "id": "4008577301",
+              "title": "Into the Fire",
+              "duration": "2:15"
+            },
+            {
+              "id": "4008577311",
+              "title": "Code Red",
+              "duration": "3:24"
+            },
+            {
+              "id": "4008577321",
+              "title": "Bury The Light (Power Glove DC Showdown Remix)",
+              "duration": "7:44"
+            },
+            {
+              "id": "4008577331",
+              "title": "Fallen Hero",
+              "duration": "2:59"
+            },
+            {
+              "id": "4008577351",
+              "title": "Mundus",
+              "duration": "3:10"
+            },
+            {
+              "id": "4008577361",
+              "title": "Arius",
+              "duration": "3:11"
+            },
+            {
+              "id": "4008577371",
+              "title": "Weakness Dies Screaming",
+              "duration": "2:45"
+            },
+            {
+              "id": "4008577381",
+              "title": "Cheap Tricks",
+              "duration": "2:50"
+            },
+            {
+              "id": "4008577391",
+              "title": "Arius in the Darkness",
+              "duration": "2:32"
+            },
+            {
+              "id": "4008577401",
+              "title": "From Fire and Chaos",
+              "duration": "1:45"
+            },
+            {
+              "id": "4008577411",
+              "title": "Traitor",
+              "duration": "3:29"
+            },
+            {
+              "id": "4008577421",
+              "title": "Chi",
+              "duration": "1:38"
+            },
+            {
+              "id": "4008577431",
+              "title": "Gunplay",
+              "duration": "1:39"
+            },
+            {
+              "id": "4008577441",
+              "title": "Dim The Lights (Power Glove Remix)",
+              "duration": "2:34"
+            },
+            {
+              "id": "4008577451",
+              "title": "Dominion",
+              "duration": "2:02"
+            }
+          ]
+        },
+        {
+          "id": "73123",
+          "title": "Mezmerize",
+          "artist": "System of A Down",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/4954f43cc6033ddfa0fa3ee5514a26ca/1000x1000-000000-80-0-0.jpg",
+          "year": 2005,
+          "genre": "Rock",
+          "label": "American/Columbia",
+          "length": "36 min",
+          "score": 92,
+          "about": "",
+          "tracks": [
+            {
+              "id": "559787",
+              "title": "Soldier Side - Intro",
+              "duration": "1:04"
+            },
+            {
+              "id": "559789",
+              "title": "B.Y.O.B.",
+              "duration": "4:17"
+            },
+            {
+              "id": "559790",
+              "title": "Revenga",
+              "duration": "3:48"
+            },
+            {
+              "id": "559788",
+              "title": "Cigaro",
+              "duration": "2:13"
+            },
+            {
+              "id": "559728",
+              "title": "Radio/Video",
+              "duration": "4:09"
+            },
+            {
+              "id": "559724",
+              "title": "This Cocaine Makes Me Feel Like I'm On This Song",
+              "duration": "2:08"
+            },
+            {
+              "id": "559725",
+              "title": "Violent Pornography",
+              "duration": "3:31"
+            },
+            {
+              "id": "559727",
+              "title": "Question!",
+              "duration": "3:21"
+            },
+            {
+              "id": "559729",
+              "title": "Sad Statue",
+              "duration": "3:26"
+            },
+            {
+              "id": "559726",
+              "title": "Old School Hollywood",
+              "duration": "2:57"
+            },
+            {
+              "id": "559730",
+              "title": "Lost In Hollywood",
+              "duration": "5:21"
+            }
+          ]
+        },
+        {
+          "id": "1434890",
+          "title": "Toxicity",
+          "artist": "System of A Down",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/6baa3ad626e859f67bbddae6528fd949/1000x1000-000000-80-0-0.jpg",
+          "year": 2001,
+          "genre": "Rock",
+          "label": "American/Columbia",
+          "length": "44 min",
+          "score": 92,
+          "about": "",
+          "tracks": [
+            {
+              "id": "15523769",
+              "title": "Prison Song",
+              "duration": "3:21"
+            },
+            {
+              "id": "15523770",
+              "title": "Needles",
+              "duration": "3:13"
+            },
+            {
+              "id": "15523772",
+              "title": "Deer Dance",
+              "duration": "2:54"
+            },
+            {
+              "id": "15523775",
+              "title": "Jet Pilot",
+              "duration": "2:06"
+            },
+            {
+              "id": "15523778",
+              "title": "X",
+              "duration": "1:58"
+            },
+            {
+              "id": "15523781",
+              "title": "Chop Suey!",
+              "duration": "3:30"
+            },
+            {
+              "id": "15523784",
+              "title": "Bounce",
+              "duration": "1:54"
+            },
+            {
+              "id": "15523788",
+              "title": "Forest",
+              "duration": "4:00"
+            },
+            {
+              "id": "15523790",
+              "title": "ATWA",
+              "duration": "2:56"
+            },
+            {
+              "id": "15523791",
+              "title": "Science",
+              "duration": "2:42"
+            },
+            {
+              "id": "15523792",
+              "title": "Shimmy",
+              "duration": "1:50"
+            },
+            {
+              "id": "15523793",
+              "title": "Toxicity",
+              "duration": "3:38"
+            },
+            {
+              "id": "15523796",
+              "title": "Psycho",
+              "duration": "3:45"
+            },
+            {
+              "id": "15523799",
+              "title": "Aerials",
+              "duration": "3:57"
+            },
+            {
+              "id": "15523803",
+              "title": "Arto",
+              "duration": "2:13"
+            }
+          ]
+        },
+        {
+          "id": "1017155181",
+          "title": "Return to the Return (of the Spectrum of Intergalactic Happiness)",
+          "artist": "Zeds Dead",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/5e46b5bef7723fa9504857f27abff687/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Electro",
+          "label": "Deadbeats",
+          "length": "43 min",
+          "score": 67,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4121697531",
+              "title": "The Return",
+              "duration": "1:48"
+            },
+            {
+              "id": "4121697541",
+              "title": "In Your Head",
+              "duration": "3:22"
+            },
+            {
+              "id": "4121697551",
+              "title": "Angel 2",
+              "duration": "3:37"
+            },
+            {
+              "id": "4121697561",
+              "title": "Transmission 39-6655",
+              "duration": "1:18"
+            },
+            {
+              "id": "4121697571",
+              "title": "Pourin Rain",
+              "duration": "4:00"
+            },
+            {
+              "id": "4121697581",
+              "title": "Living Room",
+              "duration": "5:16"
+            },
+            {
+              "id": "4121697591",
+              "title": "Sting",
+              "duration": "3:47"
+            },
+            {
+              "id": "4121697601",
+              "title": "Out of Time",
+              "duration": "3:18"
+            },
+            {
+              "id": "4121697611",
+              "title": "Heartbeat Interlude",
+              "duration": "1:56"
+            },
+            {
+              "id": "4121697621",
+              "title": "Fallin Down",
+              "duration": "2:26"
+            },
+            {
+              "id": "4121697631",
+              "title": "Change of the Moon",
+              "duration": "4:29"
+            },
+            {
+              "id": "4121697641",
+              "title": "Portal",
+              "duration": "1:46"
+            },
+            {
+              "id": "4121697651",
+              "title": "Transmission 105-2052",
+              "duration": "2:40"
+            },
+            {
+              "id": "4121697661",
+              "title": "Fly Around The World",
+              "duration": "3:35"
+            }
+          ]
+        },
+        {
+          "id": "6861104",
+          "title": "Combat Rock (Remastered)",
+          "artist": "The Clash",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/dcb57e195538467662fbce4492f89c20/1000x1000-000000-80-0-0.jpg",
+          "year": 1982,
+          "genre": "Alternative",
+          "label": "Sony Music UK",
+          "length": "46 min",
+          "score": 88,
+          "about": "",
+          "tracks": [
+            {
+              "id": "69962762",
+              "title": "Know Your Rights (Remastered)",
+              "duration": "3:40"
+            },
+            {
+              "id": "69962763",
+              "title": "Car Jamming (Remastered)",
+              "duration": "4:00"
+            },
+            {
+              "id": "69962764",
+              "title": "Should I Stay or Should I Go (Remastered)",
+              "duration": "3:06"
+            },
+            {
+              "id": "69962765",
+              "title": "Rock the Casbah (Remastered)",
+              "duration": "3:43"
+            },
+            {
+              "id": "69962766",
+              "title": "Red Angel Dragnet (Remastered)",
+              "duration": "3:45"
+            },
+            {
+              "id": "69962767",
+              "title": "Straight to Hell (Remastered)",
+              "duration": "5:30"
+            },
+            {
+              "id": "69962768",
+              "title": "Overpowered by Funk (Remastered)",
+              "duration": "4:52"
+            },
+            {
+              "id": "69962769",
+              "title": "Atom Tan (Remastered)",
+              "duration": "2:30"
+            },
+            {
+              "id": "69962770",
+              "title": "Sean Flynn (Remastered)",
+              "duration": "4:31"
+            },
+            {
+              "id": "69962771",
+              "title": "Ghetto Defendant (Remastered)",
+              "duration": "4:44"
+            },
+            {
+              "id": "69962772",
+              "title": "Inoculated City (Remastered)",
+              "duration": "2:42"
+            },
+            {
+              "id": "69962773",
+              "title": "Death is a Star (Remastered)",
+              "duration": "3:11"
+            }
+          ]
+        },
+        {
+          "id": "66211722",
+          "title": "Monofonicorama Best-Off 2005-1992",
+          "artist": "Pascal Comelade",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/fe48a25d2eba514fd96c5c3472cd7bc4/1000x1000-000000-80-0-0.jpg",
+          "year": 2007,
+          "genre": "Alternative",
+          "label": "Pascal Comelade",
+          "length": "64 min",
+          "score": 68,
+          "about": "",
+          "tracks": [
+            {
+              "id": "515859892",
+              "title": "Pim Pam Poum Al Concepte",
+              "duration": "2:33"
+            },
+            {
+              "id": "515859902",
+              "title": "The Blank Invasion of Schizofonics Bikinis",
+              "duration": "3:03"
+            },
+            {
+              "id": "515859912",
+              "title": "Lumpen - Harmony",
+              "duration": "1:58"
+            },
+            {
+              "id": "515859922",
+              "title": "Sense El Resso del Dring",
+              "duration": "2:31"
+            },
+            {
+              "id": "515859932",
+              "title": "Encore Le Semi-Nerf Déjà Claquant",
+              "duration": "1:05"
+            },
+            {
+              "id": "515859942",
+              "title": "To Be Dammit Ornette To Be",
+              "duration": "2:50"
+            },
+            {
+              "id": "515859952",
+              "title": "A Tombouctou Sans Mariachis",
+              "duration": "1:42"
+            },
+            {
+              "id": "515859962",
+              "title": "Domisiladoré",
+              "duration": "2:06"
+            },
+            {
+              "id": "515859972",
+              "title": "Le Fakir de La Chapelle",
+              "duration": "1:21"
+            },
+            {
+              "id": "515859982",
+              "title": "Love Too Soon (feat. PJ Harvey)",
+              "duration": "4:22"
+            },
+            {
+              "id": "515859992",
+              "title": "L'esquella De La Torratxa",
+              "duration": "1:02"
+            },
+            {
+              "id": "515860002",
+              "title": "Le Soir Du Grand Soir",
+              "duration": "3:10"
+            },
+            {
+              "id": "515860012",
+              "title": "September Song feat. R. Wyatt",
+              "duration": "4:47"
+            },
+            {
+              "id": "515860022",
+              "title": "Patafisiskal Polska",
+              "duration": "2:54"
+            },
+            {
+              "id": "515860032",
+              "title": "Arthur Cravan Was A Flor Fina",
+              "duration": "2:00"
+            },
+            {
+              "id": "515860042",
+              "title": "Un Train Direct Pour Charenton",
+              "duration": "2:29"
+            },
+            {
+              "id": "515860052",
+              "title": "La Société Du Piano-Obstacle",
+              "duration": "3:04"
+            },
+            {
+              "id": "515860062",
+              "title": "4 Roses Pour Marie",
+              "duration": "2:44"
+            },
+            {
+              "id": "515860072",
+              "title": "Face Au Toril",
+              "duration": "1:45"
+            },
+            {
+              "id": "515860082",
+              "title": "Chanson De Charme Pour Faux-Nez",
+              "duration": "2:38"
+            },
+            {
+              "id": "515860092",
+              "title": "The Skatalan Logicofobism",
+              "duration": "3:02"
+            },
+            {
+              "id": "515860102",
+              "title": "Mother Of Earth",
+              "duration": "2:47"
+            },
+            {
+              "id": "515860112",
+              "title": "Portrait D'Enric Avec Son Chapeau",
+              "duration": "1:41"
+            },
+            {
+              "id": "515860122",
+              "title": "Sardana Dels Desemparats",
+              "duration": "4:03"
+            },
+            {
+              "id": "515860132",
+              "title": "L'Argot Du Bruit",
+              "duration": "2:44"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "pop",
+      "items": [
+        {
+          "id": "1002561451",
+          "title": "you seem pretty sad for a girl so in love",
+          "artist": "Olivia Rodrigo",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/07d6896c8afea3a87dcf9381c3d0e6c7/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Pop",
+          "label": "Olivia Rodrigo PS",
+          "length": "51 min",
+          "score": 87,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4078104861",
+              "title": "drop dead",
+              "duration": "3:45"
+            },
+            {
+              "id": "4078104881",
+              "title": "stupid song",
+              "duration": "3:29"
+            },
+            {
+              "id": "4078104901",
+              "title": "honeybee",
+              "duration": "3:43"
+            },
+            {
+              "id": "4078104921",
+              "title": "maggots for brains",
+              "duration": "4:00"
+            },
+            {
+              "id": "4078104931",
+              "title": "u + me = <3",
+              "duration": "4:07"
+            },
+            {
+              "id": "4078104951",
+              "title": "my way",
+              "duration": "3:00"
+            },
+            {
+              "id": "4078104971",
+              "title": "purple",
+              "duration": "4:00"
+            },
+            {
+              "id": "4078104981",
+              "title": "the cure",
+              "duration": "4:57"
+            },
+            {
+              "id": "4078105001",
+              "title": "begged",
+              "duration": "3:37"
+            },
+            {
+              "id": "4078105011",
+              "title": "what’s wrong with me",
+              "duration": "3:44"
+            },
+            {
+              "id": "4078105031",
+              "title": "less",
+              "duration": "3:13"
+            },
+            {
+              "id": "4078105041",
+              "title": "expectations",
+              "duration": "3:41"
+            },
+            {
+              "id": "4078105061",
+              "title": "cigarette smoke",
+              "duration": "5:40"
+            }
+          ]
+        },
+        {
+          "id": "231552772",
+          "title": "SOUR",
+          "artist": "Olivia Rodrigo",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/e68da86fd7976135c2d2d1715afaef7c/1000x1000-000000-80-0-0.jpg",
+          "year": 2021,
+          "genre": "Pop",
+          "label": "Olivia Rodrigo PS",
+          "length": "35 min",
+          "score": 93,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1378342572",
+              "title": "brutal",
+              "duration": "2:24"
+            },
+            {
+              "id": "1378342582",
+              "title": "traitor",
+              "duration": "3:49"
+            },
+            {
+              "id": "1378342592",
+              "title": "drivers license",
+              "duration": "4:02"
+            },
+            {
+              "id": "1378342602",
+              "title": "1 step forward, 3 steps back",
+              "duration": "2:44"
+            },
+            {
+              "id": "1378342612",
+              "title": "deja vu",
+              "duration": "3:35"
+            },
+            {
+              "id": "1378342622",
+              "title": "good 4 u",
+              "duration": "2:58"
+            },
+            {
+              "id": "1378342632",
+              "title": "enough for you",
+              "duration": "3:23"
+            },
+            {
+              "id": "1378342642",
+              "title": "happier",
+              "duration": "2:56"
+            },
+            {
+              "id": "1378342652",
+              "title": "jealousy, jealousy",
+              "duration": "2:53"
+            },
+            {
+              "id": "1378342662",
+              "title": "favorite crime",
+              "duration": "2:33"
+            },
+            {
+              "id": "1378342672",
+              "title": "hope ur ok",
+              "duration": "3:29"
+            }
+          ]
+        },
+        {
+          "id": "52612062",
+          "title": "reputation",
+          "artist": "Taylor Swift",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/e6f3afd8a5c3d8ea797f458694166e47/1000x1000-000000-80-0-0.jpg",
+          "year": 2017,
+          "genre": "Pop",
+          "label": "Taylor Swift",
+          "length": "56 min",
+          "score": 93,
+          "about": "",
+          "tracks": [
+            {
+              "id": "435491442",
+              "title": "...Ready For It?",
+              "duration": "3:28"
+            },
+            {
+              "id": "435491452",
+              "title": "End Game",
+              "duration": "4:04"
+            },
+            {
+              "id": "435491462",
+              "title": "I Did Something Bad",
+              "duration": "3:58"
+            },
+            {
+              "id": "435491472",
+              "title": "Don’t Blame Me",
+              "duration": "3:56"
+            },
+            {
+              "id": "435491482",
+              "title": "Delicate",
+              "duration": "3:52"
+            },
+            {
+              "id": "435491492",
+              "title": "Look What You Made Me Do",
+              "duration": "3:31"
+            },
+            {
+              "id": "435491502",
+              "title": "So It Goes...",
+              "duration": "3:47"
+            },
+            {
+              "id": "435491512",
+              "title": "Gorgeous",
+              "duration": "3:30"
+            },
+            {
+              "id": "435491522",
+              "title": "Getaway Car",
+              "duration": "3:53"
+            },
+            {
+              "id": "435491532",
+              "title": "King Of My Heart",
+              "duration": "3:34"
+            },
+            {
+              "id": "435491542",
+              "title": "Dancing With Our Hands Tied",
+              "duration": "3:31"
+            },
+            {
+              "id": "435491552",
+              "title": "Dress",
+              "duration": "3:50"
+            },
+            {
+              "id": "435491562",
+              "title": "This Is Why We Can't Have Nice Things",
+              "duration": "3:27"
+            },
+            {
+              "id": "435491572",
+              "title": "Call It What You Want",
+              "duration": "3:23"
+            },
+            {
+              "id": "435491582",
+              "title": "New Year’s Day",
+              "duration": "3:55"
+            }
+          ]
+        },
+        {
+          "id": "208899962",
+          "title": "Positions (Deluxe)",
+          "artist": "Ariana Grande",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/ae761e611a4d248509d53bd08562c6cb/1000x1000-000000-80-0-0.jpg",
+          "year": 2021,
+          "genre": "Pop",
+          "label": "Republic Records",
+          "length": "52 min",
+          "score": 83,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1249621112",
+              "title": "shut up",
+              "duration": "2:37"
+            },
+            {
+              "id": "1249621122",
+              "title": "34+35",
+              "duration": "2:53"
+            },
+            {
+              "id": "1249621132",
+              "title": "motive",
+              "duration": "2:47"
+            },
+            {
+              "id": "1249621142",
+              "title": "just like magic",
+              "duration": "2:29"
+            },
+            {
+              "id": "1249621152",
+              "title": "off the table",
+              "duration": "3:59"
+            },
+            {
+              "id": "1249621162",
+              "title": "six thirty",
+              "duration": "3:03"
+            },
+            {
+              "id": "1249621172",
+              "title": "safety net",
+              "duration": "3:28"
+            },
+            {
+              "id": "1249621182",
+              "title": "my hair",
+              "duration": "2:38"
+            },
+            {
+              "id": "1249621192",
+              "title": "nasty",
+              "duration": "3:20"
+            },
+            {
+              "id": "1249621202",
+              "title": "west side",
+              "duration": "2:12"
+            },
+            {
+              "id": "1249621212",
+              "title": "love language",
+              "duration": "2:59"
+            },
+            {
+              "id": "1249621222",
+              "title": "positions",
+              "duration": "2:52"
+            },
+            {
+              "id": "1249621232",
+              "title": "obvious",
+              "duration": "2:26"
+            },
+            {
+              "id": "1249621242",
+              "title": "pov",
+              "duration": "3:21"
+            },
+            {
+              "id": "1249621252",
+              "title": "someone like u (interlude)",
+              "duration": "1:17"
+            },
+            {
+              "id": "1249621262",
+              "title": "test drive",
+              "duration": "2:02"
+            },
+            {
+              "id": "1249621272",
+              "title": "34+35 (Remix)",
+              "duration": "3:02"
+            },
+            {
+              "id": "1249621282",
+              "title": "worst behavior",
+              "duration": "2:04"
+            },
+            {
+              "id": "1249621292",
+              "title": "main thing",
+              "duration": "2:09"
+            }
+          ]
+        },
+        {
+          "id": "5814011",
+          "title": "Bad 25th Anniversary",
+          "artist": "Michael Jackson",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/fb0a49a91ab8137ec9d028c4dbb04021/1000x1000-000000-80-0-0.jpg",
+          "year": 2012,
+          "genre": "Pop",
+          "label": "Epic/Legacy",
+          "length": "107 min",
+          "score": 92,
+          "about": "",
+          "tracks": [
+            {
+              "id": "59509531",
+              "title": "Bad (2012 Remaster)",
+              "duration": "4:07"
+            },
+            {
+              "id": "59509541",
+              "title": "The Way You Make Me Feel (2012 Remaster)",
+              "duration": "4:58"
+            },
+            {
+              "id": "59509551",
+              "title": "Speed Demon (2012 Remaster)",
+              "duration": "4:01"
+            },
+            {
+              "id": "59509561",
+              "title": "Liberian Girl (2012 Remastered Version)",
+              "duration": "3:53"
+            },
+            {
+              "id": "59509571",
+              "title": "Just Good Friends (2012 Remaster)",
+              "duration": "4:05"
+            },
+            {
+              "id": "59509581",
+              "title": "Another Part of Me (2012 Remaster)",
+              "duration": "3:54"
+            },
+            {
+              "id": "59509591",
+              "title": "Man in the Mirror (2012 Remaster)",
+              "duration": "5:18"
+            },
+            {
+              "id": "59509601",
+              "title": "I Just Can't Stop Loving You (feat. Siedah Garrett) (2012 Remaster)",
+              "duration": "4:11"
+            },
+            {
+              "id": "59509611",
+              "title": "Dirty Diana (2012 Remaster)",
+              "duration": "4:41"
+            },
+            {
+              "id": "59509621",
+              "title": "Smooth Criminal (2012 Remaster)",
+              "duration": "4:11"
+            },
+            {
+              "id": "59509631",
+              "title": "Leave Me Alone (2012 Remaster)",
+              "duration": "4:40"
+            },
+            {
+              "id": "59509641",
+              "title": "Don't Be Messin' 'Round",
+              "duration": "4:18"
+            },
+            {
+              "id": "59509651",
+              "title": "I'm So Blue",
+              "duration": "4:06"
+            },
+            {
+              "id": "59509661",
+              "title": "Song Groove (a.k.a. Abortion Papers)",
+              "duration": "4:25"
+            },
+            {
+              "id": "59509671",
+              "title": "Free",
+              "duration": "4:24"
+            },
+            {
+              "id": "59509681",
+              "title": "Price of Fame",
+              "duration": "4:32"
+            },
+            {
+              "id": "59509691",
+              "title": "Al Capone",
+              "duration": "3:33"
+            },
+            {
+              "id": "59509701",
+              "title": "Streetwalker",
+              "duration": "5:52"
+            },
+            {
+              "id": "59509711",
+              "title": "Fly Away",
+              "duration": "3:26"
+            },
+            {
+              "id": "59509721",
+              "title": "Todo Mi Amor Eres Tu (I Just Can't Stop Loving You)",
+              "duration": "4:04"
+            },
+            {
+              "id": "59509731",
+              "title": "Je Ne Veux Pas La Fin De Nous (I Just Can't Stop Loving You) (French Version)",
+              "duration": "4:07"
+            },
+            {
+              "id": "59509741",
+              "title": "Bad (feat. Pitbull) (Remix By AfroJack Featuring Pitbull-DJ Buddha Edit)",
+              "duration": "4:24"
+            },
+            {
+              "id": "59509751",
+              "title": "Speed Demon (Remix by Nero)",
+              "duration": "4:08"
+            },
+            {
+              "id": "59509761",
+              "title": "Bad (Remix By AfroJack-Club Mix)",
+              "duration": "7:31"
+            }
+          ]
+        },
+        {
+          "id": "1011810691",
+          "title": "When the lights turn on",
+          "artist": "MICO",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/6c4a095131eec8d3a2c7581ae9add6dd/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Pop",
+          "label": "Columbia",
+          "length": "29 min",
+          "score": 70,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4105688751",
+              "title": "Open up your eyes",
+              "duration": "3:04"
+            },
+            {
+              "id": "4105688761",
+              "title": "Like you mean it",
+              "duration": "2:27"
+            },
+            {
+              "id": "4105688771",
+              "title": "Do it all again",
+              "duration": "2:30"
+            },
+            {
+              "id": "4105688781",
+              "title": "WHY ARE YOU HERE",
+              "duration": "3:19"
+            },
+            {
+              "id": "4105688791",
+              "title": "DREAMBOY",
+              "duration": "3:17"
+            },
+            {
+              "id": "4105688801",
+              "title": "OH!",
+              "duration": "2:23"
+            },
+            {
+              "id": "4105688811",
+              "title": "Shoes",
+              "duration": "2:13"
+            },
+            {
+              "id": "4105688821",
+              "title": "Your favorite flowers",
+              "duration": "3:29"
+            },
+            {
+              "id": "4105688831",
+              "title": "Learning to love",
+              "duration": "2:57"
+            },
+            {
+              "id": "4105688841",
+              "title": "Can't keep crying",
+              "duration": "3:10"
+            }
+          ]
+        },
+        {
+          "id": "6475501",
+          "title": "4",
+          "artist": "Beyoncé",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/bc927a6b67e8a16351a3de87ba94328c/1000x1000-000000-80-0-0.jpg",
+          "year": 2013,
+          "genre": "Pop",
+          "label": "Parkwood Entertainment/Columbia",
+          "length": "58 min",
+          "score": 93,
+          "about": "",
+          "tracks": [
+            {
+              "id": "66190255",
+              "title": "Love On Top",
+              "duration": "4:28"
+            },
+            {
+              "id": "66190256",
+              "title": "Party (feat. André 3000)",
+              "duration": "4:06"
+            },
+            {
+              "id": "66190257",
+              "title": "Schoolin' Life",
+              "duration": "4:52"
+            },
+            {
+              "id": "66190258",
+              "title": "Countdown",
+              "duration": "3:34"
+            },
+            {
+              "id": "66190259",
+              "title": "I Miss You",
+              "duration": "2:59"
+            },
+            {
+              "id": "66190260",
+              "title": "Dance for You",
+              "duration": "6:15"
+            },
+            {
+              "id": "66190261",
+              "title": "I Care",
+              "duration": "4:00"
+            },
+            {
+              "id": "66190262",
+              "title": "Rather Die Young",
+              "duration": "3:43"
+            },
+            {
+              "id": "66190263",
+              "title": "1+1",
+              "duration": "4:35"
+            },
+            {
+              "id": "66190264",
+              "title": "End of Time",
+              "duration": "3:44"
+            },
+            {
+              "id": "66190265",
+              "title": "Run the World (Girls)",
+              "duration": "3:55"
+            },
+            {
+              "id": "66190266",
+              "title": "Best Thing I Never Had",
+              "duration": "4:13"
+            },
+            {
+              "id": "66190267",
+              "title": "Start Over",
+              "duration": "3:19"
+            },
+            {
+              "id": "66190268",
+              "title": "I Was Here",
+              "duration": "4:00"
+            }
+          ]
+        },
+        {
+          "id": "97893",
+          "title": "Chicago - Music From The Miramax Motion Picture",
+          "artist": "Various Artists",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/a69e17f5e6b5db8786a044f3e264a2cc/1000x1000-000000-80-0-0.jpg",
+          "year": 2002,
+          "genre": "Pop",
+          "label": "Epic",
+          "length": "70 min",
+          "score": 86,
+          "about": "",
+          "tracks": [
+            {
+              "id": "850073",
+              "title": "Overture/And All That Jazz (Album Version)",
+              "duration": "6:03"
+            },
+            {
+              "id": "850077",
+              "title": "Funny Honey (Album Version)",
+              "duration": "3:39"
+            },
+            {
+              "id": "850083",
+              "title": "When You're Good To Mama (Album Version)",
+              "duration": "3:18"
+            },
+            {
+              "id": "850087",
+              "title": "Cell Block Tango",
+              "duration": "7:22"
+            },
+            {
+              "id": "850094",
+              "title": "All I Care About (Album Version)",
+              "duration": "3:48"
+            },
+            {
+              "id": "850099",
+              "title": "We Both Reached For The Gun (Album Version)",
+              "duration": "3:57"
+            },
+            {
+              "id": "850102",
+              "title": "Roxie (Album Version)",
+              "duration": "3:20"
+            },
+            {
+              "id": "850105",
+              "title": "I Can't Do It Alone (Album Version)",
+              "duration": "3:50"
+            },
+            {
+              "id": "850111",
+              "title": "Mister Cellophane (Album Version)",
+              "duration": "3:56"
+            },
+            {
+              "id": "850114",
+              "title": "Razzle Dazzle (Album Version)",
+              "duration": "3:45"
+            },
+            {
+              "id": "850118",
+              "title": "Class (Album Version)",
+              "duration": "2:52"
+            },
+            {
+              "id": "850123",
+              "title": "Nowadays (Roxie) (Album Version)",
+              "duration": "2:14"
+            },
+            {
+              "id": "850128",
+              "title": "Nowadays/Hot Honey Rag (Medley Title)",
+              "duration": "3:26"
+            },
+            {
+              "id": "850591",
+              "title": "I Move On (Album Version)",
+              "duration": "3:58"
+            },
+            {
+              "id": "850132",
+              "title": "After Midnight (Album Version)",
+              "duration": "3:24"
+            },
+            {
+              "id": "850137",
+              "title": "Roxie's Suite (Album Version)",
+              "duration": "3:53"
+            },
+            {
+              "id": "851089",
+              "title": "Cell Block Tango (feat. Lil' Kim & Macy Gray) (Album Version)",
+              "duration": "3:38"
+            },
+            {
+              "id": "850594",
+              "title": "Love Is a Crime",
+              "duration": "3:19"
+            }
+          ]
+        },
+        {
+          "id": "794024331",
+          "title": "Vagus Nerve Reset",
+          "artist": "Ella Blake",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/a9fce2b1f2e5deb417e33a26bfa171e9/1000x1000-000000-80-0-0.jpg",
+          "year": 2025,
+          "genre": "Pop",
+          "label": "Digital RMG",
+          "length": "58 min",
+          "score": 65,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3477368561",
+              "title": "Calm Switch",
+              "duration": "4:07"
+            },
+            {
+              "id": "3477368571",
+              "title": "Reset Within",
+              "duration": "3:22"
+            },
+            {
+              "id": "3477368581",
+              "title": "Deep Restore",
+              "duration": "4:15"
+            },
+            {
+              "id": "3477368591",
+              "title": "Inner Reset",
+              "duration": "4:15"
+            },
+            {
+              "id": "3477368601",
+              "title": "Nervous Calm",
+              "duration": "3:49"
+            },
+            {
+              "id": "3477368611",
+              "title": "The Healing Switch",
+              "duration": "4:13"
+            },
+            {
+              "id": "3477368621",
+              "title": "Balance Mode",
+              "duration": "3:51"
+            },
+            {
+              "id": "3477368631",
+              "title": "Quiet Pulse",
+              "duration": "4:08"
+            },
+            {
+              "id": "3477368641",
+              "title": "Reset & Breathe",
+              "duration": "3:49"
+            },
+            {
+              "id": "3477368651",
+              "title": "Core Calm",
+              "duration": "3:42"
+            },
+            {
+              "id": "3477368661",
+              "title": "Rooted Reset",
+              "duration": "3:21"
+            },
+            {
+              "id": "3477368671",
+              "title": "Soothing Signal",
+              "duration": "3:40"
+            },
+            {
+              "id": "3477368681",
+              "title": "From Tension to Ease",
+              "duration": "3:33"
+            },
+            {
+              "id": "3477368691",
+              "title": "Peace Circuit",
+              "duration": "4:19"
+            },
+            {
+              "id": "3477368701",
+              "title": "Relaxed State",
+              "duration": "3:36"
+            }
+          ]
+        },
+        {
+          "id": "996517301",
+          "title": "Place 779",
+          "artist": "MargauxRZ",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/9adf3d81a4d92199c2984b74efb19bab/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Electro",
+          "label": "MargauxRZ",
+          "length": "20 min",
+          "score": 59,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4059075951",
+              "title": "Intro",
+              "duration": "1:01"
+            },
+            {
+              "id": "4059075961",
+              "title": "Interlude Taxi",
+              "duration": "0:40"
+            },
+            {
+              "id": "4059075971",
+              "title": "Appel",
+              "duration": "2:57"
+            },
+            {
+              "id": "4059075981",
+              "title": "Interlude Potes",
+              "duration": "0:29"
+            },
+            {
+              "id": "4059075991",
+              "title": "Pour toi",
+              "duration": "2:39"
+            },
+            {
+              "id": "4059076001",
+              "title": "Interlude Téléphone",
+              "duration": "0:56"
+            },
+            {
+              "id": "4059076011",
+              "title": "Pouvoir te toucher",
+              "duration": "3:31"
+            },
+            {
+              "id": "4059076021",
+              "title": "Interlude Jardin",
+              "duration": "0:48"
+            },
+            {
+              "id": "4059076031",
+              "title": "Plume",
+              "duration": "2:12"
+            },
+            {
+              "id": "4059076041",
+              "title": "Interlude Au revoir",
+              "duration": "0:23"
+            },
+            {
+              "id": "4059076051",
+              "title": "Dans ta maison",
+              "duration": "4:12"
+            }
+          ]
+        },
+        {
+          "id": "926592581",
+          "title": "Back To Us",
+          "artist": "Heavy Bloom",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/649e4da85e55f3440f8d283a6790f731/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Pop",
+          "label": "Heavy Bloom",
+          "length": "39 min",
+          "score": 58,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3865270741",
+              "title": "In My Head",
+              "duration": "2:34"
+            },
+            {
+              "id": "3865270751",
+              "title": "Evolution",
+              "duration": "3:15"
+            },
+            {
+              "id": "3865270761",
+              "title": "Crash",
+              "duration": "4:50"
+            },
+            {
+              "id": "3865270771",
+              "title": "AIEW",
+              "duration": "2:36"
+            },
+            {
+              "id": "3865270781",
+              "title": "Still Need Me",
+              "duration": "3:37"
+            },
+            {
+              "id": "3865270791",
+              "title": "Space",
+              "duration": "4:49"
+            },
+            {
+              "id": "3865270801",
+              "title": "Life",
+              "duration": "2:53"
+            },
+            {
+              "id": "3865270811",
+              "title": "Fantasy",
+              "duration": "3:11"
+            },
+            {
+              "id": "3865270821",
+              "title": "Intermission",
+              "duration": "0:38"
+            },
+            {
+              "id": "3865270831",
+              "title": "Back To Us",
+              "duration": "3:49"
+            },
+            {
+              "id": "3865270841",
+              "title": "Pressed",
+              "duration": "3:30"
+            },
+            {
+              "id": "3865270851",
+              "title": "Woke Up",
+              "duration": "3:40"
+            }
+          ]
+        },
+        {
+          "id": "349854097",
+          "title": "Gasoline - The 2nd Album",
+          "artist": "KEY",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/e0178df036510531ccb25909c47884d3/1000x1000-000000-80-0-0.jpg",
+          "year": 2022,
+          "genre": "Asian Music",
+          "label": "SM Entertainment",
+          "length": "37 min",
+          "score": 77,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1881805967",
+              "title": "가솔린 Gasoline",
+              "duration": "3:11"
+            },
+            {
+              "id": "1881805977",
+              "title": "Bound",
+              "duration": "3:04"
+            },
+            {
+              "id": "1881805987",
+              "title": "Villain",
+              "duration": "3:07"
+            },
+            {
+              "id": "1881805997",
+              "title": "Burn",
+              "duration": "3:51"
+            },
+            {
+              "id": "1881806007",
+              "title": "Guilty Pleasure",
+              "duration": "3:48"
+            },
+            {
+              "id": "1881806017",
+              "title": "G.O.A.T (Greatest Of All Time)",
+              "duration": "3:15"
+            },
+            {
+              "id": "1881806027",
+              "title": "I Can’t Sleep",
+              "duration": "3:51"
+            },
+            {
+              "id": "1881806037",
+              "title": "Ain’t Gonna Dance",
+              "duration": "2:57"
+            },
+            {
+              "id": "1881806047",
+              "title": "Another Life",
+              "duration": "3:38"
+            },
+            {
+              "id": "1881806057",
+              "title": "Delight",
+              "duration": "2:59"
+            },
+            {
+              "id": "1881806067",
+              "title": "Proud",
+              "duration": "3:15"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hiphop",
+      "items": [
+        {
+          "id": "1007454711",
+          "title": "KILL THE KING",
+          "artist": "T.I.",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/66d2c8211fba55a8441987c62ce68c36/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Grand Hustle LLC / EMPIRE",
+          "length": "51 min",
+          "score": 74,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4092327581",
+              "title": "A KING'S THOUGHT",
+              "duration": "0:40"
+            },
+            {
+              "id": "4092327591",
+              "title": "SEE WH'AM SAYIN",
+              "duration": "2:56"
+            },
+            {
+              "id": "4092327601",
+              "title": "LET 'EM KNOW",
+              "duration": "2:55"
+            },
+            {
+              "id": "4092327611",
+              "title": "WHERE I'M FROM",
+              "duration": "3:45"
+            },
+            {
+              "id": "4092327621",
+              "title": "RANT",
+              "duration": "3:36"
+            },
+            {
+              "id": "4092327631",
+              "title": "MR HIM",
+              "duration": "2:25"
+            },
+            {
+              "id": "4092327641",
+              "title": "HOW IT WENT",
+              "duration": "3:14"
+            },
+            {
+              "id": "4092327651",
+              "title": "DOPE BOYS ACADEMY",
+              "duration": "2:56"
+            },
+            {
+              "id": "4092327661",
+              "title": "PISTOL ON THE DANCE FLOOR",
+              "duration": "2:36"
+            },
+            {
+              "id": "4092327671",
+              "title": "AND WON'T",
+              "duration": "3:14"
+            },
+            {
+              "id": "4092327681",
+              "title": "GORGEOUS",
+              "duration": "3:06"
+            },
+            {
+              "id": "4092327691",
+              "title": "WE ON",
+              "duration": "2:57"
+            },
+            {
+              "id": "4092327701",
+              "title": "LLOGCLAY",
+              "duration": "3:39"
+            },
+            {
+              "id": "4092327711",
+              "title": "EGO",
+              "duration": "1:25"
+            },
+            {
+              "id": "4092327721",
+              "title": "TRAUMA BOND",
+              "duration": "2:40"
+            },
+            {
+              "id": "4092327731",
+              "title": "REPRESENT A TIME",
+              "duration": "3:25"
+            },
+            {
+              "id": "4092327741",
+              "title": "BIG DOG",
+              "duration": "2:32"
+            },
+            {
+              "id": "4092327751",
+              "title": "CONTINENTAL",
+              "duration": "3:02"
+            }
+          ]
+        },
+        {
+          "id": "930631961",
+          "title": "Good Time Boy",
+          "artist": "Prof",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/4479a449a23a473828b1ff0c3591769d/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Ineffable Records",
+          "length": "49 min",
+          "score": 70,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3875954261",
+              "title": "A Crawl Through a Low Tide",
+              "duration": "2:33"
+            },
+            {
+              "id": "3875954271",
+              "title": "Kin (I’m Outside)",
+              "duration": "3:14"
+            },
+            {
+              "id": "3875954281",
+              "title": "Big Dog",
+              "duration": "3:00"
+            },
+            {
+              "id": "3875954291",
+              "title": "Brrrr",
+              "duration": "2:28"
+            },
+            {
+              "id": "3875954301",
+              "title": "Dirty Work",
+              "duration": "2:14"
+            },
+            {
+              "id": "3875954311",
+              "title": "Dynamite",
+              "duration": "2:40"
+            },
+            {
+              "id": "3875954321",
+              "title": "Jewelry Duty",
+              "duration": "3:07"
+            },
+            {
+              "id": "3875954331",
+              "title": "Kia Boy",
+              "duration": "3:05"
+            },
+            {
+              "id": "3875954341",
+              "title": "Destiny",
+              "duration": "3:15"
+            },
+            {
+              "id": "3875954351",
+              "title": "Fighter",
+              "duration": "2:28"
+            },
+            {
+              "id": "3875954361",
+              "title": "Saved By A Woman (Intro)",
+              "duration": "1:38"
+            },
+            {
+              "id": "3875954371",
+              "title": "Big Wheels",
+              "duration": "2:57"
+            },
+            {
+              "id": "3875954381",
+              "title": "Good Time Boy",
+              "duration": "3:50"
+            },
+            {
+              "id": "3875954391",
+              "title": "Reaching for Fire",
+              "duration": "3:38"
+            },
+            {
+              "id": "3875954401",
+              "title": "Imposter",
+              "duration": "4:09"
+            },
+            {
+              "id": "3875954411",
+              "title": "Garden of Eden",
+              "duration": "4:28"
+            }
+          ]
+        },
+        {
+          "id": "1015514891",
+          "title": "Layin Da Walkdown B Side",
+          "artist": "Lil Double 0",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/72936c5aaf5c5cd0804d19d095e4b58f/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Freebandz Ent.",
+          "length": "39 min",
+          "score": 62,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4117557481",
+              "title": "Kodak Moment",
+              "duration": "3:03"
+            },
+            {
+              "id": "4117557501",
+              "title": "Get Off",
+              "duration": "2:34"
+            },
+            {
+              "id": "4117557511",
+              "title": "All Month",
+              "duration": "1:53"
+            },
+            {
+              "id": "4117557531",
+              "title": "Pressure",
+              "duration": "2:44"
+            },
+            {
+              "id": "4117557551",
+              "title": "Bumpstock Interlude",
+              "duration": "0:38"
+            },
+            {
+              "id": "4117557561",
+              "title": "Bumpstock",
+              "duration": "2:10"
+            },
+            {
+              "id": "4117557571",
+              "title": "Spend it on Drank",
+              "duration": "1:53"
+            },
+            {
+              "id": "4117557581",
+              "title": "Hit List (feat. Rob49)",
+              "duration": "2:17"
+            },
+            {
+              "id": "4117557591",
+              "title": "Foreva A Gangsta (feat. YTB Fatt)",
+              "duration": "2:18"
+            },
+            {
+              "id": "4117557601",
+              "title": "Move Dope",
+              "duration": "2:11"
+            },
+            {
+              "id": "4117557611",
+              "title": "Free Longway",
+              "duration": "1:52"
+            },
+            {
+              "id": "4117557621",
+              "title": "Dark Day (feat. Baby Mel)",
+              "duration": "2:33"
+            },
+            {
+              "id": "4117557631",
+              "title": "Karma",
+              "duration": "2:49"
+            },
+            {
+              "id": "4117557641",
+              "title": "Zombie Walk (feat. Loe Shimmy)",
+              "duration": "2:34"
+            },
+            {
+              "id": "4117557651",
+              "title": "By The Pound (feat. ffawty)",
+              "duration": "3:14"
+            },
+            {
+              "id": "4117557661",
+              "title": "Monster (feat. Lil Keed)",
+              "duration": "2:20"
+            },
+            {
+              "id": "4117557671",
+              "title": "Fear No Man",
+              "duration": "2:26"
+            }
+          ]
+        },
+        {
+          "id": "1007117181",
+          "title": "EXPERIMENTAL RAP",
+          "artist": "JPEGMAFIA",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/b947d1b723d857aa458a4a2d6abc2347/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "PEGGY",
+          "length": "53 min",
+          "score": 64,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4091141991",
+              "title": "投影の芸術",
+              "duration": "0:57"
+            },
+            {
+              "id": "4091142001",
+              "title": "babygirl",
+              "duration": "2:27"
+            },
+            {
+              "id": "4091142011",
+              "title": "Burning Hammer",
+              "duration": "3:13"
+            },
+            {
+              "id": "4091142021",
+              "title": "$ (Money)",
+              "duration": "2:15"
+            },
+            {
+              "id": "4091142031",
+              "title": "Pop this Heat",
+              "duration": "1:56"
+            },
+            {
+              "id": "4091142041",
+              "title": "Meet the Dealers",
+              "duration": "2:41"
+            },
+            {
+              "id": "4091142051",
+              "title": "head",
+              "duration": "1:43"
+            },
+            {
+              "id": "4091142061",
+              "title": "Degenerates Prayer",
+              "duration": "2:13"
+            },
+            {
+              "id": "4091142071",
+              "title": "The Ghost Of Emmett Till",
+              "duration": "1:56"
+            },
+            {
+              "id": "4091142081",
+              "title": "Since I Met Ye",
+              "duration": "1:58"
+            },
+            {
+              "id": "4091142091",
+              "title": "¥ (Yen)",
+              "duration": "2:00"
+            },
+            {
+              "id": "4091142101",
+              "title": "GYBB",
+              "duration": "1:59"
+            },
+            {
+              "id": "4091142111",
+              "title": "Valentine's Day Freestyle '26",
+              "duration": "2:26"
+            },
+            {
+              "id": "4091142121",
+              "title": "Mask On",
+              "duration": "2:33"
+            },
+            {
+              "id": "4091142131",
+              "title": "His Will",
+              "duration": "1:07"
+            },
+            {
+              "id": "4091142141",
+              "title": "Lights",
+              "duration": "3:02"
+            },
+            {
+              "id": "4091142151",
+              "title": "New Era",
+              "duration": "2:27"
+            },
+            {
+              "id": "4091142161",
+              "title": "One Day it Will Be Over",
+              "duration": "0:44"
+            },
+            {
+              "id": "4091142171",
+              "title": "War Over Land",
+              "duration": "2:54"
+            },
+            {
+              "id": "4091142181",
+              "title": "Bridges on Fire",
+              "duration": "2:53"
+            },
+            {
+              "id": "4091142191",
+              "title": "No Strippers In Heaven",
+              "duration": "2:32"
+            },
+            {
+              "id": "4091142201",
+              "title": "內戰",
+              "duration": "0:27"
+            },
+            {
+              "id": "4091142211",
+              "title": "Chat",
+              "duration": "3:06"
+            },
+            {
+              "id": "4091142221",
+              "title": "The 1st Amendment",
+              "duration": "1:20"
+            },
+            {
+              "id": "4091142231",
+              "title": "You will always lose money chasing women, but you will never lose women chasing money",
+              "duration": "1:58"
+            }
+          ]
+        },
+        {
+          "id": "125897",
+          "title": "The Inspiration",
+          "artist": "Young Jeezy",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/a0ab5e441836677926bfc32ca8548ced/1000x1000-000000-80-0-0.jpg",
+          "year": 2006,
+          "genre": "Rap/Hip Hop",
+          "label": "Def Jam Recordings",
+          "length": "64 min",
+          "score": 81,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1177992",
+              "title": "Hypnotize (Intro)",
+              "duration": "3:43"
+            },
+            {
+              "id": "1177993",
+              "title": "Still On It",
+              "duration": "3:46"
+            },
+            {
+              "id": "1177994",
+              "title": "U Know What It Is",
+              "duration": "3:44"
+            },
+            {
+              "id": "1177995",
+              "title": "J.E.E.Z.Y.",
+              "duration": "3:49"
+            },
+            {
+              "id": "1177996",
+              "title": "I Luv It",
+              "duration": "4:03"
+            },
+            {
+              "id": "1177997",
+              "title": "Go Getta",
+              "duration": "3:49"
+            },
+            {
+              "id": "1177998",
+              "title": "3 A.M.",
+              "duration": "3:56"
+            },
+            {
+              "id": "1177999",
+              "title": "The Realest",
+              "duration": "4:09"
+            },
+            {
+              "id": "1178000",
+              "title": "Streets On Lock",
+              "duration": "3:34"
+            },
+            {
+              "id": "1178001",
+              "title": "Bury Me A G",
+              "duration": "4:43"
+            },
+            {
+              "id": "1178002",
+              "title": "Dreamin'",
+              "duration": "4:49"
+            },
+            {
+              "id": "1178003",
+              "title": "What You Talkin' Bout",
+              "duration": "3:48"
+            },
+            {
+              "id": "1178004",
+              "title": "Keep It Gangsta",
+              "duration": "4:36"
+            },
+            {
+              "id": "1178005",
+              "title": "Mr. 17.5",
+              "duration": "3:30"
+            },
+            {
+              "id": "1178006",
+              "title": "I Got Money",
+              "duration": "3:59"
+            },
+            {
+              "id": "1178007",
+              "title": "The Inspiration (Follow Me)",
+              "duration": "4:25"
+            }
+          ]
+        },
+        {
+          "id": "991961501",
+          "title": "Locked & Loaded",
+          "artist": "Queen Butterfly",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/139e10b49e1f804514fc6004ccbf411c/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Queen Butterfly",
+          "length": "54 min",
+          "score": 62,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4046948951",
+              "title": "Locked & Loaded",
+              "duration": "3:33"
+            },
+            {
+              "id": "4046948961",
+              "title": "Trauma Bonded",
+              "duration": "3:09"
+            },
+            {
+              "id": "4046948971",
+              "title": "Bail Money",
+              "duration": "3:19"
+            },
+            {
+              "id": "4046948981",
+              "title": "Mean Girls",
+              "duration": "3:04"
+            },
+            {
+              "id": "4046948991",
+              "title": "Matches And Gasoline",
+              "duration": "3:32"
+            },
+            {
+              "id": "4046949001",
+              "title": "You Keep Callin’ Me Crazy",
+              "duration": "2:40"
+            },
+            {
+              "id": "4046949011",
+              "title": "I’m An Asshole",
+              "duration": "3:33"
+            },
+            {
+              "id": "4046949021",
+              "title": "Your Momma Raised A Bitch",
+              "duration": "2:44"
+            },
+            {
+              "id": "4046949031",
+              "title": "Heartless",
+              "duration": "3:19"
+            },
+            {
+              "id": "4046949041",
+              "title": "Bet On Me",
+              "duration": "3:59"
+            },
+            {
+              "id": "4046949051",
+              "title": "Cold Hearted Bitch",
+              "duration": "2:59"
+            },
+            {
+              "id": "4046949061",
+              "title": "Fresh Outta Fucks",
+              "duration": "3:53"
+            },
+            {
+              "id": "4046949071",
+              "title": "Bad Decisions",
+              "duration": "3:12"
+            },
+            {
+              "id": "4046949081",
+              "title": "His New Girl Hates Me",
+              "duration": "3:14"
+            },
+            {
+              "id": "4046949091",
+              "title": "I Don’t Quit",
+              "duration": "3:22"
+            },
+            {
+              "id": "4046949101",
+              "title": "Narcissist",
+              "duration": "4:00"
+            }
+          ]
+        },
+        {
+          "id": "345689567",
+          "title": "Traumazine",
+          "artist": "Megan Thee Stallion",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/e77b162b10e0d0c07e2810269750ecdf/1000x1000-000000-80-0-0.jpg",
+          "year": 2022,
+          "genre": "Rap/Hip Hop",
+          "label": "300 Entertainment",
+          "length": "51 min",
+          "score": 82,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1863651417",
+              "title": "NDA",
+              "duration": "3:21"
+            },
+            {
+              "id": "1863651427",
+              "title": "Ungrateful (feat. Key Glock)",
+              "duration": "2:34"
+            },
+            {
+              "id": "1863651437",
+              "title": "Not Nice",
+              "duration": "2:45"
+            },
+            {
+              "id": "1863651447",
+              "title": "Budget (feat. Latto)",
+              "duration": "3:21"
+            },
+            {
+              "id": "1863651457",
+              "title": "Her",
+              "duration": "2:17"
+            },
+            {
+              "id": "1863651467",
+              "title": "Gift & A Curse",
+              "duration": "2:52"
+            },
+            {
+              "id": "1863651477",
+              "title": "Ms. Nasty",
+              "duration": "2:11"
+            },
+            {
+              "id": "1863651487",
+              "title": "Who Me (feat. Pooh Shiesty)",
+              "duration": "1:58"
+            },
+            {
+              "id": "1863651497",
+              "title": "Red Wine",
+              "duration": "2:34"
+            },
+            {
+              "id": "1863651507",
+              "title": "Scary (feat. Rico Nasty)",
+              "duration": "2:33"
+            },
+            {
+              "id": "1863651517",
+              "title": "Anxiety",
+              "duration": "2:15"
+            },
+            {
+              "id": "1863651527",
+              "title": "Flip Flop",
+              "duration": "2:08"
+            },
+            {
+              "id": "1863651537",
+              "title": "Consistency (feat. Jhene Aiko)",
+              "duration": "3:40"
+            },
+            {
+              "id": "1863651547",
+              "title": "Star (feat. Lucky Daye)",
+              "duration": "3:30"
+            },
+            {
+              "id": "1863651557",
+              "title": "Pressurelicious (feat. Future)",
+              "duration": "2:53"
+            },
+            {
+              "id": "1863651567",
+              "title": "Plan B",
+              "duration": "2:43"
+            },
+            {
+              "id": "1863651577",
+              "title": "Southside Royalty Freestyle (feat. Sauce Walka, Big Pokey, Lil Keke & Mike D)",
+              "duration": "4:03"
+            },
+            {
+              "id": "1863651587",
+              "title": "Sweetest Pie",
+              "duration": "3:21"
+            }
+          ]
+        },
+        {
+          "id": "556926132",
+          "title": "im_my_best_friend",
+          "artist": "Harto Falión",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/3b52b4c82d0aa26cb2012dbee64bbac9/1000x1000-000000-80-0-0.jpg",
+          "year": 2023,
+          "genre": "Rap/Hip Hop",
+          "label": "Surf Gang Records",
+          "length": "28 min",
+          "score": 64,
+          "about": "",
+          "tracks": [
+            {
+              "id": "2692390232",
+              "title": "pump_ya_breaks_n_slow_down",
+              "duration": "1:36"
+            },
+            {
+              "id": "2692390242",
+              "title": "i_am_a_patient_boy_2#",
+              "duration": "2:05"
+            },
+            {
+              "id": "2692390252",
+              "title": "american't _wasteland",
+              "duration": "1:56"
+            },
+            {
+              "id": "2692390262",
+              "title": "Diogenes",
+              "duration": "1:38"
+            },
+            {
+              "id": "2692390272",
+              "title": "Faith_Conners",
+              "duration": "1:41"
+            },
+            {
+              "id": "2692390282",
+              "title": "(703) -child",
+              "duration": "1:54"
+            },
+            {
+              "id": "2692390292",
+              "title": "high_school_high",
+              "duration": "1:20"
+            },
+            {
+              "id": "2692390302",
+              "title": "brain_exposure",
+              "duration": "1:59"
+            },
+            {
+              "id": "2692390312",
+              "title": "1doorclose_1dooropens",
+              "duration": "1:42"
+            },
+            {
+              "id": "2692390322",
+              "title": "build_a_bear",
+              "duration": "1:38"
+            },
+            {
+              "id": "2692390332",
+              "title": "fear_no_more",
+              "duration": "1:31"
+            },
+            {
+              "id": "2692390342",
+              "title": "im_so_good",
+              "duration": "3:25"
+            },
+            {
+              "id": "2692390352",
+              "title": "knew_it",
+              "duration": "2:08"
+            },
+            {
+              "id": "2692390362",
+              "title": "clueless",
+              "duration": "1:56"
+            },
+            {
+              "id": "2692390372",
+              "title": "last_place",
+              "duration": "1:36"
+            }
+          ]
+        },
+        {
+          "id": "608360652",
+          "title": "A Great Chaos (Deluxe)",
+          "artist": "Ken Carson",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/78da94da4ebbd4c3b19ef52a8b3c5e23/1000x1000-000000-80-0-0.jpg",
+          "year": 2024,
+          "genre": "Rap/Hip Hop",
+          "label": "Opium/Interscope Records",
+          "length": "65 min",
+          "score": 80,
+          "about": "",
+          "tracks": [
+            {
+              "id": "2868707162",
+              "title": "Green Room",
+              "duration": "3:08"
+            },
+            {
+              "id": "2868707172",
+              "title": "Jennifer’s Body",
+              "duration": "2:38"
+            },
+            {
+              "id": "2868707182",
+              "title": "Fighting My Demons",
+              "duration": "2:30"
+            },
+            {
+              "id": "2868707192",
+              "title": "Singapore",
+              "duration": "2:31"
+            },
+            {
+              "id": "2868707202",
+              "title": "Lose It",
+              "duration": "2:20"
+            },
+            {
+              "id": "2868707212",
+              "title": "Hardcore",
+              "duration": "2:04"
+            },
+            {
+              "id": "2868707222",
+              "title": "Me N My Kup",
+              "duration": "3:54"
+            },
+            {
+              "id": "2868707232",
+              "title": "It’s Over",
+              "duration": "1:35"
+            },
+            {
+              "id": "2868707242",
+              "title": "Succubus",
+              "duration": "2:29"
+            },
+            {
+              "id": "2868707252",
+              "title": "Paranoid",
+              "duration": "2:07"
+            },
+            {
+              "id": "2868707262",
+              "title": "Pots",
+              "duration": "2:09"
+            },
+            {
+              "id": "2868707272",
+              "title": "Like This",
+              "duration": "3:12"
+            },
+            {
+              "id": "2868707282",
+              "title": "Overtime",
+              "duration": "1:46"
+            },
+            {
+              "id": "2868707292",
+              "title": "Vampire Hour",
+              "duration": "2:34"
+            },
+            {
+              "id": "2868707302",
+              "title": "Nightcore",
+              "duration": "3:07"
+            },
+            {
+              "id": "2868707312",
+              "title": "Nightcore 2",
+              "duration": "3:02"
+            },
+            {
+              "id": "2868707322",
+              "title": "Rockstar Lifestyle",
+              "duration": "3:12"
+            },
+            {
+              "id": "2868707332",
+              "title": "i need u",
+              "duration": "2:29"
+            },
+            {
+              "id": "2868707342",
+              "title": "loading",
+              "duration": "3:06"
+            },
+            {
+              "id": "2868707352",
+              "title": "more chaos",
+              "duration": "2:21"
+            },
+            {
+              "id": "2868707362",
+              "title": "toxic",
+              "duration": "2:45"
+            },
+            {
+              "id": "2868707372",
+              "title": "leather jacket",
+              "duration": "2:37"
+            },
+            {
+              "id": "2868707382",
+              "title": "mewtwo",
+              "duration": "2:08"
+            },
+            {
+              "id": "2868707392",
+              "title": "ss",
+              "duration": "3:04"
+            },
+            {
+              "id": "2868707402",
+              "title": "overseas",
+              "duration": "2:21"
+            }
+          ]
+        },
+        {
+          "id": "745719551",
+          "title": "Glockaveli",
+          "artist": "Key Glock",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/c6fd2c5de5386addc126df4ea433cffe/1000x1000-000000-80-0-0.jpg",
+          "year": 2025,
+          "genre": "Rap/Hip Hop",
+          "label": "Key Glock",
+          "length": "46 min",
+          "score": 77,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3334002411",
+              "title": "Hallelujah",
+              "duration": "2:37"
+            },
+            {
+              "id": "3334002421",
+              "title": "Glockaveli",
+              "duration": "2:21"
+            },
+            {
+              "id": "3334002431",
+              "title": "Blue Devil",
+              "duration": "2:19"
+            },
+            {
+              "id": "3334002441",
+              "title": "Made A Way",
+              "duration": "2:20"
+            },
+            {
+              "id": "3334002451",
+              "title": "Watch Da Throne",
+              "duration": "2:36"
+            },
+            {
+              "id": "3334002461",
+              "title": "Badu",
+              "duration": "2:36"
+            },
+            {
+              "id": "3334002471",
+              "title": "She Ready",
+              "duration": "2:59"
+            },
+            {
+              "id": "3334002481",
+              "title": "No Sweat",
+              "duration": "2:35"
+            },
+            {
+              "id": "3334002491",
+              "title": "The Grinch",
+              "duration": "2:15"
+            },
+            {
+              "id": "3334002501",
+              "title": "Sunny Dayz",
+              "duration": "2:39"
+            },
+            {
+              "id": "3334002511",
+              "title": "Papercutz",
+              "duration": "2:47"
+            },
+            {
+              "id": "3334002521",
+              "title": "Kill My Vibe",
+              "duration": "2:02"
+            },
+            {
+              "id": "3334002531",
+              "title": "I’m Getting It",
+              "duration": "2:42"
+            },
+            {
+              "id": "3334002541",
+              "title": "Again",
+              "duration": "2:27"
+            },
+            {
+              "id": "3334002551",
+              "title": "Cream Soda",
+              "duration": "2:45"
+            },
+            {
+              "id": "3334002561",
+              "title": "Don Dada",
+              "duration": "2:33"
+            },
+            {
+              "id": "3334002571",
+              "title": "World Is Ourz",
+              "duration": "2:40"
+            },
+            {
+              "id": "3334002581",
+              "title": "3AM in ToKEYo",
+              "duration": "2:26"
+            }
+          ]
+        },
+        {
+          "id": "7203293",
+          "title": "good kid, m.A.A.d city (Deluxe)",
+          "artist": "Kendrick Lamar",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/b5be27644d505bad7bdb516fe4165475/1000x1000-000000-80-0-0.jpg",
+          "year": 2013,
+          "genre": "Rap/Hip Hop",
+          "label": "Aftermath",
+          "length": "88 min",
+          "score": 85,
+          "about": "",
+          "tracks": [
+            {
+              "id": "73196523",
+              "title": "Sherane a.k.a Master Splinter’s Daughter",
+              "duration": "4:33"
+            },
+            {
+              "id": "73196524",
+              "title": "Bitch, Don’t Kill My Vibe",
+              "duration": "5:11"
+            },
+            {
+              "id": "73196525",
+              "title": "Backseat Freestyle",
+              "duration": "3:33"
+            },
+            {
+              "id": "73196526",
+              "title": "The Art of Peer Pressure",
+              "duration": "5:25"
+            },
+            {
+              "id": "73196527",
+              "title": "Money Trees",
+              "duration": "6:27"
+            },
+            {
+              "id": "73196528",
+              "title": "Poetic Justice",
+              "duration": "5:00"
+            },
+            {
+              "id": "73196529",
+              "title": "good kid",
+              "duration": "3:34"
+            },
+            {
+              "id": "73196530",
+              "title": "m.A.A.d city",
+              "duration": "5:50"
+            },
+            {
+              "id": "73196531",
+              "title": "Swimming Pools (Drank) (Extended Version)",
+              "duration": "5:14"
+            },
+            {
+              "id": "73196532",
+              "title": "Sing About Me, I'm Dying Of Thirst",
+              "duration": "12:04"
+            },
+            {
+              "id": "73196533",
+              "title": "Real",
+              "duration": "7:23"
+            },
+            {
+              "id": "73196534",
+              "title": "Compton",
+              "duration": "4:08"
+            },
+            {
+              "id": "73196535",
+              "title": "The Recipe (Bonus Track)",
+              "duration": "5:53"
+            },
+            {
+              "id": "73196536",
+              "title": "Black Boy Fly (Bonus Track)",
+              "duration": "4:39"
+            },
+            {
+              "id": "73196537",
+              "title": "Now Or Never (Bonus Track)",
+              "duration": "4:17"
+            },
+            {
+              "id": "73196538",
+              "title": "Bitch, Don’t Kill My Vibe (Remix)",
+              "duration": "4:38"
+            }
+          ]
+        },
+        {
+          "id": "729291",
+          "title": "Armed to the Teeth",
+          "artist": "Swollen Members",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/503a5ea19a4e95d0e9ea0ae78e0f15a9/1000x1000-000000-80-0-0.jpg",
+          "year": 2009,
+          "genre": "Rap/Hip Hop",
+          "label": "Suburban Noize Records",
+          "length": "66 min",
+          "score": 77,
+          "about": "",
+          "tracks": [
+            {
+              "id": "7903746",
+              "title": "Reclaim the Throne",
+              "duration": "3:21"
+            },
+            {
+              "id": "7903747",
+              "title": "Pornstar",
+              "duration": "3:23"
+            },
+            {
+              "id": "7903748",
+              "title": "Kyla",
+              "duration": "3:20"
+            },
+            {
+              "id": "7903749",
+              "title": "Red Dragon",
+              "duration": "3:09"
+            },
+            {
+              "id": "7903750",
+              "title": "Bollywood Chick",
+              "duration": "4:46"
+            },
+            {
+              "id": "7903751",
+              "title": "Meltdown",
+              "duration": "3:08"
+            },
+            {
+              "id": "7903752",
+              "title": "My Life",
+              "duration": "4:30"
+            },
+            {
+              "id": "7903753",
+              "title": "Bang Bang",
+              "duration": "4:38"
+            },
+            {
+              "id": "7903754",
+              "title": "Here We Come",
+              "duration": "3:14"
+            },
+            {
+              "id": "7903755",
+              "title": "Warrior",
+              "duration": "4:50"
+            },
+            {
+              "id": "7903756",
+              "title": "Certified Dope",
+              "duration": "3:30"
+            },
+            {
+              "id": "7903757",
+              "title": "Funeral March",
+              "duration": "3:51"
+            },
+            {
+              "id": "7903758",
+              "title": "Flyest",
+              "duration": "3:14"
+            },
+            {
+              "id": "7903759",
+              "title": "Lonely One",
+              "duration": "3:27"
+            },
+            {
+              "id": "7903760",
+              "title": "Crossfire",
+              "duration": "2:44"
+            },
+            {
+              "id": "7903761",
+              "title": "Concerto",
+              "duration": "2:31"
+            },
+            {
+              "id": "7903762",
+              "title": "Dumb",
+              "duration": "3:35"
+            },
+            {
+              "id": "7903763",
+              "title": "Real P.I.",
+              "duration": "4:53"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "rock",
+      "items": [
+        {
+          "id": "1009348461",
+          "title": "Dear God",
+          "artist": "The Pretty Reckless",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/63a00f385e4dffce9e940a3597b8f5f4/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rock",
+          "label": "Fearless Records",
+          "length": "50 min",
+          "score": 77,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4098249181",
+              "title": "Life Evermore Pt. 2",
+              "duration": "0:43"
+            },
+            {
+              "id": "4098249191",
+              "title": "For I Am Death",
+              "duration": "3:39"
+            },
+            {
+              "id": "4098249201",
+              "title": "When I Wake Up",
+              "duration": "3:33"
+            },
+            {
+              "id": "4098249211",
+              "title": "Love Me",
+              "duration": "4:23"
+            },
+            {
+              "id": "4098249221",
+              "title": "Dragonfire",
+              "duration": "4:41"
+            },
+            {
+              "id": "4098249231",
+              "title": "Dear God",
+              "duration": "6:09"
+            },
+            {
+              "id": "4098249241",
+              "title": "Life Evermore Pt. 3",
+              "duration": "0:42"
+            },
+            {
+              "id": "4098249251",
+              "title": "About You",
+              "duration": "4:36"
+            },
+            {
+              "id": "4098249261",
+              "title": "Spell On You",
+              "duration": "3:46"
+            },
+            {
+              "id": "4098249271",
+              "title": "Rollercoaster Of Life",
+              "duration": "4:26"
+            },
+            {
+              "id": "4098249281",
+              "title": "Eye Of The Storm",
+              "duration": "4:14"
+            },
+            {
+              "id": "4098249291",
+              "title": "Devil In Disguise (Michelle’s Song)",
+              "duration": "2:40"
+            },
+            {
+              "id": "4098249301",
+              "title": "Dark Days",
+              "duration": "5:50"
+            },
+            {
+              "id": "4098249311",
+              "title": "Life Evermore Pt. 1",
+              "duration": "0:43"
+            }
+          ]
+        },
+        {
+          "id": "596497422",
+          "title": "Vol.1",
+          "artist": "Angine de Poitrine",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/c88c73c4183fa5045f857a0d9d167c02/1000x1000-000000-80-0-0.jpg",
+          "year": 2024,
+          "genre": "Alternative",
+          "label": "Angine de Poitrine",
+          "length": "33 min",
+          "score": 83,
+          "about": "",
+          "tracks": [
+            {
+              "id": "2831091252",
+              "title": "Sherpa",
+              "duration": "5:43"
+            },
+            {
+              "id": "2831091262",
+              "title": "Tohogd",
+              "duration": "4:05"
+            },
+            {
+              "id": "2831091272",
+              "title": "Tamebsz",
+              "duration": "7:57"
+            },
+            {
+              "id": "2831091282",
+              "title": "Ababa Hotel",
+              "duration": "6:26"
+            },
+            {
+              "id": "2831091292",
+              "title": "Sahardnieh",
+              "duration": "4:13"
+            },
+            {
+              "id": "2831091302",
+              "title": "L'Aberek",
+              "duration": "4:30"
+            }
+          ]
+        },
+        {
+          "id": "916215321",
+          "title": "Vol.II",
+          "artist": "Angine de Poitrine",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/081d76954770ca7c4d9e4138fe717629/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rock",
+          "label": "Angine de Poitrine",
+          "length": "37 min",
+          "score": 83,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3836051501",
+              "title": "Fabienk",
+              "duration": "6:31"
+            },
+            {
+              "id": "3836051511",
+              "title": "Mata Zyklek",
+              "duration": "6:10"
+            },
+            {
+              "id": "3836051521",
+              "title": "Sarniezz",
+              "duration": "4:36"
+            },
+            {
+              "id": "3836051531",
+              "title": "Utzp",
+              "duration": "6:51"
+            },
+            {
+              "id": "3836051541",
+              "title": "Yor Zarad",
+              "duration": "6:30"
+            },
+            {
+              "id": "3836051551",
+              "title": "Angor",
+              "duration": "6:17"
+            }
+          ]
+        },
+        {
+          "id": "12114248",
+          "title": "The Wall",
+          "artist": "Pink Floyd",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/2bea643b92a8fc6b19a23756f718cbd4/1000x1000-000000-80-0-0.jpg",
+          "year": 1979,
+          "genre": "Rock",
+          "label": "Pink Floyd Records",
+          "length": "79 min",
+          "score": 92,
+          "about": "",
+          "tracks": [
+            {
+              "id": "116914086",
+              "title": "In the Flesh?",
+              "duration": "3:18"
+            },
+            {
+              "id": "116914088",
+              "title": "The Thin Ice",
+              "duration": "2:26"
+            },
+            {
+              "id": "116914090",
+              "title": "Another Brick in the Wall, Pt. 1",
+              "duration": "3:12"
+            },
+            {
+              "id": "116914092",
+              "title": "The Happiest Days of Our Lives",
+              "duration": "1:41"
+            },
+            {
+              "id": "116914094",
+              "title": "Another Brick in the Wall, Pt. 2",
+              "duration": "3:58"
+            },
+            {
+              "id": "116914096",
+              "title": "Mother",
+              "duration": "5:34"
+            },
+            {
+              "id": "116914098",
+              "title": "Goodbye Blue Sky",
+              "duration": "2:47"
+            },
+            {
+              "id": "116914100",
+              "title": "Empty Spaces",
+              "duration": "2:07"
+            },
+            {
+              "id": "116914102",
+              "title": "Young Lust",
+              "duration": "3:29"
+            },
+            {
+              "id": "116914104",
+              "title": "One of My Turns",
+              "duration": "3:36"
+            },
+            {
+              "id": "116914106",
+              "title": "Don't Leave Me Now",
+              "duration": "4:15"
+            },
+            {
+              "id": "116914108",
+              "title": "Another Brick in the Wall, Pt. 3",
+              "duration": "1:14"
+            },
+            {
+              "id": "116914110",
+              "title": "Goodbye Cruel World",
+              "duration": "1:13"
+            },
+            {
+              "id": "116914112",
+              "title": "Hey You",
+              "duration": "4:38"
+            },
+            {
+              "id": "116914114",
+              "title": "Is There Anybody Out There?",
+              "duration": "2:41"
+            },
+            {
+              "id": "116914116",
+              "title": "Nobody Home",
+              "duration": "3:23"
+            },
+            {
+              "id": "116914118",
+              "title": "Vera",
+              "duration": "1:33"
+            },
+            {
+              "id": "116914120",
+              "title": "Bring the Boys Back Home",
+              "duration": "1:27"
+            },
+            {
+              "id": "116914122",
+              "title": "Comfortably Numb",
+              "duration": "6:22"
+            },
+            {
+              "id": "116914124",
+              "title": "The Show Must Go On",
+              "duration": "1:36"
+            },
+            {
+              "id": "116914126",
+              "title": "In the Flesh",
+              "duration": "4:15"
+            },
+            {
+              "id": "116914128",
+              "title": "Run Like Hell",
+              "duration": "4:23"
+            },
+            {
+              "id": "116914130",
+              "title": "Waiting for the Worms",
+              "duration": "3:57"
+            },
+            {
+              "id": "116914132",
+              "title": "Stop",
+              "duration": "0:30"
+            },
+            {
+              "id": "116914134",
+              "title": "The Trial",
+              "duration": "5:18"
+            }
+          ]
+        },
+        {
+          "id": "108230202",
+          "title": "The Complete Atlantic Albums",
+          "artist": "Firefall",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/4291e26a1abb3375793950586644d22f/1000x1000-000000-80-0-0.jpg",
+          "year": 2019,
+          "genre": "Country",
+          "label": "Warner Music Group - X5 Music Group",
+          "length": "100 min",
+          "score": 70,
+          "about": "",
+          "tracks": [
+            {
+              "id": "736797022",
+              "title": "It Doesn't Matter",
+              "duration": "3:27"
+            },
+            {
+              "id": "736797032",
+              "title": "Love Isn't All",
+              "duration": "4:13"
+            },
+            {
+              "id": "736797042",
+              "title": "Livin' Ain't Livin'",
+              "duration": "3:43"
+            },
+            {
+              "id": "736797052",
+              "title": "No Way Out",
+              "duration": "4:05"
+            },
+            {
+              "id": "736797062",
+              "title": "Dolphin's Lullaby",
+              "duration": "4:34"
+            },
+            {
+              "id": "736797072",
+              "title": "Cinderella",
+              "duration": "3:53"
+            },
+            {
+              "id": "736797082",
+              "title": "Sad Ol' Love Song",
+              "duration": "4:42"
+            },
+            {
+              "id": "736797092",
+              "title": "You Are the Woman",
+              "duration": "2:45"
+            },
+            {
+              "id": "736797102",
+              "title": "Mexico",
+              "duration": "4:17"
+            },
+            {
+              "id": "736797112",
+              "title": "Do What You Want",
+              "duration": "4:00"
+            },
+            {
+              "id": "736797122",
+              "title": "So Long",
+              "duration": "5:30"
+            },
+            {
+              "id": "736797132",
+              "title": "Just Remember I Love You",
+              "duration": "3:15"
+            },
+            {
+              "id": "736797142",
+              "title": "Sold On You",
+              "duration": "3:34"
+            },
+            {
+              "id": "736797152",
+              "title": "Someday Soon",
+              "duration": "4:02"
+            },
+            {
+              "id": "736797162",
+              "title": "Just Think",
+              "duration": "4:14"
+            },
+            {
+              "id": "736797172",
+              "title": "Getaway",
+              "duration": "3:45"
+            },
+            {
+              "id": "736797182",
+              "title": "Only a Fool",
+              "duration": "4:25"
+            },
+            {
+              "id": "736797192",
+              "title": "Head On Home",
+              "duration": "4:04"
+            },
+            {
+              "id": "736797202",
+              "title": "Piece of Paper",
+              "duration": "4:06"
+            },
+            {
+              "id": "736797212",
+              "title": "Even Steven",
+              "duration": "4:28"
+            },
+            {
+              "id": "736797222",
+              "title": "Strange Way",
+              "duration": "4:45"
+            },
+            {
+              "id": "736797232",
+              "title": "Sweet and Sour",
+              "duration": "3:32"
+            },
+            {
+              "id": "736797242",
+              "title": "Wrong Side of Town",
+              "duration": "2:42"
+            },
+            {
+              "id": "736797252",
+              "title": "Count Your Blessings",
+              "duration": "3:34"
+            },
+            {
+              "id": "736797262",
+              "title": "Get You Back",
+              "duration": "4:16"
+            }
+          ]
+        },
+        {
+          "id": "7025352",
+          "title": "You Can Play These Songs With Chords",
+          "artist": "Death Cab For Cutie",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/1c625626c2a6fdd01786aac7202ebad7/1000x1000-000000-80-0-0.jpg",
+          "year": 2013,
+          "genre": "Alternative",
+          "label": "Barsuk Records",
+          "length": "67 min",
+          "score": 78,
+          "about": "",
+          "tracks": [
+            {
+              "id": "71511064",
+              "title": "President of What?",
+              "duration": "4:06"
+            },
+            {
+              "id": "71511065",
+              "title": "Champagne From a Paper Cup",
+              "duration": "2:34"
+            },
+            {
+              "id": "71511066",
+              "title": "Pictures In an Exhibition",
+              "duration": "4:03"
+            },
+            {
+              "id": "71511067",
+              "title": "Hindsight",
+              "duration": "3:48"
+            },
+            {
+              "id": "71511068",
+              "title": "That's Incentive",
+              "duration": "2:13"
+            },
+            {
+              "id": "71511069",
+              "title": "Amputations",
+              "duration": "4:03"
+            },
+            {
+              "id": "71511070",
+              "title": "Two Cars",
+              "duration": "3:31"
+            },
+            {
+              "id": "71511071",
+              "title": "Line of Best Fit",
+              "duration": "5:49"
+            },
+            {
+              "id": "71511072",
+              "title": "This Charming Man",
+              "duration": "2:15"
+            },
+            {
+              "id": "71511073",
+              "title": "TV Trays",
+              "duration": "4:02"
+            },
+            {
+              "id": "71511074",
+              "title": "New Candles",
+              "duration": "3:03"
+            },
+            {
+              "id": "71511075",
+              "title": "Tomorrow",
+              "duration": "2:17"
+            },
+            {
+              "id": "71511076",
+              "title": "Flustered / Hey Tomcat!",
+              "duration": "2:56"
+            },
+            {
+              "id": "71511077",
+              "title": "State Street Residential",
+              "duration": "5:51"
+            },
+            {
+              "id": "71511078",
+              "title": "Wait",
+              "duration": "3:35"
+            },
+            {
+              "id": "71511079",
+              "title": "Prove My Hypotheses",
+              "duration": "4:12"
+            },
+            {
+              "id": "71511080",
+              "title": "Song for Kelly Huckaby (Facts Version)",
+              "duration": "3:52"
+            },
+            {
+              "id": "71511082",
+              "title": "Army Corps of Architects",
+              "duration": "4:43"
+            }
+          ]
+        },
+        {
+          "id": "48290362",
+          "title": "Core (Super Deluxe Edition)",
+          "artist": "Stone Temple Pilots",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/9181983be98170f86e05504da759ceea/1000x1000-000000-80-0-0.jpg",
+          "year": 2017,
+          "genre": "Alternative",
+          "label": "Rhino Atlantic",
+          "length": "119 min",
+          "score": 81,
+          "about": "",
+          "tracks": [
+            {
+              "id": "407644952",
+              "title": "Dead & Bloated (2017 Remaster)",
+              "duration": "5:10"
+            },
+            {
+              "id": "407644962",
+              "title": "Sex Type Thing (2017 Remaster)",
+              "duration": "3:37"
+            },
+            {
+              "id": "407644972",
+              "title": "Wicked Garden (2017 Remaster)",
+              "duration": "4:05"
+            },
+            {
+              "id": "407644982",
+              "title": "No Memory (2017 Remaster)",
+              "duration": "1:20"
+            },
+            {
+              "id": "407644992",
+              "title": "Sin (2017 Remaster)",
+              "duration": "6:04"
+            },
+            {
+              "id": "407645002",
+              "title": "Naked Sunday (2017 Remaster)",
+              "duration": "3:49"
+            },
+            {
+              "id": "407645012",
+              "title": "Creep (2017 Remaster)",
+              "duration": "5:34"
+            },
+            {
+              "id": "407645022",
+              "title": "Piece of Pie (2017 Remaster)",
+              "duration": "5:24"
+            },
+            {
+              "id": "407645032",
+              "title": "Plush (2017 Remaster)",
+              "duration": "5:13"
+            },
+            {
+              "id": "407645042",
+              "title": "Wet My Bed (2017 Remaster)",
+              "duration": "1:36"
+            },
+            {
+              "id": "407645052",
+              "title": "Crackerman (2017 Remaster)",
+              "duration": "3:14"
+            },
+            {
+              "id": "407645062",
+              "title": "Where the River Goes (2017 Remaster)",
+              "duration": "8:30"
+            },
+            {
+              "id": "407645072",
+              "title": "Only Dying (Demo)",
+              "duration": "5:19"
+            },
+            {
+              "id": "407645082",
+              "title": "Wicked Garden (Demo)",
+              "duration": "3:49"
+            },
+            {
+              "id": "407645092",
+              "title": "Naked Sunday (Demo)",
+              "duration": "3:42"
+            },
+            {
+              "id": "407645102",
+              "title": "Where The River Goes (Demo)",
+              "duration": "7:16"
+            },
+            {
+              "id": "407645112",
+              "title": "Dead & Bloated (Demo)",
+              "duration": "5:03"
+            },
+            {
+              "id": "407645122",
+              "title": "Sex Type Thing (Demo)",
+              "duration": "3:24"
+            },
+            {
+              "id": "407645132",
+              "title": "Sin (Demo)",
+              "duration": "6:14"
+            },
+            {
+              "id": "407645142",
+              "title": "Creep (Demo)",
+              "duration": "5:39"
+            },
+            {
+              "id": "407645152",
+              "title": "Plush (Demo)",
+              "duration": "5:05"
+            },
+            {
+              "id": "407645162",
+              "title": "Sex Type Thing (Remastered)",
+              "duration": "4:23"
+            },
+            {
+              "id": "407645172",
+              "title": "Plush (Remastered)",
+              "duration": "4:49"
+            },
+            {
+              "id": "407645182",
+              "title": "Creep (New Version; 2017 Remaster)",
+              "duration": "5:34"
+            },
+            {
+              "id": "407645192",
+              "title": "Plush (Acoustic From MTV Headbanger's Ball, Take 1)",
+              "duration": "5:28"
+            }
+          ]
+        },
+        {
+          "id": "124162972",
+          "title": "Beyond the Fleeting Gales",
+          "artist": "Crying",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/3c43d8f550ca3bb6a7157f7c6d821b24/1000x1000-000000-80-0-0.jpg",
+          "year": 2016,
+          "genre": "Alternative",
+          "label": "Run For Cover Records",
+          "length": "34 min",
+          "score": 75,
+          "about": "",
+          "tracks": [
+            {
+              "id": "840813062",
+              "title": "Premonitory Dream",
+              "duration": "3:06"
+            },
+            {
+              "id": "840813072",
+              "title": "Wool in the Wash",
+              "duration": "3:57"
+            },
+            {
+              "id": "840813082",
+              "title": "Patriot",
+              "duration": "3:10"
+            },
+            {
+              "id": "840813092",
+              "title": "Origin",
+              "duration": "2:37"
+            },
+            {
+              "id": "840813102",
+              "title": "Well and Spring",
+              "duration": "3:20"
+            },
+            {
+              "id": "840813112",
+              "title": "A Sudden Gust",
+              "duration": "2:56"
+            },
+            {
+              "id": "840813122",
+              "title": "There Was a Door",
+              "duration": "4:15"
+            },
+            {
+              "id": "840813132",
+              "title": "Revive",
+              "duration": "2:59"
+            },
+            {
+              "id": "840813142",
+              "title": "Children of the Wind",
+              "duration": "4:12"
+            },
+            {
+              "id": "840813152",
+              "title": "The Curve",
+              "duration": "3:42"
+            }
+          ]
+        },
+        {
+          "id": "8351730",
+          "title": "Brushfire Fairytales (Remastered Bonus Version)",
+          "artist": "Jack Johnson",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/7b01c903fbac5bd4b5247516445c34d6/1000x1000-000000-80-0-0.jpg",
+          "year": 2011,
+          "genre": "Rock",
+          "label": "Everloving Records",
+          "length": "54 min",
+          "score": 86,
+          "about": "",
+          "tracks": [
+            {
+              "id": "83151438",
+              "title": "Inaudible Melodies",
+              "duration": "3:37"
+            },
+            {
+              "id": "83151440",
+              "title": "Middle Man",
+              "duration": "3:14"
+            },
+            {
+              "id": "83151442",
+              "title": "Posters",
+              "duration": "3:17"
+            },
+            {
+              "id": "83151444",
+              "title": "Sexy Plexi",
+              "duration": "2:08"
+            },
+            {
+              "id": "83151446",
+              "title": "Flake",
+              "duration": "4:41"
+            },
+            {
+              "id": "83151448",
+              "title": "Bubble Toes",
+              "duration": "3:58"
+            },
+            {
+              "id": "83151450",
+              "title": "Fortunate Fool",
+              "duration": "3:49"
+            },
+            {
+              "id": "83151452",
+              "title": "The News",
+              "duration": "2:26"
+            },
+            {
+              "id": "83151454",
+              "title": "Drink the Water",
+              "duration": "3:22"
+            },
+            {
+              "id": "83151458",
+              "title": "Mudfootball (For Moe Lerner)",
+              "duration": "3:25"
+            },
+            {
+              "id": "83151460",
+              "title": "F-Stop Blues",
+              "duration": "3:15"
+            },
+            {
+              "id": "83151464",
+              "title": "Losing Hope",
+              "duration": "3:56"
+            },
+            {
+              "id": "83151468",
+              "title": "It's All Understood",
+              "duration": "5:25"
+            },
+            {
+              "id": "83151472",
+              "title": "Flake (Live)",
+              "duration": "4:28"
+            },
+            {
+              "id": "83151476",
+              "title": "Inaudible Melodies (Live)",
+              "duration": "3:26"
+            }
+          ]
+        },
+        {
+          "id": "53121292",
+          "title": "A Dream in Sound",
+          "artist": "Elf Power",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/f7ebc04fd432c753e199671e538b92b5/1000x1000-000000-80-0-0.jpg",
+          "year": 2013,
+          "genre": "Alternative",
+          "label": "Orange Twin",
+          "length": "41 min",
+          "score": 68,
+          "about": "",
+          "tracks": [
+            {
+              "id": "438839952",
+              "title": "Will My Feet Still Carry Me Home",
+              "duration": "3:14"
+            },
+            {
+              "id": "438839962",
+              "title": "High Atop the Silver Branches",
+              "duration": "2:54"
+            },
+            {
+              "id": "438839972",
+              "title": "Willowy Man",
+              "duration": "2:52"
+            },
+            {
+              "id": "438839982",
+              "title": "Olde Tyme Waves",
+              "duration": "3:25"
+            },
+            {
+              "id": "438839992",
+              "title": "Jane",
+              "duration": "4:24"
+            },
+            {
+              "id": "438840002",
+              "title": "All the Passengers",
+              "duration": "2:09"
+            },
+            {
+              "id": "438840012",
+              "title": "We Dream in Sound",
+              "duration": "3:57"
+            },
+            {
+              "id": "438840022",
+              "title": "Carnival",
+              "duration": "0:55"
+            },
+            {
+              "id": "438840032",
+              "title": "The Well",
+              "duration": "3:27"
+            },
+            {
+              "id": "438840042",
+              "title": "Noble Experiment",
+              "duration": "2:20"
+            },
+            {
+              "id": "438840052",
+              "title": "Simon (The Bird with the Candy Bar Head)",
+              "duration": "2:55"
+            },
+            {
+              "id": "438840062",
+              "title": "Rising and Falling in a Little World",
+              "duration": "3:32"
+            },
+            {
+              "id": "438840072",
+              "title": "O What a Beautiful Dream",
+              "duration": "2:16"
+            },
+            {
+              "id": "438840082",
+              "title": "Untitled",
+              "duration": "2:30"
+            }
+          ]
+        },
+        {
+          "id": "5814011",
+          "title": "Bad 25th Anniversary",
+          "artist": "Michael Jackson",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/fb0a49a91ab8137ec9d028c4dbb04021/1000x1000-000000-80-0-0.jpg",
+          "year": 2012,
+          "genre": "Pop",
+          "label": "Epic/Legacy",
+          "length": "107 min",
+          "score": 92,
+          "about": "",
+          "tracks": [
+            {
+              "id": "59509531",
+              "title": "Bad (2012 Remaster)",
+              "duration": "4:07"
+            },
+            {
+              "id": "59509541",
+              "title": "The Way You Make Me Feel (2012 Remaster)",
+              "duration": "4:58"
+            },
+            {
+              "id": "59509551",
+              "title": "Speed Demon (2012 Remaster)",
+              "duration": "4:01"
+            },
+            {
+              "id": "59509561",
+              "title": "Liberian Girl (2012 Remastered Version)",
+              "duration": "3:53"
+            },
+            {
+              "id": "59509571",
+              "title": "Just Good Friends (2012 Remaster)",
+              "duration": "4:05"
+            },
+            {
+              "id": "59509581",
+              "title": "Another Part of Me (2012 Remaster)",
+              "duration": "3:54"
+            },
+            {
+              "id": "59509591",
+              "title": "Man in the Mirror (2012 Remaster)",
+              "duration": "5:18"
+            },
+            {
+              "id": "59509601",
+              "title": "I Just Can't Stop Loving You (feat. Siedah Garrett) (2012 Remaster)",
+              "duration": "4:11"
+            },
+            {
+              "id": "59509611",
+              "title": "Dirty Diana (2012 Remaster)",
+              "duration": "4:41"
+            },
+            {
+              "id": "59509621",
+              "title": "Smooth Criminal (2012 Remaster)",
+              "duration": "4:11"
+            },
+            {
+              "id": "59509631",
+              "title": "Leave Me Alone (2012 Remaster)",
+              "duration": "4:40"
+            },
+            {
+              "id": "59509641",
+              "title": "Don't Be Messin' 'Round",
+              "duration": "4:18"
+            },
+            {
+              "id": "59509651",
+              "title": "I'm So Blue",
+              "duration": "4:06"
+            },
+            {
+              "id": "59509661",
+              "title": "Song Groove (a.k.a. Abortion Papers)",
+              "duration": "4:25"
+            },
+            {
+              "id": "59509671",
+              "title": "Free",
+              "duration": "4:24"
+            },
+            {
+              "id": "59509681",
+              "title": "Price of Fame",
+              "duration": "4:32"
+            },
+            {
+              "id": "59509691",
+              "title": "Al Capone",
+              "duration": "3:33"
+            },
+            {
+              "id": "59509701",
+              "title": "Streetwalker",
+              "duration": "5:52"
+            },
+            {
+              "id": "59509711",
+              "title": "Fly Away",
+              "duration": "3:26"
+            },
+            {
+              "id": "59509721",
+              "title": "Todo Mi Amor Eres Tu (I Just Can't Stop Loving You)",
+              "duration": "4:04"
+            },
+            {
+              "id": "59509731",
+              "title": "Je Ne Veux Pas La Fin De Nous (I Just Can't Stop Loving You) (French Version)",
+              "duration": "4:07"
+            },
+            {
+              "id": "59509741",
+              "title": "Bad (feat. Pitbull) (Remix By AfroJack Featuring Pitbull-DJ Buddha Edit)",
+              "duration": "4:24"
+            },
+            {
+              "id": "59509751",
+              "title": "Speed Demon (Remix by Nero)",
+              "duration": "4:08"
+            },
+            {
+              "id": "59509761",
+              "title": "Bad (Remix By AfroJack-Club Mix)",
+              "duration": "7:31"
+            }
+          ]
+        },
+        {
+          "id": "1011810691",
+          "title": "When the lights turn on",
+          "artist": "MICO",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/6c4a095131eec8d3a2c7581ae9add6dd/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Pop",
+          "label": "Columbia",
+          "length": "29 min",
+          "score": 70,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4105688751",
+              "title": "Open up your eyes",
+              "duration": "3:04"
+            },
+            {
+              "id": "4105688761",
+              "title": "Like you mean it",
+              "duration": "2:27"
+            },
+            {
+              "id": "4105688771",
+              "title": "Do it all again",
+              "duration": "2:30"
+            },
+            {
+              "id": "4105688781",
+              "title": "WHY ARE YOU HERE",
+              "duration": "3:19"
+            },
+            {
+              "id": "4105688791",
+              "title": "DREAMBOY",
+              "duration": "3:17"
+            },
+            {
+              "id": "4105688801",
+              "title": "OH!",
+              "duration": "2:23"
+            },
+            {
+              "id": "4105688811",
+              "title": "Shoes",
+              "duration": "2:13"
+            },
+            {
+              "id": "4105688821",
+              "title": "Your favorite flowers",
+              "duration": "3:29"
+            },
+            {
+              "id": "4105688831",
+              "title": "Learning to love",
+              "duration": "2:57"
+            },
+            {
+              "id": "4105688841",
+              "title": "Can't keep crying",
+              "duration": "3:10"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "chill",
+      "items": [
+        {
+          "id": "13367049",
+          "title": "Chill Bill (feat. J. Davi$ & Spooks)",
+          "artist": "Rob $tone",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/36d7019a12e93cd73af0dd98da740639/1000x1000-000000-80-0-0.jpg",
+          "year": 2016,
+          "genre": "Rap/Hip Hop",
+          "label": "RCA Records Label",
+          "length": "3 min",
+          "score": 86,
+          "about": "",
+          "tracks": [
+            {
+              "id": "126848547",
+              "title": "Chill Bill (feat. J. Davi$ & Spooks)",
+              "duration": "2:57"
+            }
+          ]
+        },
+        {
+          "id": "992318041",
+          "title": "NETFLIX CHILL",
+          "artist": "Zola",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/f1668c431446095019f19867debf5b41/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "AWA",
+          "length": "2 min",
+          "score": 83,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4047900401",
+              "title": "NETFLIX CHILL",
+              "duration": "2:24"
+            }
+          ]
+        },
+        {
+          "id": "1010044041",
+          "title": "Chill",
+          "artist": "THE GANG WGO",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/f1aa14abd21318967f76a5729fdcb470/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "TMB ENT",
+          "length": "3 min",
+          "score": 59,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4100644241",
+              "title": "Chill",
+              "duration": "3:07"
+            }
+          ]
+        },
+        {
+          "id": "701572641",
+          "title": "Chill Guy / Presidential",
+          "artist": "41",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/07c5898c4a340776e310f5d76f9eb7bd/1000x1000-000000-80-0-0.jpg",
+          "year": 2025,
+          "genre": "Rap/Hip Hop",
+          "label": "Republic Records",
+          "length": "13 min",
+          "score": 71,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3198194281",
+              "title": "Chill Guy",
+              "duration": "3:20"
+            },
+            {
+              "id": "3198194341",
+              "title": "Presidential",
+              "duration": "2:34"
+            },
+            {
+              "id": "3198194381",
+              "title": "Chill Guy (Slowed + Reverb)",
+              "duration": "3:56"
+            },
+            {
+              "id": "3198194431",
+              "title": "Chill Guy (Sped Up + Pitch)",
+              "duration": "3:00"
+            }
+          ]
+        },
+        {
+          "id": "653113241",
+          "title": "Chill Kill - The 3rd Album",
+          "artist": "Red Velvet",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/41da53c6509f8c5beb696f2d9369e56b/1000x1000-000000-80-0-0.jpg",
+          "year": 2023,
+          "genre": "Asian Music",
+          "label": "Red Velvet (Chill Kill)",
+          "length": "33 min",
+          "score": 76,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3033562351",
+              "title": "Chill Kill",
+              "duration": "3:34"
+            },
+            {
+              "id": "3033562361",
+              "title": "Knock Knock (Who's There?)",
+              "duration": "3:21"
+            },
+            {
+              "id": "3033562371",
+              "title": "Underwater",
+              "duration": "3:25"
+            },
+            {
+              "id": "3033562381",
+              "title": "Will I Ever See You Again?",
+              "duration": "3:11"
+            },
+            {
+              "id": "3033562391",
+              "title": "Nightmare",
+              "duration": "3:25"
+            },
+            {
+              "id": "3033562401",
+              "title": "Iced Coffee",
+              "duration": "3:18"
+            },
+            {
+              "id": "3033562411",
+              "title": "One Kiss",
+              "duration": "3:19"
+            },
+            {
+              "id": "3033562421",
+              "title": "Bulldozer",
+              "duration": "2:40"
+            },
+            {
+              "id": "3033562431",
+              "title": "Wings",
+              "duration": "3:43"
+            },
+            {
+              "id": "3033562441",
+              "title": "Scenery",
+              "duration": "3:29"
+            }
+          ]
+        },
+        {
+          "id": "89779602",
+          "title": "Chill",
+          "artist": "Bakar",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/50e2663c955dcd60577eb5e2e6575fbe/1000x1000-000000-80-0-0.jpg",
+          "year": 2019,
+          "genre": "Rap/Hip Hop",
+          "label": "Black Butter",
+          "length": "6 min",
+          "score": 72,
+          "about": "",
+          "tracks": [
+            {
+              "id": "645646422",
+              "title": "Chill",
+              "duration": "3:43"
+            },
+            {
+              "id": "645646432",
+              "title": "Sold Your Soul",
+              "duration": "2:17"
+            }
+          ]
+        },
+        {
+          "id": "53927352",
+          "title": "Chill",
+          "artist": "Moha La Squale",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/ea4150e197557ce8e125e9123e6a2bb9/1000x1000-000000-80-0-0.jpg",
+          "year": 2018,
+          "genre": "Rap/Hip Hop",
+          "label": "Elektra France",
+          "length": "3 min",
+          "score": 85,
+          "about": "",
+          "tracks": [
+            {
+              "id": "443968212",
+              "title": "Chill",
+              "duration": "2:49"
+            }
+          ]
+        },
+        {
+          "id": "757559211",
+          "title": "Chill",
+          "artist": "Ghali",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/d39f337ea4dedbdb9d8308ee53a289ce/1000x1000-000000-80-0-0.jpg",
+          "year": 2025,
+          "genre": "Rap/Hip Hop",
+          "label": "Warner Music",
+          "length": "2 min",
+          "score": 68,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3369399961",
+              "title": "Chill",
+              "duration": "2:15"
+            }
+          ]
+        },
+        {
+          "id": "728642851",
+          "title": "Chill",
+          "artist": "Youka",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/6ceaae7fa94a113d299c5d96ab0ea72c/1000x1000-000000-80-0-0.jpg",
+          "year": 2025,
+          "genre": "African Music",
+          "label": "NEXT PUBLISHING",
+          "length": "2 min",
+          "score": 72,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3281883131",
+              "title": "Chill",
+              "duration": "1:43"
+            }
+          ]
+        },
+        {
+          "id": "678650021",
+          "title": "Chill",
+          "artist": "KARDI",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/9a76e8ca5237b4d1a4c34e05738df06a/1000x1000-000000-80-0-0.jpg",
+          "year": 2022,
+          "genre": "Asian Music",
+          "label": "Planet K",
+          "length": "14 min",
+          "score": 65,
+          "about": "",
+          "tracks": [
+            {
+              "id": "3123199741",
+              "title": "Knockdown",
+              "duration": "3:24"
+            },
+            {
+              "id": "3123199751",
+              "title": "Riot",
+              "duration": "3:34"
+            },
+            {
+              "id": "3123199761",
+              "title": "Watchout",
+              "duration": "2:57"
+            },
+            {
+              "id": "3123199771",
+              "title": "Chill",
+              "duration": "3:43"
+            }
+          ]
+        },
+        {
+          "id": "184126732",
+          "title": "Chill",
+          "artist": "Reaction Band",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/7afecac43461d238b4b006aa63742754/1000x1000-000000-80-0-0.jpg",
+          "year": 2020,
+          "genre": "Rap/Hip Hop",
+          "label": "Reaction Band Entertainment, LLC",
+          "length": "5 min",
+          "score": 58,
+          "about": "",
+          "tracks": [
+            {
+              "id": "1131710222",
+              "title": "Chill",
+              "duration": "4:40"
+            }
+          ]
+        },
+        {
+          "id": "981416671",
+          "title": "frozen",
+          "artist": "Victorxau",
+          "cover": "https://cdn-images.dzcdn.net/images/cover/40f2bc61b59004e7b5d8a1abdee3ab61/1000x1000-000000-80-0-0.jpg",
+          "year": 2026,
+          "genre": "Rap/Hip Hop",
+          "label": "Victorxau",
+          "length": "5 min",
+          "score": 72,
+          "about": "",
+          "tracks": [
+            {
+              "id": "4017759981",
+              "title": "at sea",
+              "duration": "1:15"
+            },
+            {
+              "id": "4017759991",
+              "title": "chains",
+              "duration": "2:29"
+            },
+            {
+              "id": "4017760001",
+              "title": "chill",
+              "duration": "1:31"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
