@@ -30,6 +30,10 @@ export interface ShowcaseTileConfig {
   cat: string;
   /** Real media title (dynamic tiles). When absent, the page uses the i18n title. */
   title?: string;
+  /** How `img` fills the 2:1 tile: "cover" = full-bleed (landscape art, e.g. a
+   *  TMDB backdrop); "frame" = whole cover on a blurred aura (portrait/square art).
+   *  Defaults: link tiles cover, media tiles frame. */
+  fill?: "cover" | "frame";
   action: TileAction;
 }
 

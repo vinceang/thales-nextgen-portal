@@ -47,7 +47,9 @@ export default function Showcase() {
   function Tile({ id, titleSize = 24 }: { id: string; titleSize?: number }) {
     const cfg = tiles[id];
     const title = cfg.title ?? tr(`showcase.tiles.${id}`);
-    if (cfg.action.kind === "modal") {
+    // Frame (whole cover on a blurred aura) for portrait/square art; full-bleed
+    // ShowcaseTile for landscape art (link photos + TMDB backdrops).
+    if (cfg.action.kind === "modal" && cfg.fill !== "cover") {
       return (
         <div className={s.tile21}>
           <FeaturedMediaTile

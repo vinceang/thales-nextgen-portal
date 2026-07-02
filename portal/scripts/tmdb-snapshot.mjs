@@ -122,6 +122,7 @@ function toMovie(d) {
     id: String(d.id),
     title: d.title,
     poster: img("w500", d.poster_path),
+    backdrop: img("w780", d.backdrop_path),
     year: Number((d.release_date || "").slice(0, 4)) || 0,
     certification: usCert(d),
     releaseDate: fmtDate(d.release_date),

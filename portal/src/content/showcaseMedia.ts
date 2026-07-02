@@ -41,12 +41,15 @@ export function getShowcaseMediaTiles(t: TFunc): ShowcaseTileConfig[] {
 
   const tiles: ShowcaseTileConfig[] = [];
 
+  // Watch has a landscape TMDB backdrop → fill the wide tile full-bleed (cinematic
+  // still). Without one, fall back to the poster on a blurred aura like the others.
   watchPicks.forEach((m, i) =>
     tiles.push({
       id: `feat-watch-${i + 1}`,
-      img: m.poster,
+      img: m.backdrop ?? m.poster,
       cat: "watch",
       title: m.title,
+      fill: m.backdrop ? "cover" : "frame",
       action: { kind: "modal", favKind: "watch", favId: m.id, detail: watchDetail(m, t) },
     }),
   );
